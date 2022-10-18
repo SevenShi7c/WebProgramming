@@ -7,7 +7,7 @@
 }
 
 .heading-page h1 {
-  font-size: 30px;
+  font-size: 40px;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
 }
@@ -129,6 +129,10 @@ nav.navbar {
   border-bottom: 1px dotted #ddd;
   padding: initial;
   padding: 10px 0px;
+  font-size: 16px;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #F28102;
 }
 .navbar-light .navbar-nav .nav-link::after {
   display: none;
@@ -261,7 +265,7 @@ body {
   height: 65px;
 }
 .logoWord-top{
-  margin-top: 10px;
+
   height: 45px;
 }
 img {
@@ -366,7 +370,8 @@ ul.navbar-nav {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 16px;
+
 }
 /*Search bar*/
 /*end search*/
@@ -633,6 +638,7 @@ h3.post_title {
   left: -1%;
   top: 35%;
   position: absolute;
+
 }
 .owl-carousel .owl-nav button .owl-next {
   right: -1%;
@@ -2075,7 +2081,9 @@ ul.article-info-more li i {
   position: absolute;
   right: 0;
   bottom: 0;
-  font-size: 16px;
+  font-size: 25px;
+
+
 }
 .owl-carousel-setting .owl-nav .owl-prev::after {
   position: absolute;
@@ -2083,27 +2091,34 @@ ul.article-info-more li i {
   width: 1px;
   height: 40px;
   bottom: 20px;
-  background-color: #ccc;
+
+
   right: 0;
 }
 .owl-carousel-setting .owl-nav .owl-prev {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: none !important;
   margin: initial;
-  background-color: rgb(241, 243, 243) !important;
+  background-color:  #F28102 !important;
   z-index: 99;
   position: relative;
   font-size: 30px;
+
+
 }
 .owl-carousel-setting .owl-nav button i.fa-angle-left {
   font-style: 20px !important;
+
 }
 .owl-carousel-setting .owl-nav button {
-  border-radius: 0 !important;
+  border-radius: 100px !important;
+  background-color:  #F28102;
+
 }
 .owl-carousel-setting .owl-nav .owl-prev:hover {
-  color: #333;
+  color: #FFFFFF;
+
 }
 .owl-carousel-setting .owl-nav .owl-prev:focus {
   outline: none;
@@ -2112,16 +2127,17 @@ ul.article-info-more li i {
   outline: none;
 }
 .owl-carousel-setting .owl-nav .owl-next {
-  width: 80px;
+  width: 50px;
   border-radius: none !important;
-  height: 80px;
+  height: 50px;
   font-size: 30px;
   margin: initial;
-  background-color: rgb(241, 243, 243) !important;
+  background-color: #F28102 !important;
   z-index: 99;
+
 }
 .owl-carousel-setting .owl-nav .owl-next:hover {
-  color: #333;
+  color:#FFFFFF;
 }
 @media only screen and (max-width: 768px) {
   .owl-carousel-setting .owl-nav {
