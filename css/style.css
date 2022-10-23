@@ -277,6 +277,7 @@ img {
   text-transform: none;
   letter-spacing: normal;
   font-weight: normal;
+
 }
 .sub_menu ul {
   margin-left: 2px !important;
@@ -295,31 +296,39 @@ img {
   display: block;
   font-size: 14px;
 }
-.desk-menu ul li a {
-  color: #272727;
-}
+/*.desk-menu ul li a {*/
+/*  color:  #F28102;*/
+/*}*/
 .sub_menu {
-  background: #fff;
+  background: #1D273E;
   position: absolute;
   z-index: 999;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   transform: rotate3d(1, 0, 0, -90deg);
   transform-origin: 0 0 0;
   transition: all 0.5s ease;
+  border-radius: 3px;
+
 }
 .desk-menu ul li .sub_menu li {
   position: relative;
+
 }
 .sub_menu li:not(:first-child) {
   border-top: 1px solid #ecf0f1;
 }
-.sub_menu a {
+.sub_menu li a {
   padding: 9px 18px;
   white-space: nowrap;
   text-align: left;
   display: block;
-  font-size: 14px;
-  color: #272727;
+  font-size: 16px;
+  color: #FFFFFF;
+
+}
+.sub_menu li a:hover {
+  background-color:#F28102 ;
+
 }
 .desk-menu li:hover > .sub_menu {
   transform: rotate3d(0, 0, 0, 0deg);
@@ -411,6 +420,7 @@ a:-webkit-any-link {
 }
 div.pro-text {
   padding-bottom: 5px;
+  padding-top: 30px;
   text-align: center;
   white-space: nowrap;
   width: 100%;
@@ -661,7 +671,7 @@ h3.post_title {
   text-align: center;
 }
 .wrapper-home-newsletter {
-  background-image: url(../images/LV.COM_2048x1152_DI3.jpg);
+  background-image: url(../images/banner/banner-sale_1664269953.jpg);
 }
 
 .content-newsletter {
@@ -3063,3 +3073,4 @@ div.item:hover {
   top: 50%;
   transform: translateY(-50%);
 }
+
