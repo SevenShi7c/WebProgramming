@@ -151,7 +151,7 @@ nav.navbar {
   padding: 10px 28px;
   line-height: normal;
   color: #fff;
-  border: 1px solid #000000;
+  border: 1px solid #1D273E;
   border-radius: 0;
   text-transform: uppercase;
   font-size: 12px;
@@ -181,7 +181,7 @@ nav.navbar {
   transform: scale(1, 1);
   transform-origin: left center;
   z-index: -1;
-  background-color: #000000;
+  background-color: #1D273E;
   transition: transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 a.btn-check,
@@ -2354,7 +2354,7 @@ a.btn-check {
   padding: 11px 15px;
 }
 a.btn-check:before {
-  background-color: #4267b2;
+  background-color: #F28102;
 }
 button.btn-addtocart {
   border: 1px solid #000000;
