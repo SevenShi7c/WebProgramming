@@ -1,9 +1,5 @@
 @import url("../plugins/fontawesome/fontawesome.min.css");
 
-:root{
-  --bg-primary: #F28102;
-}
-
 * {
   font-family: "Quicksand", sans-serif;
   margin: 0;
@@ -120,7 +116,7 @@ nav.navbar {
 
   .navbar .logoWord-top {
     height: 32px;
-    margin-left: -30px;
+    margin-left: -10px;
   }
   .navbar .navbar-toggler {
     border-color: #fff !important;
@@ -168,7 +164,7 @@ nav.navbar {
   overflow: hidden;
 }
 .dropdown-item {
-  color: #272727 !important;
+  color: #1D273E !important;
   text-decoration: none;
   letter-spacing: normal;
   text-transform: none;
@@ -202,10 +198,10 @@ button.btn-addtocart {
 }
 button.buy-now {
   margin-left: 15px;
-  border: 1px solid #ff0000;
+  border: 1px solid #F28102;
 }
 button.buy-now:before {
-  background-color: #ff0000;
+  background-color: #F28102;
 }
 a.btn-check {
   margin-bottom: 0;
@@ -1084,6 +1080,8 @@ ul {
 .cart-view {
   margin-top: 50px;
 }
+
+
 .site-nav form.searchform {
   position: relative;
   padding: 0;
@@ -1180,6 +1178,17 @@ form.searchform .btn-search i {
 .table-total tr td {
   border: none !important;
 }
+#cart-view2 .variant {
+  font-size: 12px;
+  float: left;
+  width: 100%;
+  margin: 5px 0 8px;
+  opacity: 0.66;
+}
+#cart-view2 tr td,
+.table-total tr td {
+  border: none !important;
+}
 .cart-view .line {
   float: left;
   width: 100%;
@@ -1209,6 +1218,21 @@ table#cart-view tr td {
   border: none;
 }
 #cart-view tr td:not(.img) {
+  padding: 10px 0;
+  position: relative;
+  padding-right: 20px;
+}
+table#cart-view2 tr {
+  border-bottom: 1px dotted #bcbcbc;
+}
+table#cart-view2 tr td {
+  color: #000;
+  border-top: 0;
+}
+table#cart-view2 tr td {
+  border: none;
+}
+#cart-view2 tr td:not(.img) {
   padding: 10px 0;
   position: relative;
   padding-right: 20px;
@@ -1243,6 +1267,9 @@ span.pro-price-view {
   opacity: 0.7;
 }
 #cart-view tr:last-child {
+  border: none;
+}
+#cart-view2 tr:last-child {
   border: none;
 }
 /*-----PRODUCT-----*/
@@ -2347,10 +2374,10 @@ button.btn-addtocart {
 }
 button.buy-now {
   margin-left: 15px;
-  border: 1px solid #ff0000;
+  border: 1px solid #F28102;
 }
 button.buy-now:before {
-  background-color: #ff0000;
+  background-color: #F28102;
 }
 a.btn-check {
   margin-bottom: 0;
@@ -3077,8 +3104,20 @@ div.item:hover {
   top: 50%;
   transform: translateY(-50%);
 }
+/*icon-header*/
+.icon-header{
+  color: #1D273E;
 
+}
+.icon-header:hover{
+  color: #FF6600;
 
-
-
-
+}
+/*CART*/
+.btn-primary{
+  background-color: #F28102;
+  border: 1px solid #F28102;
+}
+.btn-primary:hover{
+  background-color: #1D273E;
+}
