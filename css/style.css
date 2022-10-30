@@ -405,7 +405,7 @@ a:-webkit-any-link {
   cursor: pointer;
 }
 .img-resize {
-  max-width: 100%;
+  max-width: auto;
 }
 .pro-price p {
   font-size: 14px;
@@ -421,7 +421,7 @@ a:-webkit-any-link {
 div.pro-text {
   padding-bottom: 5px;
   padding-top: 30px;
-  text-align: center;
+  text-align: center ;
   white-space: nowrap;
   width: 100%;
   overflow: hidden;
