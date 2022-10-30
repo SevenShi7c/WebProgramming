@@ -1376,6 +1376,7 @@ span.pro-price-view {
   width: 30%;
   float: left;
   position: relative;
+  height: 100%;
 }
 .list-news-latest .item-article .post-content {
   width: 70%;
@@ -1506,10 +1507,13 @@ li.has-submenu.level1 > ul.submenu-links li a {
 .blog-posts .blog-post .blog-post-thumbnail {
   display: block;
   overflow: hidden;
+
 }
 .blog-posts .blog-post .blog-post-thumbnail img {
   transition: all 1s ease-in-out 0s;
   transform: scale(1);
+  width: 100%;
+  position: relative;
 }
 .blog-posts .blog-post .blog-post-thumbnail:hover img {
   transform: scale(1.2);
