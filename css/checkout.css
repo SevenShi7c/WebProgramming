@@ -15,21 +15,21 @@
   padding: 24px 0;
 }
 
-.product {
+#checkout .product {
   position: absolute;
   top: -25px;
 }
 
-.product .img {
+#checkout .product .img {
   height: 300px;
   overflow: hidden;
 }
 
-.product .img img{
+#checkout .product .img img{
   height: 100%;
 }
 
-.round-shape {
+#checkout .round-shape {
   width: 150%;
   height: 150%;
   position: absolute;
@@ -41,11 +41,11 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, .3);
 }
 
-.product-slideshow {
+#checkout .product-slideshow {
   width: 500px;
 }
 
-.dots {
+#checkout .dots {
   position: absolute;
   bottom: 0;
   display: flex;
@@ -54,7 +54,7 @@
   left: 40%;
 }
 
-.dot {
+#checkout .dot {
   cursor: pointer;
   height: 10px;
   width: 10px;
@@ -66,12 +66,12 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 
-.dot.active {
+#checkout .dot.active {
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 0 0 7px rgba(0, 0, 0, .6);
 }
 
-.dot:hover {
+#checkout .dot:hover {
   background-color: rgba(255, 255, 255, .8);
 }
 
@@ -107,7 +107,7 @@
   padding: 0 24px;
 }
 
-.product-name {
+#checkout .product-name {
   color: #111;
   font-size: 1.7rem;
   font-weight: 300;
@@ -115,40 +115,40 @@
   text-align: center;
 }
 
-.product-code-name {
+#checkout .product-code-name {
   font-size: .8rem;
   font-weight: 300;
   text-align: center;
   margin: 8px auto 5px;
 }
 
-.product .price {
+#checkout .product .price {
   font-size: 1.5rem;
   font-weight: 300;
   letter-spacing: .18rem;
   text-align: center;
 }
 
-h2 {
+#checkout h2 {
   font-size: 2.25rem;
   margin-left: 1rem;
 }
 
-form .form-list {
+#checkout form .form-list {
   margin-top: 1.5rem;
   margin-left: 3.5rem;
 }
 
-.form-list-row {
+#checkout .form-list-row {
   margin: 1rem 0;
   list-style-type: none;
 }
 
-label {
+#checkout label {
   font-size: 1rem;
 }
 
-form input {
+#checkout form input {
   font-size: 1rem;
   padding: .4rem 30px;
   border: none;
@@ -156,38 +156,47 @@ form input {
   background-color: transparent;
   transition: all .3s ease;
   outline: none;
+  box-shadow: none;
 }
 
-input:focus,
-i:focus {
+#checkout form textarea{
+  box-shadow: none;
+  background-color: transparent;
+  border: solid 2px #000;
+
+}
+
+#checkout input:focus,
+#checkout i:focus,
+#checkout form textarea:focus {
   border-color: #a68463;
 }
 
-.user .fa-user {
+#checkout .user .fa-user {
   font-size: 1rem;
 }
 
-input[type=text],input[type=email],input[type=tel] {
+#checkout input[type=text],#checkout input[type=email],#checkout input[type=tel] {
   position: relative;
   left: -16px;
   width: 70%;
 }
 
-.email .fa-credit-card {
+#checkout .email .fa-credit-card {
   font-size: 1rem;
 }
 
-.email input {
+#checkout .email input {
   position: relative;
   left: -20px;
   padding-left: 30px;
 }
 
-.checkbox {
+#checkout .checkbox {
   margin-top: 2rem;
 }
 
-.checkbox input {
+#checkout .checkbox input {
   width: auto;
 }
 
@@ -195,7 +204,7 @@ input[type=text],input[type=email],input[type=tel] {
   font-size: .8rem;
 }
 
-button {
+#checkout button {
   color: white;
   font-size: 1rem;
   margin-left: 1rem;
@@ -210,10 +219,16 @@ button {
   left: -150px;
 }
 
-button:hover {
+#checkout button:hover {
   background-color: #b59779;
 }
 
 form i {
   color: #000;
+}
+
+#checkout .back_to_cart{
+  position: absolute;
+  left: 30px;
+  bottom: 0;
 }

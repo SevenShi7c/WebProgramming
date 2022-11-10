@@ -7,12 +7,12 @@ function validate() {
     if (username == "admin" && password == "123456") {
         swal({
             title: "",
-            text: "Xin chào Võ Trường",
+            text: "Xin chào Admin",
             icon: "success",
             close: true,
             button: false,
           });
-        window.location = "doc/index.html";
+        window.location = "./doc/index.html";
         return true;
        
     }
