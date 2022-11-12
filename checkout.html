@@ -391,23 +391,6 @@
                                 <!-- Full-width images with number and caption text -->
                                 <div class="productSlides fade-checkout">
                                     <div class="img">
-                                        <img src="./images/product/ep-co-cap-man-hinh-iphone-x-medium.jpg"
-                                            class="img-fluid w-100">
-                                    </div>
-                                    <h1 class="product-name">
-                                        Iphone X<br>Ép màn hình
-                                    </h1>
-                                    <p class="product-code-name">
-                                        Màu đen, loại zin
-                                    </p>
-                                    <p class="price">
-                                        1,500,000VNĐ
-                                    </p>
-
-                                </div>
-
-                                <div class="productSlides fade-checkout">
-                                    <div class="img">
                                         <img src="./images/product/man-hinh-iphone-13-ep-co-cap-medium.jpg"
                                             style="width:100%">
                                     </div>
@@ -691,6 +674,50 @@
         if (~window.location.search.indexOf('reset=true')) {
             paypal.minicart.reset();
         }
+
+
+        for (let i = 0; i < cart.length; i++) {
+            var htmlItemm = `
+                                <div class="productSlides fade-checkout">
+                                    <div class="img">
+                                        <img src="./images/product/${cart[i].image}"
+                                            class="img-fluid w-100">
+                                    </div>
+                                    <h1 class="product-name">
+                                        ${cart[i].name}
+                                    </h1>
+                                    <p class="product-code-name">
+                                        loại ${cart[i].option2}
+                                    </p>
+                                    <p class="price">
+                                        ${cart[i].amount}
+                                    </p>
+                                    <p class="quantity">
+                                        ${cart[i].quantity}
+                                    </p>
+                                </div>
+                                
+                                <div class="productSlides fade-checkout">
+                                    <div class="img">
+                                        <img src="./images/product/${cart[i].image}"
+                                            class="img-fluid w-100">
+                                    </div>
+                                    <h1 class="product-name">
+                                        ${cart[i].name}
+                                    </h1>
+                                    <p class="product-code-name">
+                                        loại ${cart[i].option2}
+                                    </p>
+                                    <p class="price">
+                                        ${cart[i].amount}
+                                    </p>
+                                    <p class="quantity">
+                                        ${cart[i].quantity}
+                                    </p>
+                                </div>
+            `;
+        }
+        $('.product-slideshow').append(htmlItemm)
     </script>
 </body>
 

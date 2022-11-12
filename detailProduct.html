@@ -268,6 +268,8 @@
         </form>
       </div>
 
+      <div class="user"></div>
+
       <div id="offcanvas-flip3" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="    background: white;
             width: 350px;">
@@ -314,26 +316,24 @@
                     <td class="text-right">Chưa thanh toán</td>
                   </tr>
                   <tr>
-                    <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ hàng</a></td>
-                    <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
+                    <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem
+                        giỏ hàng</a></td>
+                    <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
-              <a href="booked.html" class="button btn-check" style="text-decoration:none;">Xem lịch đã đặt</a>
+              <a href="booked.html" class="button btn-check" style="text-decoration:none;">Xem lịch đã
+                đặt</a>
             </div>
           </div>
         </div>
       </div>
 
       <div class="icon-ol">
-        <a class="" href="signin.html">
-          <i class="icon-header fas fa-user-alt"></i>
-        </a>
+
         <a class="" uk-toggle="target: #offcanvas-flip">
           <i class="icon-header fas fa-search"></i>
-        </a>
-        <a href="booked.html" uk-toggle="target: #offcanvas-flip3">
-          <i class="icon-header fas fa-calendar"></i>
         </a>
         <button class="navbar-toggler" type="button" uk-toggle="target: #offcanvas-flip1" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -603,10 +603,12 @@
                                   <input type="hidden" name="cmd" value="_cart">
                                   <input type="hidden" name="add" value="1">
                                   <input type="hidden" name="business" value=" ">
+                                  <input type="hidden" name="image" value="thay-man-hinh-iphone-x-fc.jpg">
                                   <input type="hidden" name="item_name" value="Thay màn hình Iphone X">
                                   <input type="hidden" name="amount" value="1600000">
                                   <input type="hidden" name="discount_amount" value="10000">
                                   <input type="hidden" name="currency_code" value="VND">
+                                  <input type="hidden" name="id_item" value="1">
                                   <input type="hidden" name="return" value=" ">
                                   <input type="hidden" name="cancel_return" value=" ">
                                   <button type="submit" name="submit" value="Thêm vào giỏ"
@@ -616,7 +618,8 @@
                             </div>
                           </div>
                           </button>
-                          <a href="booking.html" type="button" class="buy-now button" style="display: block;">Đặt lịch ngay</a>
+                          <a href="booking.html" type="button" class="buy-now button" style="display: block;">Đặt lịch
+                            ngay</a>
                         </div>
 
                         <!--                                            <a href="" target="_blank" class="button btn-check"-->
@@ -831,6 +834,7 @@
       </div>
     </div>
   </section>
+  
   <footer class="main-footer">
     <div class="container">
       <div class="">
@@ -970,6 +974,7 @@
   <script src="js/divzoom.js"></script>
 
   <script src="js/minicart.min.js"></script>
+  <script src="js/validationUser.js"></script>
   <script>
     // Mini Cart
     paypal.minicart.render({
@@ -979,24 +984,12 @@
     if (~window.location.search.indexOf('reset=true')) {
       paypal.minicart.reset();
     }
-
-    // decreasesQuantity
-    var quantity = document.querySelector('#quantity.quantity-selector').value;
-    function decreasesQuantity() {
-      quantity *= 1;
-      if (quantity > 1) {
-        quantity--;
-      }
-      document.querySelector('#quantity.quantity-selector').value = quantity;
-    }
-
-    // increaseQuantity
-    function increaseQuantity() {
-      quantity *= 1;
-      quantity++;
-      document.querySelector('#quantity.quantity-selector').value = quantity;
-    }
+    
+document.querySelector('#PPMiniCart').innerHTML = `
+  <a href="/cart.html" class="btn btn-primary btn-cart">Giỏ hàng</a>
+  <a href="/checkout.html" class="btn btn-primary btn-checkout">Thanh toán</a>
+`
   </script>
+  
 </body>
-
 </html>
