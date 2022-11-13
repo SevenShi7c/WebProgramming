@@ -97,11 +97,11 @@
 .registratior_custom form .content button:hover {
   background-color: #fff !important;
   transition: step-end 0.2s;
-  border: 1px solid #e7e7e7;
+  /*border: 1px solid #e7e7e7;*/
 }
 
 .registratior_custom form .content button:hover p {
-  color: #e5f5f1 !important;
+  color: black !important;
   transition: step-end 0.2s;
 }
 
@@ -3858,4 +3858,17 @@ div.item:hover {
 .w3view-cart.btn{
   border: none;
   box-shadow: none !important;
+}
+/*booked*/
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+
+  font-size: 19px;
+  color: black;
+
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: white;
+  background-color: #F28102;
+  border-color: #F28102;
+
 }

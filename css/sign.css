@@ -42,9 +42,9 @@
 
 .content .signup .container .signin-right {
   width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  /*display: -webkit-box;*/
+  /*display: -ms-flexbox;*/
+  /*display: flex;*/
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
@@ -60,7 +60,7 @@
 
 .content .signup .container .signin-right form .form-control1 input {
   width: 100%;
-  width: 100%;
+
   height: 55px;
   border: 1px solid transparent;
   background: #ededed;

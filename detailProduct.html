@@ -29,7 +29,6 @@
     <a style="color: #ffffff;text-decoration: none;" href="index.html">Hotline: 1800 2057 (Miễn phí) Thời gian làm việc
       T2 - CN: 8h - 20h</a>
   </div>
-
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
 
@@ -43,7 +42,7 @@
       </a>
       <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="index.html">TRANG CHỦ</a>
           </li>
 
@@ -52,7 +51,7 @@
               <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </a>
             <ul class="sub_menu">
-              <li class="">
+              <li class="nav-item active">
                 <a href="product.html" title="Sửa điện thoại Iphone">
                   Sửa điện thoại Iphone
                 </a>
@@ -149,7 +148,7 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p>Điện thoại</p>
                   <i class="fa fa-angle-double-right"></i>
 
@@ -166,7 +165,7 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown2" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p>Dịch vụ</p>
                   <i class="fa fa-angle-double-right"></i>
 
@@ -211,8 +210,8 @@
               <div class="wpo-search-inner" style="display:inline">
                 <input type="hidden" name="type" value="product">
                 <input required="" id="inputSearchAuto" name="q" maxlength="40" autocomplete="off"
-                  class="searchinput input-search search-input" type="text" size="20"
-                  placeholder="Tìm kiếm sản phẩm...">
+                       class="searchinput input-search search-input" type="text" size="20"
+                       placeholder="Tìm kiếm sản phẩm...">
               </div>
               <button type="submit" class="btn-search btn" id="search-header-btn">
                 <i style="font-weight:bold" class="fas fa-search"></i>
@@ -259,16 +258,17 @@
       </div>
 
       <!-- cart -->
+
       <div class="product_list_header">
         <form action="#" method="post" class="last">
           <input type="hidden" name="cmd" value="_cart">
           <input type="hidden" name="display" value="1">
-          <button class="w3view-cart btn" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down"
-              aria-hidden="true"></i></button>
+          <button class="w3view-cart btn" type="submit" name="submit" value="" onclick="addBtnCart()">
+            <div class="icon-ol"><i class="icon-header fas fa-shopping-cart"  aria-hidden="true"></i></div></button>
         </form>
       </div>
 
-      <div class="user"></div>
+      <div class="user mr-4"></div>
 
       <div id="offcanvas-flip3" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="    background: white;
@@ -285,46 +285,43 @@
             <div class="cart-view clearfix">
               <table id="cart-view2">
                 <tbody>
-                  <tr class="item_1">
-                    <td class="img"><a href="" title=""><img src="images/product/thay-man-hinh-iphone-x-fc.jpg"
-                          alt=""></a></td>
-                    <td>
-                      <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay Màn Hình
-                        Iphone X</a>
-                      <span class="variant">Zin</span>
-                      <span class="pro-quantity-view">1</span>
-                      <span class="pro-price-view">1,690,000₫</span>
-                      <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
-                            class="fas fa-times"></i></a></span>
-                    </td>
-                  </tr>
+                <tr class="item_1">
+                  <td class="img"><a href="" title=""><img src="images/product/thay-man-hinh-iphone-x-fc.jpg"
+                                                           alt=""></a></td>
+                  <td>
+                    <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay Màn Hình
+                      Iphone X</a>
+                    <span class="variant">Zin</span>
+                    <span class="pro-quantity-view">1</span>
+                    <span class="pro-price-view">1,690,000₫</span>
+                    <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
+                                                                        class="fas fa-times"></i></a></span>
+                  </td>
+                </tr>
                 </tbody>
               </table>
               <span class="line"></span>
               <table class="table-total">
                 <tbody>
-                  <tr>
-                    <td class="text-left">Cửa hàng</td>
-                    <td class="text-right">P. Bình An, Quận 2</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left">Ngày hẹn</td>
-                    <td class="text-right">22/12/2022</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left">Tình trạng</td>
-                    <td class="text-right">Chưa thanh toán</td>
-                  </tr>
-                  <tr>
-                    <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem
-                        giỏ hàng</a></td>
-                    <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a>
-                    </td>
-                  </tr>
+                <tr>
+                  <td class="text-left">Cửa hàng</td>
+                  <td class="text-right">P. Bình An, Quận 2</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Ngày hẹn</td>
+                  <td class="text-right">22/12/2022</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Tình trạng</td>
+                  <td class="text-right">Chưa thanh toán</td>
+                </tr>
+                <tr>
+                  <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ hàng</a></td>
+                  <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
+                </tr>
                 </tbody>
               </table>
-              <a href="booked.html" class="button btn-check" style="text-decoration:none;">Xem lịch đã
-                đặt</a>
+              <a href="booked.html" class="button btn-check" style="text-decoration:none;">Xem lịch đã đặt</a>
             </div>
           </div>
         </div>
@@ -335,8 +332,9 @@
         <a class="" uk-toggle="target: #offcanvas-flip">
           <i class="icon-header fas fa-search"></i>
         </a>
+
         <button class="navbar-toggler" type="button" uk-toggle="target: #offcanvas-flip1" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
@@ -598,7 +596,7 @@
                         <div class="row-flex">
                           <div class="snipcart-item block">
                             <div class="snipcart-details agileinfo_single_right_details">
-                              <form action="#" method="post">
+                              <form action="#" method="post" class="mini-cart">
                                 <fieldset>
                                   <input type="hidden" name="cmd" value="_cart">
                                   <input type="hidden" name="add" value="1">
@@ -612,7 +610,7 @@
                                   <input type="hidden" name="return" value=" ">
                                   <input type="hidden" name="cancel_return" value=" ">
                                   <button type="submit" name="submit" value="Thêm vào giỏ"
-                                    class="button btn-addtocart addtocart-modal">Thêm vào giỏ</button>
+                                    class="button btn-addtocart addtocart-modal" onclick="addBtnCart()">Thêm vào giỏ</button>
                                 </fieldset>
                               </form>
                             </div>
@@ -834,7 +832,6 @@
       </div>
     </div>
   </section>
-  
   <footer class="main-footer">
     <div class="container">
       <div class="">
@@ -851,10 +848,10 @@
                   <img src="images/logo-bct.png" alt="Bộ Công Thương">
                 </div>
                 <div class="social-list">
-                  <a href="#" class="fab fa-facebook"></a>
-                  <a href="#" class="fab fa-google"></a>
-                  <a href="#" class="fab fa-twitter"></a>
-                  <a href="#" class="fab fa-youtube"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-facebook"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-google"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-twitter"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-youtube"></a>
 
                 </div>
               </div>
@@ -910,10 +907,10 @@
                 <div id="fb-root1">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
-                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://20130370.tk/">Nguyễn Đăng
-                          Phước </a>
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
+                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://project-personal-mine.web.app/">Nguyễn Đăng
+                        Phước </a>
                       </blockquote>
                     </div>
                   </div>
@@ -923,11 +920,11 @@
                 <div id="fb-root2">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
                       <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130450@st.hcmuaf.edu.vn">Vũ
-                          Ngọc Thanh
-                          Trúc </a>
+                        Ngọc Thanh
+                        Trúc </a>
                       </blockquote>
                     </div>
                   </div>
@@ -937,10 +934,10 @@
                 <div id="fb-root3">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
-                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://20130370.tk/">Nguyễn Mạnh
-                          Quyền </a>
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
+                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130479@st.hcmuaf.edu.vn">Nguyễn Mạnh
+                        Quyền </a>
                       </blockquote>
                     </div>
                   </div>
@@ -975,6 +972,7 @@
 
   <script src="js/minicart.min.js"></script>
   <script src="js/validationUser.js"></script>
+
   <script>
     // Mini Cart
     paypal.minicart.render({
@@ -984,11 +982,6 @@
     if (~window.location.search.indexOf('reset=true')) {
       paypal.minicart.reset();
     }
-    
-document.querySelector('#PPMiniCart').innerHTML = `
-  <a href="/cart.html" class="btn btn-primary btn-cart">Giỏ hàng</a>
-  <a href="/checkout.html" class="btn btn-primary btn-checkout">Thanh toán</a>
-`
   </script>
   
 </body>

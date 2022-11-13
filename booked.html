@@ -47,7 +47,7 @@
       </a>
       <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="index.html">TRANG CHỦ</a>
           </li>
 
@@ -137,14 +137,14 @@
       </div>
       <div id="offcanvas-flip1" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="background: white;
-      width: 100%;">
+        width: 100%;">
 
           <button class="uk-offcanvas-close" style="color:#272727" type="button" uk-close></button>
           <h3 style="font-size: 14px;
-        color: #272727;
-        text-transform: uppercase;
-        margin: 3px 0 30px 0;
-        font-weight: 500; letter-spacing: 2px;">MENU</h3>
+          color: #272727;
+          text-transform: uppercase;
+          margin: 3px 0 30px 0;
+          font-weight: 500; letter-spacing: 2px;">MENU</h3>
           <div class="justify-content-md-center">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -153,7 +153,7 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p>Điện thoại</p>
                   <i class="fa fa-angle-double-right"></i>
 
@@ -170,7 +170,7 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown2" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p>Dịch vụ</p>
                   <i class="fa fa-angle-double-right"></i>
 
@@ -201,22 +201,22 @@
       </div>
       <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="    background: white;
-          width: 350px;">
+            width: 350px;">
 
           <button class="uk-offcanvas-close" style="color:#272727" type="button" uk-close></button>
 
           <h3 style="font-size: 14px;
-              color: #272727;
-              text-transform: uppercase;
-              margin: 3px 0 30px 0;
-              font-weight: 500; letter-spacing: 2px;">Tìm kiếm</h3>
+                color: #272727;
+                text-transform: uppercase;
+                margin: 3px 0 30px 0;
+                font-weight: 500; letter-spacing: 2px;">Tìm kiếm</h3>
           <div class="search-box wpo-wrapper-search">
             <form action="search" class="searchform searchform-categoris ultimate-search">
               <div class="wpo-search-inner" style="display:inline">
                 <input type="hidden" name="type" value="product">
                 <input required="" id="inputSearchAuto" name="q" maxlength="40" autocomplete="off"
-                  class="searchinput input-search search-input" type="text" size="20"
-                  placeholder="Tìm kiếm sản phẩm...">
+                       class="searchinput input-search search-input" type="text" size="20"
+                       placeholder="Tìm kiếm sản phẩm...">
               </div>
               <button type="submit" class="btn-search btn" id="search-header-btn">
                 <i style="font-weight:bold" class="fas fa-search"></i>
@@ -263,64 +263,67 @@
       </div>
 
       <!-- cart -->
+
       <div class="product_list_header">
         <form action="#" method="post" class="last">
           <input type="hidden" name="cmd" value="_cart">
           <input type="hidden" name="display" value="1">
-          <button class="w3view-cart btn" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down"
-              aria-hidden="true"></i></button>
+          <button class="w3view-cart btn" type="submit" name="submit" value="" onclick="addBtnCart()">
+            <div class="icon-ol"><i class="icon-header fas fa-shopping-cart"  aria-hidden="true"></i></div></button>
         </form>
       </div>
 
+      <div class="user mr-4"></div>
+
       <div id="offcanvas-flip3" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="    background: white;
-          width: 350px;">
+            width: 350px;">
 
           <button class="uk-offcanvas-close" style="color:#272727" type="button" uk-close></button>
 
           <h3 style="font-size: 14px;
-              color: #272727;
-              text-transform: uppercase;
-              margin: 3px 0 30px 0;
-              font-weight: 500; letter-spacing: 2px;">Lịch Đã Đặt</h3>
+                color: #272727;
+                text-transform: uppercase;
+                margin: 3px 0 30px 0;
+                font-weight: 500; letter-spacing: 2px;">Lịch Đã Đặt</h3>
           <div class="site-nav-container-last" style="color:#272727">
             <div class="cart-view clearfix">
               <table id="cart-view2">
                 <tbody>
-                  <tr class="item_1">
-                    <td class="img"><a href="" title=""><img src="images/product/thay-man-hinh-iphone-x-fc.jpg"
-                          alt=""></a></td>
-                    <td>
-                      <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay Màn Hình
-                        Iphone X</a>
-                      <span class="variant">Zin</span>
-                      <span class="pro-quantity-view">1</span>
-                      <span class="pro-price-view">1,690,000₫</span>
-                      <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
-                            class="fas fa-times"></i></a></span>
-                    </td>
-                  </tr>
+                <tr class="item_1">
+                  <td class="img"><a href="" title=""><img src="images/product/thay-man-hinh-iphone-x-fc.jpg"
+                                                           alt=""></a></td>
+                  <td>
+                    <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay Màn Hình
+                      Iphone X</a>
+                    <span class="variant">Zin</span>
+                    <span class="pro-quantity-view">1</span>
+                    <span class="pro-price-view">1,690,000₫</span>
+                    <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
+                                                                        class="fas fa-times"></i></a></span>
+                  </td>
+                </tr>
                 </tbody>
               </table>
               <span class="line"></span>
               <table class="table-total">
                 <tbody>
-                  <tr>
-                    <td class="text-left">Cửa hàng</td>
-                    <td class="text-right">P. Bình An, Quận 2</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left">Ngày hẹn</td>
-                    <td class="text-right">22/12/2022</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left">Tình trạng</td>
-                    <td class="text-right">Chưa thanh toán</td>
-                  </tr>
-                  <tr>
-                    <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ hàng</a></td>
-                    <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
-                  </tr>
+                <tr>
+                  <td class="text-left">Cửa hàng</td>
+                  <td class="text-right">P. Bình An, Quận 2</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Ngày hẹn</td>
+                  <td class="text-right">22/12/2022</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Tình trạng</td>
+                  <td class="text-right">Chưa thanh toán</td>
+                </tr>
+                <tr>
+                  <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ hàng</a></td>
+                  <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
+                </tr>
                 </tbody>
               </table>
               <a href="booked.html" class="button btn-check" style="text-decoration:none;">Xem lịch đã đặt</a>
@@ -330,17 +333,13 @@
       </div>
 
       <div class="icon-ol">
-        <a class="" href="signin.html">
-          <i class="icon-header fas fa-user-alt"></i>
-        </a>
+
         <a class="" uk-toggle="target: #offcanvas-flip">
           <i class="icon-header fas fa-search"></i>
         </a>
-        <a href="booked.html" uk-toggle="target: #offcanvas-flip3">
-          <i class="icon-header fas fa-calendar"></i>
-        </a>
+
         <button class="navbar-toggler" type="button" uk-toggle="target: #offcanvas-flip1" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
@@ -350,131 +349,269 @@
   </nav>
   <!--Content-->
   <section class="h-100 gradient-custom">
-    <div class="container py-5">
-      <div class="row d-flex justify-content-center my-4">
-        <div class="col-md-8">
-          <div class="card mb-4">
-            <div class="card-header py-3">
-              <h5 class="mb-0">Lịch đã đặt</h5>
+    <div class="nav nav-tabs nav-fill" id="" role="tablist"><a aria-controls="nav-week1-tab"
+                                                               aria-selected="true"
+                                                               class="nav-item nav-link active"
+                                                               data-toggle="tab"
+                                                               href="#nav-week1"
+                                                               role="tab">Chưa thanh toán</a><a
+            aria-controls="nav-week2-tab" aria-selected="false" class="nav-item nav-link"
+            data-toggle="tab"
+            href="#nav-week2" role="tab">Đã thanh toán</a>
+    </div>
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+      <div aria-labelledby="nav-week1-tab" class="tab-pane fade show active" id="nav-week1"
+           role="tabpanel">
+
+        <div class="row d-flex justify-content-center my-4">
+          <div class="col-md-8">
+            <div class="card mb-4">
+              <div class="card-header py-3">
+                <h5 class="mb-0">Lịch đã đặt và chưa thanh toán</h5>
+              </div>
+              <div class="card-body">
+                <!-- Single item -->
+                <div class="row">
+                  <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                    <!-- Image -->
+                    <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                      <img src="images/product/thay-man-hinh-iphone-x-fc.jpg" class="w-100"
+                           alt="Thay màn hình Iphone X" />
+
+                    </div>
+                    <!-- Image -->
+                  </div>
+
+                  <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p><strong>Thay màn hình Iphone X</strong></p>
+                    <p>Loại: Zin</p>
+                    <p>Cửa hàng: P. Bình An, Quận 2</p>
+                    <p>Ngày hẹn: 22/10/2022</p>
+                    <p>Tình trạng: Chưa thanh toán</p>
+
+
+
+                    <!-- Data -->
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p>Số lượng: 1</p>
+                    <p><strong>Giá: 1,690,000₫</strong></p>
+
+
+                    <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                            title="Remove item">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                    <a href="checkout.html">
+                    <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                            title="Remove item">
+                     <i class="fas fa-coins">  </i>
+                    </button></a>
+
+                    <!-- Price -->
+                  </div>
+                </div>
+                <!-- Single item -->
+
+                <hr class="my-4" />
+
+                <!-- Single item -->
+                <div class="row">
+                  <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                    <!-- Image -->
+                    <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                      <img src="images/product/thay-man-hinh-iphone-x-fc.jpg" class="w-100"
+                           alt="Thay màn hình Iphone X" />
+
+                    </div>
+                    <!-- Image -->
+                  </div>
+
+                  <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p><strong>Thay màn hình Iphone X</strong></p>
+                    <p>Loại: Zin</p>
+                    <p>Cửa hàng: P. Bình An, Quận 2</p>
+                    <p>Ngày hẹn: 22/10/2022</p>
+                    <p>Tình trạng: Chưa thanh toán</p>
+
+
+
+                    <!-- Data -->
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p>Số lượng: 1</p>
+                    <p><strong>Giá: 1,690,000₫</strong></p>
+
+
+                    <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                            title="Remove item">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                            title="Remove item">
+                      <a href="checkout.html"><i class="fas fa-coins"> </i></a>
+                    </button>
+
+                    <!-- Price -->
+                  </div>
+                </div>
+                <!-- Single item -->
+              </div>
             </div>
-            <div class="card-body">
-              <!-- Single item -->
-              <div class="row">
-                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                  <!-- Image -->
-                  <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                    <img src="images/product/thay-man-hinh-iphone-x-fc.jpg" class="w-100"
-                      alt="Thay màn hình Iphone X" />
+            <!--                <div class="card mb-4">-->
+            <!--                    <div class="card-body">-->
+            <!--                        <p><strong>Expected shipping delivery</strong></p>-->
+            <!--                        <p class="mb-0">12.10.2020 - 14.10.2020</p>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <div class="card mb-4 mb-lg-0">
+              <div class="card-body">
+                <p><strong>Một số phương thức thanh toán</strong></p>
+                <img class="me-2" width="45px"
+                     src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                     alt="Visa" />
+                <img class="me-2" width="45px"
+                     src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                     alt="American Express" />
+                <img class="me-2" width="45px"
+                     src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                     alt="Mastercard" />
 
-                  </div>
-                  <!-- Image -->
-                </div>
-
-                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                  <!-- Data -->
-                  <p><strong>Thay màn hình Iphone X</strong></p>
-                  <p>Loại: Zin</p>
-                  <p>Cửa hàng: P. Bình An, Quận 2</p>
-                  <p>Ngày hẹn: 22/10/2022</p>
-                  <p>Tình trạng: Chưa thanh toán</p>
-
-
-
-                  <!-- Data -->
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                  <!-- Data -->
-                  <p>Số lượng: 1</p>
-                  <p><strong>Giá: 1,690,000₫</strong></p>
-
-
-                  <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-                    title="Remove item">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                  <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-                    title="Remove item">
-                    <i class="fas fa-coins"></i>
-                  </button>
-
-                  <!-- Price -->
-                </div>
               </div>
-              <!-- Single item -->
-
-              <hr class="my-4" />
-
-              <!-- Single item -->
-              <div class="row">
-                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                  <!-- Image -->
-                  <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                    <img src="images/product/thay-man-hinh-iphone-x-fc.jpg" class="w-100"
-                      alt="Thay màn hình Iphone X" />
-
-                  </div>
-                  <!-- Image -->
-                </div>
-
-                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                  <!-- Data -->
-                  <p><strong>Thay màn hình Iphone X</strong></p>
-                  <p>Loại: Zin</p>
-                  <p>Cửa hàng: P. Bình An, Quận 2</p>
-                  <p>Ngày hẹn: 22/10/2022</p>
-                  <p>Tình trạng: Chưa thanh toán</p>
-
-
-
-                  <!-- Data -->
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                  <!-- Data -->
-                  <p>Số lượng: 1</p>
-                  <p><strong>Giá: 1,690,000₫</strong></p>
-
-
-                  <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-                    title="Remove item">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                  <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-                    title="Remove item">
-                    <i class="fas fa-coins"></i>
-                  </button>
-
-                  <!-- Price -->
-                </div>
-              </div>
-              <!-- Single item -->
             </div>
           </div>
-          <!--                <div class="card mb-4">-->
-          <!--                    <div class="card-body">-->
-          <!--                        <p><strong>Expected shipping delivery</strong></p>-->
-          <!--                        <p class="mb-0">12.10.2020 - 14.10.2020</p>-->
-          <!--                    </div>-->
-          <!--                </div>-->
-          <div class="card mb-4 mb-lg-0">
-            <div class="card-body">
-              <p><strong>Một số phương thức thanh toán</strong></p>
-              <img class="me-2" width="45px"
-                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                alt="Visa" />
-              <img class="me-2" width="45px"
-                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                alt="American Express" />
-              <img class="me-2" width="45px"
-                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                alt="Mastercard" />
-              <img class="me-2" width="45px"
-                src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.webp"
-                alt="PayPal acceptance mark" />
-            </div>
-          </div>
+
         </div>
+      </div>
+      <div aria-labelledby="nav-week2-tab" class="tab-pane fade" id="nav-week2" role="tabpanel">
+
+        <div class="row d-flex justify-content-center my-4">
+          <div class="col-md-8">
+            <div class="card mb-4">
+              <div class="card-header py-3">
+                <h5 class="mb-0">Lịch đã đặt và đã thanh toán</h5>
+              </div>
+              <div class="card-body">
+                <!-- Single item -->
+                <div class="row">
+                  <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                    <!-- Image -->
+                    <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                      <img src="images/product/thay-man-hinh-iphone-x-fc.jpg" class="w-100"
+                           alt="Thay màn hình Iphone X" />
+
+                    </div>
+                    <!-- Image -->
+                  </div>
+
+                  <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p><strong>Thay màn hình Iphone X</strong></p>
+                    <p>Loại: Zin</p>
+                    <p>Cửa hàng: P. Bình An, Quận 2</p>
+                    <p>Ngày hẹn: 22/10/2022</p>
+                    <p>Tình trạng: Chưa thanh toán</p>
+
+
+
+                    <!-- Data -->
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p>Số lượng: 1</p>
+                    <p><strong>Giá: 1,690,000₫</strong></p>
+
+
+                    <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                            title="Remove item">
+                      <i class="fas fa-trash"></i>
+                    </button>
+
+                    </button>
+
+                    <!-- Price -->
+                  </div>
+                </div>
+                <!-- Single item -->
+
+                <hr class="my-4" />
+
+                <!-- Single item -->
+                <div class="row">
+                  <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                    <!-- Image -->
+                    <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                      <img src="images/product/thay-man-hinh-iphone-x-fc.jpg" class="w-100"
+                           alt="Thay màn hình Iphone X" />
+
+                    </div>
+                    <!-- Image -->
+                  </div>
+
+                  <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p><strong>Thay màn hình Iphone X</strong></p>
+                    <p>Loại: Zin</p>
+                    <p>Cửa hàng: P. Bình An, Quận 2</p>
+                    <p>Ngày hẹn: 22/10/2022</p>
+                    <p>Tình trạng: Chưa thanh toán</p>
+
+
+
+                    <!-- Data -->
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <!-- Data -->
+                    <p>Số lượng: 1</p>
+                    <p><strong>Giá: 1,690,000₫</strong></p>
+
+
+                    <button type="button" class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                            title="Remove item">
+                      <i class="fas fa-trash"></i>
+                    </button>
+
+                    </button>
+
+                    <!-- Price -->
+                  </div>
+                </div>
+                <!-- Single item -->
+              </div>
+            </div>
+            <!--                <div class="card mb-4">-->
+            <!--                    <div class="card-body">-->
+            <!--                        <p><strong>Expected shipping delivery</strong></p>-->
+            <!--                        <p class="mb-0">12.10.2020 - 14.10.2020</p>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <div class="card mb-4 mb-lg-0">
+              <div class="card-body">
+                <p><strong>Một số phương thức thanh toán</strong></p>
+                <img class="me-2" width="45px"
+                     src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                     alt="Visa" />
+                <img class="me-2" width="45px"
+                     src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                     alt="American Express" />
+                <img class="me-2" width="45px"
+                     src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                     alt="Mastercard" />
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
 
       </div>
     </div>
@@ -524,7 +661,6 @@
       </div>
     </div>
   </section>
-  <!--Footer-->
   <footer class="main-footer">
     <div class="container">
       <div class="">
@@ -541,10 +677,10 @@
                   <img src="images/logo-bct.png" alt="Bộ Công Thương">
                 </div>
                 <div class="social-list">
-                  <a href="#" class="fab fa-facebook"></a>
-                  <a href="#" class="fab fa-google"></a>
-                  <a href="#" class="fab fa-twitter"></a>
-                  <a href="#" class="fab fa-youtube"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-facebook"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-google"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-twitter"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-youtube"></a>
 
                 </div>
               </div>
@@ -600,10 +736,10 @@
                 <div id="fb-root1">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
-                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://20130370.tk/">Nguyễn Đăng
-                          Phước </a>
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
+                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://project-personal-mine.web.app/">Nguyễn Đăng
+                        Phước </a>
                       </blockquote>
                     </div>
                   </div>
@@ -613,11 +749,11 @@
                 <div id="fb-root2">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
                       <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130450@st.hcmuaf.edu.vn">Vũ
-                          Ngọc Thanh
-                          Trúc </a>
+                        Ngọc Thanh
+                        Trúc </a>
                       </blockquote>
                     </div>
                   </div>
@@ -627,10 +763,10 @@
                 <div id="fb-root3">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
-                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://20130370.tk/">Nguyễn Mạnh
-                          Quyền </a>
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
+                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130479@st.hcmuaf.edu.vn">Nguyễn Mạnh
+                        Quyền </a>
                       </blockquote>
                     </div>
                   </div>
@@ -665,6 +801,7 @@
   <script src="js/sign.js"></script>
   <!-- Mini Cart -->
   <script src="js/minicart.min.js"></script>
+  <script src="js/validationUser.js"></script>
   <script>
     paypal.minicart.render({
       action: '#'

@@ -37,7 +37,11 @@
   left: 158%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
+<<<<<<< HEAD
+  background-color: #ce7515;
+=======
   background-color: #F28102;
+>>>>>>> adb8105743630cece5164cb8b655c22c9cf82f8c
   box-shadow: 0 0 25px rgba(0, 0, 0, .3);
 }
 
@@ -152,7 +156,7 @@
   font-size: 1rem;
   padding: .4rem 30px;
   border: none;
-  border-bottom: solid 2px #000;
+  border-bottom: solid 2px #fff;
   background-color: transparent;
   transition: all .3s ease;
   outline: none;
@@ -162,8 +166,19 @@
 #checkout form textarea{
   box-shadow: none;
   background-color: transparent;
-  border: solid 2px #000;
+  border: solid 2px #fff;
+}
 
+#checkout form label, #checkout .payment{
+  color: #fff;
+}
+
+#checkout .sum-money {
+  z-index: 999;
+  position: absolute;
+  bottom: 120px;
+  text-align: center;
+  width: 100%;
 }
 
 #checkout input:focus,
@@ -213,7 +228,11 @@
   bottom: 0;
   border: none;
   border-radius: 3px;
+<<<<<<< HEAD
+  background-color: #ce7515;
+=======
   background-color: #F28102;
+>>>>>>> adb8105743630cece5164cb8b655c22c9cf82f8c
   box-shadow: 0 0 20px rgba(0, 0, 0, .25);
   transition: all .3s ease;
   left: -150px;
@@ -224,7 +243,7 @@
 }
 
 form i {
-  color: #000;
+  color: #fff;
 }
 
 #checkout .back_to_cart{

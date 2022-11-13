@@ -81,10 +81,10 @@ function validate() {
 }
 
 var user = JSON.parse(decodeURIComponent(localStorage.getItem('user')));
-
+var textHtml =''
 if (user) {
-    var textHtml = `
-        <ul class="navbar-nav mx-5">
+    textHtml = `
+        <ul class="navbar-nav mx-2">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdownUser"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,9 +100,14 @@ if (user) {
             </li>
         </ul>
             `
-
-    document.querySelector('nav .user').innerHTML += textHtml;
+}else{
+    textHtml = `<a class="" href="signin.html" class="mr-2">
+        <i class="icon-header fas fa-user-alt"></i>
+    </a>`
 }
+
+document.querySelector('nav .user').innerHTML += textHtml;
+
 
 function logout() {
     if (user)

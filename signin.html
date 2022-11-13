@@ -43,7 +43,7 @@
       </a>
       <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="index.html">TRANG CHỦ</a>
           </li>
 
@@ -133,14 +133,14 @@
       </div>
       <div id="offcanvas-flip1" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="background: white;
-      width: 100%;">
+        width: 100%;">
 
           <button class="uk-offcanvas-close" style="color:#272727" type="button" uk-close></button>
           <h3 style="font-size: 14px;
-        color: #272727;
-        text-transform: uppercase;
-        margin: 3px 0 30px 0;
-        font-weight: 500; letter-spacing: 2px;">MENU</h3>
+          color: #272727;
+          text-transform: uppercase;
+          margin: 3px 0 30px 0;
+          font-weight: 500; letter-spacing: 2px;">MENU</h3>
           <div class="justify-content-md-center">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -149,7 +149,7 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p>Điện thoại</p>
                   <i class="fa fa-angle-double-right"></i>
 
@@ -166,7 +166,7 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown2" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p>Dịch vụ</p>
                   <i class="fa fa-angle-double-right"></i>
 
@@ -197,22 +197,22 @@
       </div>
       <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="    background: white;
-          width: 350px;">
+            width: 350px;">
 
           <button class="uk-offcanvas-close" style="color:#272727" type="button" uk-close></button>
 
           <h3 style="font-size: 14px;
-              color: #272727;
-              text-transform: uppercase;
-              margin: 3px 0 30px 0;
-              font-weight: 500; letter-spacing: 2px;">Tìm kiếm</h3>
+                color: #272727;
+                text-transform: uppercase;
+                margin: 3px 0 30px 0;
+                font-weight: 500; letter-spacing: 2px;">Tìm kiếm</h3>
           <div class="search-box wpo-wrapper-search">
             <form action="search" class="searchform searchform-categoris ultimate-search">
               <div class="wpo-search-inner" style="display:inline">
                 <input type="hidden" name="type" value="product">
                 <input required="" id="inputSearchAuto" name="q" maxlength="40" autocomplete="off"
-                  class="searchinput input-search search-input" type="text" size="20"
-                  placeholder="Tìm kiếm sản phẩm...">
+                       class="searchinput input-search search-input" type="text" size="20"
+                       placeholder="Tìm kiếm sản phẩm...">
               </div>
               <button type="submit" class="btn-search btn" id="search-header-btn">
                 <i style="font-weight:bold" class="fas fa-search"></i>
@@ -259,64 +259,67 @@
       </div>
 
       <!-- cart -->
+
       <div class="product_list_header">
         <form action="#" method="post" class="last">
           <input type="hidden" name="cmd" value="_cart">
           <input type="hidden" name="display" value="1">
-          <button class="w3view-cart btn" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down"
-              aria-hidden="true"></i></button>
+          <button class="w3view-cart btn" type="submit" name="submit" value="" onclick="addBtnCart()">
+            <div class="icon-ol"><i class="icon-header fas fa-shopping-cart"  aria-hidden="true"></i></div></button>
         </form>
       </div>
 
+      <div class="user mr-4"></div>
+
       <div id="offcanvas-flip3" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar" style="    background: white;
-          width: 350px;">
+            width: 350px;">
 
           <button class="uk-offcanvas-close" style="color:#272727" type="button" uk-close></button>
 
           <h3 style="font-size: 14px;
-              color: #272727;
-              text-transform: uppercase;
-              margin: 3px 0 30px 0;
-              font-weight: 500; letter-spacing: 2px;">Lịch Đã Đặt</h3>
+                color: #272727;
+                text-transform: uppercase;
+                margin: 3px 0 30px 0;
+                font-weight: 500; letter-spacing: 2px;">Lịch Đã Đặt</h3>
           <div class="site-nav-container-last" style="color:#272727">
             <div class="cart-view clearfix">
               <table id="cart-view2">
                 <tbody>
-                  <tr class="item_1">
-                    <td class="img"><a href="" title=""><img src="images/product/thay-man-hinh-iphone-x-fc.jpg"
-                          alt=""></a></td>
-                    <td>
-                      <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay Màn Hình
-                        Iphone X</a>
-                      <span class="variant">Zin</span>
-                      <span class="pro-quantity-view">1</span>
-                      <span class="pro-price-view">1,690,000₫</span>
-                      <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
-                            class="fas fa-times"></i></a></span>
-                    </td>
-                  </tr>
+                <tr class="item_1">
+                  <td class="img"><a href="" title=""><img src="images/product/thay-man-hinh-iphone-x-fc.jpg"
+                                                           alt=""></a></td>
+                  <td>
+                    <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay Màn Hình
+                      Iphone X</a>
+                    <span class="variant">Zin</span>
+                    <span class="pro-quantity-view">1</span>
+                    <span class="pro-price-view">1,690,000₫</span>
+                    <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
+                                                                        class="fas fa-times"></i></a></span>
+                  </td>
+                </tr>
                 </tbody>
               </table>
               <span class="line"></span>
               <table class="table-total">
                 <tbody>
-                  <tr>
-                    <td class="text-left">Cửa hàng</td>
-                    <td class="text-right">P. Bình An, Quận 2</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left">Ngày hẹn</td>
-                    <td class="text-right">22/12/2022</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left">Tình trạng</td>
-                    <td class="text-right">Chưa thanh toán</td>
-                  </tr>
-                  <tr>
-                    <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ hàng</a></td>
-                    <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
-                  </tr>
+                <tr>
+                  <td class="text-left">Cửa hàng</td>
+                  <td class="text-right">P. Bình An, Quận 2</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Ngày hẹn</td>
+                  <td class="text-right">22/12/2022</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Tình trạng</td>
+                  <td class="text-right">Chưa thanh toán</td>
+                </tr>
+                <tr>
+                  <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ hàng</a></td>
+                  <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
+                </tr>
                 </tbody>
               </table>
               <a href="booked.html" class="button btn-check" style="text-decoration:none;">Xem lịch đã đặt</a>
@@ -326,17 +329,13 @@
       </div>
 
       <div class="icon-ol">
-        <a class="" href="signin.html">
-          <i class="icon-header fas fa-user-alt"></i>
-        </a>
+
         <a class="" uk-toggle="target: #offcanvas-flip">
           <i class="icon-header fas fa-search"></i>
         </a>
-        <a href="booked.html" uk-toggle="target: #offcanvas-flip3">
-          <i class="icon-header fas fa-calendar"></i>
-        </a>
+
         <button class="navbar-toggler" type="button" uk-toggle="target: #offcanvas-flip1" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
@@ -435,6 +434,50 @@
     </section>
 
   </div>
+  <!--gallery-->
+  <section class="section section-gallery">
+    <div class="">
+      <div class="hot_sp" style="padding-top: 70px;padding-bottom: 50px;">
+        <h2 style="text-align:center;padding-top: 10px">
+          <a style="font-size: 28px;color: black;text-decoration: none" href="">Khách hàng và Phone Care</a>
+        </h2>
+      </div>
+      <div class="list-gallery clearfix">
+        <ul class="shoes-gp">
+          <li>
+            <div class="gallery_item">
+              <img class="img-resize" src="images/footer/customer1.jpg" alt="">
+            </div>
+          </li>
+          <li>
+            <div class="gallery_item">
+              <img class="img-resize" src="images/footer/customer2.jpg" alt="">
+            </div>
+          </li>
+          <li>
+            <div class="gallery_item">
+              <img class="img-resize" src="images/footer/customer3.jpg" alt="">
+            </div>
+          </li>
+          <li>
+            <div class="gallery_item">
+              <img class="img-resize" src="images/footer/customer4.jpg" alt="">
+            </div>
+          </li>
+          <li>
+            <div class="gallery_item">
+              <img class="img-resize" src="images/footer/customer5.jpg" alt="">
+            </div>
+          </li>
+          <li>
+            <div class="gallery_item">
+              <img class="img-resize" src="images/footer/customer6.jpg" alt="">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <footer class="main-footer">
     <div class="container">
       <div class="">
@@ -451,10 +494,10 @@
                   <img src="images/logo-bct.png" alt="Bộ Công Thương">
                 </div>
                 <div class="social-list">
-                  <a href="#" class="fab fa-facebook"></a>
-                  <a href="#" class="fab fa-google"></a>
-                  <a href="#" class="fab fa-twitter"></a>
-                  <a href="#" class="fab fa-youtube"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-facebook"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-google"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-twitter"></a>
+                  <a href="https://www.facebook.com/phonecareweb" class="fab fa-youtube"></a>
 
                 </div>
               </div>
@@ -510,10 +553,10 @@
                 <div id="fb-root1">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
-                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://20130370.tk/">Nguyễn Đăng
-                          Phước </a>
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
+                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://project-personal-mine.web.app/">Nguyễn Đăng
+                        Phước </a>
                       </blockquote>
                     </div>
                   </div>
@@ -523,11 +566,11 @@
                 <div id="fb-root2">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
                       <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130450@st.hcmuaf.edu.vn">Vũ
-                          Ngọc Thanh
-                          Trúc </a>
+                        Ngọc Thanh
+                        Trúc </a>
                       </blockquote>
                     </div>
                   </div>
@@ -537,10 +580,10 @@
                 <div id="fb-root3">
                   <div class="footer-static-content">
                     <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                      data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                      data-show-facepile="true">
-                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://20130370.tk/">Nguyễn Mạnh
-                          Quyền </a>
+                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                         data-show-facepile="true">
+                      <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130479@st.hcmuaf.edu.vn">Nguyễn Mạnh
+                        Quyền </a>
                       </blockquote>
                     </div>
                   </div>
@@ -560,7 +603,6 @@
       </div>
     </div>
   </footer>
-  <script src="js/validationUser.js"></script>
   <script async defer crossorigin="anonymous" src="plugins/sdk.js"></script>
   <script src="plugins/jquery-3.4.1/jquery-3.4.1.min.js"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
@@ -575,6 +617,7 @@
   <script src="js/sign.js"></script>
   <!-- Mini Cart -->
   <script src="js/minicart.min.js"></script>
+  <script src="js/validationUser.js"></script>
   <script>
     paypal.minicart.render({
       action: '#'
