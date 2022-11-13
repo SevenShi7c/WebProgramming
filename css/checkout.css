@@ -37,11 +37,7 @@
   left: 158%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-<<<<<<< HEAD
   background-color: #ce7515;
-=======
-  background-color: #F28102;
->>>>>>> adb8105743630cece5164cb8b655c22c9cf82f8c
   box-shadow: 0 0 25px rgba(0, 0, 0, .3);
 }
 
@@ -228,11 +224,7 @@
   bottom: 0;
   border: none;
   border-radius: 3px;
-<<<<<<< HEAD
   background-color: #ce7515;
-=======
-  background-color: #F28102;
->>>>>>> adb8105743630cece5164cb8b655c22c9cf82f8c
   box-shadow: 0 0 20px rgba(0, 0, 0, .25);
   transition: all .3s ease;
   left: -150px;

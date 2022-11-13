@@ -1,8 +1,8 @@
-#booking form label{
+#booking form label {
     font-size: 16px;
 }
 
-#booking form .btn-primary{
+#booking form .btn-primary {
 
 
     border: none;
@@ -12,7 +12,8 @@
     background-color: #F28102;
     color: #fff;
 }
-#booking form .btn-primary:hover{
+
+#booking form .btn-primary:hover {
 
 
     box-shadow: none;
@@ -23,4 +24,24 @@
     background-color: #1D273E;
 
     color: #fff;
+}
+
+
+#booking form .btn-checkout {
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    background-color: #fff;
+    border: solid 1px #1D273E;
+}
+
+.btn-checkout:hover {
+    box-shadow: none;
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    background-color: #1D273E !important;
+    color: #fff !important;
 }
