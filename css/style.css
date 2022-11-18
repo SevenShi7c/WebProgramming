@@ -500,6 +500,8 @@ div.pro-text {
 .block-banner-category {
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .block-banner-category .caption_banner p {
@@ -603,6 +605,13 @@ div.pro-text {
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.btn-cart:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
 }
 
 .product-block .product-img a img:first-child {
@@ -2765,7 +2774,7 @@ a.btn-check,
   color: #fff !important;
 }
 
-a.buy-now:hover{
+a.buy-now:hover {
   text-decoration: none;
 }
 
@@ -3680,17 +3689,12 @@ div.item:hover {
   border-color: #5b951a !important;
 }
 
-#PPMiniCart .minicart-subtotal {
-  padding-left: 25px !important;
-  bottom: -17px !important;
-}
-
 #PPMiniCart {
   left: 44% !important;
   z-index: 9999;
 }
 
-#PPMiniCart .minicart-closer{
+#PPMiniCart .minicart-closer {
   outline: 0;
 }
 
@@ -3701,7 +3705,11 @@ div.item:hover {
 
 #PPMiniCart .minicart-footer {
   position: relative;
-  width: 80%;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (max-width: 1080px) {
@@ -3850,25 +3858,50 @@ div.item:hover {
   }
 
   #PPMiniCart .minicart-subtotal {
-    padding-left: 5px !important;
-    font-size: 13px !important;
+    bottom: 17px;
+    padding-left: 6px;
+    font-size: 16px;
+    font-weight: bold;
   }
 }
 
-.w3view-cart.btn{
+.w3view-cart.btn {
   border: none;
   box-shadow: none !important;
 }
+
 /*booked*/
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link {
 
   font-size: 19px;
   color: black;
 
 }
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: white;
   background-color: #F28102;
   border-color: #F28102;
+
+}
+
+.btn-prev-slider {
+  transform: rotate(-180deg);
+}
+
+button.disible {
+  cursor: not-allowed;
+  opacity: 0.1;
+}
+
+.btn-pagination {
+  padding: 8px 16px;
+}
+
+.btn-pagination.active {
+  background-color: #fb6027;
+  color: #fff;
 
 }

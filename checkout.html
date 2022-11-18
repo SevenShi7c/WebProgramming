@@ -662,9 +662,12 @@
             paypal.minicart.reset();
         }
 
+        var htmlItemm ="";
+        var sumMoney = 0
 
         for (let i = 0; i < cart.length; i++) {
-            var htmlItemm = `
+            console.log(cart[i]);
+            htmlItemm += `
                                 <div class="productSlides fade-checkout">
                                     <div class="img">
                                         <img src="./images/product/${cart[i].image}"
@@ -686,40 +689,21 @@
                                         Tổng tiền: ${convertMoney(cart[i].quantity*cart[i].amount)}
                                     </p>
                                 </div>
-
-                                <div class="productSlides fade-checkout">
-                                    <div class="img">
-                                        <img src="./images/product/${cart[i].image}"
-                                            class="img-fluid w-100">
-                                    </div>
-                                    <h1 class="product-name">
-                                        ${cart[i].item_name + "2"}
-                                    </h1>
-                                    <p class="product-code-name">
-                                        loại ${cart[i].option2}
-                                    </p>
-                                    <p class="price">
-                                        Đơn giá: ${convertMoney(cart[i].amount)}
-                                    </p>
-                                    <p class="quantity text-center">
-                                        Số lượng: ${cart[i].quantity}
-                                    </p>
-                                    <p class="money text-center">
-                                        Tổng tiền: ${convertMoney(cart[i].quantity*cart[i].amount)}
-                                    </p>
-                                </div>
-
-                            <!-- The dots/circles -->
-                            <div style="text-align:center" class="dots">
-                                <span class="dot" onclick="currentSlide(${i+1})"></span>
-                                <span class="dot" onclick="currentSlide(${i+2})"></span>
-                            </div>
             `;
-            var sumMoney = 0
             var htmlSumMoney = `
                 <h3 class="d-flex justify-content-center">Thành tiền: ${convertMoney(sumMoney+=cart[i].quantity*cart[i].amount)}</h3>
         `
         }
+        htmlItemm += `
+        <!-- The dots/circles -->
+            <div style="text-align:center" class="dots">`
+        for (let i = 0; i < cart.length; i++) {
+            htmlItemm += `
+                 <span class="dot" onclick="currentSlide(${i+1})"></span>
+            `
+        }
+        htmlItemm += `</div>   `
+
         $('.product-slideshow').append(htmlItemm)
 
 
