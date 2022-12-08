@@ -1,6 +1,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="java.util.LinkedList" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,37 +48,37 @@
                 </li>
 
                 <li class="nav-item lisanpham">
-                    <a class="nav-link" href="product.html">Điện thoại
+                    <a class="nav-link" href="product.jsp">Điện thoại
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                     <ul class="sub_menu">
                         <li class="">
-                            <a href="product.html" title="Sửa điện thoại Iphone">
+                            <a href="product.jsp" title="Sửa điện thoại Iphone">
                                 Sửa điện thoại Iphone
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Sửa điện thoại Samsung">
+                            <a href="product.jsp" title="Sửa điện thoại Samsung">
                                 Sửa điện thoại Samsung
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Sửa điện thoại Xiaomi">
+                            <a href="product.jsp" title="Sửa điện thoại Xiaomi">
                                 Sửa điện thoại Xiaomi
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Sửa điện thoại Oppo">
+                            <a href="product.jsp" title="Sửa điện thoại Oppo">
                                 Sửa điện thoại Oppo
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Sửa điện thoại Vivo">
+                            <a href="product.jsp" title="Sửa điện thoại Vivo">
                                 Sửa điện thoại Vivo
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Sửa điện thoại Huawei">
+                            <a href="product.jsp" title="Sửa điện thoại Huawei">
                                 Sửa điện thoại Huawei
                             </a>
                         </li>
@@ -87,32 +87,32 @@
                     </ul>
                 </li>
                 <li class="nav-item lisanpham">
-                    <a class="nav-link" href="product.html">Dịch vụ
+                    <a class="nav-link" href="product.jsp">Dịch vụ
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                     <ul class="sub_menu">
                         <li class="">
-                            <a href="product.html" title="Thay pin">
+                            <a href="product.jsp" title="Thay pin">
                                 Thay pin
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Thay màn hình">
+                            <a href="product.jsp" title="Thay màn hình">
                                 Thay màn hình
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Thay camera">
+                            <a href="product.jsp" title="Thay camera">
                                 Thay camera
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Thay vỏ">
+                            <a href="product.jsp" title="Thay vỏ">
                                 Thay vỏ
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.html" title="Thay loa">
+                            <a href="product.jsp" title="Thay loa">
                                 Thay loa
                             </a>
                         </li>
@@ -148,35 +148,35 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <p>Điện thoại</p>
                                 <i class="fa fa-angle-double-right"></i>
 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="border:0;">
-                                <a class="dropdown-item" href="product.html" title="">Sửa điện thoại Iphone</a>
-                                <a class="dropdown-item" href="product.html" title="">Sửa điện thoại Samsung</a>
-                                <a class="dropdown-item" href="product.html" title="">Sửa điện thoại Xiaomi</a>
-                                <a class="dropdown-item" href="product.html" title="">Sửa điện thoại Oppo</a>
-                                <a class="dropdown-item" href="product.html" title="">Sửa điện thoại Vivo</a>
-                                <a class="dropdown-item" href="product.html" title="">Sửa điện thoại Huawei</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Iphone</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Samsung</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Xiaomi</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Oppo</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Vivo</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Huawei</a>
 
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdown2" role="button"
+                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown2" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <p>Dịch vụ</p>
                                 <i class="fa fa-angle-double-right"></i>
 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="border:0;">
-                                <a class="dropdown-item" href="product.html" title="">Thay pin</a>
-                                <a class="dropdown-item" href="product.html" title="">Thay màn hình</a>
-                                <a class="dropdown-item" href="product.html" title="">Thay camera</a>
-                                <a class="dropdown-item" href="product.html" title="">Thay vỏ</a>
-                                <a class="dropdown-item" href="product.html" title="">Thay loa</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Thay pin</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Thay màn hình</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Thay camera</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Thay vỏ</a>
+                                <a class="dropdown-item" href="product.jsp" title="">Thay loa</a>
 
 
                             </div>
@@ -359,10 +359,10 @@
     <div class="container">
         <div class="hot_sp" style="padding-bottom: 10px;">
             <h2 style="text-align:center;padding-top: 10px">
-                <a style="font-size: 28px;color: black;text-decoration: none" href="product.html">Sản phẩm bán chạy</a>
+                <a style="font-size: 28px;color: black;text-decoration: none" href="product.jsp">Sản phẩm bán chạy</a>
             </h2>
             <div class="view-all" style="text-align:center;padding-top: -10px;">
-                <a style="color: black;text-decoration: none" href="product.html">Xem thêm</a>
+                <a style="color: black;text-decoration: none" href="product.jsp">Xem thêm</a>
             </div>
         </div>
     </div>
@@ -372,7 +372,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-samsung-s8-fc-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -380,7 +380,7 @@
                     <div class="product-detail clearfix">
                         <div class="pro-text">
                             <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="product.html" title="" inspiration
+                                                  font-size: 14px;text-decoration: none;" href="product.jsp" title="" inspiration
                                pack>
                                 Ép cổ cáp màn hình Samsung S8
                             </a>
@@ -394,7 +394,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-iphone-x-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -416,7 +416,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-iphone-xs-max-fc-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -438,7 +438,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-iphone-xs-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -462,7 +462,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-samsung-s8-plus-fc-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -484,7 +484,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-samsung-s9-fc-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -506,7 +506,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-samsung-s9-plus-fc-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -528,7 +528,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.html" title="" class="img-resize">
+                        <a href="product.jsp" title="" class="img-resize">
                             <img src="images/product/ep-co-cap-man-hinh-samsung-s10-fc-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
@@ -599,11 +599,11 @@
             <div class="container">
                 <div class="hot_sp">
                     <h2 style="text-align:center;">
-                        <a style="font-size: 28px;color: black;text-decoration: none" href="product.html">Sản phẩm
+                        <a style="font-size: 28px;color: black;text-decoration: none" href="product.jsp">Sản phẩm
                             mới</a>
                     </h2>
                     <div class="view-all" style="text-align:center;">
-                        <a style="color: black;text-decoration: none" href="product.html">Xem thêm</a>
+                        <a style="color: black;text-decoration: none" href="product.jsp">Xem thêm</a>
                     </div>
                 </div>
             </div>
@@ -1119,7 +1119,7 @@
     </form>
 </div>
 
-<%LinkedList< Product> listProduct = (LinkedList<Product>)  ProductService.getListProduct();%>
+<%LinkedList<ProductModel> listProduct = (LinkedList<ProductModel>)  ProductService.getListProduct();%>
 
 
 <script async defer crossorigin="anonymous" src="plugins/sdk.js"></script>

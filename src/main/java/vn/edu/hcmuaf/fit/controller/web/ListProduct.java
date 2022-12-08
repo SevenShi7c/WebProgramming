@@ -1,6 +1,6 @@
-package vn.edu.hcmuaf.fit.controller;
+package vn.edu.hcmuaf.fit.controller.web;
 
-import vn.edu.hcmuaf.fit.model.Product;
+import vn.edu.hcmuaf.fit.model.ProductModel;
 import vn.edu.hcmuaf.fit.service.ProductService;
 
 import javax.servlet.ServletException;
@@ -13,11 +13,21 @@ import java.util.List;
 
 @WebServlet(name="listProduct",value="/list-product")
 public class ListProduct extends HttpServlet {
+
+    private ProductService productService;
+    public ListProduct() {
+        productService = new ProductService();
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> listProduct = ProductService.getListProduct();
-        request.setAttribute("list",listProduct);
-        request.getRequestDispatcher("/shop.jsp").forward(request,response);
+        List<ProductModel> listProduct = productService.getListProduct();
+
+        System.out.println(listProduct);
+
+        request.setAttribute("listProduct",listProduct);
+
+        request.getRequestDispatcher("/product.jsp").forward(request,response);
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
