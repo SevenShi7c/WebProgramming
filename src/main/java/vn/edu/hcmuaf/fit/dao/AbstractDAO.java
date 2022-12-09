@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class AbstractDAO<T> {
+public class AbstractDAO{
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;

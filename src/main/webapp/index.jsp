@@ -244,7 +244,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 home-banner-pd">
                     <div class="block-banner-category">
-                        <a href="blog.html" class="link-banner wrap-flex-align flex-column">
+                        <a href="blog.jsp" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image fade-box">
                                 <img class="lazyloaded" src="images/logo/phonecare2.png" alt="">
                             </div>
@@ -257,7 +257,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 home-banner-pd">
                     <div class="block-banner-category">
-                        <a href="blog.html" class="link-banner wrap-flex-align flex-column">
+                        <a href="blog.jsp" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image fade-box">
                                 <img class="lazyloaded" src="images/blog/blog1.jpg" alt="">
                             </div>
@@ -297,15 +297,13 @@
                 </div>
             </div>
             <!--Product-->
-            <c:forEach items="${newListProduct}" var="productNew">
-                <div>Name product: ${productNew.name}</div>
-            </c:forEach>
+<%--            <c:forEach items="${newListProduct}" var="productNew">--%>
+<%--                <div>Name product: ${productNew.name}</div>--%>
+<%--            </c:forEach>--%>
         </div>
 
         <div class="container product" style="width: 100%;margin: auto;">
             <div class="owl-carousel owl-theme owl-product-setting">
-                <h2><%= (String) request.getAttribute("new")%>
-                </h2>
 
                 <%--                <c:forEach items="${newProduct}" var="product">--%>
 
@@ -343,7 +341,7 @@
             <div class="container">
                 <div class="hot_sp">
                     <h2 style="text-align:center;padding-top: 10px">
-                        <a style="font-size: 28px;color: black;text-decoration: none" href="blog.html">Bài viết mới
+                        <a style="font-size: 28px;color: black;text-decoration: none" href="blog.jsp">Bài viết mới
                             nhất</a>
                     </h2>
                     <br/>

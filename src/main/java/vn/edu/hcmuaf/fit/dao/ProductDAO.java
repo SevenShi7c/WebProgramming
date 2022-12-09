@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ProductDAO extends AbstractDAO<ProductModel>{
+public class ProductDAO extends AbstractDAO{
 
     public List<ProductModel> findAll() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();

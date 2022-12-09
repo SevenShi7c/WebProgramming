@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="true" %>
+<%@include file="common/taglib.jsp" %>
+
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/animate/animate.min.css">
-    <link rel="stylesheet" href="plugins/fontawesome/all.css">
-    <link rel="stylesheet" href="plugins/webfonts/font.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" type="text/css">
-    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/animate/animate.min.css">
-    <link rel="stylesheet" href="plugins/fontawesome/all.css">
-    <link rel="stylesheet" href="plugins/webfonts/font.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" type="text/css">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
+    <link rel="stylesheet" href="plugins/animate/animate.min.css">
+
+    <link rel="stylesheet" href="plugins/fontawesome/all.css">
+
+    <link href="plugins/webfonts/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/owl.carousel/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="plugins/owl.carousel/owl.theme.default.min.css">
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="plugins/uikit/uikit.min.css"/>
 
-    <title>Bài viết mới nhất | Phone Care</title>
+
+    <title>Blog | Phone Care </title>
     <link href="images/logo/logo_PhoneCare.png" rel="shortcut icon" type="image/x-icon">
-
-
 </head>
 
 <body>
@@ -127,7 +128,7 @@
                     <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="blog.html">BLOG</a>
+                    <a class="nav-link" href="blog.jsp">BLOG</a>
                 </li>
                 <li class="">
                     <a class="nav-link" href="contact.html">LIÊN HỆ</a>
@@ -151,7 +152,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown"
+                               role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <p>Điện thoại</p>
                                 <i class="fa fa-angle-double-right"></i>
@@ -168,7 +170,8 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown2" role="button"
+                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown2"
+                               role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <p>Dịch vụ</p>
                                 <i class="fa fa-angle-double-right"></i>
@@ -188,7 +191,7 @@
                             <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">BLOG</a>
+                            <a class="nav-link" href="blog.jsp">BLOG</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">LIÊN HỆ</a>
@@ -268,7 +271,8 @@
                 <input type="hidden" name="cmd" value="_cart">
                 <input type="hidden" name="display" value="1">
                 <button class="w3view-cart btn" type="submit" name="submit" value="" onclick="addBtnCart()">
-                    <div class="icon-ol"><i class="icon-header fas fa-shopping-cart"  aria-hidden="true"></i></div></button>
+                    <div class="icon-ol"><i class="icon-header fas fa-shopping-cart" aria-hidden="true"></i></div>
+                </button>
             </form>
         </div>
 
@@ -290,10 +294,12 @@
                         <table id="cart-view2">
                             <tbody>
                             <tr class="item_1">
-                                <td class="img"><a href="" title=""><img src="images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                                                         alt=""></a></td>
+                                <td class="img"><a href="" title=""><img
+                                        src="images/product/thay-man-hinh-iphone-x-fc.jpg"
+                                        alt=""></a></td>
                                 <td>
-                                    <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay Màn Hình
+                                    <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay
+                                        Màn Hình
                                         Iphone X</a>
                                     <span class="variant">Zin</span>
                                     <span class="pro-quantity-view">1</span>
@@ -320,7 +326,8 @@
                                 <td class="text-right">Chưa thanh toán</td>
                             </tr>
                             <tr>
-                                <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ hàng</a></td>
+                                <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ
+                                    hàng</a></td>
                                 <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
                             </tr>
                             </tbody>
@@ -377,77 +384,30 @@
                         <h2>Bài viết mới nhất</h2>
                     </div>
                     <div class="list-news-latest layered">
+                        <%List<BlogModel> newListBlog = (List<BlogModel>) request.getAttribute("newListBlog");%>
+
+                        <%for (BlogModel blog : newListBlog) {%>
                         <div class="item-article clearfix">
                             <div class="post-image">
                                 <a href="">
-                                    <img src="images/blog/cach-chup-man-hinh-iphone-14-pro-max.jpg" alt=""></a>
+                                    <img src="images/blog/<%=blog.getAvatar()%>" alt=""></a>
                             </div>
                             <div class="post-content">
                                 <h3>
-                                    <a href="blog.html">Cách chụp màn hình Iphone 14 Pro-max</a>
+                                    <a href="blog.jsp"><%=blog.getTitle()%>
+                                    </a>
                                 </h3>
-                                <span class="author">
-                    <a href="https://www.facebook.com/profile.php?id=100004489155351">Mạnh Quyền</a>
-                  </span>
-                                <span class="date">
-                    30/10/2002
-                  </span>
+                                <span class="author"><%=blog.getUserCreated()%></span>
+                                <span class="date"><%=blog.getCreatedDate()%> </span>
                             </div>
                         </div>
-                        <div class="item-article clearfix">
-                            <div class="post-image">
-                                <a href=""><img src="images/blog/iphone-13-pro-loi-man-hinh-xanh.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="blog.html">Iphone 13 Pro lỗi màn hình xanh</a>
-                                </h3>
-                                <span class="author">
-                    <a href="https://www.facebook.com/profile.php?id=100004489155351">Mạnh Quyền</a>
-                  </span>
-                                <span class="date">
-                    29/10/2022
-                  </span>
-                            </div>
-                        </div>
-                        <div class="item-article clearfix">
-                            <div class="post-image">
-                                <a href=""><img src="images/blog/cach-bat-thong-bao-sac-day-pin-android.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="blog.html">Cách bật thông báo sạc day pin android</a>
-                                </h3>
-                                <span class="author">
-                    <a href="https://www.facebook.com/ngdangphuoc/">Admin Phone Care</a>
-                  </span>
-                                <span class="date">
-                    01/11/2022
-                  </span>
-                            </div>
-                        </div>
-                        <div class="item-article clearfix">
-                            <div class="post-image">
-                                <a href=""><img src="images/blog/n-4.jpg" alt="Bài viết mẫu"></a>
-                            </div>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="">Bài viết mẫu</a>
-                                </h3>
-                                <span class="author">
-                    <a href="">Phone Care</a>
-                  </span>
-                                <span class="date">
-                    01/11/2022
-                  </span>
-                            </div>
-                        </div>
+                        <%}%>
                     </div>
                 </div>
                 <div class="menu-blog">
                     <div class="group-menu">
                         <div class="page_menu_title title_block">
-                            <h2>Danh mục trang</span></h2>
+                            <h2>Danh mục trang</h2>
                         </div>
                         <div class="layered layered-category">
                             <div class="layered-content">
@@ -535,7 +495,7 @@
                                     </li>
                                     <li class="active"><a href="introduce.html"
                                                           title="Giới thiệu"><span>Giới thiệu</span></a></li>
-                                    <li class=""><a href="blog.html" title="Blog"><span>Blog</span></a></li>
+                                    <li class=""><a href="blog.jsp" title="Blog"><span>Blog</span></a></li>
                                     <li class=""><a href="contact.html" title="Liên hệ"><span>Liên hệ</span></a></li>
                                 </ul>
                             </div>
@@ -544,82 +504,57 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-sm-12 col-xs-12 article-area">
-            <div class="content-page">
-                <div class="article-content" style="font-size: 18px">
-                    <div class="box-article-heading clearfix">
-                        <div class="background-img">
-                            <img src="images/blog/cach-chup-man-hinh-iphone-14-pro-max.jpg" alt="">
+        <div class="col-md-9 col-sm-12 col-xs-12">
+            <div class="heading-page clearfix">
+                <h1>Bài viết</h1>
+            </div>
+            <div class="blog-content">
+                <div class="list-article-content blog-posts">
+                    <!-- Begin: Nội dung blog -->
+                    <%List<BlogModel> listBlog = (List<BlogModel>) request.getAttribute("listBlog");%>
+
+                    <%for (BlogModel blog : listBlog) {%>
+                    <article class="blog-loop">
+                        <div class="blog-post row">
+                            <div class="col-md-4 col-xs-12 col-sm-12">
+                                <a href="detail-blog?id-blog=<%=blog.getId()%>" class="blog-post-thumbnail" title=""
+                                   rel="nofollow">
+                                    <img style="border: 1px;width: 100%" src="images/blog/<%=blog.getAvatar()%>"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 col-sm-12">
+                                <h3 class="blog-post-title">
+                                    <a href="detail-blog?id-blog=<%=blog.getId()%>" title=""><%=blog.getTitle()%>
+                                    </a>
+                                </h3>
+                                <div class="blog-post-meta">
+                                    <span class="author vcard">Người viết: <%=blog.getUserCreated()%></span>
+                                    <span class="date">
+                      <time pubdate="" datetime="2022-10-30"><%=blog.getCreatedDate()%></time>
+                    </span>
+                                </div>
+                                <p class="entry-content"><%=blog.getBriefContent()%>
+                                </p>
+                            </div>
                         </div>
-                        <h1 class="sb-title-article">Cách chụp màn hình iPhone 14 Pro Max nhanh chóng</h1>
-                        <ul class="article-info-more" style="padding-left: 0 ">
-                            <li> Người viết:<a href="https://www.facebook.com/profile.php?id=100004489155351">Mạnh
-                                Quyền </a> lúc
-                                <time pubdate="" datetime="2019-06-11">07/11/2021</time>
-                            </li>
-                            <li><i class="far fa-file-alt"></i><a style="color:black;text-decoration: none;" href="#">
-                                Tin tức</a></li>
-                        </ul>
-                    </div>
-                    <div class="article-pages">
-                        <h3 >3 Cách chụp màn hình iPhone 14 Pro Max mà iFan nên biết</h3>
-
-
-                        <h3 style="color:orange;">Cách chụp màn hình bằng phím tắt dọc thân máy</h3>
-
-
-                        <p>
-                            Như các phiên bản smartphone khác của nhà Táo, iFan có thể chụp màn hình iPhone 14 Pro Max
-                            dễ dàng với hai nút: nút Nguồn và nút Tăng âm lượng.
-
-                            Thao tác thực hiện vô cùng đơn giản:
-                        </p>
-                        <p>
-                            ✤ <b>Bước 1</b>: Truy cập vào hình hoặc trang Web mà bạn muốn chụp màn hình.</p>
-                        <p>
-
-                            ✤ <b>Bước 2</b>: Nhấn và giữ cùng lúc nút <b>Nguồn</b>  và nút <b>Tăng âm lượng</b>  tới khi nghe thấy âm thanh
-                            chụp hoặc màn hình nháy trắng.
-                        <p>
-
-                            <br>
-
-                            <img src="images/blog/cach-chup-man-hinh-iphone-14-pro-max.jpg" alt="">
-
-                            <br>
-                        </p>
-
-                        <h3 style="color:orange;">Cách screenshot iPhone 14 Pro Max bằng phím trợ năng AssistiveTouch
-                        </h3>
-                        <p>Phím trợ năng Assistive Touch là một phím Home ảo cho phép người dùng thực hiện các thao tác
-                            cơ bản như chụp màn hình, reset máy, tăng/giảm âm lượng,...mà không cần đến các phím cứng.
-                        <p>Để kích hoạt Assistive Touch, bạn cần thao tác theo 2 bước hướng dẫn sau: </p>
-                        <p>✤ <b>Bước 1</b>:  Truy cập vào ứng dụng <b>Cài đặt</b> trên điện thoại > Cuộn xuống chọn mục <b>Trợ năng</b>. </p>
-                        <p>✤ <b>Bước 2</b>: Nhấn chọn <b>Cảm ứng</b> > Chọn tiếp <b>Assistive Touch</b> > Gạt thanh ngang tại Assistive Touch để kích hoạt tiện ích này. </p>
-                        <p>Để chụp màn hình, bạn hãy nhấn vào nút Assistive Touch vừa kích hoạt > Chọn Thiết bị > Chọn Khác > Chọn Chụp màn hình. </p>
-                        <img src="https://cdn.fastcare.vn/fastcare/2022/10/cach-screenshot-iphone-14-pro-max-bang-assistivetouch.jpg" alt="">
-                        <br>
-                        <h3 style="color:orange;">Chụp màn hình bằng cách chạm vào mặt lưng iPhone
-                        </h3>
-                        <p>
-                            Với iOS 14 trở lên, bạn có thể chụp màn hình nhanh chóng bằng cách chạm vào mặt lưng của iPhone. “Back Tap” chính là trợ năng cho phép bạn thực hiện thao tác này chỉ trong vài tích tắc.
-
-                        </p>
-                        <p>Bật Back Tap cho iPhone 14 Pro Max được tiến hành qua các bước: </p>
-                        <p>
-                            ✤ <b>Bước 1</b>: Truy cập vào ứng dụng <b>Cài đặt (Settings)</b> trên iPhone > Chọn mục <b>Trợ năng (Accessibility)</b>.</p>
-                        <p>
-
-                            ✤ <b>Bước 2</b>: Nhấn chọn <b>Cảm ứng (Touch)</b> > Chọn tiếp <b>Back Tap</b>.
-                        <p>
-                        <p>
-
-                            ✤ <b>Bước 3</b>: Tại đây bạn sẽ có 2 sự lựa chọn: <b>Double Tap</b> (Chạm 2 lần) và <b>Triple Tap</b> (Chạm 3 lần). Tùy vào sở thích, mong muốn của bản thân, bạn có thể tự thiết lập tính năng chụp màn hình tại đây.
-
-                        <p>
-                            <img src="https://cdn.fastcare.vn/fastcare/2022/10/chup-man-hinh-bang-cach-cham-vao-mat-lung-iphone.jpg" alt="">
-                        <p>Mặc dù khá nhanh và hiện đại nhưng tính năng này có thể khiến iPhone chụp lại quá nhiều ảnh màn hình nếu bạn vô tình chạm mạnh vài lần vào lưng máy.</p>
-
+                    </article>
+                    <%}%>
+                </div>
+                <div class="sortpagibar pagi clearfix text-center">
+                    <div id="pagination" class="clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="page-node current">1</span>
+                            <a class="page-node" href="">2</a>
+                            <a class="next" href="">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     x="0px" y="0px" viewBox="0 0 31 10"
+                                     style="enable-background:new 0 0 31 10; width: 31px; height: 10px;"
+                                     xml:space="preserve">
+                    <polygon points="31,5 25,0 25,4 0,4 0,6 25,6 25,10 "></polygon>
+                  </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -744,10 +679,13 @@
                         <div class="footer-content">
                             <div id="fb-root1">
                                 <div class="footer-static-content">
-                                    <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                                    <div class="fb-page" data-href="#" data-tabs="timeline" data-width=""
+                                         data-height="215"
+                                         data-small-header="false" data-adapt-container-width="true"
+                                         data-hide-cover="false"
                                          data-show-facepile="true">
-                                        <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="https://project-personal-mine.web.app/">Nguyễn Đăng
+                                        <blockquote cite="#" class="fb-xfbml-parse-ignore"><a
+                                                href="https://project-personal-mine.web.app/">Nguyễn Đăng
                                             Phước </a>
                                         </blockquote>
                                     </div>
@@ -757,10 +695,13 @@
                         <div class="footer-content">
                             <div id="fb-root2">
                                 <div class="footer-static-content">
-                                    <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                                    <div class="fb-page" data-href="#" data-tabs="timeline" data-width=""
+                                         data-height="215"
+                                         data-small-header="false" data-adapt-container-width="true"
+                                         data-hide-cover="false"
                                          data-show-facepile="true">
-                                        <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130450@st.hcmuaf.edu.vn">Vũ
+                                        <blockquote cite="#" class="fb-xfbml-parse-ignore"><a
+                                                href="mailTo:20130450@st.hcmuaf.edu.vn">Vũ
                                             Ngọc Thanh
                                             Trúc </a>
                                         </blockquote>
@@ -771,10 +712,13 @@
                         <div class="footer-content">
                             <div id="fb-root3">
                                 <div class="footer-static-content">
-                                    <div class="fb-page" data-href="#" data-tabs="timeline" data-width="" data-height="215"
-                                         data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                                    <div class="fb-page" data-href="#" data-tabs="timeline" data-width=""
+                                         data-height="215"
+                                         data-small-header="false" data-adapt-container-width="true"
+                                         data-hide-cover="false"
                                          data-show-facepile="true">
-                                        <blockquote cite="#" class="fb-xfbml-parse-ignore"><a href="mailTo:20130479@st.hcmuaf.edu.vn">Nguyễn Mạnh
+                                        <blockquote cite="#" class="fb-xfbml-parse-ignore"><a
+                                                href="mailTo:20130479@st.hcmuaf.edu.vn">Nguyễn Mạnh
                                             Quyền </a>
                                         </blockquote>
                                     </div>
@@ -795,25 +739,18 @@
         </div>
     </div>
 </footer>
-
 <script async defer crossorigin="anonymous" src="plugins/sdk.js"></script>
 <script src="plugins/jquery-3.4.1/jquery-3.4.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <script src="plugins/bootstrap/popper.min.js"></script>
 <script src="plugins/bootstrap/bootstrap.min.js"></script>
 <script src="plugins/owl.carousel/owl.carousel.min.js"></script>
-<script src="js/home.js"></script>
-<script src="js/script.js"></script>
 <script src="plugins/uikit/uikit.min.js"></script>
 <script src="plugins/uikit/uikit-icons.min.js"></script>
-
-<script src="plugins/uikit-3.13.7/uikit-3.13.7/src/js/uikit.js"></script>
-<script src="plugins/uikit-3.13.7/uikit-3.13.7/src/js/uikit-core.js"></script>
-
-<!-- Mini Cart -->
 <script src="js/minicart.min.js"></script>
 <script src="js/validationUser.js"></script>
 <script>
+    // Mini Cart
     paypal.minicart.render({
         action: '#'
     });
@@ -821,8 +758,9 @@
     if (~window.location.search.indexOf('reset=true')) {
         paypal.minicart.reset();
     }
-
 </script>
+
+
 </body>
 
 </html>

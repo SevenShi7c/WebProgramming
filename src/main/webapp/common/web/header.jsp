@@ -86,7 +86,7 @@
                     <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">BLOG</a>
+                    <a class="nav-link" href="blog.jsp">BLOG</a>
                 </li>
                 <li class="">
                     <a class="nav-link" href="contact.html">LIÊN HỆ</a>
@@ -149,7 +149,7 @@
                             <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">BLOG</a>
+                            <a class="nav-link" href="blog.jsp">BLOG</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">LIÊN HỆ</a>

@@ -46,33 +46,6 @@
                                 Sửa điện thoại Iphone
                             </a>
                         </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Samsung">
-                                Sửa điện thoại Samsung
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Xiaomi">
-                                Sửa điện thoại Xiaomi
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Oppo">
-                                Sửa điện thoại Oppo
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Vivo">
-                                Sửa điện thoại Vivo
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Huawei">
-                                Sửa điện thoại Huawei
-                            </a>
-                        </li>
-
-
                     </ul>
                 </li>
                 <li class="nav-item lisanpham">
@@ -113,7 +86,7 @@
                     <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">BLOG</a>
+                    <a class="nav-link" href="blog.jsp">BLOG</a>
                 </li>
                 <li class="">
                     <a class="nav-link" href="contact.html">LIÊN HỆ</a>
@@ -176,7 +149,7 @@
                             <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">BLOG</a>
+                            <a class="nav-link" href="blog.jsp">BLOG</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">LIÊN HỆ</a>

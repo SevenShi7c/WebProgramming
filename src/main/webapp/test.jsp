@@ -158,7 +158,7 @@
                                             </li>
                                             <li class=""><a href="introduce.html"
                                                             title="Giới thiệu"><span>Giới thiệu</span></a></li>
-                                            <li class=""><a href="blog.html" title="Blog"><span>Blog</span></a></li>
+                                            <li class=""><a href="blog.jsp" title="Blog"><span>Blog</span></a></li>
                                             <li class=""><a href="contact.html" title="Liên hệ"><span>Liên hệ</span></a>
                                             </li>
                                         </ul>
