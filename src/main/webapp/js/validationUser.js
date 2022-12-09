@@ -11,7 +11,7 @@ function validate() {
             button: false,
         });
         setTimeout(() => {
-            window.location = "./profile.html";
+            window.location = "../view/web/profile.jsp";
         }, 1000);
         user = {
             username: username,
@@ -86,22 +86,22 @@ if (user) {
     textHtml = `
         <ul class="navbar-nav mx-2">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdownUser"
+                <a class="nav-link dropdown-toggle aaaa" href="list-product" id="navbarDropdownUser"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <p>${user.username}<i class="fa fa-angle-down"></i>   
                     <img src=${user.avatar} alt="" width=50/></p>
                 </a>   
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownUser" style="border:0;">
-                    <a class="dropdown-item" href="profile.html" title="">Thông tin người dùng</a>
-                    <a class="dropdown-item" href="booked.html" uk-toggle="target: #offcanvas-flip3" title="">Lịch sử đặt hẹn</a>
-                    <a class="dropdown-item" href="signin.html" title="" onclick=logout()>Đăng xuất</a>
+                    <a class="dropdown-item" href="profile" title="">Thông tin người dùng</a>
+                    <a class="dropdown-item" href="booked" uk-toggle="target: #offcanvas-flip3" title="">Lịch sử đặt hẹn</a>
+                    <a class="dropdown-item" href="signin" title="" onclick=logout()>Đăng xuất</a>
                 </div>
             </li>
         </ul>
             `
 }else{
-    textHtml = `<a class="" href="signin.html" class="mr-2">
+    textHtml = `<a class="" href="signin" class="mr-2">
         <i class="icon-header fas fa-user-alt"></i>
     </a>`
 }

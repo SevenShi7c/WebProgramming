@@ -18,7 +18,7 @@ public class DetailBlogController extends HttpServlet {
         BlogModel detailBlog = blogService.getDetailBlogForId(idBlogPram);
 
         request.setAttribute("detailBlog",detailBlog);
-        request.getRequestDispatcher("/detailBlog.jsp").forward(request,response);
+        request.getRequestDispatcher("/view/web/detailBlog.jsp").forward(request,response);
 
     }
 

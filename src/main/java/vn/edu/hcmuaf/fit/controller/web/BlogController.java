@@ -22,7 +22,7 @@ public class BlogController extends HttpServlet {
 
         request.setAttribute("listBlog", listBlog);
         request.setAttribute("newListBlog", newListBlog);
-        request.getRequestDispatcher("/blog.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/web/blog.jsp").forward(request, response);
     }
 
     @Override

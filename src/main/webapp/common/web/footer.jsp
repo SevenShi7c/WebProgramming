@@ -92,16 +92,16 @@
                                     <a href="#" title="Tìm kiếm">Tìm kiếm</a>
                                 </li>
                                 <li class="item">
-                                    <a href="introduce.html" title="Giới thiệu">Giới thiệu</a>
+                                    <a href="introducel" title="Giới thiệu">Giới thiệu</a>
                                 </li>
                                 <li class="item">
-                                    <a href="introduce.html" title="Chính sách đổi trả">Chính sách đổi trả</a>
+                                    <a href="introducel" title="Chính sách đổi trả">Chính sách đổi trả</a>
                                 </li>
                                 <li class="item">
-                                    <a href="introduce.html" title="Chính sách bảo mật">Chính sách bảo mật</a>
+                                    <a href="introducel" title="Chính sách bảo mật">Chính sách bảo mật</a>
                                 </li>
                                 <li class="item">
-                                    <a href="introduce.html" title="Điều khoản dịch vụ">Điều khoản dịch vụ</a>
+                                    <a href="introducel" title="Điều khoản dịch vụ">Điều khoản dịch vụ</a>
                                 </li>
                             </ul>
                         </div>
@@ -201,18 +201,18 @@
 <script src="plugins/uikit/uikit-icons.min.js"></script>
 
 <!-- Mini Cart -->
-<%--<script src="js/minicart.min.js"></script>--%>
+<script src="js/minicart.min.js"></script>
 <script src="js/validationUser.js"></script>
-<%--<script>--%>
-<%--    paypal.minicart.render({--%>
-<%--        action: '#'--%>
-<%--    });--%>
+<script>
+    paypal.minicart.render({
+        action: '#'
+    });
 
-<%--    if (~window.location.search.indexOf('reset=true')) {--%>
-<%--        paypal.minicart.reset();--%>
-<%--    }--%>
+    if (~window.location.search.indexOf('reset=true')) {
+        paypal.minicart.reset();
+    }
 
-<%--</script>--%>
+</script>
 
 </body>
 </html>

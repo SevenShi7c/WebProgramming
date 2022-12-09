@@ -19,6 +19,11 @@
 </head>
 
 <body>
+<div class="header">
+    <a style="color: #ffffff;text-decoration: none;" href="home">Hotline: 1800 2057 (Miễn phí) Thời gian làm việc
+        T2 - CN: 8h - 20h</a>
+</div>
+
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
 
@@ -26,55 +31,55 @@
         <a>
             <img src="images/logo/logo_PhoneCare.png" class="logo-top" alt="">
         </a>
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="home">
 
             <img src="images/logo/phoneCare.png" class="logoWord-top" alt="">
         </a>
         <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="">TRANG CHỦ</a>
+                    <a class="nav-link" href="home">TRANG CHỦ</a>
                 </li>
 
                 <li class="nav-item lisanpham active">
-                    <a class="nav-link" href="product.jsp">Điện thoại
+                    <a class="nav-link" href="list-product">Điện thoại
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                     <ul class="sub_menu active">
                         <li class="nav-item ">
-                            <a href="product.jsp" title="Sửa điện thoại Iphone">
+                            <a href="list-product" title="Sửa điện thoại Iphone">
                                 Sửa điện thoại Iphone
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item lisanpham">
-                    <a class="nav-link" href="product.jsp">Dịch vụ
+                    <a class="nav-link" href="list-product">Dịch vụ
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                     <ul class="sub_menu">
                         <li class="">
-                            <a href="product.jsp" title="Thay pin">
+                            <a href="list-product" title="Thay pin">
                                 Thay pin
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.jsp" title="Thay màn hình">
+                            <a href="list-product" title="Thay màn hình">
                                 Thay màn hình
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.jsp" title="Thay camera">
+                            <a href="list-product" title="Thay camera">
                                 Thay camera
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.jsp" title="Thay vỏ">
+                            <a href="list-product" title="Thay vỏ">
                                 Thay vỏ
                             </a>
                         </li>
                         <li class="">
-                            <a href="product.jsp" title="Thay loa">
+                            <a href="list-product" title="Thay loa">
                                 Thay loa
                             </a>
                         </li>
@@ -83,13 +88,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
+                    <a class="nav-link" href="introduct">GIỚI THIỆU</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.jsp">BLOG</a>
+                    <a class="nav-link" href="list-blog">BLOG</a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="contact.html">LIÊN HỆ</a>
+                    <a class="nav-link" href="contact">LIÊN HỆ</a>
                 </li>
             </ul>
         </div>
@@ -106,11 +111,11 @@
                 <div class="justify-content-md-center">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="">TRANG CHỦ</a>
+                            <a class="nav-link" href="home">TRANG CHỦ</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown"
+                            <a class="nav-link dropdown-toggle aaaa" href="list-product" id="navbarDropdown"
                                role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <p>Điện thoại</p>
@@ -118,17 +123,17 @@
 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="border:0;">
-                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Iphone</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Samsung</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Xiaomi</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Oppo</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Vivo</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Sửa điện thoại Huawei</a>
+                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Iphone</a>
+                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Samsung</a>
+                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Xiaomi</a>
+                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Oppo</a>
+                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Vivo</a>
+                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Huawei</a>
 
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle aaaa" href="product.jsp" id="navbarDropdown2"
+                            <a class="nav-link dropdown-toggle aaaa" href="list-product" id="navbarDropdown2"
                                role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <p>Dịch vụ</p>
@@ -136,23 +141,23 @@
 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2" style="border:0;">
-                                <a class="dropdown-item" href="product.jsp" title="">Thay pin</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Thay màn hình</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Thay camera</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Thay vỏ</a>
-                                <a class="dropdown-item" href="product.jsp" title="">Thay loa</a>
+                                <a class="dropdown-item" href="list-product" title="">Thay pin</a>
+                                <a class="dropdown-item" href="list-product" title="">Thay màn hình</a>
+                                <a class="dropdown-item" href="list-product" title="">Thay camera</a>
+                                <a class="dropdown-item" href="list-product" title="">Thay vỏ</a>
+                                <a class="dropdown-item" href="list-product" title="">Thay loa</a>
 
 
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="introduce.html">GIỚI THIỆU</a>
+                            <a class="nav-link" href="introduce">GIỚI THIỆU</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.jsp">BLOG</a>
+                            <a class="nav-link" href="list-blog">BLOG</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">LIÊN HỆ</a>
+                            <a class="nav-link" href="contact">LIÊN HỆ</a>
                         </li>
                     </ul>
                 </div>
@@ -252,17 +257,17 @@
                         <table id="cart-view2">
                             <tbody>
                             <tr class="item_1">
-                                <td class="img"><a href="" title=""><img
+                                <td class="img"><a href="home" title=""><img
                                         src="images/product/thay-man-hinh-iphone-x-fc.jpg"
                                         alt=""></a></td>
                                 <td>
-                                    <a class="pro-title-view" style="color: #272727" href="" title=" &quot;Grape&quot;">Thay
+                                    <a class="pro-title-view" style="color: #272727" href="home" title=" &quot;Grape&quot;">Thay
                                         Màn Hình
                                         Iphone X</a>
                                     <span class="variant">Zin</span>
                                     <span class="pro-quantity-view">1</span>
                                     <span class="pro-price-view">1,690,000₫</span>
-                                    <span class="remove_link remove-cart"><a href=""><i style="color: #272727;"
+                                    <span class="remove_link remove-cart"><a href="home"><i style="color: #272727;"
                                                                                         class="fas fa-times"></i></a></span>
                                 </td>
                             </tr>
@@ -284,13 +289,13 @@
                                 <td class="text-right">Chưa thanh toán</td>
                             </tr>
                             <tr>
-                                <td class="distance-td"><a href="cart.html" class="linktocart button dark">Xem giỏ
+                                <td class="distance-td"><a href="cart" class="linktocart button dark">Xem giỏ
                                     hàng</a></td>
-                                <td><a href="checkout.html" class="linktocheckout button dark">Thanh toán</a></td>
+                                <td><a href="checkout" class="linktocheckout button dark">Thanh toán</a></td>
                             </tr>
                             </tbody>
                         </table>
-                        <a href="booked.html" class="button btn-check" style="text-decoration:none;">Xem lịch đã đặt</a>
+                        <a href="booked" class="button btn-check" style="text-decoration:none;">Xem lịch đã đặt</a>
                     </div>
                 </div>
             </div>

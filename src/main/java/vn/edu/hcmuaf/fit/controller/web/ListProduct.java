@@ -25,7 +25,7 @@ public class ListProduct extends HttpServlet {
 
         request.setAttribute("listProduct",listProduct);
 
-        request.getRequestDispatcher("/product.jsp").forward(request,response);
+        request.getRequestDispatcher("/view/web/product.jsp").forward(request,response);
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
