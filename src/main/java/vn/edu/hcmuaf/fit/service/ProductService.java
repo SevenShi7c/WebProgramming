@@ -16,4 +16,15 @@ public class ProductService {
     public List<ProductModel> getListProduct() {
         return productDAO.findAll();
     }
+
+    public List<ProductModel> getNewProduct() {
+        return productDAO.newProduct();
+    }
+
+    public static void main(String[] args) {
+        ProductService p = new ProductService();
+        for (ProductModel pr : p.getListProduct()) {
+            System.out.println(pr.getName());
+        }
+    }
 }

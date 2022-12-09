@@ -26,14 +26,14 @@
         <a>
             <img src="images/logo/logo_PhoneCare.png" class="logo-top" alt="">
         </a>
-        <a class="navbar-brand" href="index.jsp">
+        <a class="navbar-brand" href="">
 
             <img src="images/logo/phoneCare.png" class="logoWord-top" alt="">
         </a>
         <div class="desk-menu collapse navbar-collapse justify-content-md-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="index.jsp">TRANG CHỦ</a>
+                    <a class="nav-link" href="">TRANG CHỦ</a>
                 </li>
 
                 <li class="nav-item lisanpham active">
@@ -46,33 +46,6 @@
                                 Sửa điện thoại Iphone
                             </a>
                         </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Samsung">
-                                Sửa điện thoại Samsung
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Xiaomi">
-                                Sửa điện thoại Xiaomi
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Oppo">
-                                Sửa điện thoại Oppo
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Vivo">
-                                Sửa điện thoại Vivo
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="product.jsp" title="Sửa điện thoại Huawei">
-                                Sửa điện thoại Huawei
-                            </a>
-                        </li>
-
-
                     </ul>
                 </li>
                 <li class="nav-item lisanpham">
@@ -133,7 +106,7 @@
                 <div class="justify-content-md-center">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.jsp">TRANG CHỦ</a>
+                            <a class="nav-link" href="">TRANG CHỦ</a>
                         </li>
 
                         <li class="nav-item dropdown">

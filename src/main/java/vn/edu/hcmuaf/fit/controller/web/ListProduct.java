@@ -23,8 +23,6 @@ public class ListProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<ProductModel> listProduct = productService.getListProduct();
 
-        System.out.println(listProduct);
-
         request.setAttribute("listProduct",listProduct);
 
         request.getRequestDispatcher("/product.jsp").forward(request,response);

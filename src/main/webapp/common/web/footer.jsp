@@ -193,7 +193,7 @@
 
 <script async defer crossorigin="anonymous" src="plugins/sdk.js"></script>
 <script src="plugins/jquery-3.4.1/jquery-3.4.1.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="plugins/bootstrap/popper.min.js"></script>
 <script src="plugins/bootstrap/bootstrap.min.js"></script>
 <script src="plugins/owl.carousel/owl.carousel.min.js"></script>
@@ -201,18 +201,18 @@
 <script src="plugins/uikit/uikit-icons.min.js"></script>
 
 <!-- Mini Cart -->
-<script src="js/minicart.min.js"></script>
+<%--<script src="js/minicart.min.js"></script>--%>
 <script src="js/validationUser.js"></script>
-<script>
-    paypal.minicart.render({
-        action: '#'
-    });
+<%--<script>--%>
+<%--    paypal.minicart.render({--%>
+<%--        action: '#'--%>
+<%--    });--%>
 
-    if (~window.location.search.indexOf('reset=true')) {
-        paypal.minicart.reset();
-    }
+<%--    if (~window.location.search.indexOf('reset=true')) {--%>
+<%--        paypal.minicart.reset();--%>
+<%--    }--%>
 
-</script>
+<%--</script>--%>
 
 </body>
 </html>

@@ -17,7 +17,7 @@
 <body>
 
 <div class="header">
-    <a style="color: #ffffff;text-decoration: none;" href="index.jsp">Hotline: 1800 2057 (Miễn phí) Thời gian làm việc
+    <a style="color: #ffffff;text-decoration: none;" href="/">Hotline: 1800 2057 (Miễn phí) Thời gian làm việc
         T2 - CN: 8h - 20h</a>
 </div>
 
@@ -29,7 +29,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5">
                 <ol class="breadcrumb breadcrumb-arrows">
                     <li>
-                        <a href="index.jsp">
+                        <a href="/">
                             <span>Trang chủ</span>
                         </a>
                     </li>
@@ -70,7 +70,7 @@
                                 <div class="block_content layered-category collapse" id="collapseExample1">
                                     <div class="layered-content card card-body" style="border:0;padding:0">
                                         <ul class="menuList-links">
-                                            <li class=""><a href="index.jsp"
+                                            <li class=""><a href="/"
                                                             title="Trang chủ"><span>Trang chủ</span></a></li>
 
                                             <li class="has-submenu level0 ">
