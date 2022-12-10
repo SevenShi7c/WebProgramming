@@ -1,5 +1,7 @@
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="true" %>
 <%@include file="../../common/taglib.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@
 </head>
 
 <body>
-
+<%ProductModel product = (ProductModel) request.getAttribute("product");%>
 <%@include file="../../common/web/header.jsp" %>
 
 <!--  detail product -->
@@ -61,25 +63,13 @@
 
                                         <div class="product-gallery__thumb " id="imgg1">
                                             <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                                               data-image="images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                               data-zoom-image="images/product/thay-man-hinh-iphone-x-fc.jpg">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                                     data-image="images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                               data-image="images/product/<%=product.getAvatar()%>"
+                                               data-zoom-image="images/product/<%=product.getAvatar()%>">
+                                                <img src="images/product/<%=product.getAvatar()%>"
+                                                     data-image="images/product/<%=product.getAvatar()%>" alt=""
                                                      grape="">
                                             </a>
                                         </div>
-
-                                        <div class="product-gallery__thumb " id="imgg2">
-                                            <a class="product-gallery__thumb-placeholder" href="javascript:void(0);"
-                                               data-image="images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                               data-zoom-image="images/product/thay-man-hinh-iphone-x-fc.jpg">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                                     data-image="images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
-                                                     grape="">
-                                            </a>
-                                        </div>
-
-
                                     </div>
                                 </div>
                                 <div class="product-image-detail box__product-gallery scroll hidden-xs">
@@ -87,13 +77,13 @@
 
                                         <li class="product-gallery-item gallery-item current " id="imgg1a">
                                             <img class="product-image-feature "
-                                                 src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                                 src="images/product/<%=product.getAvatar()%>" alt=""
                                                  grape="">
                                         </li>
 
                                         <li class="product-gallery-item gallery-item " id="imgg2a">
                                             <img class="product-image-feature"
-                                                 src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                                 src="images/product/<%=product.getAvatar()%>" alt=""
                                                  grape="">
                                         </li>
 
@@ -104,7 +94,7 @@
                                              title="Zoom in">
                         <span class="zoom-in" aria-hidden="true">
                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 36" style="enable-background:new 0 0 36 36; width:
+                               x="0px" y="0px" viewBox="0 0 36 36" style="enable-background:new 0 0 36 36; width:
                             30px; height: 30px;" xml:space="preserve">
                             <polyline points="6,14 9,11 14,16 16,14 11,9 14,6 6,6">
                             </polyline>
@@ -127,10 +117,10 @@
                                     <div class=" item">
                                         <div class="product-gallery__thumb ">
                                             <a class=" product-gallery__thumb-placeholder" href="javascript:void(0);"
-                                               data-image="images/product/thay-man-hinh-iphone-x-fc.jpg"
+                                               data-image="images/product/<%=product.getAvatar()%>"
                                                data-zoom-image="images/sanpham/2.jpg">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                                     data-image="images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                                <img src="images/product/<%=product.getAvatar()%>"
+                                                     data-image="images/product/<%=product.getAvatar()%>" alt=""
                                                      grape="">
                                             </a>
                                         </div>
@@ -138,10 +128,10 @@
                                     <div class="item">
                                         <div class="product-gallery__thumb ">
                                             <a class=" product-gallery__thumb-placeholder" href="javascript:void(0);"
-                                               data-image="images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                               data-zoom-image="images/product/thay-man-hinh-iphone-x-fc.jpg">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg"
-                                                     data-image="images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                               data-image="images/product/<%=product.getAvatar()%>"
+                                               data-zoom-image="images/product/<%=product.getAvatar()%>">
+                                                <img src="images/product/<%=product.getAvatar()%>"
+                                                     data-image="images/product/<%=product.getAvatar()%>" alt=""
                                                      grape="">
                                             </a>
                                         </div>
@@ -183,10 +173,10 @@
                 product-content-desc" id="detail-product">
                             <div class="product-content-desc-1">
                                 <div class="product-title">
-                                    <h1>Thay màn hình Iphone X</h1>
-                                    <span id="pro_sku">ID: Iphone-ManHinh-001</span>
+                                    <h1><%=product.getName()%></h1>
+                                    <span id="pro_sku">ID: <%=product.getId()%></span>
                                 </div>
-                                <div class="product-price" id="price-preview"><span class="pro-price">1,660,000₫</span>
+                                <div class="product-price" id="price-preview"><span class="pro-price"><%=product.getPrice()%>₫</span>
                                 </div>
                                 <form id="add-item-form" action="" method="post" class="variants clearfix">
                                     <div class="select clearfix">
@@ -260,7 +250,7 @@
                                                            name="option2" value="LK"
                                                            data-vhandle="LK" disabled="">
 
-                                                    <label for="swatch-1-LK">
+                                                    <label>
                                                         <span>LK</span>
                                                     </label>
 
@@ -286,14 +276,14 @@
                                                                 <input type="hidden" name="add" value="1">
                                                                 <input type="hidden" name="business" value=" ">
                                                                 <input type="hidden" name="image"
-                                                                       value="thay-man-hinh-iphone-x-fc.jpg">
+                                                                       value="<%=product.getAvatar()%>">
                                                                 <input type="hidden" name="item_name"
-                                                                       value="Thay màn hình Iphone X">
-                                                                <input type="hidden" name="amount" value="1600000">
+                                                                       value="<%=product.getName()%>">
+                                                                <input type="hidden" name="amount" value="<%=product.getPrice()%>">
                                                                 <input type="hidden" name="discount_amount"
                                                                        value="10000">
                                                                 <input type="hidden" name="currency_code" value="VND">
-                                                                <input type="hidden" name="id_item" value="1">
+                                                                <input type="hidden" name="id_item" value="<%=product.getId()%>">
                                                                 <input type="hidden" name="return" value=" ">
                                                                 <input type="hidden" name="cancel_return" value=" ">
                                                                 <button type="submit" name="submit" value="Thêm vào giỏ"
@@ -330,23 +320,7 @@
                                     </div>
                                     <div class="description-content">
                                         <div class="description-productdetail">
-                                            <p><span>Thay mặt kính iPhone X khi:</span><br>
-                                            </p>
-                                            <ul>
-                                                <li>Mặt kính bị vỡ nứt do chịu tác động mạnh nhưng cảm ứng vẫn hoạt động
-                                                    bình thường.
-                                                </li>
-                                                <li> Mặt kính bị trầy xước làm mất thẩm mỹ của máy nhưng hỉnh ảnh vẫn
-                                                    còn rõ nét.
-                                                </li>
-                                                <li>Màn hình không bật lên được.
-                                                </li>
-                                                <li>Màn hình bị các đốm đen, đốm trắng.
-                                                </li>
-                                                <li>Hình ảnh trên màn hình hiển thị không rõ nét, bị mờ nhòe.</li>
-                                                <li>Trên màn hình xuất hiện các sọc ngang dọc, loang mực,..</li>
-
-                                            </ul>
+                                            <%=product.getDescribe()%>
                                         </div>
                                     </div>
                                 </div>
@@ -363,7 +337,7 @@
                                     <div class="block-banner-category">
                                         <div class="product-img fade-box">
                                             <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
                                                      class="lazyloaded">
                                             </a>
 
@@ -386,7 +360,7 @@
                                     <div class="block-banner-category">
                                         <div class="product-img fade-box">
                                             <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
                                                      class="lazyloaded">
                                             </a>
 
@@ -409,7 +383,7 @@
                                     <div class="block-banner-category">
                                         <div class="product-img fade-box">
                                             <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
                                                      class="lazyloaded">
                                             </a>
 
@@ -432,7 +406,7 @@
                                     <div class="block-banner-category">
                                         <div class="product-img fade-box">
                                             <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt=""
+                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
                                                      class="lazyloaded">
                                             </a>
 
@@ -470,9 +444,9 @@
             </div>
             <div class="owl-carousel owl-theme owl-product1">
 
-                <div class="item"><img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt="">
+                <div class="item"><img src="images/product/<%=product.getAvatar()%>" alt="">
                 </div>
-                <div class="item"><img src="../../images/product/thay-man-hinh-iphone-x-fc.jpg" alt="">
+                <div class="item"><img src="images/product/<%=product.getAvatar()%>" alt="">
                 </div>
 
 

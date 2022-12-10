@@ -27,4 +27,8 @@ public class ProductService {
             System.out.println(pr.getName());
         }
     }
+
+    public ProductModel getDetailProduct(String idProduct) {
+        return productDAO.getDetailProduct(idProduct);
+    }
 }

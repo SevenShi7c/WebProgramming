@@ -28,7 +28,6 @@
                            class="d-block w-100" alt="..."><img/></div>
 </div>
 
-
 <div class="content">
     <div class="container">
         <div class="hot_sp" style="padding-bottom: 10px;">

@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ProductDAO extends AbstractDAO{
+public class ProductDAO extends AbstractDAO {
 
     public List<ProductModel> findAll() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
@@ -90,10 +90,51 @@ public class ProductDAO extends AbstractDAO{
         return null;
     }
 
-    public static void main(String[] args) {
-        for (ProductModel p: ProductDAO.newProduct()
-             ) {
-            System.out.println(p.getName());
+    public ProductModel getDetailProduct(String idProduct) {
+
+        String sql = "select * from products " +
+                "where id=?";
+
+        conn = getConnection();
+
+        if (conn != null)
+            try {
+                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                ps.setString(1, idProduct);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    return new ProductModel(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getLong(4),
+                            rs.getInt(5),
+                            rs.getInt(6),
+                            rs.getInt(7),
+                            rs.getInt(8),
+                            rs.getString(9),
+                            rs.getInt(10)
+                    );
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (conn != null) conn.close();
+                    if (ps != null) ps.close();
+                    if (rs != null) rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        else {
+            System.out.println("Connect database error");
         }
+        return null;
     }
+
+    public static void main(String[] args) {
+            System.out.println(new ProductDAO().getDetailProduct("1"));
+    }
+
+
 }

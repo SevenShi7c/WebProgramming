@@ -73,4 +73,20 @@ public class ProductModel {
     public int getIdStore() {
         return idStore;
     }
+
+    @Override
+    public String toString() {
+        return "ProductModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", price=" + price +
+                ", idBrand=" + idBrand +
+                ", idTypeProduct=" + idTypeProduct +
+                ", idStatusDevice=" + idStatusDevice +
+                ", sumQuantity=" + sumQuantity +
+                ", describe='" + describe + '\'' +
+                ", idStore=" + idStore +
+                '}';
+    }
 }

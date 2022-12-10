@@ -343,7 +343,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-6 col-6 mb-5">
                         <div class="block-banner-category">
                             <div class="product-img fade-box">
-                                <a href="detailProduct.jsp" title="" class="img-resize">
+                                <a href="detail-product?id-product=${product.id}" title="" class="img-resize">
                                     <img src="images/product/${product.avatar}" alt="" class="lazyloaded">
                                 </a>
                             </div>
@@ -369,7 +369,7 @@
 
                                 <div class="pro-text">
                                     <a style=" color: black;
-                                                    font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
+                                                    font-size: 14px;text-decoration: none;" href="detail-product?id-product=${product.id}"
                                        title="" inspiration pack>
                                             ${product.name}
                                     </a>
