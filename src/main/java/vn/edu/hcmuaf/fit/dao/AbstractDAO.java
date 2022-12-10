@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class AbstractDAO{
-    Connection conn = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
+    static Connection conn = null;
+    static PreparedStatement ps = null;
+    static ResultSet rs = null;
 
     public AbstractDAO() {
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         String url = "jdbc:mysql://localhost:3306/phone_care";
         String user = "root";
         String pass = "";

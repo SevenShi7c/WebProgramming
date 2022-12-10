@@ -49,7 +49,7 @@ public class ProductDAO extends AbstractDAO{
         return null;
     }
 
-    public List<ProductModel> newProduct() {
+    public static List<ProductModel> newProduct() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
         String sql = "select * from products order by id desc limit 7";
@@ -88,5 +88,12 @@ public class ProductDAO extends AbstractDAO{
             System.out.println("Connect database error");
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        for (ProductModel p: ProductDAO.newProduct()
+             ) {
+            System.out.println(p.getName());
+        }
     }
 }

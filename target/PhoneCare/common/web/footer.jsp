@@ -197,8 +197,13 @@
 <script src="plugins/bootstrap/popper.min.js"></script>
 <script src="plugins/bootstrap/bootstrap.min.js"></script>
 <script src="plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="js/home.js"></script>
+<script src="js/script.js"></script>
 <script src="plugins/uikit/uikit.min.js"></script>
 <script src="plugins/uikit/uikit-icons.min.js"></script>
+
+<script src="plugins/uikit-3.13.7/uikit-3.13.7/src/js/uikit.js"></script>
+<script src="plugins/uikit-3.13.7/uikit-3.13.7/src/js/uikit-core.js"></script>
 
 <!-- Mini Cart -->
 <script src="js/minicart.min.js"></script>
