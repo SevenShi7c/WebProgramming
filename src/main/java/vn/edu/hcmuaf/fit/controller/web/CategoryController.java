@@ -1,0 +1,24 @@
+package vn.edu.hcmuaf.fit.controller.web;
+
+import vn.edu.hcmuaf.fit.model.CategoryModel;
+import vn.edu.hcmuaf.fit.service.ProductService;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+import java.io.IOException;
+import java.util.List;
+
+public class CategoryController extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+        request.getRequestDispatcher("view/web/product.jsp");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+}

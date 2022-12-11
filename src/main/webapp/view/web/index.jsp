@@ -70,7 +70,7 @@
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
                         <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-iphone-x-medium.jpg" alt="" class="lazyloaded">
+                            <img src="images/product/ep-co-cap-man-hinh-iphone-x-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
                     </div>
@@ -93,7 +93,7 @@
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
                         <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-iphone-xs-max-fc-medium.jpg" alt=""
+                            <img src="images/product/ep-co-cap-man-hinh-iphone-xs-max-fc-medium.jpg" alt=""
                                  class="lazyloaded">
                         </a>
 
@@ -117,7 +117,7 @@
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
                         <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-iphone-xs-medium.jpg" alt="" class="lazyloaded">
+                            <img src="images/product/ep-co-cap-man-hinh-iphone-xs-medium.jpg" alt="" class="lazyloaded">
                         </a>
 
                     </div>
@@ -143,7 +143,7 @@
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
                         <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-samsung-s8-plus-fc-medium.jpg" alt=""
+                            <img src="images/product/ep-co-cap-man-hinh-samsung-s8-plus-fc-medium.jpg" alt=""
                                  class="lazyloaded">
                         </a>
 
@@ -167,7 +167,7 @@
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
                         <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-samsung-s9-fc-medium.jpg" alt=""
+                            <img src="images/product/ep-co-cap-man-hinh-samsung-s9-fc-medium.jpg" alt=""
                                  class="lazyloaded">
                         </a>
 
@@ -191,7 +191,7 @@
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
                         <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-samsung-s9-plus-fc-medium.jpg" alt=""
+                            <img src="images/product/ep-co-cap-man-hinh-samsung-s9-plus-fc-medium.jpg" alt=""
                                  class="lazyloaded">
                         </a>
 
@@ -215,7 +215,7 @@
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
                         <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-samsung-s10-fc-medium.jpg" alt=""
+                            <img src="images/product/ep-co-cap-man-hinh-samsung-s10-fc-medium.jpg" alt=""
                                  class="lazyloaded">
                         </a>
 
@@ -245,7 +245,7 @@
                     <div class="block-banner-category">
                         <a href="blog.jsp" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image fade-box">
-                                <img class="lazyloaded" src="../../images/logo/phonecare2.png" alt="">
+                                <img class="lazyloaded" src="images/logo/phonecare2.png" alt="">
                             </div>
                             <figcaption class="caption_banner site-animation">
                                 <h2>Giới thiệu</h2>
@@ -258,7 +258,7 @@
                     <div class="block-banner-category">
                         <a href="blog.jsp" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image fade-box">
-                                <img class="lazyloaded" src="../../images/blog/blog1.jpg" alt="">
+                                <img class="lazyloaded" src="images/blog/blog1.jpg" alt="">
                             </div>
                             <figcaption class="caption_banner site-animation">
                                 <h2>Blog</h2>
@@ -271,7 +271,7 @@
                     <div class="block-banner-category">
                         <a href="contact.jsp" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image">
-                                <img class="lazyloaded" src="../../images/blog/lienhe.png" alt="">
+                                <img class="lazyloaded" src="images/blog/lienhe.png" alt="">
                             </div>
                             <figcaption class="caption_banner site-animation">
                                 <h2>Liên hệ</h2>
@@ -388,7 +388,7 @@
                             <div class="post_featured">
                                 <a href="detailBlog.html" title="">
                                     <img class="img-resize" style="padding-bottom:15px;"
-                                         src="../../images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
+                                         src="images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
                                 </a>
                             </div>
                             <div class="pro-text">
@@ -417,7 +417,7 @@
                             <div class="post_featured">
                                 <a href="detailBlog.html" title="">
                                     <img class="img-resize" style="padding-bottom:15px;"
-                                         src="../../images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
+                                         src="images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
                                 </a>
                             </div>
                             <div class="pro-text">
@@ -447,7 +447,7 @@
                             <div class="post_featured">
                                 <a href="detailBlog.html" title="">
                                     <img class="img-resize" style="padding-bottom:15px;"
-                                         src="../../images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
+                                         src="images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
                                 </a>
                             </div>
                             <div class="pro-text">

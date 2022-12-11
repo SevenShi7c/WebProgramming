@@ -1,4 +1,5 @@
-<%--
+<%@ page import="vn.edu.hcmuaf.fit.model.CategoryModel" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: vutru
   Date: 12/8/2022
@@ -12,13 +13,18 @@
   Time: 1:18 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@include file="../../common/taglib.jsp" %>
+
+<!DOCTYPE html>
 <html>
 <head>
 
 </head>
 
 <body>
+<%List<CategoryModel> listBrand = (List<CategoryModel>) request.getAttribute("listBrand");%>
+
 <div class="header">
     <a style="color: #ffffff;text-decoration: none;" href="home">Hotline: 1800 2057 (Miễn phí) Thời gian làm việc
         T2 - CN: 8h - 20h</a>
@@ -46,11 +52,17 @@
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                     <ul class="sub_menu active">
-                        <li class="nav-item ">
-                            <a href="list-product" title="Sửa điện thoại Iphone">
-                                Sửa điện thoại Iphone
-                            </a>
-                        </li>
+<%--                        <%--%>
+<%--                            for (CategoryModel brand : listBrand) {--%>
+<%--                        %>--%>
+<%--                        <li class="nav-item ">--%>
+<%--                            <a href="list-product?brand=<%=brand.getName().toLowerCase()%>"--%>
+<%--                               title="Sửa điện thoại <%=brand.getName()%>">--%>
+<%--                                Sửa điện thoại <%=brand.getName()%>--%>
+<%--                            </a>--%>
+<%--                        </li>--%>
+<%--                        <% }%>--%>
+
                     </ul>
                 </li>
                 <li class="nav-item lisanpham">
@@ -123,13 +135,13 @@
 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="border:0;">
-                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Iphone</a>
-                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Samsung</a>
-                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Xiaomi</a>
-                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Oppo</a>
-                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Vivo</a>
-                                <a class="dropdown-item" href="list-product" title="">Sửa điện thoại Huawei</a>
-
+<%--                                <%--%>
+<%--                                    for (CategoryModel brand : listBrand) {--%>
+<%--                                %>--%>
+<%--                                <a class="dropdown-item" href="list-product?brand=<%=brand.getName().toLowerCase()%>"--%>
+<%--                                   title="">Sửa điện thoại list-product?brand=<%=brand.getName()%>--%>
+<%--                                </a>--%>
+<%--                                <% }%>--%>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -176,7 +188,7 @@
                 margin: 3px 0 30px 0;
                 font-weight: 500; letter-spacing: 2px;">Tìm kiếm</h3>
                 <div class="search-box wpo-wrapper-search">
-                    <form action="search" class="searchform searchform-categoris ultimate-search">
+                    <form action="search" class="searchform searchform-categoris ultimate-search" method="post">
                         <div class="wpo-search-inner" style="display:inline">
                             <input type="hidden" name="type" value="product">
                             <input required="" id="inputSearchAuto" name="q" maxlength="40" autocomplete="off"
@@ -261,14 +273,15 @@
                                         src="images/product/thay-man-hinh-iphone-x-fc.jpg"
                                         alt=""></a></td>
                                 <td>
-                                    <a class="pro-title-view" style="color: #272727" href="home" title=" &quot;Grape&quot;">Thay
+                                    <a class="pro-title-view" style="color: #272727" href="home"
+                                       title=" &quot;Grape&quot;">Thay
                                         Màn Hình
                                         Iphone X</a>
                                     <span class="variant">Zin</span>
                                     <span class="pro-quantity-view">1</span>
                                     <span class="pro-price-view">1,690,000₫</span>
                                     <span class="remove_link remove-cart"><a href="home"><i style="color: #272727;"
-                                                                                        class="fas fa-times"></i></a></span>
+                                                                                            class="fas fa-times"></i></a></span>
                                 </td>
                             </tr>
                             </tbody>

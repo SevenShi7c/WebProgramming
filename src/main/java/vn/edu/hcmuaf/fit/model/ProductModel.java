@@ -34,6 +34,21 @@ public class ProductModel {
         this.idStore = idStore;
     }
 
+    public ProductModel(int id, String name, String avatar, long price, int sumQuantity) {
+        this.id = id;
+        this.name = name;
+        this.avatar = avatar;
+        this.price = price;
+        this.idBrand = idBrand;
+        this.idTypeProduct = idTypeProduct;
+        this.idStatusDevice = idStatusDevice;
+        this.sumQuantity = sumQuantity;
+        this.describe = describe;
+        this.idStore = idStore;
+    }
+
+
+
     public int getId() {
         return id;
     }

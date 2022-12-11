@@ -1,12 +1,16 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %><%--
   Created by IntelliJ IDEA.
   User: vutru
   Date: 12/8/2022
   Time: 1:18 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
+
+<!DOCTYPE html>
+
 <html>
 <head>
     <%@include file="../../common/web/head.jsp" %>
@@ -78,36 +82,18 @@
                                                 <div class="collapse" id="collapseExample">
                                                     <div class="card card-body" style="border:0;padding-top:0;">
                                                         <ul class="menu-product">
-                                                            <li class="">
-                                                                <a href="#" title="Sửa điện thoại Iphone">
-                                                                    Sửa điện thoại Iphone
-                                                                </a>
-                                                            </li>
-                                                            <li class="">
-                                                                <a href="#" title="Sửa điện thoại Samsung">
-                                                                    Sửa điện thoại Samsung
-                                                                </a>
-                                                            </li>
-                                                            <li class="">
-                                                                <a href="#" title="Sửa điện thoại Xiaomi">
-                                                                    Sửa điện thoại Xiaomi
-                                                                </a>
-                                                            </li>
-                                                            <li class="">
-                                                                <a href="#" title="Sửa điện thoại Oppo">
-                                                                    Sửa điện thoại Oppo
-                                                                </a>
-                                                            </li>
-                                                            <li class="">
-                                                                <a href="#" title="Sửa điện thoại Vivo">
-                                                                    Sửa điện thoại Vivo
-                                                                </a>
-                                                            </li>
-                                                            <li class="">
-                                                                <a href="#" title="Sửa điện thoại Huawei">
-                                                                    Sửa điện thoại Huawei
-                                                                </a>
-                                                            </li>
+
+                                                            <%--                                                                <%--%>
+                                                            <%--                                                                    for (CategoryModel brand : listBrand) {--%>
+                                                            <%--                                                                %>--%>
+                                                            <%--                                                                <li class="">--%>
+                                                            <%--                                                                    <a href="list-product?brand=<%=brand.getName().toLowerCase()%>"--%>
+                                                            <%--                                                                       title="Sửa điện thoại <%=brand.getName()%>">--%>
+                                                            <%--                                                                        Sửa điện thoại <%=brand.getName()%>--%>
+                                                            <%--                                                                    </a>--%>
+                                                            <%--                                                                </li>--%>
+                                                            <%--                                                                <% }%>--%>
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -338,49 +324,62 @@
 
             <%--            print list product--%>
             <div class="row list-product">
-                <c:forEach items="${listProduct}" var="product">
 
-                    <div class="col-md-3 col-sm-6 col-xs-6 col-6 mb-5">
-                        <div class="block-banner-category">
-                            <div class="product-img fade-box">
-                                <a href="detail-product?id-product=${product.id}" title="" class="img-resize">
-                                    <img src="images/product/${product.avatar}" alt="" class="lazyloaded">
+                <%List<ProductModel> listProduct = (List<ProductModel>) request.getAttribute("listProduct");%>
+                <%
+                    if (listProduct.isEmpty()) {
+                %>
+                <div>Không tìm thấy sản phẩm!</div>
+                <%
+                } else { %>
+                <% for (ProductModel product : listProduct) { %>
+                <div class="col-md-3 col-sm-6 col-xs-6 col-6 mb-5">
+                    <div class="block-banner-category">
+                        <div class="product-img fade-box">
+                            <a href="detail-product?id-product=<%=product.getId()%>" title="" class="img-resize">
+                                <img src="images/product/<%=product.getAvatar()%>" alt="" class="lazyloaded">
+                            </a>
+                        </div>
+                        <div class="product-detail clearfix">
+                            <form class="mini-cart">
+                                <fieldset>
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="business" value=" ">
+                                    <input type="hidden" name="image" value="<%=product.getAvatar()%>">
+                                    <input type="hidden" name="item_name" value="<%=product.getName()%>">
+                                    <input type="hidden" name="amount" value="<%=product.getPrice()%>">
+                                    <input type="hidden" name="discount_amount" value="10000">
+                                    <input type="hidden" name="currency_code" value="VND">
+                                    <input type="hidden" name="id_item" value="<%=product.getId()%>">
+                                    <input type="hidden" name="return" value=" ">
+                                    <input type="hidden" name="cancel_return" value=" ">
+                                    <button class="btn btn-cart"><i class="icon-header fas fa-shopping-cart"
+                                                                    aria-hidden="true" onclick="addBtnCart()"></i>
+                                    </button>
+                                </fieldset>
+                            </form>
+
+                            <div class="pro-text">
+                                <a style=" color: black;
+                                                    font-size: 14px;text-decoration: none;"
+                                   href="detail-product?id-product=<%=product.getId()%>"
+                                   title="" inspiration pack>
+                                    <%=product.getName()%>
                                 </a>
                             </div>
-                            <div class="product-detail clearfix">
-                                <form class="mini-cart">
-                                    <fieldset>
-                                        <input type="hidden" name="cmd" value="_cart">
-                                        <input type="hidden" name="add" value="1">
-                                        <input type="hidden" name="business" value=" ">
-                                        <input type="hidden" name="image" value="${product.avatar}">
-                                        <input type="hidden" name="item_name" value="${product.name}">
-                                        <input type="hidden" name="amount" value="${product.price}">
-                                        <input type="hidden" name="discount_amount" value="10000">
-                                        <input type="hidden" name="currency_code" value="VND">
-                                        <input type="hidden" name="id_item" value="${product.id}">
-                                        <input type="hidden" name="return" value=" ">
-                                        <input type="hidden" name="cancel_return" value=" ">
-                                        <button class="btn btn-cart"><i class="icon-header fas fa-shopping-cart"
-                                                                        aria-hidden="true" onclick="addBtnCart()"></i>
-                                        </button>
-                                    </fieldset>
-                                </form>
-
-                                <div class="pro-text">
-                                    <a style=" color: black;
-                                                    font-size: 14px;text-decoration: none;" href="detail-product?id-product=${product.id}"
-                                       title="" inspiration pack>
-                                            ${product.name}
-                                    </a>
-                                </div>
-                                <div class="pro-price">
-                                    <p class=""> ${product.price}</p>
-                                </div>
+                            <div class="pro-price">
+                                <p class=""><%=product.getPrice()%>
+                                </p>
                             </div>
                         </div>
                     </div>
-                </c:forEach>
+                </div>
+                <%
+                        }
+                    }
+                %>
+
             </div>
 
             <!-- pagination -->
