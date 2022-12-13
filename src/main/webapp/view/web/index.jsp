@@ -235,7 +235,7 @@
                     <div class="col-md-4">
                         <div class="post_item">
                             <div class="post_featured">
-                                <a href="ddetail-blog?id-blog=<%=blog.getId()%>" title="">
+                                <a href="detail-blog?id-blog=<%=blog.getId()%>" title="">
                                     <img class="img-resize" style="padding-bottom:15px;"
                                          src="images/blog/<%=blog.getAvatar()%>" alt="">
                                 </a>
