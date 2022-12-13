@@ -2,6 +2,8 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.dao.ProductDAO" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.BlogService" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@include file="../../common/taglib.jsp" %>
 
@@ -42,6 +44,7 @@
     <!--Product-->
     <div class="container" style="padding-bottom: 50px;">
         <div class="row">
+<%--            Sản pẩm bán chạy--%>
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
@@ -66,176 +69,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="block-banner-category">
-                    <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="images/product/ep-co-cap-man-hinh-iphone-x-medium.jpg" alt="" class="lazyloaded">
-                        </a>
-
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                               title="" inspiration
-                               pack>
-                                Ép cổ cáp màn hình Iphone X
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">1,490,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="block-banner-category">
-                    <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="images/product/ep-co-cap-man-hinh-iphone-xs-max-fc-medium.jpg" alt=""
-                                 class="lazyloaded">
-                        </a>
-
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                               title="" inspiration
-                               pack>
-                                Ép cổ cáp màn hình Iphone XS-Max
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">1,790,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="block-banner-category">
-                    <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="images/product/ep-co-cap-man-hinh-iphone-xs-medium.jpg" alt="" class="lazyloaded">
-                        </a>
-
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                               title="" inspiration
-                               pack>
-                                Ép cổ cáp màn hình Iphone XS
-                                <XS></XS>
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">1,690,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="block-banner-category">
-                    <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="images/product/ep-co-cap-man-hinh-samsung-s8-plus-fc-medium.jpg" alt=""
-                                 class="lazyloaded">
-                        </a>
 
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                               title="" inspiration
-                               pack>
-                                Ép cổ cáp màn hình SamSung S8 Plus
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">1,290,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="block-banner-category">
-                    <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="images/product/ep-co-cap-man-hinh-samsung-s9-fc-medium.jpg" alt=""
-                                 class="lazyloaded">
-                        </a>
-
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                               title="" inspiration
-                               pack>
-                                Ép cổ cáp màn hình SamSung S9
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">1,690,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="block-banner-category">
-                    <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="images/product/ep-co-cap-man-hinh-samsung-s9-plus-fc-medium.jpg" alt=""
-                                 class="lazyloaded">
-                        </a>
-
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                               title="" inspiration
-                               pack>
-                                Ép cổ cáp màn hình SamSung S9 Plus
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">1,890,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                <div class="block-banner-category">
-                    <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="images/product/ep-co-cap-man-hinh-samsung-s10-fc-medium.jpg" alt=""
-                                 class="lazyloaded">
-                        </a>
-
-                    </div>
-                    <div class="product-detail clearfix">
-                        <div class="pro-text">
-                            <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                               title="" inspiration
-                               pack>
-                                Ép cổ cáp màn hình SamSung S10
-                            </a>
-                        </div>
-                        <div class="pro-price">
-                            <p class="">2,220,000₫</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
     <section class="section wrapper-home-banner">
@@ -243,7 +78,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 home-banner-pd">
                     <div class="block-banner-category">
-                        <a href="blog.jsp" class="link-banner wrap-flex-align flex-column">
+                        <a href="home" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image fade-box">
                                 <img class="lazyloaded" src="images/logo/phonecare2.png" alt="">
                             </div>
@@ -256,7 +91,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 home-banner-pd">
                     <div class="block-banner-category">
-                        <a href="blog.jsp" class="link-banner wrap-flex-align flex-column">
+                        <a href="list-blog" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image fade-box">
                                 <img class="lazyloaded" src="images/blog/blog1.jpg" alt="">
                             </div>
@@ -269,7 +104,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 home-banner-pd">
                     <div class="block-banner-category">
-                        <a href="contact.jsp" class="link-banner wrap-flex-align flex-column">
+                        <a href="contact" class="link-banner wrap-flex-align flex-column">
                             <div class="fg-image">
                                 <img class="lazyloaded" src="images/blog/lienhe.png" alt="">
                             </div>
@@ -383,95 +218,42 @@
             <div class="container">
 
                 <div class="row">
+<%--                    getNewBlog--%>
+    <%
+        BlogService blogService = new BlogService();
+        List<BlogModel> newListBlog = (List<BlogModel>) blogService.getNewBlog();
+        for (BlogModel blog : newListBlog) {
+    %>
                     <div class="col-md-4">
                         <div class="post_item">
                             <div class="post_featured">
-                                <a href="detailBlog.html" title="">
+                                <a href="ddetail-blog?id-blog=<%=blog.getId()%>" title="">
                                     <img class="img-resize" style="padding-bottom:15px;"
-                                         src="images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
+                                         src="images/blog/<%=blog.getAvatar()%>" alt="">
                                 </a>
                             </div>
                             <div class="pro-text">
                   <span class="post_info_item">
 
-                    Chủ Nhật 23/10/2022
+                    <%=blog.getCreatedDate()%>>
 
                   </span>
                             </div>
                             <div class="pro-text">
                                 <h3 class="post_title">
                                     <a style=" color: black;
-                                  font-size: 18px;text-decoration: none;" href="detailBlog.html" inspiration pack>
-                                        Win 11 bị chậm, đơ, đứng máy?
+                                  font-size: 18px;text-decoration: none;" href="detail-blog?id-blog=<%=blog.getId()%>" inspiration pack>
+                                       <%=blog.getTitle()%>
                                     </a>
                                 </h3>
                             </div>
                             <div style="text-align:center; padding-bottom: 30px;">
-                  <span>Win 11 bị chậm, lại thường xuyên đơ, lag hay thậm chí là đứng máy? Chắc chắn khi đó, bạn không
-                    thể tiếp tục sử dụng chiếc máy tính của mình một cách thoải mái và trọn vẹn.</span>
+                  <span><%=blog.getBriefContent()%></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="post_item">
-                            <div class="post_featured">
-                                <a href="detailBlog.html" title="">
-                                    <img class="img-resize" style="padding-bottom:15px;"
-                                         src="images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="pro-text">
-                  <span class="post_info_item">
-
-                    Thứ 7 29/10/2022
-
-                  </span>
-                            </div>
-                            <div class="pro-text">
-                                <h3 class="post_title">
-                                    <a style=" color: black;
-                                  font-size: 18px;text-decoration: none;" href="detailBlog.html" inspiration pack>
-                                        5 cách khắc phục lỗi không thế copy trên Win11 nhanh nhất
-                                    </a>
-                                </h3>
-                            </div>
-                            <div style="text-align:center; padding-bottom: 30px;">
-                  <span>Máy tính bỗng nhiên gặp lỗi không thể copy trên Win 11 khiến bạn gặp khá nhiều rắc rối trong học
-                    tập, làm việc.
-                    Theo dõi bài viết sau để tìm cách khắc phục.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="post_item">
-                            <div class="post_featured">
-                                <a href="detailBlog.html" title="">
-                                    <img class="img-resize" style="padding-bottom:15px;"
-                                         src="images/blog/loi-khong-the-copy-tren-win-11.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="pro-text">
-                  <span class="post_info_item">
-
-                    Chủ Nhật 30/10/2022
-
-                  </span>
-                            </div>
-                            <div class="pro-text">
-                                <h3 class="post_title">
-                                    <a style=" color: black;
-                                  font-size: 18px;text-decoration: none;" href="detailBlog.html" inspiration pack>
-                                        Lỗi không bật được Bluetooth trên Win 11, khắc phục thế nào?
-                                    </a>
-                                </h3>
-                            </div>
-                            <div style="text-align:center; padding-bottom: 30px;">
-                  <span>Máy tính bỗng nhiên không bật được Bluetooth trên Win 11?
-                    Theo dõi bài viết tìm nguyên nhân và lưu ngay 3 cách khắc phục tình trạng trên đơn giản, nhanh
-                    chóng.</span>
-                            </div>
-                        </div>
-                    </div>
+    <%
+        }%>
                 </div>
             </div>
         </div>
