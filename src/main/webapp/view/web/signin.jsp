@@ -33,7 +33,7 @@
                     <div class="submit">
                         <input type="button" value="Đăng nhập" id="submit" onclick="validate()"/>
                         <div class="forgetpassword">
-                            <a id="quenmk">Quên mật khẩu?</a> hoặc <a href="signup.jsp">Đăng ký</a>
+                            <a id="quenmk">Quên mật khẩu?</a> hoặc <a href="signup">Đăng ký</a>
                         </div>
                     </div>
                 </form>
