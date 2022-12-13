@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<%@include file="../../common/web/head.jsp" %>
+<%@include file="../../common/web/header.jsp" %>
 
 <div class="breadcrumb-shop">
     <div class="container">

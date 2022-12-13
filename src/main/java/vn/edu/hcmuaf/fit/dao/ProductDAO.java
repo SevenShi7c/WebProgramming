@@ -166,12 +166,10 @@ public class ProductDAO {
         String sql = "SELECT * FROM products " +
                 "WHERE name like ? " +
                 "order by id desc ";
-
-
         try {
 
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
-            ps.setString(1, searchPram);
+            ps.setString(1, "%"+searchPram+"%");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -190,7 +188,7 @@ public class ProductDAO {
     }
 
     public static void main(String[] args) {
-        for (ProductModel p : ProductDAO.getlistProductForBrand("iphone")){
+        for (ProductModel p : ProductDAO.getListProductBySearch("samsung")){
             System.out.println(p.getName());
         }
     }

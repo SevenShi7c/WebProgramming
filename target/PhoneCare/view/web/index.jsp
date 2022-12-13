@@ -8,11 +8,8 @@
 <html>
 <head>
     <%@include file="../../common/web/head.jsp" %>
-
     <title>Phone Care</title>
-
 </head>
-
 <body>
 <% List<ProductModel> newList = (List<ProductModel>) ProductDAO.newProduct();%>
 <!--Navbar-->
@@ -50,7 +47,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="detail-product" title="" class="img-resize">
+                        <a href="detail-product?id-product=<%=product.getId()%>" title="" class="img-resize">
                             <img src="images/product/<%=product.getAvatar()%>" alt="" class="lazyloaded">
                         </a>
 
@@ -58,7 +55,7 @@
                     <div class="product-detail clearfix">
                         <div class="pro-text">
                             <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detail-product"
+                                                  font-size: 14px;text-decoration: none;" href="detail-product?id-product=<%=product.getId()%>"
                                title="" inspiration
                                pack>
                                <%=product.getName()%>
@@ -128,11 +125,11 @@
             <div class="container">
                 <div class="hot_sp">
                     <h2 style="text-align:center;">
-                        <a style="font-size: 28px;color: black;text-decoration: none" href="product.jsp">Sản phẩm
+                        <a style="font-size: 28px;color: black;text-decoration: none" href="product">Sản phẩm
                             mới</a>
                     </h2>
                     <div class="view-all" style="text-align:center;">
-                        <a style="color: black;text-decoration: none" href="product.jsp">Xem thêm</a>
+                        <a style="color: black;text-decoration: none" href="product">Xem thêm</a>
                     </div>
                 </div>
             </div>
@@ -147,7 +144,7 @@
                     <div class="">
                         <div class="block-banner-category">
                             <div class="product-img fade-box">
-                                <a href="detailProduct.jsp" title="" class="img-resize">
+                                <a href="detail-product?id-product=<%=product.getId()%>?id-product=<%=product.getId()%>" title="" class="img-resize">
                                     <img src="images/product/<%=product.getAvatar()%>" alt="" class="lazyloaded">
                                 </a>
 
@@ -156,7 +153,7 @@
                                 <div class="pro-text">
                                     <a style=" color: #000000;
                                                                   font-size: 14px;text-decoration: none;"
-                                       href="detailProduct.jsp"
+                                       href="detail-product?id-product=<%=product.getId()%>?id-product=<%=product.getId()%>"
                                        title="" inspiration
                                        pack>
                                         <%=product.getName()%>
@@ -171,34 +168,6 @@
                 </div>
                 <%
                     }%>
-                <%--                <c:forEach items="${newProduct}" var="product">--%>
-
-                <%--                    <div class="item">--%>
-                <%--                        <div class="">--%>
-                <%--                            <div class="block-banner-category">--%>
-                <%--                                <div class="product-img fade-box">--%>
-                <%--                                    <a href="detailProduct.jsp" title="" class="img-resize">--%>
-                <%--                                        <img src="images/product/${product.avatar}" alt="" class="lazyloaded">--%>
-                <%--                                    </a>--%>
-
-                <%--                                </div>--%>
-                <%--                                <div class="product-detail clearfix">--%>
-                <%--                                    <div class="pro-text">--%>
-                <%--                                        <a style=" color: black;--%>
-                <%--                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"--%>
-                <%--                                           title="" inspiration--%>
-                <%--                                           pack>--%>
-                <%--                                                ${product.name}--%>
-                <%--                                        </a>--%>
-                <%--                                    </div>--%>
-                <%--                                    <div class="pro-price">--%>
-                <%--                                        <p class="">Liên Hệ</p>--%>
-                <%--                                    </div>--%>
-                <%--                                </div>--%>
-                <%--                            </div>--%>
-                <%--                        </div>--%>
-                <%--                    </div>--%>
-                <%--                </c:forEach>--%>
             </div>
         </div>
     </section>
@@ -207,7 +176,7 @@
             <div class="container">
                 <div class="hot_sp">
                     <h2 style="text-align:center;padding-top: 10px">
-                        <a style="font-size: 28px;color: black;text-decoration: none" href="blog.jsp">Bài viết mới
+                        <a style="font-size: 28px;color: black;text-decoration: none" href="blog">Bài viết mới
                             nhất</a>
                     </h2>
                     <br/>
