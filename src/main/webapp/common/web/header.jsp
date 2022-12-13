@@ -252,7 +252,7 @@
             </form>
         </div>
 
-        <div class="user mr-4"></div>
+<%--        <div class="user mr-4"></div>--%>
 
         <div id="offcanvas-flip3" uk-offcanvas="flip: true; overlay: true">
             <div class="uk-offcanvas-bar" style="    background: white;
@@ -325,6 +325,9 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a  >
+                <i class="icon-header fas fa-user"></i>
+            </a>
         </div>
     </div>
     </div>

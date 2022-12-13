@@ -22,12 +22,12 @@
                 </div>
             </div>
             <div class="signin-right " id="a-sign">
-                <form action="">
+                <form action="login?action=login" method="post">
                     <div class="username form-control1 ">
-                        <input type="email" id="username" name="username" placeholder="Email/SĐT">
+                        <input type="email" id="username" name="username" placeholder="Email/SĐT" >
                     </div>
                     <div class="password form-control1">
-                        <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                        <input type="password" id="password" name="password" placeholder="Mật khẩu" >
                         <!--                        <div class="error" style="position: absolute; bottom: 0;background: #fff; padding:10px; border:1px solid #ccc; color: red">Please fill out this field </div>-->
                     </div>
                     <div class="submit">
