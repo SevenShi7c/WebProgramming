@@ -66,42 +66,13 @@
 
                     </ul>
                 </li>
-                <li class="nav-item lisanpham">
-                    <a class="nav-link" href="list-product">Dịch vụ
+                <li class="nav-item ">
+                    <a class="nav-link" href="BookingOnline">Đặt Lịch Sửa Chữa
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
-                    <ul class="sub_menu">
-                        <li class="">
-                            <a href="list-product" title="Thay pin">
-                                Thay pin
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="list-product" title="Thay màn hình">
-                                Thay màn hình
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="list-product" title="Thay camera">
-                                Thay camera
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="list-product" title="Thay vỏ">
-                                Thay vỏ
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="list-product" title="Thay loa">
-                                Thay loa
-                            </a>
-                        </li>
-
-
-                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="introduct">GIỚI THIỆU</a>
+                    <a class="nav-link" href="introduce">GIỚI THIỆU</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="list-blog">BLOG</a>

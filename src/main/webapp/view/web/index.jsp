@@ -10,11 +10,8 @@
 <html>
 <head>
     <%@include file="../../common/web/head.jsp" %>
-
     <title>Phone Care</title>
-
 </head>
-
 <body>
 
 <!--Navbar-->
