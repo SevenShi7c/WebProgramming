@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %><%--
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" isELIgnored="false" %><%--
   Created by IntelliJ IDEA.
   User: vutru
   Date: 12/8/2022
@@ -82,18 +82,16 @@
                                                 <div class="collapse" id="collapseExample">
                                                     <div class="card card-body" style="border:0;padding-top:0;">
                                                         <ul class="menu-product">
-
-                                                            <%--                                                                <%--%>
-                                                            <%--                                                                    for (CategoryModel brand : listBrand) {--%>
-                                                            <%--                                                                %>--%>
-                                                            <%--                                                                <li class="">--%>
-                                                            <%--                                                                    <a href="list-product?brand=<%=brand.getName().toLowerCase()%>"--%>
-                                                            <%--                                                                       title="Sửa điện thoại <%=brand.getName()%>">--%>
-                                                            <%--                                                                        Sửa điện thoại <%=brand.getName()%>--%>
-                                                            <%--                                                                    </a>--%>
-                                                            <%--                                                                </li>--%>
-                                                            <%--                                                                <% }%>--%>
-
+                                                            <%
+                                                                for (CategoryModel brand : listBrand) {
+                                                            %>
+                                                            <li class="">
+                                                                <a href="category?brand=<%=brand.getName().toLowerCase()%>"
+                                                                   title="Sửa điện thoại <%=brand.getName()%>">
+                                                                    Sửa điện thoại <%=brand.getName()%>
+                                                                </a>
+                                                            </li>
+                                                            <% }%>
                                                         </ul>
                                                     </div>
                                                 </div>

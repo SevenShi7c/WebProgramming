@@ -1,5 +1,5 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="true" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
 <html>

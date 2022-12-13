@@ -174,7 +174,7 @@ public class ProductDAO extends AbstractDAO {
         LinkedList<ProductModel> list = new LinkedList<>();
 
         String sql = "select * from products " +
-                     "join brand on brand.id = products.id_type_product "+
+                     "join brand on brand.id = products.id_brand "+
                      "where brand.name=?";
 
         conn = getConnection();
@@ -252,6 +252,9 @@ public class ProductDAO extends AbstractDAO {
     }
 
     public static void main(String[] args) {
-//        System.out.println(new ProductDAO().getListProductBySearch("iphone"));
+//        ProductDAO pd = new ProductDAO();
+//        for (ProductModel p : pd.getlistProductForBrand("asus")) {
+//            System.out.println(p.getName());
+//        }
     }
 }

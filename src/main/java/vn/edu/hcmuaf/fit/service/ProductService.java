@@ -30,7 +30,7 @@ public class ProductService {
         return productDAO.getDetailProduct(idProduct);
     }
 
-    public List<ProductModel> getlistProductForBrand(String brandPram) {
+    public List<ProductModel> getListProductForBrand(String brandPram) {
         return productDAO.getlistProductForBrand(brandPram);
     }
 
@@ -40,7 +40,7 @@ public class ProductService {
 
     public static void main(String[] args) {
 //        ProductService p = new ProductService();
-//        for (ProductModel pr : p.getListProduct()) {
+//        for (ProductModel pr : p.getListProductForBrand("iphone")) {
 //            System.out.println(pr.getName());
 //        }
     }

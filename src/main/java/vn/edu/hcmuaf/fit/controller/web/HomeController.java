@@ -1,14 +1,23 @@
 package vn.edu.hcmuaf.fit.controller.web;
 
+import vn.edu.hcmuaf.fit.model.CategoryModel;
+import vn.edu.hcmuaf.fit.service.ProductService;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "HomeController", value = "/home")
+@WebServlet(name = "HomeController", urlPatterns = {"/","/home"})
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ProductService productService = new ProductService();
+        List<CategoryModel> listBrand = productService.getListBrand();
+
+        getServletContext().setAttribute("listBrand", listBrand);
+
         request.getRequestDispatcher("/view/web/index.jsp").forward(request,response);
     }
 

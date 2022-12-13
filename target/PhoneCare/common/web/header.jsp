@@ -23,7 +23,8 @@
 </head>
 
 <body>
-<%List<CategoryModel> listBrand = (List<CategoryModel>) request.getAttribute("listBrand");%>
+<%ServletContext servletContext =  request.getServletContext();%>
+<%List<CategoryModel> listBrand = (List<CategoryModel>) servletContext.getAttribute("listBrand");%>
 
 <div class="header">
     <a style="color: #ffffff;text-decoration: none;" href="home">Hotline: 1800 2057 (Miễn phí) Thời gian làm việc
@@ -52,16 +53,16 @@
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                     <ul class="sub_menu active">
-<%--                        <%--%>
-<%--                            for (CategoryModel brand : listBrand) {--%>
-<%--                        %>--%>
-<%--                        <li class="nav-item ">--%>
-<%--                            <a href="list-product?brand=<%=brand.getName().toLowerCase()%>"--%>
-<%--                               title="Sửa điện thoại <%=brand.getName()%>">--%>
-<%--                                Sửa điện thoại <%=brand.getName()%>--%>
-<%--                            </a>--%>
-<%--                        </li>--%>
-<%--                        <% }%>--%>
+                        <%
+                            for (CategoryModel brand : listBrand) {
+                        %>
+                        <li class="nav-item ">
+                            <a href="category?brand=<%=brand.getName().toLowerCase()%>"
+                               title="Sửa điện thoại <%=brand.getName()%>">
+                                Sửa điện thoại <%=brand.getName()%>
+                            </a>
+                        </li>
+                        <% }%>
 
                     </ul>
                 </li>

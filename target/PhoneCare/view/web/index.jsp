@@ -2,6 +2,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.dao.ProductDAO" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@include file="../../common/taglib.jsp" %>
 
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-
+<% List<ProductModel> newList = (List<ProductModel>) ProductDAO.newProduct();%>
 <!--Navbar-->
 <%@include file="../../common/web/header.jsp" %>
 
@@ -295,44 +296,40 @@
                     </div>
                 </div>
             </div>
-            <!--Product-->
-<%--            <c:forEach items="${newListProduct}" var="productNew">--%>
-<%--                <div>Name product: ${productNew.name}</div>--%>
-<%--            </c:forEach>--%>
         </div>
 
         <div class="container product" style="width: 100%;margin: auto;">
             <div class="owl-carousel owl-theme owl-product-setting">
                 <%
-                    List<ProductModel> newList = (List<ProductModel>) ProductDAO.newProduct();
                     for (ProductModel product :
                             newList) {%>
-                                    <div class="item">
-                                        <div class="">
-                                            <div class="block-banner-category">
-                                                <div class="product-img fade-box">
-                                                    <a href="detailProduct.jsp" title="" class="img-resize">
-                                                        <img src="images/product/<%=product.getAvatar()%>" alt="" class="lazyloaded">
-                                                    </a>
+                <div class="item">
+                    <div class="">
+                        <div class="block-banner-category">
+                            <div class="product-img fade-box">
+                                <a href="detailProduct.jsp" title="" class="img-resize">
+                                    <img src="images/product/<%=product.getAvatar()%>" alt="" class="lazyloaded">
+                                </a>
 
-                                                </div>
-                                                <div class="product-detail clearfix">
-                                                    <div class="pro-text">
-                                                        <a style=" color: #000000;
-                                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                                                           title="" inspiration
-                                                           pack>
-                                                            <%=product.getName()%>
-                                                        </a>
-                                                    </div>
-                                                    <div class="pro-price">
-                                                        <p class="">Liên Hệ</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        <%
+                            </div>
+                            <div class="product-detail clearfix">
+                                <div class="pro-text">
+                                    <a style=" color: #000000;
+                                                                  font-size: 14px;text-decoration: none;"
+                                       href="detailProduct.jsp"
+                                       title="" inspiration
+                                       pack>
+                                        <%=product.getName()%>
+                                    </a>
+                                </div>
+                                <div class="pro-price">
+                                    <p class="">Liên Hệ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%
                     }%>
                 <%--                <c:forEach items="${newProduct}" var="product">--%>
 
