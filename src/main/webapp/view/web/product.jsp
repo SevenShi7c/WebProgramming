@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" isELIgnored="false" %><%--
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel"  %><%--
   Created by IntelliJ IDEA.
   User: vutru
   Date: 12/8/2022

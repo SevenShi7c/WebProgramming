@@ -24,4 +24,8 @@ public class BlogService {
     public BlogModel getDetailBlogForId(String idBlogPram) {
         return blogDAO.getDetailBlogForId(idBlogPram);
     }
+
+    public static void main(String[] args) {
+
+    }
 }

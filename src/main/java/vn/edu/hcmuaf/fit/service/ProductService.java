@@ -8,40 +8,38 @@ import java.util.List;
 
 public class ProductService {
 
-    private ProductDAO productDAO;
-
-    public ProductService() {
-        this.productDAO = new ProductDAO();
-    }
-
     public List<CategoryModel> getListBrand() {
-        return  productDAO.getListBrand();
+        return  ProductDAO.getListBrand();
     }
 
     public List<ProductModel> getListProduct() {
-        return productDAO.findAll();
+        return ProductDAO.findAll();
     }
 
     public List<ProductModel> getNewProduct() {
-        return productDAO.newProduct();
+        return ProductDAO.newProduct();
+    }
+
+    public static List<ProductModel> getSellerProduct() {
+        return ProductDAO.newProduct();
     }
 
     public ProductModel getDetailProduct(String idProduct) {
-        return productDAO.getDetailProduct(idProduct);
+        return ProductDAO.getDetailProduct(idProduct);
     }
 
     public List<ProductModel> getListProductForBrand(String brandPram) {
-        return productDAO.getlistProductForBrand(brandPram);
+        return ProductDAO.getlistProductForBrand(brandPram);
     }
 
     public List<ProductModel> getListProductBySearch(String searchPram) {
-        return productDAO.getListProductBySearch(searchPram);
+        return ProductDAO.getListProductBySearch(searchPram);
     }
 
     public static void main(String[] args) {
-//        ProductService p = new ProductService();
-//        for (ProductModel pr : p.getListProductForBrand("iphone")) {
-//            System.out.println(pr.getName());
-//        }
+        ProductService p = new ProductService();
+        for (ProductModel pr : p.getSellerProduct()) {
+            System.out.println(pr.getName());
+        }
     }
 }

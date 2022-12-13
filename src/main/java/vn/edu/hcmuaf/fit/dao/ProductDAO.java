@@ -1,51 +1,48 @@
 package vn.edu.hcmuaf.fit.dao;
 
+import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.CategoryModel;
 import vn.edu.hcmuaf.fit.model.ProductModel;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ProductDAO extends AbstractDAO {
+public class ProductDAO {
 
-    public List<ProductModel> findAll() {
+    public static List<ProductModel> findAll() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
         String sql = "select * from products";
-
-        conn = getConnection();
-
-        if (conn != null)
+        Statement statement = DBConnect.getInstall().get();
+        if (statement != null)
             try {
-                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                rs = ps.executeQuery();
+                ResultSet rs = statement.executeQuery(sql);
                 while (rs.next()) {
-                    list.add(new ProductModel(rs.getInt(1),
-                            rs.getString(2),
-                            rs.getString(3),
-                            rs.getLong(4),
-                            rs.getInt(5),
-                            rs.getInt(6),
-                            rs.getInt(7),
-                            rs.getInt(8),
-                            rs.getString(9),
-                            rs.getInt(10)));
+                    while (rs.next()) {
+                        list.add(new ProductModel(rs.getInt(1),
+                                rs.getString(2),
+                                rs.getString(3),
+                                rs.getLong(4),
+                                rs.getInt(5),
+                                rs.getInt(6),
+                                rs.getInt(7),
+                                rs.getInt(8),
+                                rs.getString(9),
+                                rs.getInt(10)));
+                    }
+                    return list;
+
                 }
-                return list;
-            } catch (SQLException e) {
+
+            } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    if (conn != null) conn.close();
-                    if (ps != null) ps.close();
-                    if (rs != null) rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
             }
         else {
-            System.out.println("Connect database error");
+            System.out.println("Không có kết nối");
         }
         return null;
     }
@@ -54,13 +51,15 @@ public class ProductDAO extends AbstractDAO {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
         String sql = "select * from products order by id desc limit 7";
-
-        conn = getConnection();
-
-        if (conn != null)
+        Statement statement = DBConnect.getInstall().get();
+        if (statement != null) {
+            ResultSet rs = null;
             try {
-                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                rs = ps.executeQuery();
+                rs = statement.executeQuery(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
                 while (rs.next()) {
                     list.add(new ProductModel(rs.getInt(1),
                             rs.getString(2),
@@ -73,188 +72,126 @@ public class ProductDAO extends AbstractDAO {
                             rs.getString(9),
                             rs.getInt(10)));
                 }
-                return list;
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    if (conn != null) conn.close();
-                    if (ps != null) ps.close();
-                    if (rs != null) rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
             }
-        else {
-            System.out.println("Connect database error");
+
+            return list;
+        } else {
+            System.out.println("Không có kết nối");
         }
         return null;
     }
 
-    public ProductModel getDetailProduct(String idProduct) {
+    public static ProductModel getDetailProduct(String idProduct) {
 
         String sql = "select * from products " +
                 "where id=?";
 
-        conn = getConnection();
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, idProduct);
+            ResultSet rs = ps.executeQuery();
 
-        if (conn != null)
-            try {
-                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                ps.setString(1, idProduct);
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    return new ProductModel(rs.getInt(1),
-                            rs.getString(2),
-                            rs.getString(3),
-                            rs.getLong(4),
-                            rs.getInt(5),
-                            rs.getInt(6),
-                            rs.getInt(7),
-                            rs.getInt(8),
-                            rs.getString(9),
-                            rs.getInt(10)
-                    );
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (conn != null) conn.close();
-                    if (ps != null) ps.close();
-                    if (rs != null) rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            while (rs.next()) {
+                return new ProductModel(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getLong(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getString(9),
+                        rs.getInt(10)
+                );
             }
-        else {
-            System.out.println("Connect database error");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
         return null;
     }
 
 
-    public List<CategoryModel> getListBrand() {
+    public static List<CategoryModel> getListBrand() {
         LinkedList<CategoryModel> list = new LinkedList<>();
 
         String sql = "select id, name from brand";
 
-        conn = getConnection();
-
-        if (conn != null)
-            try {
-                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    list.add(new CategoryModel(rs.getInt(1),
-                                    rs.getString(2)
-                            )
-                    );
-                }
-                return list;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (conn != null) conn.close();
-                    if (ps != null) ps.close();
-                    if (rs != null) rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new CategoryModel(rs.getInt(1),
+                                rs.getString(2)
+                        )
+                );
             }
-        else {
-            System.out.println("Connect database error");
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return null;
-
     }
 
-    public List<ProductModel> getlistProductForBrand(String brandPram) {
+    public static List<ProductModel> getlistProductForBrand(String brandPram) {
         LinkedList<ProductModel> list = new LinkedList<>();
 
         String sql = "select * from products " +
-                     "join brand on brand.id = products.id_brand "+
-                     "where brand.name=?";
+                "join brand on brand.id = products.id_brand " +
+                "where brand.name=?";
 
-        conn = getConnection();
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, brandPram);
+            ResultSet rs = ps.executeQuery();
 
-        if (conn != null)
-            try {
-                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                ps.setString(1,brandPram);
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    list.add(new ProductModel(rs.getInt(1),
-                                    rs.getString(2),
-                                    rs.getString(3),
-                                    rs.getLong(4),
-                                    rs.getInt(5)
-                            )
-                    );
-                }
-                return list;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (conn != null) conn.close();
-                    if (ps != null) ps.close();
-                    if (rs != null) rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            while (rs.next()) {
+                list.add(new ProductModel(rs.getInt(1),
+                                rs.getString(2),
+                                rs.getString(3),
+                                rs.getLong(4),
+                                rs.getInt(5)
+                        )
+                );
             }
-        else {
-            System.out.println("Connect database error");
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return null;
     }
-    public List<ProductModel> getListProductBySearch(String searchPram) {
+
+    public static List<ProductModel> getListProductBySearch(String searchPram) {
         LinkedList<ProductModel> list = new LinkedList<>();
 
         String sql = "SELECT * FROM products " +
                 "WHERE name like ? " +
                 "order by id desc ";
 
-        conn = getConnection();
 
-        if (conn != null)
-            try {
-                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                ps.setString(1,"%"+searchPram+"%");
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    list.add(new ProductModel(rs.getInt(1),
-                                    rs.getString(2),
-                                    rs.getString(3),
-                                    rs.getLong(4),
-                                    rs.getInt(5)
-                            )
-                    );
-                }
-                return list;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (conn != null) conn.close();
-                    if (ps != null) ps.close();
-                    if (rs != null) rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+        try {
+
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, searchPram);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(new ProductModel(rs.getInt(1),
+                                rs.getString(2),
+                                rs.getString(3),
+                                rs.getLong(4),
+                                rs.getInt(5)
+                        )
+                );
             }
-        else {
-            System.out.println("Connect database error");
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     public static void main(String[] args) {
-//        ProductDAO pd = new ProductDAO();
-//        for (ProductModel p : pd.getlistProductForBrand("asus")) {
-//            System.out.println(p.getName());
-//        }
+        for (ProductModel p : ProductDAO.getlistProductForBrand("iphone")){
+            System.out.println(p.getName());
+        }
     }
 }

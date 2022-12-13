@@ -1,5 +1,5 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
 <%@include file="../../common/taglib.jsp" %>
 
 <!DOCTYPE html>
