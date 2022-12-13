@@ -44,32 +44,40 @@
     <!--Product-->
     <div class="container" style="padding-bottom: 50px;">
         <div class="row">
-<%--            Sản pẩm bán chạy--%>
+            <%--            Sản pẩm bán chạy--%>
+                <%
+                    List<ProductModel> newListSeller = (List<ProductModel>) ProductDAO.sellerProduct();
+                    for (ProductModel product :
+                            newListSeller) {%>
             <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                 <div class="block-banner-category">
                     <div class="product-img fade-box">
-                        <a href="product.jsp" title="" class="img-resize">
-                            <img src="../../images/product/ep-co-cap-man-hinh-samsung-s8-fc-medium.jpg" alt=""
-                                 class="lazyloaded">
+                        <a href="detail-product" title="" class="img-resize">
+                            <img src="images/product/<%=product.getAvatar()%>" alt="" class="lazyloaded">
                         </a>
 
                     </div>
                     <div class="product-detail clearfix">
                         <div class="pro-text">
                             <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="product.jsp" title=""
-                               inspiration
+                                                  font-size: 14px;text-decoration: none;" href="detail-product"
+                               title="" inspiration
                                pack>
-                                Ép cổ cáp màn hình Samsung S8
+                               <%=product.getName()%>
+                                <XS></XS>
                             </a>
                         </div>
                         <div class="pro-price">
-                            <p class="">1,590,000₫</p>
+                            <p class=""><%=product.getPrice()%></p>
                         </div>
                     </div>
                 </div>
             </div>
+                <%
+                    }%>
         </div>
+
+    </div>
 
 
     </div>

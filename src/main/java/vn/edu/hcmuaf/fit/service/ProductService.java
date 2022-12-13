@@ -26,6 +26,10 @@ public class ProductService {
         return productDAO.newProduct();
     }
 
+    public List<ProductModel> getSellerProduct() {
+        return productDAO.sellerProduct();
+    }
+
     public ProductModel getDetailProduct(String idProduct) {
         return productDAO.getDetailProduct(idProduct);
     }
