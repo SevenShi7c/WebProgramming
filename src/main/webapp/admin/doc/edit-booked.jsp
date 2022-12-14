@@ -92,17 +92,17 @@
     <hr>
     <ul class="app-menu">
 
-        <li><a class="app-menu__item active " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
+        <li><a class="app-menu__item active " href="index.jsp"><i class='app-menu__icon bx bx-tachometer'></i><span
                 class="app-menu__label">Bảng điều khiển</span></a></li>
-        <li><a class="app-menu__item" href="manage-customer.html"><i class='app-menu__icon bx bx-user-voice'></i><span
+        <li><a class="app-menu__item" href="manage-customer.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
                 class="app-menu__label">Quản lý khách hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-product.html"><i
+        <li><a class="app-menu__item" href="manage-product.jsp"><i
                 class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a></li>
-        <li><a class="app-menu__item" href="manage-order.html"><i class='app-menu__icon bx bx-task'></i><span
+        <li><a class="app-menu__item" href="manage-order.jsp"><i class='app-menu__icon bx bx-task'></i><span
                 class="app-menu__label">Quản lý đơn hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-booked.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+        <li><a class="app-menu__item" href="manage-booked.jsp"><i class='app-menu__icon bx bx-calendar-check'></i><span
                 class="app-menu__label">Quản lý lịch đã đặt </span></a></li>
-        <li><a class="app-menu__item" href="manage-blog.html"><i class='app-menu__icon bx bx-news'></i><span
+        <li><a class="app-menu__item" href="manage-blog.jsp"><i class='app-menu__icon bx bx-news'></i><span
                 class="app-menu__label">Quản lý tin tức </span></a></li>
 
 
@@ -111,7 +111,7 @@
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><a href="manage-booked.html">Quản lý lịch đã đặt</a></li>
+            <li class="breadcrumb-item"><a href="manage-booked.jsp">Quản lý lịch đã đặt</a></li>
             <li class="breadcrumb-item">Chỉnh sửa đặt lịch</li>
         </ul>
     </div>
@@ -282,7 +282,7 @@
                         </div>
                     </form>
                     <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                    <a class="btn btn-cancel" href="manage-booked.html">Hủy bỏ</a>
+                    <a class="btn btn-cancel" href="manage-booked.jsp">Hủy bỏ</a>
                 </div>
             </div>
         </div>

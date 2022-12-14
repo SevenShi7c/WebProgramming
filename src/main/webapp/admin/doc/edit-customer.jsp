@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Thêm khách hàng | ADMIN</title>
-    <link href="../../images/logo/logo_PhoneCare.png" rel="shortcut icon" type="image/x-icon">
+    <title>Chỉnh sửa khách hàng | ADMIN</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -159,17 +158,17 @@
     <hr>
     <ul class="app-menu">
 
-        <li><a class="app-menu__item active " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
+        <li><a class="app-menu__item active " href="index.jsp"><i class='app-menu__icon bx bx-tachometer'></i><span
                 class="app-menu__label">Bảng điều khiển</span></a></li>
-        <li><a class="app-menu__item" href="manage-customer.html"><i class='app-menu__icon bx bx-user-voice'></i><span
+        <li><a class="app-menu__item" href="manage-customer.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
                 class="app-menu__label">Quản lý khách hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-product.html"><i
+        <li><a class="app-menu__item" href="manage-product.jsp"><i
                 class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a></li>
-        <li><a class="app-menu__item" href="manage-order.html"><i class='app-menu__icon bx bx-task'></i><span
+        <li><a class="app-menu__item" href="manage-order.jsp"><i class='app-menu__icon bx bx-task'></i><span
                 class="app-menu__label">Quản lý đơn hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-booked.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+        <li><a class="app-menu__item" href="manage-booked.jsp"><i class='app-menu__icon bx bx-calendar-check'></i><span
                 class="app-menu__label">Quản lý lịch đã đặt </span></a></li>
-        <li><a class="app-menu__item" href="manage-blog.html"><i class='app-menu__icon bx bx-news'></i><span
+        <li><a class="app-menu__item" href="manage-blog.jsp"><i class='app-menu__icon bx bx-news'></i><span
                 class="app-menu__label">Quản lý tin tức </span></a></li>
 
 
@@ -178,8 +177,8 @@
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><a href="manage-customer.html">Quản lý khách hàng</a></li>
-            <li class="breadcrumb-item"><a href="#">Thêm khách hàng</a></li>
+            <li class="breadcrumb-item"><a href="manage-customer.jsp">Quản lý khách hàng</a></li>
+            <li class="breadcrumb-item"><a href="#">Chỉnh sửa khách hàng</a></li>
         </ul>
     </div>
     <div class="row">
@@ -187,63 +186,65 @@
 
             <div class="tile">
 
-                <h3 class="tile-title">Tạo mới khách hàng</h3>
+                <h3 class="tile-title">Chỉnh sửa chi tiết</h3>
                 <div class="tile-body">
+
 
                     <form class="row">
                         <div class="form-group col-md-4">
                             <label class="control-label">ID khách hàng</label>
-                            <input class="form-control" type="text" value="">
+                            <input class="form-control" type="text" value="#CD12837">
                         </div>
                         <div class="form-group col-md-4">
                             <label class="control-label">Họ và tên</label>
-                            <input class="form-control" type="text" required>
+                            <input class="form-control" type="text" required value="Hồ Thị Thanh Ngân">
                         </div>
                         <div class="form-group col-md-4">
                             <label class="control-label">Địa chỉ email</label>
-                            <input class="form-control" type="text" required>
+                            <input class="form-control" type="text" required value="thanhngan@gmail.com">
                         </div>
                         <div class="form-group col-md-4">
                             <label class="control-label">Địa chỉ thường trú</label>
-                            <input class="form-control" type="text" required>
+                            <input class="form-control" type="text" required
+                                   value="155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh">
                         </div>
                         <div class="form-group  col-md-4">
                             <label class="control-label">Số điện thoại</label>
-                            <input class="form-control" type="number" required>
+                            <input class="form-control" type="number" required value="0926737168">
                         </div>
                         <div class="form-group col-md-4">
                             <label class="control-label">Ngày sinh</label>
-                            <input class="form-control" type="date">
+                            <input class="form-control" type="date" value="1999-02-12">
                         </div>
                         <div class="form-group col-md-3">
                             <label class="control-label">Giới tính</label>
                             <select class="form-control" id="exampleSelect2" required>
-                                <option>--- Chọn giới tính ---</option>
                                 <option>Nam</option>
                                 <option>Nữ</option>
                             </select>
                         </div>
                         <div class="form-group col-md-12">
-                            <label class="control-label">Ảnh 3x4 nhân viên</label>
+                            <label class="control-label">Ảnh thẻ</label>
                             <div id="myfileupload">
                                 <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);"/>
                             </div>
                             <div id="thumbbox">
-                                <img height="300" width="300" alt="Thumb image" id="thumbimage" style="display: none"/>
+                                <img height="300" width="300" alt="Thumb image" id="thumbimage"
+                                     src="../img-anhthe/avatar.png">
                                 <a class="removeimg" href="javascript:"></a>
                             </div>
                             <div id="boxchoice">
-                                <a href="javascript:" class="Choicefile"><i class='bx bx-upload'></i></a>
+                                <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
+                                    Chọn ảnh</a>
                                 <p style="clear:both"></p>
                             </div>
 
                         </div>
 
                     </form>
-
                 </div>
                 <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                <a class="btn btn-cancel" href="manage-customer.html">Hủy bỏ</a>
+                <a class="btn btn-cancel" href="manage-employee.html">Hủy bỏ</a>
             </div>
 
         </div>
@@ -255,8 +256,7 @@
 
         swal("Đã lưu thành công.!", {});
 
-    }
-</script>
+    }</script>
 <!-- Essential javascripts for application to work-->
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.min.js"></script>

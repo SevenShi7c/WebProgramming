@@ -50,17 +50,17 @@
     <hr>
     <ul class="app-menu">
 
-        <li><a class="app-menu__item active " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
+        <li><a class="app-menu__item active " href="index.jsp"><i class='app-menu__icon bx bx-tachometer'></i><span
                 class="app-menu__label">Bảng điều khiển</span></a></li>
-        <li><a class="app-menu__item" href="manage-customer.html"><i class='app-menu__icon bx bx-user-voice'></i><span
+        <li><a class="app-menu__item" href="manage-customer.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
                 class="app-menu__label">Quản lý khách hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-product.html"><i
+        <li><a class="app-menu__item" href="manage-product.jsp"><i
                 class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a></li>
-        <li><a class="app-menu__item" href="manage-order.html"><i class='app-menu__icon bx bx-task'></i><span
+        <li><a class="app-menu__item" href="manage-order.jsp"><i class='app-menu__icon bx bx-task'></i><span
                 class="app-menu__label">Quản lý đơn hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-booked.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+        <li><a class="app-menu__item" href="manage-booked.jsp"><i class='app-menu__icon bx bx-calendar-check'></i><span
                 class="app-menu__label">Quản lý lịch đã đặt </span></a></li>
-        <li><a class="app-menu__item" href="manage-blog.html"><i class='app-menu__icon bx bx-news'></i><span
+        <li><a class="app-menu__item" href="manage-blog.jsp"><i class='app-menu__icon bx bx-news'></i><span
                 class="app-menu__label">Quản lý tin tức </span></a></li>
 
 
@@ -69,7 +69,7 @@
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><a href="manage-customer.html">Quản lý khách hàng</a></li>
+            <li class="breadcrumb-item"><a href="manage-customer.jsp">Quản lý khách hàng</a></li>
             <li class="breadcrumb-item"><a href="#">Danh sách khách hàng</a></li>
         </ul>
         <div id="clock"></div>
@@ -83,7 +83,7 @@
                     <div class="row element-button">
                         <div class="col-sm-2">
 
-                            <a class="btn btn-add btn-sm" href="add-customer.html" title="Thêm"><i
+                            <a class="btn btn-add btn-sm" href="add-customer.jsp" title="Thêm"><i
                                     class="fas fa-plus"></i>
                                 Tạo mới khách hàng</a>
                         </div>
@@ -306,7 +306,7 @@ MODAL
 
                 </div>
                 <BR>
-                <a href="edit-customer.html" style="    float: right;
+                <a href="edit-customer.jsp" style="    float: right;
         font-weight: 600;
         color: #ea0000;">Chỉnh sửa nâng cao</a>
                 <BR>

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,17 +93,17 @@
     <hr>
     <ul class="app-menu">
 
-        <li><a class="app-menu__item active " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
+        <li><a class="app-menu__item active " href="index.jsp"><i class='app-menu__icon bx bx-tachometer'></i><span
                 class="app-menu__label">Bảng điều khiển</span></a></li>
-        <li><a class="app-menu__item" href="manage-customer.html"><i class='app-menu__icon bx bx-user-voice'></i><span
+        <li><a class="app-menu__item" href="manage-customer.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
                 class="app-menu__label">Quản lý khách hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-product.html"><i
+        <li><a class="app-menu__item" href="manage-product.jsp"><i
                 class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a></li>
-        <li><a class="app-menu__item" href="manage-order.html"><i class='app-menu__icon bx bx-task'></i><span
+        <li><a class="app-menu__item" href="manage-order.jsp"><i class='app-menu__icon bx bx-task'></i><span
                 class="app-menu__label">Quản lý đơn hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-booked.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+        <li><a class="app-menu__item" href="manage-booked.jsp"><i class='app-menu__icon bx bx-calendar-check'></i><span
                 class="app-menu__label">Quản lý lịch đã đặt </span></a></li>
-        <li><a class="app-menu__item" href="manage-blog.html"><i class='app-menu__icon bx bx-news'></i><span
+        <li><a class="app-menu__item" href="manage-blog.jsp"><i class='app-menu__icon bx bx-news'></i><span
                 class="app-menu__label">Quản lý tin tức </span></a></li>
 
 
@@ -111,8 +112,8 @@
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><a href="manage-booked.html">Quản lý lịch đã đặt</a></li>
-            <li class="breadcrumb-item">Chỉnh sửa đặt lịch</li>
+            <li class="breadcrumb-item"><a href="manage-product.jsp">Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item">Chỉnh sửa sản phẩm</li>
         </ul>
     </div>
     <div class="row">
@@ -121,35 +122,25 @@
                 <h3 class="tile-title">Chỉnh sửa chi tiết</h3>
                 <div class="tile-body">
                     <form class="row">
-                        <div class="form-group col-md-3">
-                            <label class="control-label">ID </label>
-                            <input class="form-control" type="number" value="72638003">
+                        <div class="form-group  col-md-3">
+                            <label class="control-label">Mã sản phẩm</label>
+                            <input class="form-control" type="text" value="71232467">
                         </div>
                         <div class="form-group col-md-3">
                             <label class="control-label">Tên sản phẩm</label>
-                            <input class="form-control" type="text" value="Thay dây nút nguồn Xiaomi Redmi Note 11 Pro">
+                            <input class="form-control" type="text" placeholder=""
+                                   value="Thay dây nút nguồn Xiaomi Redmi Note 11 Pro	">
                         </div>
-
-
-                        <div class="form-group  col-md-3">
+                        <div class="form-group col-md-3">
                             <label class="control-label">Số lượng</label>
-                            <input class="form-control" type="number" value="1">
+                            <input class="form-control" type="number" placeholder="" value="50">
                         </div>
-                        <div class="form-group  col-md-3">
-                            <label class="control-label">Ngày hẹn</label>
-                            <input class="form-control" type="date" value="2022-10-22">
-                        </div>
-                        <div class="form-group  col-md-3">
-                            <label class="control-label">Cửa hàng</label>
-                            <input class="form-control" type="text" value="P. Bình An, Quận 2">
-                        </div>
+
                         <div class="form-group col-md-3 ">
                             <label for="exampleSelect1" class="control-label">Tình trạng</label>
                             <select class="form-control" id="exampleSelect1">
-
-                                <option>Chờ thanh toán</option>
-                                <option>Đã thanh toán</option>
-                                <option>Đã hủy</option>
+                                <option>Còn hàng</option>
+                                <option>Hết hàng</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -165,18 +156,17 @@
                         <div class="form-group col-md-3 ">
                             <label for="exampleSelect1" class="control-label">Thương hiệu</label>
                             <select class="form-control" id="exampleSelect1">
-
+                                <option>Xiaomi</option>
                                 <option>Iphone</option>
                                 <option>Samsung</option>
-                                <option>Xiaomi</option>
                                 <option>Khác</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
-                            <label class="control-label">Tổng tiền</label>
-                            <input class="form-control" type="text" value="1.690.000">
+                            <label class="control-label">Giá bán</label>
+                            <input class="form-control" type="text" value="300.000đ">
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label class="control-label">Ảnh đại diện</label>
                             <div id="myfileupload">
                                 <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);"/>
@@ -282,7 +272,7 @@
                         </div>
                     </form>
                     <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                    <a class="btn btn-cancel" href="manage-booked.html">Hủy bỏ</a>
+                    <a class="btn btn-cancel" href="manage-product.jsp">Hủy bỏ</a>
                 </div>
             </div>
         </div>
@@ -317,7 +307,6 @@
         swal("Đã lưu thành công.!", {});
 
     }
-
 </script>
 </body>
 
