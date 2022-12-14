@@ -1,5 +1,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.CategoryModel" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.User" %>
+<%--
   Created by IntelliJ IDEA.
   User: vutru
   Date: 12/8/2022
@@ -19,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <% User user = (User) session.getAttribute("userlogin"); %>
 </head>
 
 <body>
@@ -297,10 +299,38 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a  >
+            <%if (user == null) { %>
+            <a href="signin" >
                 <i class="icon-header fas fa-user"></i>
             </a>
+            <%}%>
         </div>
+        <%if (user != null) { %>
+        <div class=" mr-4">
+            <ul class="navbar-nav mx-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle aaaa" href="product.html" id="navbarDropdownUser"
+                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <p><%
+                            if (user != null) {
+                                out.print(user.getName());
+                            }
+                        %>
+                            <i class="fa fa-angle-down"></i>
+                            <%-- <img src=${user.avatar} alt="" width=50/>--%>
+                        </p>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownUser" style="border:0;">
+                        <a class="dropdown-item" href="profile.html" title="">Thông tin người dùng</a>
+                        <a class="dropdown-item" href="booked.html" uk-toggle="target: #offcanvas-flip3" title="">Lịch
+                            sử đặt hẹn</a>
+                        <a class="dropdown-item" href="signin.html" title="" onclick=logout()>Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <%}%>
     </div>
     </div>
 
