@@ -322,10 +322,10 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownUser" style="border:0;">
-                        <a class="dropdown-item" href="profile.html" title="">Thông tin người dùng</a>
+                        <a class="dropdown-item" href="profile" title="">Thông tin người dùng</a>
                         <a class="dropdown-item" href="booked.html" uk-toggle="target: #offcanvas-flip3" title="">Lịch
                             sử đặt hẹn</a>
-                        <a class="dropdown-item" href="signin.html" title="" onclick=logout()>Đăng xuất</a>
+                        <a class="dropdown-item" href="login?action=logout" title="" >Đăng xuất</a>
                     </div>
                 </li>
             </ul>
