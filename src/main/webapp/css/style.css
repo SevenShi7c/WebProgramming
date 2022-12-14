@@ -1,4 +1,7 @@
 @import url("../plugins/fontawesome/fontawesome.min.css");
+:root{
+  --bg-primary: #ff6600;
+}
 
 * {
   font-family: "Quicksand", sans-serif;

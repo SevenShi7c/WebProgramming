@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
 Built-By: vutruc
+<<<<<<< HEAD
 Build-Jdk: Oracle OpenJDK version 19.0.1
+=======
+Build-Jdk: Amazon Corretto version 17.0.5
+>>>>>>> truc
 
