@@ -4,7 +4,7 @@
 <html>
 <head>
     <%@include file="../../common/web/head.jsp" %>
-    <link rel="stylesheet" href="../../css/profile.css">
+    <link rel="stylesheet" href="././css/profile.css">
     <title>Thông tin cá nhân | Phone Care</title>
 
 </head>
