@@ -51,42 +51,33 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println( "dopost: "+action);
-
+        HttpSession session = request.getSession();
+        session.setAttribute("mess", null);
         if (action == null) {
-
             System.out.println("Khong thuc hien duoc gi het");
-
+            session.setAttribute("mess", null);
         }
         else if (action.equals("login")) {
-
-            if (new UserDAO().checkLogin(username, password)==1 ) {
-                HttpSession session = request.getSession();
+            if (new UserDAO().checkLogin(username, password)==1) {
                 User user = UserDAO.mapUser.get(username);
                 session.setAttribute("userlogin", user);
+                session.setAttribute("mess", null);
                 response.sendRedirect("home");
             }
             else if (new UserDAO().checkLogin(username, password)==2 ) {
-                HttpSession session = request.getSession();
-                User user = UserDAO.mapUser.get(username);
-                session.setAttribute("userlogin", user);
+
+                session.setAttribute("mess", null);
                 response.sendRedirect("index");
             }
            else {
-                HttpSession session = request.getSession();
                 session.setAttribute("mess", "error");
-
-
-
                 response.sendRedirect("signin");
             }
+        }
+        else{
+            session.setAttribute("mess", null);
+        }
 
-        }
-        else if (action.equals("logout")) {
-            HttpSession session = request.getSession();
-            session.invalidate();
-//                response.sendRedirect("signin");
-            response.sendRedirect("signin");
-        }
 
     }
 }
