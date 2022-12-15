@@ -41,19 +41,40 @@ public class UserDAO implements ObjectDAO {
         return mapTemp;
     }
 
-    public boolean checkLogin(String email, String pass) {
-        User user = mapUser.get(email);
-        if (user != null) {
+    public int checkLogin(String username, String pass) {
+        User user = mapUser.get(username);
+        int id = user.getId_type_user();
+        if (user != null && id == 1) {
             if (user.getPassword().equals(pass)) {
-                return true;
+                return 1;
             } else {
-                return false;
+                return 0;
             }
 
+        } else if (user != null && id == 2) {
+            if (user.getPassword().equals(pass)) {
+                return 2;
+            } else {
+                return 0;
+            }
         } else {
-            return false;
+            return 0;
         }
     }
+//    public boolean checkLoginAdmin(String username, String pass) {
+//        User user = mapUser.get(username);
+//       int id= user.getId_type_user();
+//        if (user != null&&id==2) {
+//            if (user.getPassword().equals(pass)) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//
+//        } else {
+//            return false;
+//        }
+//    }
 
     @Override
     public boolean add(Object obj) {
