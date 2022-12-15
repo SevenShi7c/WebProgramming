@@ -6,6 +6,10 @@
     <title>Bảng điều khiển | ADMIN</title>
     <%@include file="../../common/admin/head.jsp"%>
 </head>
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 <body onload="time()" class="app sidebar-mini rtl">
 <!-- Navbar-->
 <%@include file="../../common/admin/header.jsp"%>

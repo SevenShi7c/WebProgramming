@@ -22,6 +22,7 @@
                 </div>
             </div> <div class="signin-right " id="a-sign">
             <form action="login?action=login" method="post">
+
                 <div class="username form-control1 ">
                     <input type="text" id="username" name="username" placeholder="Email/SĐT" >
                 </div>

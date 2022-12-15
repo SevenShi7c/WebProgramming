@@ -15,12 +15,13 @@
 <head>
     <%@include file="../../common/web/head.jsp" %>
     <title>Điện thoại | Phone Care</title>
-
+    <link rel="stylesheet" href="css/product.css">
 </head>
 
 <body>
 
 <%@include file="../../common/web/header.jsp" %>
+<%String checkTagBrand = (String) request.getParameter("brand");%>
 
 <div class="breadcrumb-shop">
     <div class="container">
@@ -85,7 +86,7 @@
                                                             <%
                                                                 for (CategoryModel brand : listBrand) {
                                                             %>
-                                                            <li class="">
+                                                            <li class="px-2 <%=brand.getName().toLowerCase().equalsIgnoreCase(checkTagBrand)?"active":""%>">
                                                                 <a href="category?brand=<%=brand.getName().toLowerCase()%>"
                                                                    title="Sửa điện thoại <%=brand.getName()%>">
                                                                     Sửa điện thoại <%=brand.getName()%>
