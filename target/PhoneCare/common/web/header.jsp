@@ -325,7 +325,7 @@
                         <a class="dropdown-item" href="profile" title="">Thông tin người dùng</a>
                         <a class="dropdown-item" href="booked.html" uk-toggle="target: #offcanvas-flip3" title="">Lịch
                             sử đặt hẹn</a>
-                        <a class="dropdown-item" href="login?action=logout" title="" >Đăng xuất</a>
+                        <a class="dropdown-item" href="login?action=logout" methods="post" title="" >Đăng xuất</a>
                     </div>
                 </li>
             </ul>

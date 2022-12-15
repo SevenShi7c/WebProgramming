@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.lang.System.*;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
     private static  final long serialVersionUID =1L;
@@ -25,20 +26,20 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
 
         String action = request.getParameter("action");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         System.out.println( "doget: "+action);
         if (action == null) {
+
             System.out.println("Khong thuc hien duoc gi het");
 
         }
-
         else if (action.equals("logout")) {
             HttpSession session = request.getSession();
             session.invalidate();
 //                response.sendRedirect("signin");
-            System.out.println( "Vao logout ");
+            response.sendRedirect("signin");
         }
-        response.sendRedirect("signin");
-
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,20 +48,45 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
 
         String action = request.getParameter("action");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         System.out.println( "dopost: "+action);
+
         if (action == null) {
+
             System.out.println("Khong thuc hien duoc gi het");
 
-        } else if (action.equals("login")) {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            if (new UserDAO().checkLogin(username, password)) {
+        }
+        else if (action.equals("login")) {
+
+            if (new UserDAO().checkLogin(username, password)==1 ) {
                 HttpSession session = request.getSession();
                 User user = UserDAO.mapUser.get(username);
                 session.setAttribute("userlogin", user);
-
+                response.sendRedirect("home");
             }
+            else if (new UserDAO().checkLogin(username, password)==2 ) {
+                HttpSession session = request.getSession();
+                User user = UserDAO.mapUser.get(username);
+                session.setAttribute("userlogin", user);
+                response.sendRedirect("index");
+            }
+           else {
+                HttpSession session = request.getSession();
+                session.setAttribute("mess", "error");
+
+
+
+                response.sendRedirect("signin");
+            }
+
         }
-        response.sendRedirect("home");
+        else if (action.equals("logout")) {
+            HttpSession session = request.getSession();
+            session.invalidate();
+//                response.sendRedirect("signin");
+            response.sendRedirect("signin");
+        }
+
     }
 }
