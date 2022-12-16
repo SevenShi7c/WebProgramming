@@ -182,13 +182,6 @@ public class UserDAO implements ObjectDAO {
         return false;
     }
 
-<<<<<<< HEAD
-    @Override
-    public void read() {
-    }
-=======
->>>>>>> aac5cbc2c2c02f7c335327b4a32ce5b24da9d172
-
     public boolean changePass(String userName, String newPass) {
         User user = mapUser.get(userName);
         if (user != null) {
