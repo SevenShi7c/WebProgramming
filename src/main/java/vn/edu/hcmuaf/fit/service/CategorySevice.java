@@ -13,6 +13,10 @@ public class CategorySevice {
     }
 
     public List<CategoryModel> getListBrand() {
-        return categoryDAO.getListBrand();
+        return categoryDAO.getListCategory();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new CategorySevice().getListBrand());
     }
 }
