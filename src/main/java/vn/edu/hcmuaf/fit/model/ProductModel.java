@@ -39,15 +39,8 @@ public class ProductModel {
         this.name = name;
         this.avatar = avatar;
         this.price = price;
-        this.idBrand = idBrand;
-        this.idTypeProduct = idTypeProduct;
-        this.idStatusDevice = idStatusDevice;
         this.sumQuantity = sumQuantity;
-        this.describe = describe;
-        this.idStore = idStore;
     }
-
-
 
     public int getId() {
         return id;
@@ -87,6 +80,46 @@ public class ProductModel {
 
     public int getIdStore() {
         return idStore;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setPrice(long price) {
+        this.price = price;
+    }
+
+    public void setIdBrand(int idBrand) {
+        this.idBrand = idBrand;
+    }
+
+    public void setIdTypeProduct(int idTypeProduct) {
+        this.idTypeProduct = idTypeProduct;
+    }
+
+    public void setIdStatusDevice(int idStatusDevice) {
+        this.idStatusDevice = idStatusDevice;
+    }
+
+    public void setSumQuantity(int sumQuantity) {
+        this.sumQuantity = sumQuantity;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
+    public void setIdStore(int idStore) {
+        this.idStore = idStore;
     }
 
     @Override
