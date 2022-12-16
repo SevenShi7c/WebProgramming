@@ -23,7 +23,7 @@ public class ProductDAO {
                 ResultSet rs = statement.executeQuery(sql);
                 while (rs.next()) {
                     while (rs.next()) {
-                        list.add(new ProductModel(rs.getInt(1),
+                        list.add(new ProductModel(rs.getString(1),
                                 rs.getString(2),
                                 rs.getString(3),
                                 rs.getLong(4),
@@ -61,7 +61,7 @@ public class ProductDAO {
             }
             try {
                 while (rs.next()) {
-                    list.add(new ProductModel(rs.getInt(1),
+                    list.add(new ProductModel(rs.getString(1),
                             rs.getString(2),
                             rs.getString(3),
                             rs.getLong(4),
@@ -94,7 +94,7 @@ public class ProductDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                return new ProductModel(rs.getInt(1),
+                return new ProductModel(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getLong(4),
@@ -146,7 +146,7 @@ public class ProductDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new ProductModel(rs.getInt(1),
+                list.add(new ProductModel(rs.getString(1),
                                 rs.getString(2),
                                 rs.getString(3),
                                 rs.getLong(4),
@@ -173,7 +173,7 @@ public class ProductDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new ProductModel(rs.getInt(1),
+                list.add(new ProductModel(rs.getString(1),
                                 rs.getString(2),
                                 rs.getString(3),
                                 rs.getLong(4),
