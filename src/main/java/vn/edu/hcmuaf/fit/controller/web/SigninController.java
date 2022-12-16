@@ -10,6 +10,7 @@ public class SigninController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/view/web/signin.jsp").forward(request,response);
+
     }
 
     @Override

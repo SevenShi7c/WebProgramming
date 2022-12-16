@@ -26,7 +26,7 @@
             </div>
             <div class="signin-right " id="a-sign">
                 <form action="login?action=login" method="post">
-                    <%if (mess!= null) { %>
+                    <%if (mess == "errorsignin") { %>
                     <div class="alert alert-danger">
                         <strong>Tài khoản</strong> hoặc <strong>mật khẩu </strong>không chính xác
                     </div>
