@@ -17,7 +17,7 @@
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item">Quản lý sản phẩm</li>
-            <li class="breadcrumb-item"><a href="#">Danh sách sản phẩm</a></li>
+            <li class="breadcrumb-item"><a href="manage-product">Danh sách sản phẩm</a></li>
         </ul>
         <div id="clock"></div>
     </div>
@@ -28,7 +28,7 @@
                     <div class="row element-button">
                         <div class="col-sm-2">
 
-                            <a class="btn btn-add btn-sm" href="add-product.jsp" title="Thêm"><i
+                            <a class="btn btn-add btn-sm" href="manage-product?type=add" title="Thêm"><i
                                     class="fas fa-plus"></i>
                                 Tạo mới sản phẩm</a>
                         </div>
@@ -2206,7 +2206,7 @@ MODAL
                     </div>
                 </div>
                 <BR>
-                <a href="edit-product.jsp" style="float: right;font-weight: 600;color: #ea0000;">Chỉnh sửa sản phẩm
+                <a href="manage-product?type=edit&id-product=" style="float: right;font-weight: 600;color: #ea0000;">Chỉnh sửa sản phẩm
                     nâng cao</a>
                 <BR>
                 <BR>

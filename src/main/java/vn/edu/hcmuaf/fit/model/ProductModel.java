@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.fit.model;
 
 public class ProductModel {
-    private int id;
+    private String id;
     private String name;
     private String avatar;
     private long price;
@@ -21,7 +21,7 @@ public class ProductModel {
     public ProductModel() {
     }
 
-    public ProductModel(int id, String name, String avatar, long price, int idBrand, int idTypeProduct, int idStatusDevice, int sumQuantity, String describe, int idStore) {
+    public ProductModel(String id, String name, String avatar, long price, int idBrand, int idTypeProduct, int idStatusDevice, int sumQuantity, String describe, int idStore) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
@@ -34,7 +34,7 @@ public class ProductModel {
         this.idStore = idStore;
     }
 
-    public ProductModel(int id, String name, String avatar, long price, int sumQuantity) {
+    public ProductModel(String id, String name, String avatar, long price, int sumQuantity) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
@@ -42,7 +42,7 @@ public class ProductModel {
         this.sumQuantity = sumQuantity;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -82,7 +82,7 @@ public class ProductModel {
         return idStore;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
