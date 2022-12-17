@@ -21,7 +21,7 @@ public class ProductModel {
     public ProductModel() {
     }
 
-    public ProductModel(String id, String name, String avatar, long price, int idBrand, int idTypeProduct, int idStatusDevice, int sumQuantity, String describe, int idStore) {
+    public ProductModel(String id, String name,String avatar,int idTypeProduct,int idStatusDevice, int idBrand, long price,int sumQuantity,String describe, int idStore) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
