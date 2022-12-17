@@ -49,9 +49,8 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
 
         String action = request.getParameter("action");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String hovaten = request.getParameter("hovaten");
+
+
         System.out.println("dopost: " + action);
         HttpSession session = request.getSession();
         session.setAttribute("mess", null);
@@ -60,6 +59,10 @@ public class LoginController extends HttpServlet {
             session.setAttribute("mess", null);
         }
         else if (action.equals("login")) {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            String hovaten = request.getParameter("hovaten");
+
             int check =new UserDAO().checkLogin(username, password);
             if (check== 1) {
                 User user = UserDAO.mapUser.get(username);
@@ -75,22 +78,24 @@ public class LoginController extends HttpServlet {
                 response.sendRedirect("signin");
             }
         } else if (action.equals("logout")) {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            String hovaten = request.getParameter("hovaten");
+            String email = request.getParameter("email");
+            int sex = Integer.parseInt(request.getParameter("sex"));
             int check = new UserDAO().checksignup(hovaten,username,password);
             if (check ==1){
-                new UserDAO().signup(hovaten,username,password);
+                new UserDAO().signup(hovaten,sex,email,username,password);
                 request.getRequestDispatcher("/view/web/signin.jsp").forward(request,response);
-                System.out.println("a " );
             }
             else if (check==2){
                 session.setAttribute("mess", "errornull");
                 response.sendRedirect("signup");
-                System.out.println("b " );
             }
             else {
                 session.setAttribute("mess", "errornull");
                 session.setAttribute("mess", "errorsignup");
                 response.sendRedirect("signup");
-
             }
 //            response.sendRedirect("signin");
             System.out.println("c " );

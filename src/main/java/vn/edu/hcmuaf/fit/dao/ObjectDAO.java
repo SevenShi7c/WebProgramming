@@ -7,4 +7,6 @@ public interface ObjectDAO {
     public boolean del(String id);
     public boolean edit(String id , Object obj);
 
+    public void read();
+
 }

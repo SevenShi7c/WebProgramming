@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../admin/doc/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -32,7 +32,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="../login.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="../../admin/login.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
     </ul>
@@ -40,7 +40,7 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../images/admin.png" width="50px"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../../admin/images/admin.png" width="50px"
                                         alt="User Image">
         <div>
             <p class="app-sidebar__user-name"><b>Admin</b></p>
@@ -122,7 +122,7 @@
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                             <td>#CD12837</td>
                             <td>Hồ Thị Thanh Ngân</td>
-                            <td><img class="img-card-person" src="../img-anhthe/avatar.png" alt=""></td>
+                            <td><img class="img-card-person" src="../../admin/img-anhthe/avatar.png" alt=""></td>
 
                             <td>155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh</td>
                             <td>12/02/1999</td>
@@ -142,7 +142,7 @@
                             <td width="10"><input type="checkbox" name="check2" value="2"></td>
                             <td>#SX22837</td>
                             <td>Trần Khả Ái</td>
-                            <td><img class="img-card-person" src="../img-anhthe/avatar.png" alt=""></td>
+                            <td><img class="img-card-person" src="../../admin/img-anhthe/avatar.png" alt=""></td>
                             <td>6 Nguyễn Lương Bằng, Tân Phú, Quận 7, Hồ Chí Minh</td>
                             <td>22/12/1999</td>
                             <td>Nữ</td>
@@ -161,7 +161,7 @@
                             <td width="10"><input type="checkbox" name="check3" value="3"></td>
                             <td>#LO2871</td>
                             <td>Phạm Thu Cúc</td>
-                            <td><img class="img-card-person" src="../img-anhthe/avatar.png" alt=""></td>
+                            <td><img class="img-card-person" src="../../admin/img-anhthe/avatar.png" alt=""></td>
                             <td>Số 3 Hòa Bình, Phường 3, Quận 11, Hồ Chí Minh</td>
                             <td>02/06/1998</td>
                             <td>Nữ</td>
@@ -181,7 +181,7 @@
                             <td width="10"><input type="checkbox"></td>
                             <td>#SR28746</td>
                             <td>Trần Anh Khoa</td>
-                            <td><img class="img-card-person" src="../img-anhthe/avatar.png" alt=""></td>
+                            <td><img class="img-card-person" src="../../admin/img-anhthe/avatar.png" alt=""></td>
                             <td>19 Đường Nguyễn Hữu Thọ, Tân Hưng, Quận 7, Hồ Chí Minh</td>
                             <td>18/02/1995</td>
                             <td>Nam</td>
@@ -201,7 +201,7 @@
                             <td width="10"><input type="checkbox"></td>
                             <td>#KJS276</td>
                             <td>Nguyễn Thành Nhân</td>
-                            <td><img class="img-card-person" src="../img-anhthe/avatar.png" alt=""></td>
+                            <td><img class="img-card-person" src="../../admin/img-anhthe/avatar.png" alt=""></td>
                             <td>Số 13, Tân Thuận Đông, Quận 7, Hồ Chí Minh</td>
                             <td>10/03/1996</td>
                             <td>Nam</td>
@@ -221,7 +221,7 @@
                             <td width="10"><input type="checkbox"></td>
                             <td>#BS76228</td>
                             <td>Nguyễn Đặng Trọng Nhân</td>
-                            <td><img class="img-card-person" src="../img-anhthe/avatar.png" alt=""></td>
+                            <td><img class="img-card-person" src="../../admin/img-anhthe/avatar.png" alt=""></td>
                             <td>59C Nguyễn Đình Chiểu, Quận 3, Hồ Chí Minh</td>
                             <td>23/07/1996</td>
                             <td>Nam</td>
@@ -241,7 +241,7 @@
                             <td width="10"><input type="checkbox"></td>
                             <td>#YUI21376</td>
                             <td>Nguyễn Thị Mai</td>
-                            <td><img class="img-card-person" src="../img-anhthe/avatar.png" alt=""></td>
+                            <td><img class="img-card-person" src="../../admin/img-anhthe/avatar.png" alt=""></td>
                             <td>Đường Số 3, Tân Tạo A, Bình Tân, Hồ Chí Minh</td>
                             <td>09/12/2000</td>
                             <td>Nữ</td>
@@ -325,19 +325,19 @@ MODAL
 -->
 
 <!-- Essential javascripts for application to work-->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../../admin/js/jquery-3.2.1.min.js"></script>
+<script src="../../admin/js/popper.min.js"></script>
+<script src="../../admin/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
-<script src="js/main.js"></script>
+<script src="../../admin/js/main.js"></script>
 <!-- The javascript plugin to display page loading on top-->
-<script src="js/plugins/pace.min.js"></script>
+<script src="../../admin/doc/js/plugins/pace.min.js"></script>
 <!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Data table plugin-->
-<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="../../admin/doc/js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../admin/doc/js/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
 <script>
     function deleteRow(r) {

@@ -42,23 +42,26 @@
                         <input type="text" id="firstname" name="hovaten" placeholder="Họ và Tên">
                     </div>
 
-<%--                    <div class="sex form-control1">--%>
-<%--                        <div class="female">--%>
+                    <div class="sex form-control1">
+                        <div class="female">
 
-<%--                            <input type="radio" id="female" checked name="sex">--%>
-<%--                            <label for="female">Nữ</label>--%>
-<%--                        </div>--%>
-<%--                        <div class="male">--%>
+                            <input type="radio" id="female" checked name="sex" value="0">
+                            <label for="female">Nữ</label>
+                        </div>
+                        <div class="male">
 
-<%--                            <input type="radio" id="male" name="sex">--%>
-<%--                            <label for="male">Nam</label>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                            <input type="radio" id="male" name="sex" value="1">
+                            <label for="male">Nam</label>
+                        </div>
+                    </div>
+                    <div class="username form-control1">
+                        <input type="email" id="email" name="email" placeholder="Email" >
+                    </div>
 <%--                    <div class="birthday form-control1">--%>
 <%--                        <input type="date" id="birthday" placeholder="mm/dd/yyyy">--%>
 <%--                    </div>--%>
                     <div class="username form-control1">
-                        <input type="text" id="email" name="username" placeholder="Tài khoản">
+                        <input type="text" id="username" name="username" placeholder="Tài khoản">
                     </div>
                     <div class="password form-control1">
                         <input type="password" id="password" name="password" placeholder="Mật khẩu">

@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>Chỉnh sửa đơn hàng | ADMIN</title>
+    <title>Thêm đơn hàng | ADMIN</title>
     <link href="../../images/logo/logo_PhoneCare.png" rel="shortcut icon" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../admin/doc/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -32,7 +32,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="../login.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="../../admin/login.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
     </ul>
@@ -40,7 +40,7 @@
 <!-- Sidebar menu-->
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../images/admin.png" width="50px"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../../admin/images/admin.png" width="50px"
                                         alt="User Image">
         <div>
             <p class="app-sidebar__user-name"><b>Admin</b></p>
@@ -70,58 +70,58 @@
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><a href="manage-order.jsp">Quản lý đơn hàng</a></li>
-            <li class="breadcrumb-item"><a href="#">Chỉnh sửa đơn hàng</a></li>
+            <li class="breadcrumb-item"><a href="#">Thêm đơn hàng</a></li>
         </ul>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Chỉnh sửa chi tiết</h3>
+                <h3 class="tile-title">Tạo mới đơn hàng</h3>
                 <div class="tile-body">
                     <form class="row">
                         <div class="form-group  col-md-4">
                             <label class="control-label">ID đơn hàng</label>
-                            <input class="form-control" type="text" value="MD0837">
+                            <input class="form-control" type="text">
                         </div>
 
                         <div class="form-group  col-md-4">
                             <label class="control-label">Tên khách hàng</label>
-                            <input class="form-control" type="text" value="Triệu Thanh Phú">
+                            <input class="form-control" type="text">
                         </div>
                         <div class="form-group  col-md-4">
                             <label class="control-label">Số điện thoại khách hàng</label>
-                            <input class="form-control" type="number" value="0348417665" >
+                            <input class="form-control" type="number">
                         </div>
                         <div class="form-group  col-md-4">
                             <label class="control-label">Địa chỉ khách hàng</label>
-                            <input class="form-control" type="text" value="46 Bùi Thị Xuân">
+                            <input class="form-control" type="text">
                         </div>
                         <div class="form-group  col-md-4">
                             <label class="control-label">Giá đơn hàng (vnd)</label>
-                            <input class="form-control" type="text" value="1.234.000">
+                            <input class="form-control" type="text">
                         </div>
 
                         <div class="form-group  col-md-4">
                             <label class="control-label">Ngày làm đơn hàng</label>
-                            <input class="form-control" type="date" >
+                            <input class="form-control" type="date">
                         </div>
 
                         <div class="form-group  col-md-4">
                             <label class="control-label">Mã sản phẩm</label>
-                            <input class="form-control" type="text" value="72638003">
+                            <input class="form-control" type="text">
                         </div>
                         <div class="form-group  col-md-4">
                             <label class="control-label">Tên sản phẩm</label>
-                            <input class="form-control" type="text" value="Thay dây nút nguồn Xiaomi Redmi Note 11 Pro">
+                            <input class="form-control" type="text">
                         </div>
                         <div class="form-group  col-md-4">
                             <label class="control-label">Số lượng</label>
-                            <input class="form-control" type="number" value="1">
+                            <input class="form-control" type="number">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleSelect1" class="control-label">Tình trạng</label>
                             <select class="form-control" id="exampleSelect1">
-
+                                <option>-- Chọn tình trạng --</option>
                                 <option>Đã xử lý</option>
                                 <option>Đang chờ</option>
                                 <option>Đã hủy</option>
@@ -129,13 +129,16 @@
                         </div>
                         <div class="form-group  col-md-4">
                             <label class="control-label">Ghi chú đơn hàng</label>
-                            <textarea class="form-control" rows="4" ></textarea>
+                            <textarea class="form-control" rows="4"></textarea>
                         </div>
                     </form>
+
                 </div>
                 <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
                 <a class="btn btn-cancel" href="manage-order.jsp">Hủy bỏ</a>
-            </div></div></div>
+            </div>
+        </div>
+    </div>
 </main>
 <script>
     function save() {
@@ -145,11 +148,11 @@
     }
 </script>
 <!-- Essential javascripts for application to work-->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="../../admin/js/jquery-3.2.1.min.js"></script>
+<script src="../../admin/js/popper.min.js"></script>
+<script src="../../admin/js/bootstrap.min.js"></script>
+<script src="../../admin/js/main.js"></script>
 <!-- The javascript plugin to display page loading on top-->
-<script src="js/plugins/pace.min.js"></script>
+<script src="../../admin/doc/js/plugins/pace.min.js"></script>
 </body>
 </html>

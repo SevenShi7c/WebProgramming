@@ -15,7 +15,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Main CSS-->
-<link rel="stylesheet" type="text/css" href="admin/css/admin.css">
+<link rel="stylesheet" type="text/css" href="css/admin.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 <!-- or -->

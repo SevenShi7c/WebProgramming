@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.fit.model;
 
 public class ProductModel {
-    private int id;
+    private String id;
     private String name;
     private String avatar;
     private long price;
@@ -21,7 +21,7 @@ public class ProductModel {
     public ProductModel() {
     }
 
-    public ProductModel(int id, String name, String avatar, long price, int idBrand, int idTypeProduct, int idStatusDevice, int sumQuantity, String describe, int idStore) {
+    public ProductModel(String id, String name, String avatar, long price, int idBrand, int idTypeProduct, int idStatusDevice, int sumQuantity, String describe, int idStore) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
@@ -34,22 +34,15 @@ public class ProductModel {
         this.idStore = idStore;
     }
 
-    public ProductModel(int id, String name, String avatar, long price, int sumQuantity) {
+    public ProductModel(String id, String name, String avatar, long price, int sumQuantity) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
         this.price = price;
-        this.idBrand = idBrand;
-        this.idTypeProduct = idTypeProduct;
-        this.idStatusDevice = idStatusDevice;
         this.sumQuantity = sumQuantity;
-        this.describe = describe;
-        this.idStore = idStore;
     }
 
-
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -87,6 +80,46 @@ public class ProductModel {
 
     public int getIdStore() {
         return idStore;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setPrice(long price) {
+        this.price = price;
+    }
+
+    public void setIdBrand(int idBrand) {
+        this.idBrand = idBrand;
+    }
+
+    public void setIdTypeProduct(int idTypeProduct) {
+        this.idTypeProduct = idTypeProduct;
+    }
+
+    public void setIdStatusDevice(int idStatusDevice) {
+        this.idStatusDevice = idStatusDevice;
+    }
+
+    public void setSumQuantity(int sumQuantity) {
+        this.sumQuantity = sumQuantity;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
+    public void setIdStore(int idStore) {
+        this.idStore = idStore;
     }
 
     @Override

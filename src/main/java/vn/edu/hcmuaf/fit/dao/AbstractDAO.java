@@ -1,9 +1,6 @@
 package vn.edu.hcmuaf.fit.dao;
 
 import java.sql.*;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
 
 public class AbstractDAO{
     static Connection conn = null;

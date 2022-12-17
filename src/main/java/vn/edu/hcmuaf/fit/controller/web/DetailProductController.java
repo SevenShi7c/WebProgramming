@@ -18,9 +18,6 @@ public class DetailProductController extends HttpServlet {
         ProductService productService = new ProductService();
         ProductModel product = productService.getDetailProduct(idProduct);
 
-
-        System.out.println(product.getName());
-
         request.setAttribute("product", product);
 
         request.getRequestDispatcher("view/web/detailProduct.jsp").forward(request, response);
