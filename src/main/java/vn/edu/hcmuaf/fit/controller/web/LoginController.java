@@ -50,26 +50,24 @@ public class LoginController extends HttpServlet {
 
         String action = request.getParameter("action");
 
-
         System.out.println("dopost: " + action);
         HttpSession session = request.getSession();
         session.setAttribute("mess", null);
         if (action == null) {
             System.out.println("Khong thuc hien duoc gi het");
             session.setAttribute("mess", null);
-        }
-        else if (action.equals("login")) {
+        } else if (action.equals("login")) {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String hovaten = request.getParameter("hovaten");
 
-            int check =new UserDAO().checkLogin(username, password);
-            if (check== 1) {
+            int check = new UserDAO().checkLogin(username, password);
+            if (check == 1) {
                 User user = UserDAO.mapUser.get(username);
                 session.setAttribute("userlogin", user);
                 session.setAttribute("mess", null);
                 response.sendRedirect("home");
-            } else if (check== 2) {
+            } else if (check == 2) {
 
                 session.setAttribute("mess", null);
                 response.sendRedirect("index");
@@ -83,25 +81,23 @@ public class LoginController extends HttpServlet {
             String hovaten = request.getParameter("hovaten");
             String email = request.getParameter("email");
             int sex = Integer.parseInt(request.getParameter("sex"));
-            int check = new UserDAO().checksignup(hovaten,username,password);
-            if (check ==1){
-                new UserDAO().signup(hovaten,sex,email,username,password);
-                request.getRequestDispatcher("/view/web/signin.jsp").forward(request,response);
-            }
-            else if (check==2){
+            int check = new UserDAO().checksignup(hovaten, username, password);
+            if (check == 1) {
+                new UserDAO().signup(hovaten, sex, email, username, password);
+                request.getRequestDispatcher("/view/web/signin.jsp").forward(request, response);
+            } else if (check == 2) {
                 session.setAttribute("mess", "errornull");
                 response.sendRedirect("signup");
-            }
-            else {
-                session.setAttribute("mess", "errornull");
+            } else {
+//                session.setAttribute("mess", "errornull");
                 session.setAttribute("mess", "errorsignup");
                 response.sendRedirect("signup");
             }
 //            response.sendRedirect("signin");
-            System.out.println("c " );
+//            System.out.println("c " );
 //            request.getRequestDispatcher("/view/web/signin.jsp").forward(request,response);
         } else {
-            request.getRequestDispatcher("/view/web/signin.jsp").forward(request,response);
+            request.getRequestDispatcher("/view/web/signin.jsp").forward(request, response);
             session.setAttribute("mess", null);
         }
 

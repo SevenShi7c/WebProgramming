@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<%--<% User user = (User) session.getAttribute("userlogin"); %>--%>
 <%@include file="../../common/web/header.jsp" %>
 
 <!--Content-->
@@ -41,11 +42,11 @@
                             <img class="img-account-profile rounded-circle mb-2" src="../../images/user/avatar.png"
                                  alt=""/>
                         </div>
-                        <div class="username  text-center">Kiểm thử</div>
-                        <div class="email"><i class="fas fa-envelope"></i>kiemthu@gmail.com</div>
-                        <div class="phone"><i class="fas fa-phone-square-alt"></i>0123456789</div>
-                        <div class="dob"><i class="fas fa-birthday-cake"></i>1/1/2000</div>
-                        <div class="sex"><i class="fas fa-venus-mars"></i></i>Nam</div>
+                        <div class="username  text-center"><% out.print(user.getName() );%> </div>
+                        <div class="email"><i class="fas fa-envelope"></i><% out.print(user.getEmail() );%></div>
+                        <div class="phone"><i class="fas fa-phone-square-alt"></i><% if(user.getTel()!=null) {out.print(user.getTel());}else{out.print("Bạn chưa nhập");}%></div>
+                        <div class="dob"><i class="fas fa-birthday-cake"></i><% if(user.getDob()!=null) {out.print(user.getDob());}else{out.print("Bạn chưa nhập");}%></div>
+                        <div class="sex"><i class="fas fa-venus-mars"></i><% if(user.getSex()==1) {out.print("Nam");}else{out.print("Nữ");}%></div>
                     </div>
                 </div>
             </div>
@@ -67,16 +68,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="mb-1" for="username">Tên đăng nhập</label>
-                                <input class="form-control" id="username" name='username' type="text"
-                                       placeholder="Nhập tên đăng nhập"/>
-                            </div>
+
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
                                     <label class="mb-1" for="name">Họ tên</label>
                                     <input class="form-control" name="name" type="text"
-                                           placeholder="Nguyễn Văn A"/>
+                                           placeholder="<% out.print(user.getName() );%> "/>
+
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="sex">Giới tính</label>
@@ -92,29 +90,29 @@
                             <div class="mb-3">
                                 <label class="mb-1" for="email">Email</label>
                                 <input class="form-control" name="email" type="email"
-                                       placeholder="nguyenvana@gmail.com"/>
+                                       placeholder="<% out.print(user.getEmail() );%>"/>
                             </div>
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
                                     <label class="mb-1" for="sdt">Số điện thoại</label>
-                                    <input class="form-control" name="sdt" type="tel" placeholder="0123456789"/>
+                                    <input class="form-control" name="tel" type="tel" placeholder="<% if(user.getTel()!=null) {out.print(user.getTel());}else{out.print("Số điện thoại");}%>"/>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="age">Ngày sinh</label>
-                                    <input class="form-control" id="age" type="date" name="age"
-                                           placeholder="Enter your birthday"/>
+                                    <input class="form-control" id="age" type="date" name="dob"
+                                           placeholder="<% if(user.getDob()!=null) {out.print(user.getDob());}else{out.print("dd/mm/yyyy");}%>"/>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="mb-1" for="address">Địa chỉ</label>
                                 <input class="form-control" name="address" type="text"
-                                       placeholder="số nhà, đường, phường/xã, huyện/tp, tỉnh "/>
+                                       placeholder="<% if(user.getAddress()!=null) {out.print(user.getAddress());}else{out.print("số nhà, đường, phường/xã, huyện/tp, tỉnh ");}%>"/>
                             </div>
-                            <div class="mb-3">
-                                <label class="mb-1" for="gioi_thieu">Giới thiêu</label>
-                                <textarea id="gioi_thieu" cols="30" rows="10" class="form-control" name="gioi_thieu"
-                                          type="text" placeholder="Giới thiệu bản thân"></textarea>
-                            </div>
+<%--                            <div class="mb-3">--%>
+<%--                                <label class="mb-1" for="gioi_thieu">Giới thiêu</label>--%>
+<%--                                <textarea id="gioi_thieu" cols="30" rows="10" class="form-control" name="gioi_thieu"--%>
+<%--                                          type="text" placeholder="Giới thiệu bản thân"></textarea>--%>
+<%--                            </div>--%>
                             <input class="btn  save_change" type="submit" value="Lưu thay đổi"/>
                         </form>
                     </div>

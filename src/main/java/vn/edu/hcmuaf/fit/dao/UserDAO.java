@@ -120,7 +120,7 @@ public class UserDAO implements ObjectDAO {
     }
 
     public int checksignup(String name, String username, String password) {
-        if (name != "" || username != "" || password != "") {
+        if (name != "" && username != "" && password != "") {
             User user = mapUser.get(username);
             System.out.println(user);
             if (user == null) {
@@ -199,7 +199,7 @@ public class UserDAO implements ObjectDAO {
         User x = mapUser.get("minhhoang");
 //        System.out.println(x);
 //        System.out.println(user.mapUser);
-//        System.out.println(user.checksignup("kl", "kl", "kl"));
-        System.out.println(user.checkLogin("",""));
+        System.out.println(user.checksignup("f", "", ""));
+//        System.out.println(user.checkLogin("",""));
     }
 }
