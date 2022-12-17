@@ -27,6 +27,7 @@ public class ManageProductController extends HttpServlet {
             view = "/view/admin/manage-product.jsp";
         } else if (SystemConstant.ADD.equals(urlTypeParam)) {
             view = "/view/admin/change-product.jsp";
+            request.setAttribute("categoryTypeProduct",categorySevice.getListTypeProduct());
         } else if (SystemConstant.EDIT.equals(urlTypeParam)) {
             if (productModel.getId() != null) {
                 productService.getDetailProduct(productModel.getId());
