@@ -30,4 +30,28 @@ public class CategoryDAO {
             e.printStackTrace();
         } return null;
     }
+
+    public List<CategoryModel> getListTypeProduct() {
+        LinkedList<CategoryModel> list = new LinkedList<CategoryModel>();
+
+        String sql = "select id,name_type_product from type_products";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                CategoryModel categoryModel = new CategoryModel();
+                categoryModel.setId(rs.getInt("id"));
+                categoryModel.setName(rs.getString("name_type_product"));
+                list.add(categoryModel);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } return null;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new CategoryDAO().getListTypeProduct().toString());
+    }
 }
