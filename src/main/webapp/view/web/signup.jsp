@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<% String mess = (String) session.getAttribute("mess"); %>
 <%@include file="../../common/web/header.jsp" %>
 
 
@@ -26,34 +27,47 @@
                 </div>
             </div>
             <div class="signin-right ">
-                <form action="">
+                <form action="login?action=logout" method="post">
                     <div class="firstname form-control1 ">
-                        <input type="text" id="firstname" placeholder="Họ và Tên">
+                        <%if (mess =="errorsignup") { %>
+                        <div class="alert alert-danger">
+                            <strong>Tài khoản</strong> đã tồn tại. Vui lòng nhập  <strong>tài khoản</strong> khác
+                        </div>
+                        <%}%>
+                        <%if (mess =="errornull") { %>
+                        <div class="alert alert-danger">
+                            Vui lòng<strong> nhập đầy đủ</strong>.
+                        </div>
+                        <%}%>
+                        <input type="text" id="firstname" name="hovaten" placeholder="Họ và Tên">
                     </div>
 
                     <div class="sex form-control1">
                         <div class="female">
 
-                            <input type="radio" id="female" checked name="sex">
+                            <input type="radio" id="female" checked name="sex" value="0">
                             <label for="female">Nữ</label>
                         </div>
                         <div class="male">
 
-                            <input type="radio" id="male" name="sex">
+                            <input type="radio" id="male" name="sex" value="1">
                             <label for="male">Nam</label>
                         </div>
                     </div>
-                    <div class="birthday form-control1">
-                        <input type="date" id="birthday" placeholder="mm/dd/yyyy">
+                    <div class="username form-control1">
+                        <input type="email" id="email" name="email" placeholder="Email" >
                     </div>
-                    <div class="email form-control1">
-                        <input type="email" id="email" placeholder="Email/SĐT">
+<%--                    <div class="birthday form-control1">--%>
+<%--                        <input type="date" id="birthday" placeholder="mm/dd/yyyy">--%>
+<%--                    </div>--%>
+                    <div class="username form-control1">
+                        <input type="text" id="username" name="username" placeholder="Tài khoản">
                     </div>
                     <div class="password form-control1">
-                        <input type="password" id="password" placeholder="Password">
+                        <input type="password" id="password" name="password" placeholder="Mật khẩu">
                     </div>
-                    <div class="submit">
-                        <p>Đăng ký</p>
+                    <div >
+                        <input class="submit" type="submit" value="Đăng ký" id="submit" style="color: whitesmoke"/>
                     </div>
                     <div class="backto">
                         <a href="signin"><i class="fa fa-long-arrow-alt-left"></i> Quay lại đăng nhập</a>

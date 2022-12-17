@@ -1,17 +1,15 @@
-package vn.edu.hcmuaf.fit.controller.web;
+package vn.edu.hcmuaf.fit.controller.admin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet("/signin")
-public class SigninController extends HttpServlet {
+@WebServlet(name = "indexAdmin", value = "/admin/index")
+public class HomeAdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/view/web/signin.jsp").forward(request,response);
-        HttpSession session = request.getSession();
-        session.setAttribute("mess", null);
+        request.getRequestDispatcher("/view/admin/index.jsp").forward(request,response);
     }
 
     @Override

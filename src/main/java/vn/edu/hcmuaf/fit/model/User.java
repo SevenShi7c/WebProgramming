@@ -1,33 +1,49 @@
 package vn.edu.hcmuaf.fit.model;
 
-
-
 public class User {
+    String id;
     String name;
+    String username;
     String email;
     String password;
+    String avatar;
     String tel;
     int id_type_user;
     String dob;
     int sex;
     String address;
-    public User(String name, String email, String password, String tel, int id_type_user, String dob, int sex,
-                String address) {
+    public User(String id, String name, String username, String email, String password, String avatar, String tel,
+                int id_type_user, String dob, int sex, String address) {
         super();
+        this.id = id;
         this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
+        this.avatar = avatar;
         this.tel = tel;
         this.id_type_user = id_type_user;
         this.dob = dob;
         this.sex = sex;
         this.address = address;
     }
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getEmail() {
         return email;
@@ -40,6 +56,12 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getAvatar() {
+        return avatar;
+    }
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
     public String getTel() {
         return tel;
@@ -73,8 +95,9 @@ public class User {
     }
     @Override
     public String toString() {
-        return "User [name=" + name + ", email=" + email + ", password=" + password + ", tel=" + tel + ", id_type_user="
-                + id_type_user + ", dob=" + dob + ", sex=" + sex + ", address=" + address + "]";
+        return "User [id=" + id + ", name=" + name + ", username=" + username + ", email=" + email + ", password="
+                + password + ", avatar=" + avatar + ", tel=" + tel + ", id_type_user=" + id_type_user + ", dob=" + dob
+                + ", sex=" + sex + ", address=" + address + "]";
     }
 
 }

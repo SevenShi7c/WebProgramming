@@ -132,8 +132,4 @@ public class BlogDAO extends AbstractDAO {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new BlogDAO().findAll());
-    }
 }

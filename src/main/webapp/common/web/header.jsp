@@ -21,10 +21,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <% User user = (User) session.getAttribute("userlogin"); %>
+
 </head>
 
 <body>
+<% User user = (User) session.getAttribute("userlogin"); %>
 <%ServletContext servletContext =  request.getServletContext();%>
 <%List<CategoryModel> listBrand = (List<CategoryModel>) servletContext.getAttribute("listBrand");%>
 
@@ -322,10 +323,10 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownUser" style="border:0;">
-                        <a class="dropdown-item" href="profile" title="">Thông tin người dùng</a>
+                        <a class="dropdown-item" href="profile" title="">Thông tin</a>
                         <a class="dropdown-item" href="booked.html" uk-toggle="target: #offcanvas-flip3" title="">Lịch
                             sử đặt hẹn</a>
-                        <a class="dropdown-item" href="login?action=logout" title="" >Đăng xuất</a>
+                        <a class="dropdown-item" href="login?action=logout" methods="post" title="" >Đăng xuất</a>
                     </div>
                 </li>
             </ul>
