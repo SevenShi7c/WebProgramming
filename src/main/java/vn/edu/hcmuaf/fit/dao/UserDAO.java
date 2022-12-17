@@ -93,7 +93,7 @@ public class UserDAO implements ObjectDAO {
         return 0;
     }
 
-    public void signup(String name, String username, String password) {
+    public void signup(String name,int sex,String email, String username, String password) {
         String sql = "insert into users(id,name,username,email,password,avatar,tel,id_type_user,dob,sex,address) values (?,?,?,?,?,?,?,?,?,?,?)";
         Connection connect = ConnectToDatabase.getConnect();
         try {
@@ -101,13 +101,13 @@ public class UserDAO implements ObjectDAO {
             ppstm.setString(1, null);
             ppstm.setString(2, name);
             ppstm.setString(3, username);
-            ppstm.setString(4, "test@test");
+            ppstm.setString(4, email);
             ppstm.setString(5, password);
             ppstm.setString(6, null);
             ppstm.setString(7, null);
             ppstm.setInt(8, 1);
             ppstm.setString(9, null);
-            ppstm.setInt(10, 1);
+            ppstm.setInt(10, sex);
 
             ppstm.setString(11, null);
 
@@ -118,24 +118,20 @@ public class UserDAO implements ObjectDAO {
             System.out.println("Error when signup custommer:" + e.getMessage());
         }
     }
-    public int checksignup(String name, String username, String password) {
-        User user = mapUser.get(username);
-        if (name != "" || username !="" || password !="") {
-            if (user != null) {
-                if (!user.equals(username)) {
 
-                    return 1;
-                } else {
-                    return 0;
-                }
+    public int checksignup(String name, String username, String password) {
+        if (name != "" || username != "" || password != "") {
+            User user = mapUser.get(username);
+            System.out.println(user);
+            if (user == null) {
+                return 1;
+
             } else {
                 return 0;
             }
-        } else {
+        }else{
             return 2;
-
         }
-
     }
 
 
@@ -181,9 +177,11 @@ public class UserDAO implements ObjectDAO {
         }
         return false;
     }
+
     @Override
     public void read() {
     }
+
     public boolean changePass(String userName, String newPass) {
         User user = mapUser.get(userName);
         if (user != null) {
@@ -199,8 +197,9 @@ public class UserDAO implements ObjectDAO {
     public static void main(String[] args) {
         UserDAO user = new UserDAO();
         User x = mapUser.get("minhhoang");
-        System.out.println(x);
-        System.out.println(user.mapUser);
-        System.out.println(user.checkLogin("dangphuoc    ", "phuoc123"));
+//        System.out.println(x);
+//        System.out.println(user.mapUser);
+//        System.out.println(user.checksignup("kl", "kl", "kl"));
+        System.out.println(user.checkLogin("",""));
     }
 }
