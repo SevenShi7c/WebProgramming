@@ -9,7 +9,6 @@
     <title>Quản lý sản phẩm | ADMIN</title>
     <%@include file="../../common/admin/head.jsp" %>
 </head>
-
 <body onload="time()" class="app sidebar-mini rtl">
 <!-- Navbar-->
 <%@include file="../../common/admin/header.jsp" %>
@@ -74,7 +73,7 @@
                                     src="../images/product/<%=product.getAvatar()%>"
                                     alt="" width="100px;"></td>
                             <td><%=product.getSumQuantity()%></td>
-                            <td><span class="badge bg-success"><%=product.getIdStatusDevice()%></span></td>
+                            <td><span class="badge bg-success">Hoàn Thành</span></td>
                             <td><%=product.getPrice()%></td>
                             <td>Điện thoại</td>
                             <td>
@@ -87,7 +86,6 @@
                         </tr>
                         <%
                             }%>
-
                         </tbody>
                     </table>
                 </div>
