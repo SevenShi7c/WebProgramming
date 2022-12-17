@@ -17,28 +17,31 @@ public class ManageProductController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String urlTypeParam = request.getParameter("type");
+        String typeParam = request.getParameter("type");
+        String idProductParam = request.getParameter("id-product");
         String view = "";
         ProductService productService = new ProductService();
         ProductModel productModel = new ProductModel();
         CategorySevice categorySevice = new CategorySevice();
 
-        if (SystemConstant.LIST.equals(urlTypeParam)) {
+        if (SystemConstant.LIST.equals(typeParam)) {
             view = "/view/admin/manage-product.jsp";
-        } else if (SystemConstant.ADD.equals(urlTypeParam)) {
+        } else if (SystemConstant.ADD.equals(typeParam)) {
             view = "/view/admin/change-product.jsp";
-            request.setAttribute("categoryTypeProduct",categorySevice.getListTypeProduct());
-        } else if (SystemConstant.EDIT.equals(urlTypeParam)) {
-            if (productModel.getId() != null) {
-                productService.getDetailProduct(productModel.getId());
+        } else if (SystemConstant.EDIT.equals(typeParam)) {
+            if (idProductParam != null) {
+                request.setAttribute("product", productService.getDetailProduct(idProductParam));
             }
             view = "/view/admin/change-product.jsp";
-        } else if (urlTypeParam == null) {
+        } else if (typeParam == null) {
             view = "/view/admin/manage-product.jsp";
+            request.setAttribute("listProduct",productService.getListProduct());
+
         }
 
+        request.setAttribute("categoryTypeProduct",categorySevice.getListTypeProduct());
         request.setAttribute("categoryBrand",categorySevice.getListBrand());
-        request.setAttribute("productModel", productModel);
+
         request.getRequestDispatcher(view).forward(request, response);
     }
 
