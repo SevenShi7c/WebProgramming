@@ -80,7 +80,7 @@ public class ProductDAO {
         }
         return null;
     }
-    public static List<ProductModel> deleteProduct() {
+    public static List<ProductModel> deleteProduct(String id) {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
         String sql = "delete from product" +
