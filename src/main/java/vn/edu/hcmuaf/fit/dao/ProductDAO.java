@@ -47,6 +47,40 @@ public class ProductDAO {
         return null;
     }
 
+    public static List<ProductModel> deleteProduct() {
+        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
+
+        String sql = "delete from product" +
+                "where id = ?";
+        Statement statement = DBConnect.getInstall().get();
+        if (statement != null)
+            try {
+                ResultSet rs = statement.executeQuery(sql);
+                while (rs.next()) {
+                    while (rs.next()) {
+                        list.add(new ProductModel(rs.getString(1),
+                                rs.getString(2),
+                                rs.getString(3),
+                                rs.getInt(4),
+                                rs.getInt(5),
+                                rs.getInt(6),
+                                rs.getLong(7),
+                                rs.getInt(8),
+                                rs.getString(9),
+                                rs.getInt(10)));
+                    }
+                    return list;
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        else {
+            System.out.println("Không có kết nối");
+        }
+        return null;
+    }
     public static List<ProductModel> newProduct() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
@@ -86,7 +120,7 @@ public class ProductDAO {
     public static ProductModel getDetailProduct(String idProduct) {
 
         String sql = "select * from products " +
-                "where id=?";
+                "where id= ?";
 
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
@@ -186,6 +220,7 @@ public class ProductDAO {
             throw new RuntimeException(e);
         }
     }
+
 
     public static void main(String[] args) {
         for (ProductModel p : ProductDAO.getListProductBySearch("samsung")){
