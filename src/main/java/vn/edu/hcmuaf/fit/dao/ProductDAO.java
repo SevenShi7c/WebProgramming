@@ -93,6 +93,19 @@ public class ProductDAO {
 
     }
 
+    public static void deleteAllProduct(int id) {
+        String sql = "delete from products ";
+        Connection connection = new ConnectToDatabase().getConnect();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     public static ProductModel getDetailProduct(String idProduct) {
 
