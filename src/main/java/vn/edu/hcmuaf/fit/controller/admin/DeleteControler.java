@@ -7,14 +7,14 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteControler", value = "/delete")
+@WebServlet(name = "DeleteControler", value = "/admin/delete")
 public class DeleteControler extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String id = request.getParameter("sid");
+        String id = request.getParameter("sid");
         ProductDAO dao = new ProductDAO();
-        dao.deleteProduct(id);
-        response.sendRedirect("admin/manage-product");
+//        dao.deleteProduct(Integer.parseInt(id));
+        response.sendRedirect("/PhoneCare_war/admin/manage-product");
     }
 
     @Override
