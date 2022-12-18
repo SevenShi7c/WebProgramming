@@ -12,6 +12,9 @@
 <body onload="time()" class="app sidebar-mini rtl">
 <!-- Navbar-->
 <%@include file="../../common/admin/header.jsp" %>
+<%
+    List<ProductModel> listProduct = (List<ProductModel>) request.getAttribute("listProduct");
+%>
 <!-- Sidebar menu-->
 <%@include file="../../common/admin/sidebar.jsp" %>
 
@@ -62,19 +65,22 @@
                         </thead>
                         <tbody>
                         <%
-                            List<ProductModel> newListSeller = (List<ProductModel>) ProductService.getSellerProduct();
                             for (ProductModel product :
-                                    newListSeller) {%>
+                                    listProduct) {%>
                         <tr>
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td><%=product.getId()%></td>
-                            <td><%=product.getName()%></td>
+                            <td><%=product.getId()%>
+                            </td>
+                            <td><%=product.getName()%>
+                            </td>
                             <td><img
                                     src="../images/product/<%=product.getAvatar()%>"
                                     alt="" width="100px;"></td>
-                            <td><%=product.getSumQuantity()%></td>
+                            <td><%=product.getSumQuantity()%>
+                            </td>
                             <td><span class="badge bg-success">Hoàn Thành</span></td>
-                            <td><%=product.getPrice()%></td>
+                            <td><%=product.getPrice()%>
+                            </td>
                             <td>Điện thoại</td>
                             <td>
                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
@@ -148,9 +154,14 @@ MODAL
                     </div>
                 </div>
                 <BR>
-                <a href="manage-product?type=edit&id-product=" style="float: right;font-weight: 600;color: #ea0000;">Chỉnh
+                <%
+                    for (ProductModel product :
+                            listProduct) {%>
+                <a href="manage-product?type=edit&id-product=<%=product.getId()%>"
+                   style="float: right;font-weight: 600;color: #ea0000;">Chỉnh
                     sửa sản phẩm
                     nâng cao</a>
+                <%}%>
                 <BR>
                 <BR>
                 <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
