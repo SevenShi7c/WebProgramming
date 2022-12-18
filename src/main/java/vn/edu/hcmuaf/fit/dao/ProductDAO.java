@@ -12,46 +12,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductDAO {
-
     public static List<ProductModel> findAll() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
         String sql = "select * from products";
-        Statement statement = DBConnect.getInstall().get();
-        if (statement != null)
-            try {
-                ResultSet rs = statement.executeQuery(sql);
-                while (rs.next()) {
-                    while (rs.next()) {
-                        list.add(new ProductModel(rs.getString(1),
-                                rs.getString(2),
-                                rs.getString(3),
-                                rs.getInt(4),
-                                rs.getInt(5),
-                                rs.getInt(6),
-                                rs.getLong(7),
-                                rs.getInt(8),
-                                rs.getString(9),
-                                rs.getInt(10)));
-                    }
-                    return list;
-
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        else {
-            System.out.println("Không có kết nối");
-        }
-        return null;
-    }
-
-    public static List<ProductModel> deleteProduct() {
-        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
-
-        String sql = "delete from product" +
-                "where id = ?";
         Statement statement = DBConnect.getInstall().get();
         if (statement != null)
             try {
@@ -116,7 +80,42 @@ public class ProductDAO {
         }
         return null;
     }
+    public static List<ProductModel> deleteProduct() {
+        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
+        String sql = "delete from product" +
+                "where id = ?";
+        Statement statement = DBConnect.getInstall().get();
+        if (statement != null) {
+            ResultSet rs = null;
+            try {
+                rs = statement.executeQuery(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                while (rs.next()) {
+                    list.add(new ProductModel(rs.getString(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getInt(4),
+                            rs.getInt(5),
+                            rs.getInt(6),
+                            rs.getLong(7),
+                            rs.getInt(8),
+                            rs.getString(9),
+                            rs.getInt(10)));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return list;
+        } else {
+            System.out.println("Không có kết nối");
+        }
+        return null;
+    }
     public static ProductModel getDetailProduct(String idProduct) {
 
         String sql = "select * from products " +
