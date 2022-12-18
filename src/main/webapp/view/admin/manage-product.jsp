@@ -83,9 +83,7 @@
                             </td>
                             <td>Điện thoại</td>
                             <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                        onclick="myFunction(this)" href="delete?sid=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></button>
-<%--                                 <a href="delete?sid=<%=product.getId()%>"></a>--%>
+                                <a  href="delete?sid=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></a>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                                         data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
                             </td>
