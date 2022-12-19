@@ -95,9 +95,11 @@ public class ProductDAO {
 
     public static void deleteAllProduct(int id) {
         String sql = "delete from products ";
+
         Connection connection = new ConnectToDatabase().getConnect();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
+
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
