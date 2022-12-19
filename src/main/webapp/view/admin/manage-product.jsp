@@ -43,9 +43,8 @@
                                onclick="myApp.printTable()"><i
                                     class="fas fa-print"></i> In dữ liệu</a>
                         </div>
-
                         <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
+                            <a   class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
                                     class="fas fa-trash-alt"></i> Xóa tất cả </a>
                         </div>
                     </div>
