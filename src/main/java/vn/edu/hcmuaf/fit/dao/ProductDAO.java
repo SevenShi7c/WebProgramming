@@ -98,12 +98,10 @@ public class ProductDAO {
         Connection connection = new ConnectToDatabase().getConnect();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 
