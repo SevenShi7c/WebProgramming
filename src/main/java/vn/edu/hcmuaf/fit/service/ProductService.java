@@ -16,13 +16,11 @@ public class ProductService {
         return ProductDAO.findAll();
     }
 
-    public List<ProductModel> getNewProduct() {
-        return ProductDAO.newProduct();
-    }
 
     public static List<ProductModel> getSellerProduct() {
         return ProductDAO.newProduct();
     }
+
 
     public ProductModel getDetailProduct(String idProduct) {
         return ProductDAO.getDetailProduct(idProduct);
