@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.CategoryModel" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@include file="../../common/taglib.jsp" %>
 
 <!DOCTYPE html>
@@ -96,94 +96,93 @@
                                     class="fas fa-folder-plus"></i> Thêm tình trạng</a>
                         </div>
                     </div>
-                    <form class="row">
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Mã sản phẩm </label>
-                            <input class="form-control" type="number" placeholder="" name="idProduct" value="<%=product.getId()%>">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Tên sản phẩm</label>
-                            <input class="form-control" type="text" name="name_product" value="<%=product.getName()%>">
-                        </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label">Mã sản phẩm </label>
+                        <input class="form-control" type="number" placeholder="" name="idProduct"
+                               value="<%=product.getId()%>">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label">Tên sản phẩm</label>
+                        <input class="form-control" type="text" name="name_product" value="<%=product.getName()%>">
+                    </div>
 
-                        <div class="form-group  col-md-3">
-                            <label class="control-label">Số lượng</label>
-                            <input class="form-control" type="number" name="quantity" value="<%=product.getSumQuantity()%>">
-                        </div>
-                        <div class="form-group col-md-3 ">
-                            <label for="statusProduct" class="control-label">Tình trạng</label>
-                            <select class="form-control" id="statusProduct" name="statusProduct">
-                                <option>-- Chọn tình trạng --</option>
-                                <option value="1">Còn hàng</option>
-                                <option value="0">Hết hàng</option>
-                                <option value="-1">Ngưng hoạt động</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="categoryTypeProduct" class="control-label">Danh mục</label>
-                            <select class="form-control" id="categoryTypeProduct" name="categoryTypeProduct">
-                                <option>-- Chọn danh mục sản phẩm --</option>
-                                <%
-                                    for (CategoryModel type : categoryTypeProduct) {
-                                %>
-                                <option name="<%=type.getId()%>" <%=product.getIdTypeProduct()==type.getId()?"selected":""%>><%=type.getName()%>
-                                </option>
-                                <%}%>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3 ">
-                            <label for="categoryBrand" class="control-label">Thương hiệu</label>
-                            <select class="form-control" id="categoryBrand" name="categoryBrand">
-                                <option>-- Chọn thương hiệu --</option>
-                                <%
-                                    for (CategoryModel brand : categoryBrand) {
-                                %>
-                                <option name="<%=brand.getId()%>" <%=product.getIdBrand()==brand.getId()?"selected":""%>><%=brand.getName()%>
-                                </option>
-                                <%}%>
+                    <div class="form-group  col-md-3">
+                        <label class="control-label">Số lượng</label>
+                        <input class="form-control" type="number" name="quantity" value="<%=product.getSumQuantity()%>">
+                    </div>
+                    <div class="form-group col-md-3 ">
+                        <label for="statusProduct" class="control-label">Tình trạng</label>
+                        <select class="form-control" id="statusProduct" name="statusProduct">
+                            <option>-- Chọn tình trạng --</option>
+                            <option value="1">Còn hàng</option>
+                            <option value="0">Hết hàng</option>
+                            <option value="-1">Ngưng hoạt động</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="categoryTypeProduct" class="control-label">Danh mục</label>
+                        <select class="form-control" id="categoryTypeProduct" name="categoryTypeProduct">
+                            <option>-- Chọn danh mục sản phẩm --</option>
+                            <%
+                                for (CategoryModel type : categoryTypeProduct) {
+                            %>
+                            <option name="<%=type.getId()%>" <%=product.getIdTypeProduct() == type.getId() ? "selected" : ""%>><%=type.getName()%>
+                            </option>
+                            <%}%>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3 ">
+                        <label for="categoryBrand" class="control-label">Thương hiệu</label>
+                        <select class="form-control" id="categoryBrand" name="categoryBrand">
+                            <option>-- Chọn thương hiệu --</option>
+                            <%
+                                for (CategoryModel brand : categoryBrand) {
+                            %>
+                            <option name="<%=brand.getId()%>" <%=product.getIdBrand() == brand.getId() ? "selected" : ""%>><%=brand.getName()%>
+                            </option>
+                            <%}%>
 
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Giá bán</label>
-                            <input class="form-control" type="text" name="price" value="<%=product.getPrice()%>">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label class="control-label">Ảnh sản phẩm</label>
-                            <div id="myfileupload">
-                                <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label">Giá bán</label>
+                        <input class="form-control" type="text" name="price" value="<%=product.getPrice()%>">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Ảnh sản phẩm</label>
+                        <div id="myfileupload">
+                            <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(
                                 <%
                                     if (product.getAvatar()!=null)  {
                                 %>
-                                'images/product/<%=product.getAvatar()%>'
+                                    'images/product/<%=product.getAvatar()%>'
                                 <%
                                     } else {
                                 %>
-                                this
+                                    this
                                 <%
                                     }
                                 %>
-                                )";/>
-                            </div>
-                            <div id="thumbbox">
-                                <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none"/>
-                                <a class="removeimg" href="javascript:"></a>
-                            </div>
-                            <div id="boxchoice">
-                                <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn
-                                    ảnh</a>
-                                <p style="clear:both"></p>
-                            </div>
+                                    )" ;/>
                         </div>
-                        <div class="form-group col-md-12">
-                            <label class="control-label">Mô tả sản phẩm</label>
-                            <textarea class="form-control" name="mota" id="mota"><%=product.getDescribe()%></textarea>
-                            <script>CKEDITOR.replace('mota');</script>
+                        <div id="thumbbox">
+                            <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none"/>
+                            <a class="removeimg" href="javascript:"></a>
                         </div>
+                        <div id="boxchoice">
+                            <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn
+                                ảnh</a>
+                            <p style="clear:both"></p>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Mô tả sản phẩm</label>
+                        <textarea class="form-control" name="mota" id="mota"><%=product.getDescribe()%></textarea>
+                        <script>CKEDITOR.replace('mota');</script>
+                    </div>
 
-                        <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                        <button class="btn btn-cancel" data-dismiss="modal" type="reset">Hủy bỏ</button>
-                    </form>
+                    <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                    <button class="btn btn-cancel" data-dismiss="modal" type="reset">Hủy bỏ</button>
                 </div>
             </div>
         </div>
@@ -198,36 +197,38 @@ MODAL BRAND
      data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-
-            <div class="modal-body">
-                <div class="row">
-                    <div class="form-group  col-md-12">
+            <form method="post" class="row" action="${pageContext.request.contextPath}/admin/manage-product?type=edit">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
                 <h5>Thêm mới thương hiệu</h5>
               </span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Nhập thương hiệu mới</label>
+                            <input class="form-control" type="text" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Danh mục thương hiệu hiện đang có</label>
+                            <ul style="padding-left: 20px;">
+                                <%
+                                    for (CategoryModel brand : categoryBrand) {
+                                %>
+                                <li><%=brand.getId()%>"><%=brand.getName()%>
+                                </li>
+                                <%}%>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Nhập thương hiệu mới</label>
-                        <input class="form-control" type="text" required>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="control-label">Danh mục thương hiệu hiện đang có</label>
-                        <ul style="padding-left: 20px;">
-                            <%
-                                for (CategoryModel brand : categoryBrand) {
-                            %>
-                            <li><%=brand.getId()%>"><%=brand.getName()%></li>
-                            <%}%>
-                        </ul>
-                    </div>
+                    <BR>
+                    <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
                 </div>
-                <BR>
-                <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                <BR>
-            </div>
-            <div class="modal-footer">
-            </div>
+                <div class="modal-footer">
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -260,7 +261,8 @@ MODAL CATEGORY TYPE PRODUCT
                             <%
                                 for (CategoryModel type : categoryTypeProduct) {
                             %>
-                            <li><%=type.getId()%>"><%=type.getName()%></li>
+                            <li><%=type.getId()%>"><%=type.getName()%>
+                            </li>
                             <%}%>
                         </ul>
                     </div>
@@ -304,7 +306,8 @@ MODAL TÌNH TRẠNG
                             <%
                                 for (CategoryModel brand : categoryBrand) {
                             %>
-                            <li><%=brand.getId()%>"><%=brand.getName()%></li>
+                            <li><%=brand.getId()%>"><%=brand.getName()%>
+                            </li>
                             <%}%>
                         </ul>
                     </div>
