@@ -1,6 +1,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.CategoryModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,8 @@
 <%@include file="../../common/admin/header.jsp" %>
 <%
     List<ProductModel> listProduct = (List<ProductModel>) request.getAttribute("listProduct");
+    String pageContextPath = (String) request.getContextPath();
+    List<CategoryModel> categoryTypeProduct = (List<CategoryModel>) request.getAttribute("categoryTypeProduct");
 %>
 <!-- Sidebar menu-->
 <%@include file="../../common/admin/sidebar.jsp" %>
@@ -30,7 +33,7 @@
         <div class="col-md-12">
             <div class="tile">
                 <div class="tile-body">
-<%--                    chạy for--%>
+                    <%--                    chạy for--%>
 
                     <div class="row element-button">
                         <div class="col-sm-2">
@@ -48,7 +51,8 @@
 
 
                         <div class="col-sm-2">
-                            <a  href="deleteAll" class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
+                            <a href="deleteAll" class="btn btn-delete btn-sm" type="button" title="Xóa"
+                               onclick="myFunction(this)"><i
                                     class="fas fa-trash-alt"></i> Xóa tất cả </a>
                         </div>
 
@@ -72,25 +76,39 @@
                         <%
                             for (ProductModel product :
                                     listProduct) {%>
-                        <tr>
+                        <tr class="product-<%=product.getId()%>">
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td><%=product.getId()%>
+                            <td class="id"><%=product.getId()%>
                             </td>
-                            <td><%=product.getName()%>
+                            <td class="name"><%=product.getName()%>
                             </td>
                             <td><img
                                     src="../images/product/<%=product.getAvatar()%>"
-                                    alt="" width="100px;"></td>
-                            <td><%=product.getSumQuantity()%>
+                                    alt="" width="100px;" class="avatar"></td>
+                            <td class="quantity"><%=product.getSumQuantity()%>
                             </td>
-                            <td><span class="badge bg-success">Hoàn Thành</span></td>
-                            <td><%=product.getPrice()%>
+                            <td><span class="badge bg-success" class="status">Hoàn Thành</span></td>
+                            <td class="price"><%=product.getPrice()%>
                             </td>
-                            <td>Điện thoại</td>
                             <td>
-                                <a  href="delete?sid=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></a>
+                                <%
+                                    for (CategoryModel type : categoryTypeProduct) {
+                                        if (type.getId() == product.getIdTypeProduct()) {
+                                %>
+                                <%=type.getName()%>
+                                <%
+                                        }
+                                    }
+                                %>
+                                <input type="hidden" class="category" value="<%=product.getIdTypeProduct()%>">
+                            </td>
+
+                            <td>
+                                <a href="delete?sid=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></a>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+                                        data-toggle="modal" data-target="#ModalEditProduct"
+                                        onclick="editProductBasic(<%=product.getId()%>)"><i class="fas fa-edit"></i>
+                                </button>
                             </td>
                         </tr>
                         <%
@@ -105,81 +123,73 @@
 </main>
 
 <!--
-MODAL
+MODAL EDIT BASIC
 -->
-<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+<div class="modal fade" id="ModalEditProduct" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
      data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-
-            <div class="modal-body">
-                <div class="row">
-                    <div class="form-group  col-md-12">
-              <span class="thong-tin-thanh-toan">
-                <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
-              </span>
+            <form action="<%=pageContextPath%>admin/manage-product/type=edit" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group  col-md-12">
+                          <span class="thong-tin-thanh-toan">
+                            <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
+                          </span>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label" for="idModal">Mã sản phẩm </label>
+                            <input class="form-control" type="number" value="" id="idModal" name="id">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label" for="nameModal">Tên sản phẩm</label>
+                            <input class="form-control" type="text" required
+                                   value="" id="nameModal" name="name">
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label class="control-label" for="quantityModal">Tồn kho</label>
+                            <input class="form-control" type="number" name="quantity" id="quantityModal" required
+                                   value="">
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="statusModal" class="control-label" for="statusModal">Tình trạng sản phẩm</label>
+                            <select class="form-control" id="statusModal" name="status">
+                                <option>Còn hàng</option>
+                                <option>Hết hàng</option>
+                                <option>Đang nhập hàng</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label" for="priceModal">Giá bán</label>
+                            <input class="form-control" type="text" id="priceModal" name="price" value="300.000đ">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="categoryModal" class="control-label">Danh mục</label>
+                            <select class="form-control" id="categoryModal" name="category">
+                                <%
+                                    for (CategoryModel type : categoryTypeProduct) {
+                                %>
+                                <option value="<%=type.getId()%>"><%=type.getName()%>
+                                </option>
+                                <%}%>
+                            </select>
+                        </div>
+                    </div>
+                    <BR>
+                    <a class="urlEditBasic"
+                       style="float: right;font-weight: 600;color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
+                    <BR>
                 </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Mã sản phẩm </label>
-                        <input class="form-control" type="number" value="71309005">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Tên sản phẩm</label>
-                        <input class="form-control" type="text" required
-                               value="Thay dây nút nguồn Xiaomi Redmi Note 11 Pro	">
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label class="control-label">Tồn kho</label>
-                        <input class="form-control" type="number" required value="50">
-                    </div>
-                    <div class="form-group col-md-6 ">
-                        <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Còn hàng</option>
-                            <option>Hết hàng</option>
-                            <option>Đang nhập hàng</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Giá bán</label>
-                        <input class="form-control" type="text" value="300.000đ">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="exampleSelect1" class="control-label">Danh mục</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Thay dây nguồn</option>
-                            <option>Thay vỏ</option>
-                            <option>Thay mặt kính</option>
-                            <option>Thay pin</option>
-                            <option>Thay chân sạc</option>
-                        </select>
-                    </div>
+                <div class="modal-footer">
+                    <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
                 </div>
-                <BR>
-                <%
-                    for (ProductModel product :
-                            listProduct) {%>
-                <a href="manage-product?type=edit&id-product=<%=product.getId()%>"
-                   style="float: right;font-weight: 600;color: #ea0000;">Chỉnh
-                    sửa sản phẩm
-                    nâng cao</a>
-                <%}%>
-                <BR>
-                <BR>
-                <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                <BR>
-            </div>
-            <div class="modal-footer">
-            </div>
+            </form>
         </div>
     </div>
 </div>
-<!--
-MODAL
--->
 
 <%@include file="../../common/admin/script.jsp" %>
 <!-- Essential javascripts for application to work-->
@@ -222,6 +232,46 @@ MODAL
         swal("Đã lưu thành công.!", {});
 
     }
+
+    <!--MODAL-->
+    function editProductBasic(idProduct) {
+
+        let id = document.querySelector(`.product-${idProduct} .id`).innerText
+        let name = document.querySelector(`.product-${idProduct} .name`).innerText
+        let quantity = document.querySelector(`.product-${idProduct} .quantity`).innerText
+        <%--let status = document.querySelector(`.product-${idProduct} .status`).innerText--%>
+        let price = document.querySelector(`.product-${idProduct} .price`).innerText
+        let category = document.querySelector(`.product-${idProduct} .category`).value
+
+        $('#ModalEditProduct #idModal').val(id);
+        $('#ModalEditProduct #nameModal').val(name);
+        $('#ModalEditProduct #quantityModal').val(quantity);
+        // $('#ModalEditProduct #statusModal').val(status);
+        $('#ModalEditProduct #priceModal').val(price);
+        $('#ModalEditProduct .urlEditBasic').attr('href',`manage-product?type=edit&id-product=${idProduct}`);
+
+        console.log($('#ModalEditProduct #categoryModal option'))
+
+        let listCategory = document.querySelectorAll('#ModalEditProduct #categoryModal option')
+        for (let i = 0; i < listCategory.length; i++) {
+            listCategory[i].value==category?listCategory[i].selected = true:listCategory[i].selected = false
+
+        }
+        <%--$.ajax({--%>
+        <%--    type: 'GET',--%>
+        <%--    url: '<%=pageContextPath%>/admin/manage-product',--%>
+        <%--    data: {action: 'find', id: idProduct},--%>
+        <%--    success: (result) => {--%>
+        <%--        $('#ModalEditProduct #idModal').val(result.id);--%>
+        <%--        $('#ModalEditProduct #nameModal').val(result.name);--%>
+        <%--        $('#ModalEditProduct #quantityModal').val(result.quantity);--%>
+        <%--        $('#ModalEditProduct #statusModal').val(result.status);--%>
+        <%--        $('#ModalEditProduct #priceModal').val(result.price);--%>
+        <%--        $('#ModalEditProduct #categoryModal').val(result.category);--%>
+        <%--    }--%>
+        <%--})--%>
+    }
+
 </script>
 </body>
 
