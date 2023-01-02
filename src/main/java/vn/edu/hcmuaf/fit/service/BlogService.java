@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BlogService {
 
-    private BlogDAO blogDAO;
+    public BlogDAO blogDAO;
 
     public BlogService() {
         this.blogDAO = new BlogDAO();
@@ -18,7 +18,7 @@ public class BlogService {
     }
 
     public List<BlogModel> getNewBlog() {
-        return blogDAO.newBlog();
+        return blogDAO.getNewBlog();
     }
 
     public BlogModel getDetailBlogForId(String idBlogPram) {
