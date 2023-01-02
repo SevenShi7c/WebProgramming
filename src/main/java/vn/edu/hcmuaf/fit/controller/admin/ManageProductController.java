@@ -47,6 +47,26 @@ public class ManageProductController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String typeParam = request.getParameter("type");
+        if (SystemConstant.ADD.equals(typeParam)) {
+            doPost_Add(request, response);
+        }
+    }
 
+    protected void doPost_Add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pid = Integer.parseInt(request.getParameter("idProduct"));
+        String pName = request.getParameter("name_product");
+        String pAvatar = request.getParameter("ImageUpload");
+        int pidTypeProduct = Integer.parseInt(request.getParameter("categoryTypeProduct"));
+        int pidStatus = Integer.parseInt(request.getParameter("statusProduct"));
+        int pBrand = Integer.parseInt(request.getParameter("categoryBrand"));
+        int pPrice = Integer.parseInt(request.getParameter("price"));
+        int pQuantity = Integer.parseInt(request.getParameter("quantity"));
+        String pDescription = request.getParameter("description");
+        int pidStore = Integer.parseInt("1");
+
+        boolean checkAddNew = new ProductService().addNewProduct(pid, pName, pAvatar, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
+        request.setAttribute("messageAdd", checkAddNew);
+        request.getRequestDispatcher("/view/admin/manage-product.jsp").forward(request, response);
     }
 }
