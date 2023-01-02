@@ -28,7 +28,8 @@ public class CategoryDAO {
             return list;
         } catch (SQLException e) {
             e.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     public List<CategoryModel> getListTypeProduct() {
@@ -48,10 +49,12 @@ public class CategoryDAO {
             return list;
         } catch (SQLException e) {
             e.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
     public static void main(String[] args) {
         System.out.println(new CategoryDAO().getListTypeProduct().toString());
     }
+
 }

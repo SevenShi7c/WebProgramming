@@ -16,11 +16,11 @@ public class CategorySevice {
         return categoryDAO.getListCategory();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new CategorySevice().getListBrand());
-    }
-
     public List<CategoryModel> getListTypeProduct() {
         return categoryDAO.getListTypeProduct();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new CategorySevice().getListBrand());
     }
 }

@@ -35,12 +35,12 @@ public class ManageProductController extends HttpServlet {
             view = "/view/admin/change-product.jsp";
         } else if (typeParam == null) {
             view = "/view/admin/manage-product.jsp";
-            request.setAttribute("listProduct",productService.getListProduct());
+            request.setAttribute("listProduct", productService.getListProduct());
 
         }
+        request.setAttribute("categoryTypeProduct", categorySevice.getListTypeProduct());
 
-        request.setAttribute("categoryTypeProduct",categorySevice.getListTypeProduct());
-        request.setAttribute("categoryBrand",categorySevice.getListBrand());
+        request.setAttribute("categoryBrand", categorySevice.getListBrand());
 
         request.getRequestDispatcher(view).forward(request, response);
     }
