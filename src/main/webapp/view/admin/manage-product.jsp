@@ -142,33 +142,33 @@ MODAL EDIT BASIC
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="control-label" for="idModal">Mã sản phẩm </label>
-                            <input class="form-control" type="number" value="" id="idModal" name="id">
+                            <input class="form-control" type="number" value="" id="idModal" name="idModal">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label" for="nameModal">Tên sản phẩm</label>
                             <input class="form-control" type="text" required
-                                   value="" id="nameModal" name="name">
+                                   value="" id="nameModal" name="nameModal">
                         </div>
                         <div class="form-group  col-md-6">
                             <label class="control-label" for="quantityModal">Tồn kho</label>
-                            <input class="form-control" type="number" name="quantity" id="quantityModal" required
+                            <input class="form-control" type="number" name="statusModal" id="quantityModal" required
                                    value="">
                         </div>
                         <div class="form-group col-md-6 ">
                             <label for="statusModal" class="control-label" for="statusModal">Tình trạng sản phẩm</label>
-                            <select class="form-control" id="statusModal" name="status">
-                                <option>Còn hàng</option>
-                                <option>Hết hàng</option>
-                                <option>Đang nhập hàng</option>
+                            <select class="form-control" id="statusModal" name="statusModal">
+                                <option value="1">Còn hàng</option>
+                                <option value="0">Hết hàng</option>
+                                <option value="-1">Ngưng hoạt động</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label" for="priceModal">Giá bán</label>
-                            <input class="form-control" type="text" id="priceModal" name="price" value="300.000đ">
+                            <input class="form-control" type="text" id="priceModal" name="priceModal" value="300.000đ">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="categoryModal" class="control-label">Danh mục</label>
-                            <select class="form-control" id="categoryModal" name="category">
+                            <select class="form-control" id="categoryModal" name="categoryModal">
                                 <%
                                     for (CategoryModel type : categoryTypeProduct) {
                                 %>
@@ -178,13 +178,13 @@ MODAL EDIT BASIC
                             </select>
                         </div>
                     </div>
-                    <BR>
+                    <br>
                     <a class="urlEditBasic"
                        style="float: right;font-weight: 600;color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
                     <BR>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                    <button class="btn btn-save" type="submit" onclick="save()">Lưu lại</button>
                     <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
                 </div>
             </form>
@@ -249,13 +249,13 @@ MODAL EDIT BASIC
         $('#ModalEditProduct #quantityModal').val(quantity);
         // $('#ModalEditProduct #statusModal').val(status);
         $('#ModalEditProduct #priceModal').val(price);
-        $('#ModalEditProduct .urlEditBasic').attr('href',`manage-product?type=edit&id-product=${idProduct}`);
+        $('#ModalEditProduct .urlEditBasic').attr('href', `manage-product?type=edit&id-product=${idProduct}`);
 
         console.log($('#ModalEditProduct #categoryModal option'))
 
         let listCategory = document.querySelectorAll('#ModalEditProduct #categoryModal option')
         for (let i = 0; i < listCategory.length; i++) {
-            listCategory[i].value==category?listCategory[i].selected = true:listCategory[i].selected = false
+            listCategory[i].value == category ? listCategory[i].selected = true : listCategory[i].selected = false
 
         }
         <%--$.ajax({--%>
