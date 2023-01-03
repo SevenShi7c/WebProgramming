@@ -65,7 +65,8 @@
                                 <span class="date"><%=blog.getCreatedDate()%> </span>
                             </div>
                         </div>
-                        <%}%>
+                        <%}
+                        %>
                     </div>
                 </div>
                 <div class="menu-blog">

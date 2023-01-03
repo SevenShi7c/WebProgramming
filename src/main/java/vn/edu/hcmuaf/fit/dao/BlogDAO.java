@@ -50,7 +50,7 @@ public class BlogDAO extends AbstractDAO {
         return null;
     }
 
-    public List<BlogModel> newBlog() {
+    public List<BlogModel> getNewBlog() {
         LinkedList<BlogModel> list = new LinkedList<BlogModel>();
 
         String sql = "select blog.id, title, briefContent,blog.avatar, users.name, create_date " +
