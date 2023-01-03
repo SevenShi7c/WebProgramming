@@ -54,7 +54,7 @@
                 <div class="card mb-4">
                     <h3 class="card-header">Thay đổi thông tin</h3>
                     <div class="card-body p-5">
-                        <form method='POST' role="form">
+                        <form action="profile?action=update" method="post" >
                             <div class="mb-3 avatar">
                                 <div class="row">
                                     <div class="col-md-4 left">
@@ -70,50 +70,59 @@
                             </div>
 
                             <div class="row gx-3 mb-3">
-                                <div class="col-md-6">
-                                    <label class="mb-1" for="name">Họ tên</label>
+                                <div class="col-md-6 ">
+                                    <label class="mb-1" >Họ tên</label>
                                     <input class="form-control" name="name" type="text"
-                                           placeholder="<% out.print(user.getName() );%> "/>
+                                          value="<% out.print(user.getName());%>"
+                                    />
 
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="sex">Giới tính</label>
 
-                                    <select id="sex" name="sex" class="form-control" required="required">
-                                        <option value="0" name="sex" selected>Nam</option>
-                                        <option value="1" name="sex">Nữ</option>
-                                        <option value="-1" name="sex">Khác</option>
+                                    <select id="sex" name="sex" class="form-control" required="required" >
+                                        <option value="<% out.print(user.getName());%>" name="sex" selected><% if(user.getSex()==1) {out.print("Nam");}else if(user.getSex()==0) {out.print("Nữ");}else{out.print("Chưa chọn");}%></option>
+                                        <option value="<% if(user.getSex()==1) {out.print("0");}else{out.print("1");}%>" name="sex"><% if(user.getSex()==1) {out.print("Nữ");}else{out.print("Nam");}%></option>
+<%--                                        <option value="0" name="sex">Nữ</option>--%>
                                     </select>
 
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="mb-1" for="email">Email</label>
+                                <label class="mb-1" >Email</label>
                                 <input class="form-control" name="email" type="email"
-                                       placeholder="<% out.print(user.getEmail() );%>"/>
+                                       value="<% out.print(user.getEmail() );%>"/>
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="mb-1" >ID</label>
+                                <input class="form-control" name="id" type="text"
+                                       value="<% out.print(user.getId());%>" />
                             </div>
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
-                                    <label class="mb-1" for="sdt">Số điện thoại</label>
-                                    <input class="form-control" name="tel" type="tel" placeholder="<% if(user.getTel()!=null) {out.print(user.getTel());}else{out.print("Số điện thoại");}%>"/>
+                                    <label class="mb-1" >Số điện thoại</label>
+                                    <input class="form-control" name="tel" type="tel" value="<% if(user.getTel()!=null) {out.print(user.getTel());}%>" placeholder="<% if(user.getTel()==null) {out.print("Nhập số điện thoại");}%>"/>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="age">Ngày sinh</label>
                                     <input class="form-control" id="age" type="date" name="dob"
-                                           placeholder="<% if(user.getDob()!=null) {out.print(user.getDob());}else{out.print("dd/mm/yyyy");}%>"/>
+                                           value="<% out.print(user.getDob());%>"/>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="mb-1" for="address">Địa chỉ</label>
+                                <label class="mb-1" >Địa chỉ</label>
                                 <input class="form-control" name="address" type="text"
-                                       placeholder="<% if(user.getAddress()!=null) {out.print(user.getAddress());}else{out.print("số nhà, đường, phường/xã, huyện/tp, tỉnh ");}%>"/>
+                                       value="<% if(user.getAddress()!=null) {out.print(user.getAddress());}%>" placeholder="<% if(user.getAddress()==null) {out.print("số nhà, đường, phường/xã, huyện/tp, tỉnh ");}%>"/>
                             </div>
 <%--                            <div class="mb-3">--%>
 <%--                                <label class="mb-1" for="gioi_thieu">Giới thiêu</label>--%>
 <%--                                <textarea id="gioi_thieu" cols="30" rows="10" class="form-control" name="gioi_thieu"--%>
 <%--                                          type="text" placeholder="Giới thiệu bản thân"></textarea>--%>
 <%--                            </div>--%>
+                            <div>
                             <input class="btn  save_change" type="submit" value="Lưu thay đổi"/>
+                            </div>
+
                         </form>
                     </div>
                 </div>
