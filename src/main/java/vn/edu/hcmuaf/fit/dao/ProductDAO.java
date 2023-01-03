@@ -15,29 +15,19 @@ public class ProductDAO {
 
         String sql = "select * from products";
         Statement statement = DBConnect.getInstall().get();
-        if (statement != null)
-            try {
-                ResultSet rs = statement.executeQuery(sql);
+        if (statement != null) try {
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
                 while (rs.next()) {
-                    while (rs.next()) {
-                        list.add(new ProductModel(rs.getInt(1),
-                                rs.getString(2),
-                                rs.getString(3),
-                                rs.getInt(4),
-                                rs.getInt(5),
-                                rs.getInt(6),
-                                rs.getLong(7),
-                                rs.getInt(8),
-                                rs.getString(9),
-                                rs.getInt(10)));
-                    }
-                    return list;
-
+                    list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getLong(7), rs.getInt(8), rs.getString(9), rs.getInt(10)));
                 }
+                return list;
 
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         else {
             System.out.println("Không có kết nối");
         }
@@ -58,16 +48,7 @@ public class ProductDAO {
             }
             try {
                 while (rs.next()) {
-                    list.add(new ProductModel(rs.getInt(1),
-                            rs.getString(2),
-                            rs.getString(3),
-                            rs.getInt(4),
-                            rs.getInt(5),
-                            rs.getInt(6),
-                            rs.getLong(7),
-                            rs.getInt(8),
-                            rs.getString(9),
-                            rs.getInt(10)));
+                    list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getLong(7), rs.getInt(8), rs.getString(9), rs.getInt(10)));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -81,7 +62,7 @@ public class ProductDAO {
     }
 
     public static void deleteProduct(int id) {
-      String sql = "delete from products where id = ?";
+        String sql = "delete from products where id = ?";
         Connection connection = new ConnectToDatabase().getConnect();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -109,25 +90,14 @@ public class ProductDAO {
 
     public static ProductModel getDetailProduct(String idProduct) {
 
-        String sql = "select * from products " +
-                "where id= ?";
+        String sql = "select * from products " + "where id= ?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
             ps.setString(1, idProduct);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                return new ProductModel(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getLong(7),
-                        rs.getInt(8),
-                        rs.getString(9),
-                        rs.getInt(10)
-                );
+                return new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getLong(7), rs.getInt(8), rs.getString(9), rs.getInt(10));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -145,10 +115,7 @@ public class ProductDAO {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new CategoryModel(rs.getInt(1),
-                                rs.getString(2)
-                        )
-                );
+                list.add(new CategoryModel(rs.getInt(1), rs.getString(2)));
             }
             return list;
         } catch (Exception e) {
@@ -159,9 +126,7 @@ public class ProductDAO {
     public static List<ProductModel> getlistProductForBrand(String brandPram) {
         LinkedList<ProductModel> list = new LinkedList<>();
 
-        String sql = "select * from products " +
-                "join brand on brand.id = products.id_brand " +
-                "where brand.name=?";
+        String sql = "select * from products " + "join brand on brand.id = products.id_brand " + "where brand.name=?";
 
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
@@ -169,13 +134,7 @@ public class ProductDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new ProductModel(rs.getInt(1),
-                                rs.getString(2),
-                                rs.getString(3),
-                                rs.getLong(4),
-                                rs.getInt(5)
-                        )
-                );
+                list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getInt(5)));
             }
             return list;
         } catch (Exception e) {
@@ -186,9 +145,7 @@ public class ProductDAO {
     public static List<ProductModel> getListProductBySearch(String searchPram) {
         LinkedList<ProductModel> list = new LinkedList<>();
 
-        String sql = "SELECT * FROM products " +
-                "WHERE name like ? " +
-                "order by id desc ";
+        String sql = "SELECT * FROM products " + "WHERE name like ? " + "order by id desc ";
         try {
 
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
@@ -196,23 +153,42 @@ public class ProductDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new ProductModel(rs.getInt(1),
-                                rs.getString(2),
-                                rs.getString(3),
-                                rs.getLong(4),
-                                rs.getInt(5)
-                        )
-                );
+                list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4), rs.getInt(5)));
             }
             return list;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+//    INSERT INTO `products` (`id`, `name`, `avatar`, `id_type_product`, `id_status_device`, `id_brand`, `price`, `sum_quantity`, `describe`, `id_store`)
+//    VALUES (NULL, 'Test2', 'thay-cam-ung-asus-zenfone-max-plus-m1-zb570tl_1667468452.png\r\n', '3', '1', '5', '350000', '44', '', '2');
+
+    public static boolean addNewProduct(int id, String name, String avatar, int id_type_product, int id_status_device, int id_brand, int price, int sum_quantity, String describe, int id_store) {
+        String sql = "INSERT INTO products (`id`, `name`, `avatar`, `id_type_product`, `id_status_device`, `id_brand`, `price`, `sum_quantity`, `describe`, `id_store`) " +
+                "VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, avatar);
+            ps.setInt(3, id_type_product);
+            ps.setInt(4, id_status_device);
+            ps.setInt(5, id_brand);
+            ps.setInt(6, price);
+            ps.setInt(7, sum_quantity);
+            ps.setString(8, describe);
+            ps.setInt(9, id_store);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateProduct() {
+//        UPDATE products SET name = 'Test' WHERE products.id = 10;
+        String sql = "UPDATE PRODUCTS SET NAME=? WHERE PRODUCTS.ID=?";
+    }
 
     public static void main(String[] args) {
-        for (ProductModel p : ProductDAO.getListProductBySearch("samsung")) {
-            System.out.println(p.getName());
-        }
     }
 }
