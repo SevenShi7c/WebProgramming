@@ -22,15 +22,21 @@ public class ConnectToDatabase {
     }
 
     public void executeSql(String sql) throws Exception {
+//        Connection connect = getConnect();
+//        Statement stmt = connect.createStatement();
+//        stmt.executeUpdate(sql);
         Connection connect = getConnect();
-        Statement stmt = connect.createStatement();
-        stmt.executeUpdate(sql);
+        PreparedStatement stmt = connect.prepareStatement(sql);
+        stmt.executeUpdate();
     }
 
     public static ResultSet selectData(String sql) throws Exception {
+//        Connection connect = getConnect();
+//        Statement stmt = connect.createStatement();
+//        ResultSet rs = stmt.executeQuery(sql);
         Connection connect = getConnect();
-        Statement stmt = connect.createStatement();
-        ResultSet rs = stmt.executeQuery(sql);
+        PreparedStatement stmt = connect.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
         return rs;
     }
 
