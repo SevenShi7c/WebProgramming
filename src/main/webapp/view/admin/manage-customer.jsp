@@ -79,7 +79,7 @@
                         <tr>
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                             <td><%=customer.getId()%></td>
-                            <td><%=customer.getUsername()%>/td>
+                            <td><%=customer.getUsername()%></td>
                             <td><%=customer.getAddress()%></td>
                             <td><%=customer.getEmail()%></td>
                             <td><%=customer.getTel()%></td>

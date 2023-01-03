@@ -20,6 +20,12 @@ public class BlogService {
     public List<BlogModel> getNewBlog() {
         return blogDAO.getNewBlog();
     }
+    public  static List<BlogModel> getBlogAdmin() {
+        return BlogDAO.getBlogAdmin();
+
+    }
+
+
 
     public BlogModel getDetailBlogForId(String idBlogPram) {
         return blogDAO.getDetailBlogForId(idBlogPram);
