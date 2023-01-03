@@ -1,23 +1,25 @@
 package vn.edu.hcmuaf.fit.dao;
 
 import vn.edu.hcmuaf.fit.db.ConnectToDatabase;
+import vn.edu.hcmuaf.fit.db.DBConnect;
+import vn.edu.hcmuaf.fit.model.ProductModel;
 import vn.edu.hcmuaf.fit.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.*;
+import java.util.*;
 
 public class UserDAO implements ObjectDAO {
     public static Map<String, User> mapUser = loadUsername();
+    Connection conn=null;
+    PreparedStatement ps=null;
+    ResultSet rs=null;
 
 
     public UserDAO() {
     }
 
-    private static Map<String, User> loadUsername() {
+
+    public static Map<String, User> loadUsername() {
         Map<String, User> mapTemp = new HashMap<>();
         try {
             ResultSet rs = new ConnectToDatabase().selectData("select * from users");
@@ -37,7 +39,6 @@ public class UserDAO implements ObjectDAO {
                         dob, sex, address);
                 mapTemp.put(user.getUsername(), user);
 
-
             }
 
         } catch (Exception e) {
@@ -47,38 +48,11 @@ public class UserDAO implements ObjectDAO {
         return mapTemp;
     }
 
-    private static Map<String, User> loadName() {
-        Map<String, User> mapTemp = new HashMap<>();
-        try {
-            ResultSet rs = new ConnectToDatabase().selectData("select * from users");
-            while (rs.next()) {
-                String id = rs.getString(1);
-                String name = rs.getString(2);
-                String username = rs.getString(3);
-                String email = rs.getString(4);
-                String password = rs.getString(5);
-                String avatar = rs.getString(6);
-                String tel = rs.getString(7);
-                int id_type_user = rs.getInt(8);
-                String dob = rs.getString(9);
-                int sex = rs.getInt(10);
-                String address = rs.getString(11);
-                User user = new User(id, name, username, email, password, avatar, tel, id_type_user,
-                        dob, sex, address);
-                mapTemp.put(user.getUsername(), user);
 
-
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return mapTemp;
-    }
 
     public int checkLogin(String username, String pass) {
-        User user = mapUser.get(username);
+//        User user = mapUser.get(username);
+        User user = loadUsername().get(username);
         if (user != null) {
             int id = user.getId_type_user();
             if (user.getPassword().equals(pass) && id == 1) {
@@ -93,7 +67,7 @@ public class UserDAO implements ObjectDAO {
         return 0;
     }
 
-    public void signup(String name,int sex,String email, String username, String password) {
+    public void signup(String name,int sex,String dob,String email, String username, String password) {
         String sql = "insert into users(id,name,username,email,password,avatar,tel,id_type_user,dob,sex,address) values (?,?,?,?,?,?,?,?,?,?,?)";
         Connection connect = ConnectToDatabase.getConnect();
         try {
@@ -106,7 +80,7 @@ public class UserDAO implements ObjectDAO {
             ppstm.setString(6, null);
             ppstm.setString(7, null);
             ppstm.setInt(8, 1);
-            ppstm.setString(9, null);
+            ppstm.setString(9, dob);
             ppstm.setInt(10, sex);
 
             ppstm.setString(11, null);
@@ -121,7 +95,8 @@ public class UserDAO implements ObjectDAO {
 
     public int checksignup(String name, String username, String password) {
         if (name != "" && username != "" && password != "") {
-            User user = mapUser.get(username);
+//            User user = mapUser.get(username);
+            User user = loadUsername().get(username);
             System.out.println(user);
             if (user == null) {
                 return 1;
@@ -142,7 +117,7 @@ public class UserDAO implements ObjectDAO {
 
     @Override
     public boolean del(String id) {
-        mapUser.remove(id);
+//        mapUser.remove(id);
         try {
             new ConnectToDatabase().executeSql("delete from users where name ='" + id + "'");
             return true;
@@ -155,7 +130,8 @@ public class UserDAO implements ObjectDAO {
     @Override
     public boolean edit(String id, Object obj) {
         User user = (User) obj;
-        mapUser.replace(id, user);
+//        mapUser.replace(id, user);
+        loadUsername().replace(id, user);
         String sql = "update users set id=?;name=?,email=?,password=?,avatar=?,tel=?,id_type_user=?,dob=?,sex=?,address=?";
         Connection connect = ConnectToDatabase.getConnect();
         try {
@@ -173,20 +149,44 @@ public class UserDAO implements ObjectDAO {
             return true;
 
         } catch (SQLException e) {
-            System.out.println("Error when edit custommer:" + e.getMessage());
+            System.out.println("Error when edit customer:" + e.getMessage());
         }
         return false;
     }
 
+    public void editPro(String id,String name,int sex,String email, String tel, String dob,String address) {
+
+        String sql = "update users set name=?,email=?,tel=?,dob=?,sex=?,address=? where id ='" + id + "'";
+        Connection connect = ConnectToDatabase.getConnect();
+        try {
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+//            ppstm.setString(1, "1");
+            ppstm.setString(1, name);
+//            ppstm.setString(3, null);
+            ppstm.setString(2, email);
+//            ppstm.setString(5, null);
+//            ppstm.setString(6, null);
+            ppstm.setString(3, tel);
+//            ppstm.setInt(8, 1);
+            ppstm.setString(4, dob);
+            ppstm.setInt(5, sex);
+
+            ppstm.setString(6, address);
+
+            ppstm.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Error when update custommer:" + e.getMessage());
+        }
+    }
     @Override
     public void read() {
     }
-
     public boolean changePass(String userName, String newPass) {
-        User user = mapUser.get(userName);
+//        User user = mapUser.get(userName);
+        User user = loadUsername().get(userName);
         if (user != null) {
             user.setPassword(newPass);
-            mapUser.replace(user.getName(), user);
+            loadUsername().replace(user.getName(), user);
             edit(user.getName(), user);
             return true;
         } else {
@@ -196,10 +196,11 @@ public class UserDAO implements ObjectDAO {
 
     public static void main(String[] args) {
         UserDAO user = new UserDAO();
-        User x = mapUser.get("minhhoang");
+//        User x = mapUser.get("minhhoang");
 //        System.out.println(x);
 //        System.out.println(user.mapUser);
-        System.out.println(user.checksignup("f", "", ""));
+//        System.out.println(user.checksignup("f", "", ""));
 //        System.out.println(user.checkLogin("",""));
+//        user.editPro("41","Huy Hoàng",0,"hoang@hoang123","01234","2002-11-04","Vũng Tàu");
     }
 }

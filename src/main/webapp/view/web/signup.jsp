@@ -44,22 +44,21 @@
 
                     <div class="sex form-control1">
                         <div class="female">
-
                             <input type="radio" id="female" checked name="sex" value="0">
                             <label for="female">Nữ</label>
                         </div>
                         <div class="male">
-
                             <input type="radio" id="male" name="sex" value="1">
                             <label for="male">Nam</label>
                         </div>
                     </div>
+                    <div class="birthday form-control1">
+                        <input type="date" id="birthday" name="dob" placeholder="mm/dd/yyyy">
+                    </div>
                     <div class="username form-control1">
                         <input type="email" id="email" name="email" placeholder="Email" >
                     </div>
-<%--                    <div class="birthday form-control1">--%>
-<%--                        <input type="date" id="birthday" placeholder="mm/dd/yyyy">--%>
-<%--                    </div>--%>
+
                     <div class="username form-control1">
                         <input type="text" id="username" name="username" placeholder="Tài khoản">
                     </div>

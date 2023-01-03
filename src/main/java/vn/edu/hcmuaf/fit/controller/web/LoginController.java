@@ -63,14 +63,15 @@ public class LoginController extends HttpServlet {
 
             int check = new UserDAO().checkLogin(username, password);
             if (check == 1) {
-                User user = UserDAO.mapUser.get(username);
+//                User user = UserDAO.mapUser.get(username);
+                User user = UserDAO.loadUsername().get(username);
                 session.setAttribute("userlogin", user);
                 session.setAttribute("mess", null);
                 response.sendRedirect("home");
             } else if (check == 2) {
 
                 session.setAttribute("mess", null);
-                response.sendRedirect("index");
+                response.sendRedirect("admin/index");
             } else {
                 session.setAttribute("mess", "errorsignin");
                 response.sendRedirect("signin");
@@ -80,10 +81,11 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("password");
             String hovaten = request.getParameter("hovaten");
             String email = request.getParameter("email");
+            String dob = request.getParameter("dob");
             int sex = Integer.parseInt(request.getParameter("sex"));
             int check = new UserDAO().checksignup(hovaten, username, password);
             if (check == 1) {
-                new UserDAO().signup(hovaten, sex, email, username, password);
+                new UserDAO().signup(hovaten, sex, dob, email, username, password);
                 request.getRequestDispatcher("/view/web/signin.jsp").forward(request, response);
             } else if (check == 2) {
                 session.setAttribute("mess", "errornull");
