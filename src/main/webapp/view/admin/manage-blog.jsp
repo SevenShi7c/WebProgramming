@@ -1,71 +1,25 @@
+<%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.BlogService" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Quản lý tin tức | ADMIN</title>
-    <link href="../../images/logo/logo_PhoneCare.png" rel="shortcut icon" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="../../admin/doc/css/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <!-- or -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-    <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-
+    <title>Quản lý sản phẩm | ADMIN</title>
+    <%@include file="../../common/admin/head.jsp" %>
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
 <!-- Navbar-->
-<header class="app-header">
-    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-                                    aria-label="Hide Sidebar"></a>
-    <!-- Navbar Right Menu-->
-    <ul class="app-nav">
 
-
-        <!-- User Menu-->
-        <li><a class="app-nav__item" href="../../admin/login.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
-
-        </li>
-    </ul>
-</header>
+<%@include file="../../common/admin/header.jsp" %>
 <!-- Sidebar menu-->
-<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-<aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../../admin/images/admin.png" width="50px"
-                                        alt="User Image">
-        <div>
-            <p class="app-sidebar__user-name"><b>Admin</b></p>
-            <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
-        </div>
-    </div>
-    <hr>
-    <ul class="app-menu">
+<%
+    List<BlogModel> listBlog = (List<BlogModel>) request.getAttribute("listBlog");
 
-        <li><a class="app-menu__item active " href="index.jsp"><i class='app-menu__icon bx bx-tachometer'></i><span
-                class="app-menu__label">Bảng điều khiển</span></a></li>
-        <li><a class="app-menu__item" href="manage-customer.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
-                class="app-menu__label">Quản lý khách hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-product.jsp"><i
-                class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a></li>
-        <li><a class="app-menu__item" href="manage-order.jsp"><i class='app-menu__icon bx bx-task'></i><span
-                class="app-menu__label">Quản lý đơn hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-booked.jsp"><i class='app-menu__icon bx bx-calendar-check'></i><span
-                class="app-menu__label">Quản lý lịch đã đặt </span></a></li>
-        <li><a class="app-menu__item" href="manage-blog.jsp"><i class='app-menu__icon bx bx-news'></i><span
-                class="app-menu__label">Quản lý tin tức </span></a></li>
-
-
-    </ul>
-</aside>
+%>
+<%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
@@ -95,6 +49,12 @@
                                     class="fas fa-trash-alt"></i> Xóa tất cả </a>
                         </div>
                     </div>
+<%--                    in ra tin tức--%>
+                    <% if (listBlog == null){
+                    %>
+                    <div>Chưa có tin tức</div>
+                    <%
+                    }else {%>
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
@@ -108,13 +68,16 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <%
+                            for (BlogModel blog :
+                                    listBlog ) {%>
                         <tr>
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>1</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
+                            <td><%=blog.getId()%></td>
+                            <td><%=blog.getTitle()%></td>
+                            <td><%=blog.getUserCreated()%></td>
+                            <td><%=blog.getTypeBlog()%></td>
+                            <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>
                             <td>
                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                         class="fas fa-trash-alt"></i></button>
@@ -124,184 +87,13 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>2</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>3</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-danger">Chưa đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>4</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>5</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-danger">Chưa đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>6</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-danger">Chưa đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>7</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>8</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>9</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>10</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>11</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-danger">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>12</td>
-                            <td>Thông tin liên quan về Iphone 14</td>
-                            <td>Quản trị</td>
-                            <td>Tin công nghệ</td>
-                            <td><span class="btn btn-success">Đã đăng</span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        <%
+                            }%>
                         </tbody>
                     </table>
+                    <%
+                        }%>
+
                 </div>
             </div>
         </div>
@@ -350,7 +142,7 @@ MODAL
                     </div>
                     <div class="form-group  col-md-6">
                         <label for="exampleSelect1" class="control-label">Loại tin</label>
-                        <select class="form-control" id="exampleSelect1">
+                        <select class="form-control" id="">
                             <option>Công nghệ</option>
                             <option>Giải đáp</option>
                         </select>
@@ -370,23 +162,20 @@ MODAL
     </div>
 </div>
 <!--
-MODAL
+<%@include file="../../common/admin/script.jsp" %>
 -->
 
 <!-- Essential javascripts for application to work-->
-<script src="../../admin/js/jquery-3.2.1.min.js"></script>
-<script src="../../admin/js/popper.min.js"></script>
-<script src="../../admin/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
-<script src="../../admin/js/main.js"></script>
+<script src="js/main.js"></script>
 <!-- The javascript plugin to display page loading on top-->
 <script src="../../admin/doc/js/plugins/pace.min.js"></script>
 <!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Data table plugin-->
-<script type="text/javascript" src="../../admin/doc/js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../../admin/doc/js/plugins/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
 <script>
     function deleteRow(r) {
