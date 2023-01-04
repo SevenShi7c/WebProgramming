@@ -47,6 +47,34 @@ public class UserDAO implements ObjectDAO {
 
         return mapTemp;
     }
+    public static Map<String, User> loadId() {
+        Map<String, User> mapTemp = new HashMap<>();
+        try {
+            ResultSet rs = new ConnectToDatabase().selectData("select * from users");
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String name = rs.getString(2);
+                String username = rs.getString(3);
+                String email = rs.getString(4);
+                String password = rs.getString(5);
+                String avatar = rs.getString(6);
+                String tel = rs.getString(7);
+                int id_type_user = rs.getInt(8);
+                String dob = rs.getString(9);
+                int sex = rs.getInt(10);
+                String address = rs.getString(11);
+                User user = new User(id, name, username, email, password, avatar, tel, id_type_user,
+                        dob, sex, address);
+                mapTemp.put(user.getId(), user);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mapTemp;
+    }
 
 
 
@@ -155,7 +183,9 @@ public class UserDAO implements ObjectDAO {
     }
 
     public void editPro(String id,String name,int sex,String email, String tel, String dob,String address) {
-
+//        User user = (O) obj;
+        User user = loadId().get(id);
+        loadId().replace(id, user);
         String sql = "update users set name=?,email=?,tel=?,dob=?,sex=?,address=? where id ='" + id + "'";
         Connection connect = ConnectToDatabase.getConnect();
         try {

@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.controller.web;
 import vn.edu.hcmuaf.fit.dao.UserDAO;
 import vn.edu.hcmuaf.fit.model.User;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,10 +69,13 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("userlogin", user);
                 session.setAttribute("mess", null);
                 response.sendRedirect("home");
-            } else if (check == 2) {
 
+            } else if (check == 2) {
+                User user = UserDAO.loadUsername().get(username);
+                session.setAttribute("userlogin", user);
                 session.setAttribute("mess", null);
                 response.sendRedirect("admin/index");
+
             } else {
                 session.setAttribute("mess", "errorsignin");
                 response.sendRedirect("signin");

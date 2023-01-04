@@ -73,15 +73,14 @@
                                 <div class="col-md-6 ">
                                     <label class="mb-1" >Họ tên</label>
                                     <input class="form-control" name="name" type="text"
-                                          value="<% out.print(user.getName());%>"
-                                    />
+                                          value="<% out.print(user.getName());%>"/>
 
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="sex">Giới tính</label>
 
                                     <select id="sex" name="sex" class="form-control" required="required" >
-                                        <option value="<% out.print(user.getName());%>" name="sex" selected><% if(user.getSex()==1) {out.print("Nam");}else if(user.getSex()==0) {out.print("Nữ");}else{out.print("Chưa chọn");}%></option>
+                                        <option value="<% out.print(user.getSex());%>" name="sex" selected><% if(user.getSex()==1) {out.print("Nam");}else if(user.getSex()==0) {out.print("Nữ");}else{out.print("Chưa chọn");}%></option>
                                         <option value="<% if(user.getSex()==1) {out.print("0");}else{out.print("1");}%>" name="sex"><% if(user.getSex()==1) {out.print("Nữ");}else{out.print("Nam");}%></option>
 <%--                                        <option value="0" name="sex">Nữ</option>--%>
                                     </select>
@@ -93,8 +92,8 @@
                                 <input class="form-control" name="email" type="email"
                                        value="<% out.print(user.getEmail() );%>"/>
                             </div>
-                            <div class="mb-3 ">
-                                <label class="mb-1" >ID</label>
+                            <div class="mb-3 d-none">
+                                <label class="mb-1 " >ID</label>
                                 <input class="form-control" name="id" type="text"
                                        value="<% out.print(user.getId());%>" />
                             </div>
@@ -120,7 +119,7 @@
 <%--                                          type="text" placeholder="Giới thiệu bản thân"></textarea>--%>
 <%--                            </div>--%>
                             <div>
-                            <input class="btn  save_change" type="submit" value="Lưu thay đổi"/>
+                            <input class="btn  save_change" type="submit" value="Lưu thay đổi" id="btnSave"/>
                             </div>
 
                         </form>
@@ -132,7 +131,23 @@
 </main>
 
 <%@include file="../../common/web/footer.jsp" %>
+<script>
+    function redirectPage(e) {
+        e.preventDefault();
+        location.replace('checkout.html')
+    }
 
+    $('#btnSave').click(function () {
+        swal({
+            title: "",
+            text: "Đặt lịch thành công",
+            icon: "success",
+            close: true,
+            button: false,
+        });
+    });
+
+</script>
 
 </body>
 
