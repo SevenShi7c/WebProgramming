@@ -6,18 +6,16 @@ import vn.edu.hcmuaf.fit.model.CategoryModel;
 import java.util.List;
 
 public class CategorySevice {
-    private CategoryDAO categoryDAO;
 
     public CategorySevice() {
-        this.categoryDAO = new CategoryDAO();
     }
 
-    public List<CategoryModel> getListBrand() {
-        return categoryDAO.getListCategory();
+    public static List<CategoryModel> getListBrand() {
+        return CategoryDAO.getListCategory();
     }
 
-    public List<CategoryModel> getListTypeProduct() {
-        return categoryDAO.getListTypeProduct();
+    public static List<CategoryModel> getListTypeProduct() {
+        return CategoryDAO.getListTypeProduct();
     }
 
     public static void main(String[] args) {
