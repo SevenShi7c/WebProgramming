@@ -132,4 +132,43 @@ public class BlogDAO extends AbstractDAO {
         }
         return null;
     }
+    public static List<BlogModel> getBlogAdmin() {
+        LinkedList<BlogModel> list = new LinkedList<BlogModel>();
+
+        String sql = "select blog.id, title, briefContent,blog.avatar, users.name, create_date " +
+                "from blog join users on blog.id_user_create = users.id " +
+                "order by id desc limit 3";
+
+        conn = getConnection();
+
+        if (conn != null)
+            try {
+                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    list.add(new BlogModel(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getDate(6)
+                    ));
+                }
+                return list;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (conn != null) conn.close();
+                    if (ps != null) ps.close();
+                    if (rs != null) rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        else {
+            System.out.println("Connect database error");
+        }
+        return null;
+    }
 }
