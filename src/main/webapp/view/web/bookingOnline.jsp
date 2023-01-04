@@ -85,10 +85,10 @@
 <%@include file="../../common/web/footer.jsp" %>
 
 <script>
-    function redirectPage(e) {
-        e.preventDefault();
-        location.replace('checkout.html')
-    }
+    // function redirectPage(e) {
+    //     e.preventDefault();
+    //     location.replace('checkout.html')
+    // }
 
 
     $('.btn-booking').click(function () {

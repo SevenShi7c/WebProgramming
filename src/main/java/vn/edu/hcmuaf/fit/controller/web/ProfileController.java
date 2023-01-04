@@ -38,11 +38,14 @@ public class ProfileController extends HttpServlet {
             String tel = request.getParameter("tel");
             String dob = request.getParameter("dob");
             String address = request.getParameter("address");
-            System.out.println(id +" "+hovaten+" "+sex+" "+email+" "+tel+" "+dob+" "+address );
             UserDAO user = new UserDAO();
             user.editPro(id,hovaten, sex, email, tel, dob, address);
+
+//            User user3 =UserDAO.loadUsername().get(id);
+            User user2 = UserDAO.loadId().get(id);
+            session.setAttribute("userlogin", user2);
             System.out.println(id +" "+hovaten+" "+sex+" "+email+" "+tel+" "+dob+" "+address );
-            request.getRequestDispatcher("/view/web/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/web/profile.jsp").forward(request, response);
 
         }
     }
