@@ -20,10 +20,10 @@ public class ManageBookingController extends HttpServlet {
         List<BookingModel> listBooking = null;
         if (statusParam == null) {
             //get all list booking
-            view = "/view/admin/manage-booking.jsp";
+            view = "/view/admin/manage-booked.jsp";
         } else if (statusParam.equalsIgnoreCase("accepted")) {
             listBooking = BookingService.getListBooking(1);
-            view = "/view/admin/manage-booking.jsp";
+            view = "/view/admin/manage-booked.jsp";
         } else if (statusParam.equalsIgnoreCase("wait-accept")) {
             listBooking = BookingService.getListBooking(0);
             view = "/view/admin/manage-confirm.jsp";
