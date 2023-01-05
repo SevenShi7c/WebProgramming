@@ -10,10 +10,10 @@ public class BlogModel {
     private String detailContent;
     private int status;
     private String avatar;
-    private String typeBlog;
+    private int typeBlog;
     private Date createdDate;
 
-    public BlogModel(int id, String title, String briefContent, String detailContent, int status, String avatar, String typeBlog, Date createdDate, String userCreate) {
+    public BlogModel(int id, String title, String briefContent, String detailContent, int status, String avatar, int typeBlog, Date createdDate, String userCreate) {
         this.id = id;
         this.title = title;
         this.briefContent = briefContent;
@@ -67,7 +67,7 @@ public class BlogModel {
         return userCreate;
     }
 
-    public String getTypeBlog() {
+    public int getTypeBlog() {
         return typeBlog;
     }
 
