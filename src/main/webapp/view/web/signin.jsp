@@ -28,11 +28,11 @@
                 <form action="login?action=login" method="post">
                     <%if (mess == "errorsignin") { %>
                     <div class="alert alert-danger">
-                        <strong>Tài khoản</strong> hoặc <strong>mật khẩu </strong>không chính xác
+                        <strong>Tài khoản hoặc Email</strong> hoặc <strong>mật khẩu </strong>không chính xác
                     </div>
                     <%}%>
                     <div class="username form-control1 ">
-                        <input type="text" id="username" name="username" placeholder="Tài khoản">
+                        <input type="text" id="username" name="username" placeholder="Tài khoản hoặc Email">
                     </div>
                     <div class="password form-control1">
                         <input type="password" id="password" name="password" placeholder="Mật khẩu">

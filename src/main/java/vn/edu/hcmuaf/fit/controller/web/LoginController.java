@@ -62,15 +62,30 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("password");
             String hovaten = request.getParameter("hovaten");
 
-            int check = new UserDAO().checkLogin(username, password);
-            if (check == 1) {
-//                User user = UserDAO.mapUser.get(username);
+            int checkUserName = new UserDAO().checkLogin(username, password);
+            int checkEmail = new UserDAO().checkLoginbyEmail(username, password);
+
+
+            if (checkUserName == 1) {
+
                 User user = UserDAO.loadUsername().get(username);
                 session.setAttribute("userlogin", user);
                 session.setAttribute("mess", null);
                 response.sendRedirect("home");
 
-            } else if (check == 2) {
+            } else if (checkEmail == 1) {
+                User userEmail = UserDAO.loadEmail().get(username);
+                session.setAttribute("userlogin", userEmail);
+                session.setAttribute("mess", null);
+                response.sendRedirect("home");
+
+            } else if (checkUserName == 2) {
+                User user = UserDAO.loadUsername().get(username);
+                session.setAttribute("userlogin", user);
+                session.setAttribute("mess", null);
+                response.sendRedirect("admin/index");
+
+            } else if (checkEmail == 2) {
                 User user = UserDAO.loadUsername().get(username);
                 session.setAttribute("userlogin", user);
                 session.setAttribute("mess", null);
@@ -87,7 +102,7 @@ public class LoginController extends HttpServlet {
             String email = request.getParameter("email");
             String dob = request.getParameter("dob");
             int sex = Integer.parseInt(request.getParameter("sex"));
-            int check = new UserDAO().checksignup(hovaten, username, password);
+            int check = new UserDAO().checksignup(hovaten, username,email, password);
             if (check == 1) {
                 new UserDAO().signup(hovaten, sex, dob, email, username, password);
                 request.getRequestDispatcher("/view/web/signin.jsp").forward(request, response);
@@ -95,18 +110,13 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("mess", "errornull");
                 response.sendRedirect("signup");
             } else {
-//                session.setAttribute("mess", "errornull");
                 session.setAttribute("mess", "errorsignup");
                 response.sendRedirect("signup");
             }
-//            response.sendRedirect("signin");
-//            System.out.println("c " );
-//            request.getRequestDispatcher("/view/web/signin.jsp").forward(request,response);
         } else {
             request.getRequestDispatcher("/view/web/signin.jsp").forward(request, response);
             session.setAttribute("mess", null);
         }
-
 
     }
 }

@@ -31,7 +31,7 @@
                     <div class="firstname form-control1 ">
                         <%if (mess =="errorsignup") { %>
                         <div class="alert alert-danger">
-                            <strong>Tài khoản</strong> đã tồn tại. Vui lòng nhập  <strong>tài khoản</strong> khác
+                            <strong>Tài khoản hoặc email</strong> đã tồn tại. Vui lòng nhập  <strong>tài khoản hoặc email</strong> khác
                         </div>
                         <%}%>
                         <%if (mess =="errornull") { %>
