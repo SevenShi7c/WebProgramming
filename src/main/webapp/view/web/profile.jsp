@@ -80,7 +80,7 @@
                                     <label class="mb-1" for="sex">Giới tính</label>
 
                                     <select id="sex" name="sex" class="form-control" required="required" >
-                                        <option value="<% out.print(user.getSex());%>" name="sex" selected><% if(user.getSex()==1) {out.print("Nam");}else if(user.getSex()==0) {out.print("Nữ");}else{out.print("Chưa chọn");}%></option>
+                                        <option value="" name="sex" selected><% if(user.getSex()==1) {out.print("Nam");}else if(user.getSex()==0) {out.print("Nữ");}else{out.print("Chưa chọn");}%></option>
                                         <option value="<% if(user.getSex()==1) {out.print("0");}else{out.print("1");}%>" name="sex"><% if(user.getSex()==1) {out.print("Nữ");}else{out.print("Nam");}%></option>
 <%--                                        <option value="0" name="sex">Nữ</option>--%>
                                     </select>
