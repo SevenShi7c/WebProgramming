@@ -18,6 +18,10 @@ public class CategorySevice {
         return CategoryDAO.getListTypeProduct();
     }
 
+    public static List<CategoryModel> getListStatus() {
+        return CategoryDAO.getListStatusProduct();
+    }
+
     public static void main(String[] args) {
         System.out.println(new CategorySevice().getListBrand());
     }

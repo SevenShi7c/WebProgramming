@@ -35,6 +35,8 @@ public class ManageProductController extends HttpServlet {
             request.setAttribute("listProduct", ProductService.getListProduct());
         }
 
+        request.setAttribute("listStatus", CategorySevice.getListStatus());
+
         request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
 
         request.setAttribute("categoryBrand", CategorySevice.getListBrand());
@@ -48,14 +50,37 @@ public class ManageProductController extends HttpServlet {
 
         if (SystemConstant.ADD.equals(typeParam)) {
             doPost_Add(request, response);
-        } else if (SystemConstant.EDITBASIC.equals(typeParam)) {
-            doPost_EditBasic(request, response);
         } else if (SystemConstant.EDIT.equals(typeParam)) {
+            doPost_Edit(request, response);
+        } else {
             doPost_EditBasic(request, response);
         }
     }
 
+
+    private void doPost_Edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pid = Integer.parseInt(request.getParameter("idProduct"));
+        String pName = request.getParameter("name_product");
+        String pAvatar = request.getParameter("ImageUpload");
+        int pidTypeProduct = Integer.parseInt(request.getParameter("categoryTypeProduct"));
+        int pidStatus = Integer.parseInt(request.getParameter("statusProduct"));
+        int pBrand = Integer.parseInt(request.getParameter("categoryBrand"));
+        int pPrice = Integer.parseInt(request.getParameter("price"));
+        int pQuantity = Integer.parseInt(request.getParameter("quantity"));
+        String pDescription = request.getParameter("description");
+        int pidStore = Integer.parseInt("1");
+
+        boolean checkUpdateProduct = ProductService.updateProduct(pid, pName, pAvatar, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
+        request.setAttribute("message", checkUpdateProduct);
+        request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
+        request.setAttribute("categoryBrand", CategorySevice.getListBrand());
+        request.setAttribute("listProduct", ProductService.getListProduct());
+        request.getRequestDispatcher(request.getRequestURI()).forward(request, response);
+    }
+
     private void doPost_EditBasic(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         int pid = Integer.parseInt(request.getParameter("idModal"));
         String pName = request.getParameter("nameModal");
         int pidTypeProduct = Integer.parseInt(request.getParameter("categoryModal"));
@@ -64,8 +89,7 @@ public class ManageProductController extends HttpServlet {
         int pQuantity = Integer.parseInt(request.getParameter("quantityModal"));
 
         boolean checkUpdateProduct = ProductService.updateProductBasic(pid, pName, pQuantity, pidStatus, pPrice, pidTypeProduct);
-        System.out.println(checkUpdateProduct);
-        request.setAttribute("messageAdd", checkUpdateProduct);
+        request.setAttribute("message", checkUpdateProduct);
         request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
         request.setAttribute("categoryBrand", CategorySevice.getListBrand());
         request.setAttribute("listProduct", ProductService.getListProduct());
@@ -73,8 +97,6 @@ public class ManageProductController extends HttpServlet {
     }
 
     protected void doPost_Add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
         int pid = Integer.parseInt(request.getParameter("idProduct"));
         String pName = request.getParameter("name_product");
         String pAvatar = request.getParameter("ImageUpload");
@@ -87,7 +109,7 @@ public class ManageProductController extends HttpServlet {
         int pidStore = Integer.parseInt("1");
 
         boolean checkAddNew = new ProductService().addNewProduct(pid, pName, pAvatar, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
-        request.setAttribute("messageAdd", checkAddNew);
+        request.setAttribute("message", checkAddNew);
         request.getRequestDispatcher("/view/admin/manage-product.jsp").forward(request, response);
     }
 }

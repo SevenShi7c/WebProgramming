@@ -195,13 +195,28 @@ public class ProductDAO {
         }
     }
 
-    public static boolean updateProduct() {
-//        UPDATE products SET name = 'Test' WHERE products.id = 10;
-        String sql = "UPDATE PRODUCTS SET NAME=? WHERE PRODUCTS.ID=?";
-        return false;
+    public static boolean updateProduct(int id, String name, String avatar, int id_type_product, int id_status_device, int id_brand, int price, int sum_quantity, String describe, int id_store) {
+        String sql = "UPDATE PRODUCTS SET NAME=?, avatar=?,id_type_product=?,  id_status_device=?,id_brand=?,price=?, sum_quantity=?,`describe`=?,id_store=? WHERE ID=?";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, avatar);
+            ps.setInt(3, id_type_product);
+            ps.setInt(4, id_status_device);
+            ps.setInt(5, id_brand);
+            ps.setInt(6, price);
+            ps.setInt(7, sum_quantity);
+            ps.setString(8, describe);
+            ps.setInt(9, id_store);
+            ps.setInt(10, id);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(ProductDAO.updateProductBasic(2, "Thay cụm đuôi sạc Samsung Galaxy A02 A022F", 100, 1, 500000, 6));
+//        System.out.println(ProductDAO.updateProduct(2, "Thay cụm đuôi sạc Samsung Galaxy A02 A022F","thay-cum-duoi-sac-samsung-galaxy-a02-a022f_1667623123.png",4,1,1,  500000,100,"test", 1));
     }
 }
