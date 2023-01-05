@@ -7,7 +7,6 @@ import vn.edu.hcmuaf.fit.model.ProductModel;
 import java.util.List;
 
 public class ProductService {
-
     public List<CategoryModel> getListBrand() {
         return ProductDAO.getListBrand();
     }
@@ -40,6 +39,10 @@ public class ProductService {
 
     public static boolean updateProductBasic(int id, String name, int sumQuantity, int id_status_device, int price, int id_type_product) {
         return ProductDAO.updateProductBasic(id, name, sumQuantity, id_status_device, price, id_type_product);
+    }
+
+    public static boolean updateProduct(int id, String name, String avatar, int id_type_product, int id_status_device, int id_brand, int price, int sum_quantity, String describe, int id_store) {
+        return ProductDAO.updateProduct(id, name, avatar, id_type_product, id_status_device, id_brand, price, sum_quantity, describe, id_store);
     }
 
     public static void main(String[] args) {

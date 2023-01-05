@@ -249,12 +249,11 @@ MODAL EDIT BASIC
         // $('#ModalEditProduct #statusModal').val(status);
         $('#ModalEditProduct #priceModal').val(price);
         $('#ModalEditProduct .urlEditBasic').attr('href', `manage-product?type=edit&id-product=${idProduct}`);
-        $('#ModalEditProduct form').attr('action', `<%=pageContextPath%>/admin/manage-product?type=edit`);
+        $('#ModalEditProduct form').attr('action', `<%=pageContextPath%>/admin/manage-product`);
 
         let listCategory = document.querySelectorAll('#ModalEditProduct #categoryModal option')
         for (let i = 0; i < listCategory.length; i++) {
             listCategory[i].value == category ? listCategory[i].selected = true : listCategory[i].selected = false
-
         }
         <%--$.ajax({--%>
         <%--    type: 'GET',--%>
