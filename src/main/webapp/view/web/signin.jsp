@@ -42,29 +42,29 @@
                         <input type="submit" value="Đăng nhập" id="submit"/>
 
                         <div class="forgetpassword">
-                            <a id="quenmk">Quên mật khẩu?</a> hoặc <a href="signup">Đăng ký</a>
+                            <a href="getPassword">Quên mật khẩu?</a> hoặc <a href="signup">Đăng ký</a>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="signin-right " id="b-sign">
-                <form action="">
-                    <div class="username form-control1 ">
-                        <h2>Phục hồi mật khẩu</h2>
-                    </div>
-                    <div class="password form-control1">
-                        <input type="text" id="passwords"
-                               placeholder="Nhập email của bạn. Đợi vài giây kiểm tra email và nhận mật khẩu mới.">
-                    </div>
+<%--            <div class="signin-right " id="b-sign">--%>
+<%--                <form action="">--%>
+<%--                    <div class="username form-control1 ">--%>
+<%--                        <h2>Phục hồi mật khẩu</h2>--%>
+<%--                    </div>--%>
+<%--                    <div class="password form-control1">--%>
+<%--                        <input type="text" id="passwords"--%>
+<%--                               placeholder="Nhập email của bạn. Đợi vài giây kiểm tra email và nhận mật khẩu mới.">--%>
+<%--                    </div>--%>
 
-                    <div class="submit">
-                        <input class="btn" type="submit" value="Gửi">
-                        <div class="forgetpassword">
-                            <a href="" id="huy">Hủy</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
+<%--                    <div class="submit">--%>
+<%--                        <input class="btn" type="submit" value="Gửi">--%>
+<%--                        <div class="forgetpassword">--%>
+<%--                            <a href="" id="huy">Hủy</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </form>--%>
+<%--            </div>--%>
         </div>
     </section>
 
