@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,9 @@
 
 <script>
     let htmlCart = ''
-    if (cart.length) {
+    let cart = getCartFromLocalStorage().value.items;
+    console.log(cart)
+    if (cart.length>0) {
         htmlCart += `
         <div class="col-md-8">
           <div class="card mb-4">
@@ -132,6 +134,8 @@
         </div>
 
 `
+        console.log(true);
+
     } else {
         htmlCart = `<div class="text-center color-primary">Giỏ hàng của bạn bị trống!</div>`
         console.log(false);
