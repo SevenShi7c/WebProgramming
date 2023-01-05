@@ -18,8 +18,8 @@
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item">Quản lý sản phẩm</li>
-            <li class="breadcrumb-item"><a href="#">Danh sách sản phẩm</a></li>
+            <li class="breadcrumb-item">Quản lý lịch đã đặt</li>
+            <li class="breadcrumb-item"><a href="#">Danh sách lịch đã đặt</a></li>
         </ul>
         <div id="clock"></div>
     </div>
