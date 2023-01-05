@@ -75,8 +75,7 @@
                         </thead>
                         <tbody>
                         <%
-                            for (ProductModel product :
-                                    listProduct) {%>
+                            for (ProductModel product : listProduct) {%>
                         <tr class="product-<%=product.getId()%>">
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                             <td class="id"><%=product.getId()%>
@@ -130,7 +129,7 @@ MODAL EDIT BASIC
      data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form action="<%=pageContextPath%>admin/manage-product/type=edit" method="post">
+            <form method="POST">
                 <div class="modal-body">
                     <div class="row">
                         <div class="form-group  col-md-12">
@@ -151,7 +150,7 @@ MODAL EDIT BASIC
                         </div>
                         <div class="form-group  col-md-6">
                             <label class="control-label" for="quantityModal">Tồn kho</label>
-                            <input class="form-control" type="number" name="statusModal" id="quantityModal" required
+                            <input class="form-control" type="number" name="quantityModal" id="quantityModal" required
                                    value="">
                         </div>
                         <div class="form-group col-md-6 ">
@@ -250,13 +249,11 @@ MODAL EDIT BASIC
         // $('#ModalEditProduct #statusModal').val(status);
         $('#ModalEditProduct #priceModal').val(price);
         $('#ModalEditProduct .urlEditBasic').attr('href', `manage-product?type=edit&id-product=${idProduct}`);
-
-        console.log($('#ModalEditProduct #categoryModal option'))
+        $('#ModalEditProduct form').attr('action', `<%=pageContextPath%>/admin/manage-product`);
 
         let listCategory = document.querySelectorAll('#ModalEditProduct #categoryModal option')
         for (let i = 0; i < listCategory.length; i++) {
             listCategory[i].value == category ? listCategory[i].selected = true : listCategory[i].selected = false
-
         }
         <%--$.ajax({--%>
         <%--    type: 'GET',--%>

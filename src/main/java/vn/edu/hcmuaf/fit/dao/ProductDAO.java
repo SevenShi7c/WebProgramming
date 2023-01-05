@@ -14,24 +14,17 @@ public class ProductDAO {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
         String sql = "select * from products";
-        Statement statement = DBConnect.getInstall().get();
-        if (statement != null) try {
-            ResultSet rs = statement.executeQuery(sql);
+
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
             while (rs.next()) {
-                while (rs.next()) {
-                    list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getLong(7), rs.getInt(8), rs.getString(9), rs.getInt(10)));
-                }
-                return list;
-
+                list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getLong(7), rs.getInt(8), rs.getString(9), rs.getInt(10)));
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            return list;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
-        else {
-            System.out.println("Không có kết nối");
-        }
-        return null;
     }
 
     public static List<ProductModel> newProduct() {
@@ -164,8 +157,7 @@ public class ProductDAO {
 //    VALUES (NULL, 'Test2', 'thay-cam-ung-asus-zenfone-max-plus-m1-zb570tl_1667468452.png\r\n', '3', '1', '5', '350000', '44', '', '2');
 
     public static boolean addNewProduct(int id, String name, String avatar, int id_type_product, int id_status_device, int id_brand, int price, int sum_quantity, String describe, int id_store) {
-        String sql = "INSERT INTO products (`id`, `name`, `avatar`, `id_type_product`, `id_status_device`, `id_brand`, `price`, `sum_quantity`, `describe`, `id_store`) " +
-                "VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO products (`id`, `name`, `avatar`, `id_type_product`, `id_status_device`, `id_brand`, `price`, `sum_quantity`, `describe`, `id_store`) " + "VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
             ps.setString(1, name);
@@ -184,11 +176,47 @@ public class ProductDAO {
         }
     }
 
-    public static void updateProduct() {
-//        UPDATE products SET name = 'Test' WHERE products.id = 10;
-        String sql = "UPDATE PRODUCTS SET NAME=? WHERE PRODUCTS.ID=?";
+    public static boolean updateProductBasic(int id, String name, int sumQuantity, int id_status_device, int price, int id_type_product) {
+//        UPDATE products SET name = 'Test' WHERE products.id = ;
+        String sql = "UPDATE PRODUCTS SET NAME=?, sum_quantity=?, id_status_device=?,price=?, id_type_product=? WHERE PRODUCTS.ID=?";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.setInt(2, sumQuantity);
+            ps.setInt(3, id_status_device);
+            ps.setInt(4, price);
+            ps.setInt(5, id_type_product);
+            ps.setInt(6, id);
+
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean updateProduct(int id, String name, String avatar, int id_type_product, int id_status_device, int id_brand, int price, int sum_quantity, String describe, int id_store) {
+        String sql = "UPDATE PRODUCTS SET NAME=?, avatar=?,id_type_product=?,  id_status_device=?,id_brand=?,price=?, sum_quantity=?,`describe`=?,id_store=? WHERE ID=?";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, avatar);
+            ps.setInt(3, id_type_product);
+            ps.setInt(4, id_status_device);
+            ps.setInt(5, id_brand);
+            ps.setInt(6, price);
+            ps.setInt(7, sum_quantity);
+            ps.setString(8, describe);
+            ps.setInt(9, id_store);
+            ps.setInt(10, id);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void main(String[] args) {
+//        System.out.println(ProductDAO.updateProduct(2, "Thay cụm đuôi sạc Samsung Galaxy A02 A022F","thay-cum-duoi-sac-samsung-galaxy-a02-a022f_1667623123.png",4,1,1,  500000,100,"test", 1));
     }
 }

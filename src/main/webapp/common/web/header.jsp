@@ -71,7 +71,7 @@
                     </ul>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="BookingOnline">Đặt Lịch Sửa Chữa
+                    <a class="nav-link" href="bookingOnline">Đặt Lịch Sửa Chữa
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                 </li>
