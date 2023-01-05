@@ -53,6 +53,7 @@ body {
 }
 </style>
 </head>
+<% String mess = (String) session.getAttribute("mess"); %>
 <body oncontextmenu='return false' class='snippet-body'>
 	<div class="container padding-bottom-3x mb-2 mt-5">
 		<div class="row justify-content-center">
@@ -68,6 +69,11 @@ body {
 				</div>
 				<form class="card mt-4" action="forgotPassword" method="POST">
 					<div class="card-body">
+						<%if (mess == "error") { %>
+						<div class="alert alert-danger">
+							<strong> Email</strong> không tồn tại
+						</div>
+						<%}%>
 						<div class="form-group">
 							<label for="email-for-pass">Nhập địa chỉ email của bạn</label> <input
 								class="form-control" type="text" name="email" id="email-for-pass" required=""><small

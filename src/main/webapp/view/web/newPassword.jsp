@@ -26,6 +26,7 @@
     </style>
 </head>
 <body oncontextmenu='return false' class='snippet-body bg-info'>
+<% String mess = (String) session.getAttribute("mess"); %>
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
 <div>
@@ -43,6 +44,16 @@
                     </div>
                     <div class="pt-3 pb-3">
                         <form class="form-horizontal" action="newPassword" method="POST">
+                            <%if (mess == "errorNewPass") { %>
+                            <div class="alert alert-danger">
+                                <strong>Mật khẩu mới</strong> và <strong>Nhập lại mật khẩu </strong>không giống nhau
+                            </div>
+                            <%}%>
+                            <%if (mess == "errorEnter") { %>
+                            <div class="alert alert-danger">
+                                <strong>Mật khẩu mới</strong> và <strong>Nhập lại mật khẩu </strong> chưa nhập
+                            </div>
+                            <%}%>
                             <!-- User Name Input -->
                             <div class="form-group row justify-content-center px-3">
                                 <div class="col-9 px-0">
@@ -68,29 +79,29 @@
                             </div>
                         </form>
                     </div>
-                    <!-- Alternative Login -->
-                    <div class="mx-0 px-0 bg-light">
+<%--                    <!-- Alternative Login -->--%>
+<%--                    <div class="mx-0 px-0 bg-light">--%>
 
-                        <!-- Horizontal Line -->
-                        <div class="px-4 pt-5">
-                            <hr>
-                        </div>
-                        <!-- Register Now -->
-                        <div class="pt-2">
-                            <div class="row justify-content-center">
-                                <h5>
-                                    Không có tài khoản?<span><a href="#"
-                                                                   class="text-danger"> Đăng ký ngay!</a></span>
-                                </h5>
-                            </div>
-                            <div
-                                    class="row justify-content-center align-items-center pt-4 pb-5">
-                                <div class="col-4">
+<%--                        <!-- Horizontal Line -->--%>
+<%--                        <div class="px-4 pt-5">--%>
+<%--                            <hr>--%>
+<%--                        </div>--%>
+<%--                        <!-- Register Now -->--%>
+<%--                        <div class="pt-2">--%>
+<%--                            <div class="row justify-content-center">--%>
+<%--                                <h5>--%>
+<%--                                    Không có tài khoản?<span><a href="#"--%>
+<%--                                                                   class="text-danger"> Đăng ký ngay!</a></span>--%>
+<%--                                </h5>--%>
+<%--                            </div>--%>
+<%--                            <div--%>
+<%--                                    class="row justify-content-center align-items-center pt-4 pb-5">--%>
+<%--                                <div class="col-4">--%>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
             </div>
         </div>

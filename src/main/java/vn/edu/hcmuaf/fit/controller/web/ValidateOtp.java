@@ -18,38 +18,40 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/ValidateOtp")
 public class ValidateOtp extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		int value=Integer.parseInt(request.getParameter("otp"));
-		HttpSession session=request.getSession();
-		int otp=(int)session.getAttribute("otp");
-		
-		
-		
-		RequestDispatcher dispatcher=null;
+    private static final long serialVersionUID = 1L;
 
 
-		if (value==otp) 
-		{
-			
-				request.setAttribute("email", request.getParameter("email"));
-				request.setAttribute("status", "success");
-			  dispatcher=request.getRequestDispatcher("/view/web/newPassword.jsp");
-			dispatcher.forward(request, response);
-			
-		}
-		else
-		{
-			request.setAttribute("message","OTP sai");
-			
-		   dispatcher=request.getRequestDispatcher("/view/web/enterOtp.jsp");
-			dispatcher.forward(request, response);
-		
-		}
-		
-	}
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        RequestDispatcher dispatcher = null;
+        try {
+            int value = Integer.parseInt(request.getParameter("otp"));
+
+            int otp = (int) session.getAttribute("otp");
+
+
+            if (value == otp) {
+
+                request.setAttribute("email", request.getParameter("email"));
+                request.setAttribute("status", "success");
+                dispatcher = request.getRequestDispatcher("/view/web/newPassword.jsp");
+                dispatcher.forward(request, response);
+
+            } else {
+                request.setAttribute("message", "OTP sai");
+
+                dispatcher = request.getRequestDispatcher("/view/web/enterOtp.jsp");
+                dispatcher.forward(request, response);
+
+            }
+        } catch (Exception e) {
+            System.out.println("Error When OTP:" + e.getMessage());
+            request.setAttribute("message", "OTP là chuỗi số");
+            dispatcher = request.getRequestDispatcher("/view/web/enterOtp.jsp");
+            dispatcher.forward(request, response);
+
+        }
+
+    }
 
 }
