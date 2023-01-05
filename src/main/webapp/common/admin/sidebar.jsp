@@ -29,8 +29,6 @@
                 class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a></li>
         <li><a class="app-menu__item" href="manage-order"><i class='app-menu__icon bx bx-task'></i><span
                 class="app-menu__label">Quản lý đơn hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-booked"><i class='app-menu__icon bx bx-calendar-check'></i><span
-                class="app-menu__label">Quản lý lịch đã đặt </span></a></li>
         <li><a class="app-menu__item" href="manage-booking?status=accepted"><i class='app-menu__icon bx bx-calendar-check'></i><span
                 class="app-menu__label">Quản lý đặt lịch sửa chữa </span></a></li>
         <li><a class="app-menu__item" href="manage-booking?status=wait-accept"><i class='app-menu__icon bx bx-calendar-check'></i><span
