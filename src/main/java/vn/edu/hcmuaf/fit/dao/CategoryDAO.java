@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CategoryDAO {
 
-    public List<CategoryModel> getListCategory() {
+    public static List<CategoryModel> getListCategory() {
         LinkedList<CategoryModel> list = new LinkedList<CategoryModel>();
 
         String sql = "select id,name from brand";
@@ -32,7 +32,7 @@ public class CategoryDAO {
         return null;
     }
 
-    public List<CategoryModel> getListTypeProduct() {
+    public static List<CategoryModel> getListTypeProduct() {
         LinkedList<CategoryModel> list = new LinkedList<CategoryModel>();
 
         String sql = "select id,name_type_product from type_products";

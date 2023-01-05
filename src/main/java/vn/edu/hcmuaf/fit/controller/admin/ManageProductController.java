@@ -1,7 +1,6 @@
 package vn.edu.hcmuaf.fit.controller.admin;
 
 import vn.edu.hcmuaf.fit.constant.SystemConstant;
-import vn.edu.hcmuaf.fit.model.ProductModel;
 import vn.edu.hcmuaf.fit.service.CategorySevice;
 import vn.edu.hcmuaf.fit.service.ProductService;
 
@@ -21,8 +20,6 @@ public class ManageProductController extends HttpServlet {
         String idProductParam = request.getParameter("id-product");
         String view = "";
         ProductService productService = new ProductService();
-        ProductModel productModel = new ProductModel();
-        CategorySevice categorySevice = new CategorySevice();
 
         if (SystemConstant.LIST.equals(typeParam)) {
             view = "/view/admin/manage-product.jsp";
@@ -35,12 +32,12 @@ public class ManageProductController extends HttpServlet {
             view = "/view/admin/change-product.jsp";
         } else if (typeParam == null) {
             view = "/view/admin/manage-product.jsp";
-            request.setAttribute("listProduct", productService.getListProduct());
-
+            request.setAttribute("listProduct", ProductService.getListProduct());
         }
-        request.setAttribute("categoryTypeProduct", categorySevice.getListTypeProduct());
 
-        request.setAttribute("categoryBrand", categorySevice.getListBrand());
+        request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
+
+        request.setAttribute("categoryBrand", CategorySevice.getListBrand());
 
         request.getRequestDispatcher(view).forward(request, response);
     }
@@ -48,12 +45,36 @@ public class ManageProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String typeParam = request.getParameter("type");
+
         if (SystemConstant.ADD.equals(typeParam)) {
             doPost_Add(request, response);
+        } else if (SystemConstant.EDITBASIC.equals(typeParam)) {
+            doPost_EditBasic(request, response);
+        } else if (SystemConstant.EDIT.equals(typeParam)) {
+            doPost_EditBasic(request, response);
         }
     }
 
+    private void doPost_EditBasic(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pid = Integer.parseInt(request.getParameter("idModal"));
+        String pName = request.getParameter("nameModal");
+        int pidTypeProduct = Integer.parseInt(request.getParameter("categoryModal"));
+        int pidStatus = Integer.parseInt(request.getParameter("statusModal"));
+        int pPrice = Integer.parseInt(request.getParameter("priceModal"));
+        int pQuantity = Integer.parseInt(request.getParameter("quantityModal"));
+
+        boolean checkUpdateProduct = ProductService.updateProductBasic(pid, pName, pQuantity, pidStatus, pPrice, pidTypeProduct);
+        System.out.println(checkUpdateProduct);
+        request.setAttribute("messageAdd", checkUpdateProduct);
+        request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
+        request.setAttribute("categoryBrand", CategorySevice.getListBrand());
+        request.setAttribute("listProduct", ProductService.getListProduct());
+        request.getRequestDispatcher("/view/admin/manage-product.jsp").forward(request, response);
+    }
+
     protected void doPost_Add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         int pid = Integer.parseInt(request.getParameter("idProduct"));
         String pName = request.getParameter("name_product");
         String pAvatar = request.getParameter("ImageUpload");
