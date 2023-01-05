@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-  <title>Quản lý đặt lịch sửa chữa| ADMIN</title>
+  <title>Chờ xác nhận| ADMIN</title>
   <%@include file="../../common/admin/head.jsp"%>
 
 </head>
@@ -18,8 +18,8 @@
 <main class="app-content">
   <div class="app-title">
     <ul class="app-breadcrumb breadcrumb side">
-      <li class="breadcrumb-item">Quản lý đặt lịch Online</li>
-      <li class="breadcrumb-item"><a href="#">Danh sách đặt lịch Online</a></li>
+      <li class="breadcrumb-item">Chờ xác nhận đơn hàng</li>
+      <li class="breadcrumb-item"><a href="#">Danh sách chờ xác nhận</a></li>
     </ul>
     <div id="clock"></div>
   </div>
@@ -51,13 +51,7 @@
               <th width="10"><input type="checkbox" id="all"></th>
               <th>ID</th>
               <th>Tên sản phẩm</th>
-              <th>Ảnh</th>
-              <th>Số lượng</th>
-              <th>Ngày hẹn</th>
-              <th>Cửa hàng</th>
               <th>Tình trạng</th>
-              <th>Tổng tiền</th>
-              <th>Danh mục</th>
               <th>Chức năng</th>
             </tr>
             </thead>
@@ -65,17 +59,8 @@
             <tr>
               <td width="10"><input type="checkbox" name="check1" value="1"></td>
               <td>72638003</td>
-              <td>Thay dây nút nguồn Xiaomi Redmi Note 11 Pro</td>
-              <td><img
-                      src="../../images/product/thay-day-nut-nguon-xiaomi-redmi-note-11-pro_1667623363.png"
-                      alt="" width="100px;"></td>
-              <td>1</td>
-              <td>22/10/2022</td>
-              <td>P. Bình An, Quận 2</td>
-              <td><span class="badge bg-info">Chờ thanh toán</span></td>
-              <td>1.690.000
-              </td>
-              <td>Điện thoại</td>
+              <td>Mạnh Quyền</td>
+              <td><span class="badge bg-info">Chờ xác nhận</span></td>
               <td>
                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
@@ -116,30 +101,16 @@ MODAL
             <input class="form-control" type="number" value="71309005">
           </div>
           <div class="form-group col-md-6">
-            <label class="control-label">Tên sản phẩm</label>
+            <label class="control-label">Tên khách hàng</label>
             <input class="form-control" type="text" required
                    value="Thay dây nút nguồn Xiaomi Redmi Note 11 Pro	">
-          </div>
-          <div class="form-group  col-md-6">
-            <label class="control-label">Số lượng</label>
-            <input class="form-control" type="number" required value="1">
-          </div>
-          <div class="form-group col-md-6 ">
-            <label class="control-label">Ngày hẹn</label>
-            <input class="form-control" type="date" value="2020-10-20">
-
-          </div>
-          <div class="form-group col-md-6">
-            <label class="control-label">Tổng tiền</label>
-            <input class="form-control" type="text" value="300.000đ">
           </div>
           <div class="form-group col-md-6">
             <label for="exampleSelect1" class="control-label">Trình trạng</label>
             <select class="form-control" id="exampleSelect1">
-              <option>Chờ thanh toán</option>
-              <option>Đã thanh toán</option>
+              <option>Chờ xác nhận</option>
+              <option>Đã xác nhận</option>
               <option>Đã hủy</option>
-
             </select>
           </div>
         </div>

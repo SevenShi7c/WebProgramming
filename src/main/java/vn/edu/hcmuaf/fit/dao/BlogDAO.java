@@ -111,7 +111,7 @@ public class BlogDAO extends AbstractDAO {
                             rs.getString(4),
                             rs.getInt(5),
                             rs.getString(6),
-                            rs.getString(7),
+                            rs.getInt(7),
                             rs.getDate(8),
                             rs.getString(9)
                     );
