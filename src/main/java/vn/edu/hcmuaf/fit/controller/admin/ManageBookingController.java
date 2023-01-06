@@ -25,9 +25,16 @@ public class ManageBookingController extends HttpServlet {
             listBooking = BookingService.getListBooking(1);
             view = "/view/admin/manage-booked.jsp";
         } else if (statusParam.equalsIgnoreCase("wait-accept")) {
+            String actionParam = request.getParameter("action");
+            if (actionParam != null && actionParam.equals("change_status")) {
+                String idBookingParam = request.getParameter("id-booking");
+                if (idBookingParam != null) {
+                    boolean checkUpdateStatusBooking = BookingService.updateStatusBooking(idBookingParam);
+                    request.setAttribute("message", checkUpdateStatusBooking);
+                }
+            }
             listBooking = BookingService.getListBooking(0);
             view = "/view/admin/manage-confirm.jsp";
-            System.out.println(listBooking);
         }
         request.setAttribute("listBooking", listBooking);
         request.getRequestDispatcher(view).forward(request, response);
