@@ -122,8 +122,7 @@
                             <label for="statusProduct" class="control-label">Tình trạng</label>
                             <select class="form-control" id="statusProduct" name="statusProduct">
                                 <% for (CategoryModel status : listStatus) {%>
-                                <option value="<%=status.getId()%>"
-                                        (<%=product == null ? "" : (product.getIdStatusDevice() == status.getId() ? "selected" : "") %>><%=status.getName()%>
+                                <option value="<%=status.getId()%>"<%=product == null ? "" : (product.getIdStatusDevice() == status.getId() ? "selected" : "") %>><%=status.getName()%>
                                 </option>
                                 <% }%>
                             </select>
