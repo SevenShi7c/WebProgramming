@@ -7,7 +7,7 @@
     <%@include file="../../common/web/head.jsp"%>
 
     <title> Thanh toán | Phone Care</title>
-    <link rel="stylesheet" href="../../css/checkout.css">
+    <link rel="stylesheet" href="css/checkout.css">
 
 </head>
 
@@ -64,31 +64,31 @@
                             <ul class="form-list">
                                 <li class="form-list-row">
                                     <div class="user">
-                                        <label for="#">Tên</label><br>
+                                        <label for="">Tên</label><br>
                                         <i class="fas fa-user"></i></i><input type="text" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="email">
-                                        <label for="#">Email</label><br>
+                                        <label for="">Email</label><br>
                                         <i class="far fa-credit-card"></i><input type="email" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="tel">
-                                        <label for="#">Số điện thoại</label><br>
+                                        <label for="">Số điện thoại</label><br>
                                         <i class="far fa-credit-card"></i><input type="tel" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="address">
-                                        <label for="#">Địa chỉ</label><br>
+                                        <label for="">Địa chỉ</label><br>
                                         <i class="far fa-credit-card"></i><input type="text" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="date">
-                                        <label for="#">Thời gian</label><br>
+                                        <label for="">Thời gian</label><br>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <input type="time" class="form-control" name="time" id="time"
@@ -102,23 +102,23 @@
                                 </li>
                                 <li class="form-list-row">
                                     <div class="note">
-                                        <label for="#">Ghi chú</label><br>
+                                        <label for="">Ghi chú</label><br>
                                         <textarea name="note" id="note" class="form-control" rows="5"
                                                   placeholder="Ghi chú thêm thông tin như mô tả về điện thoại (màu sắc, các lỗi hiện có)..."></textarea>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="payment">
-                                        <label for="#">Phương thức thanh toán</label>
+                                        <label for="">Phương thức thanh toán</label>
                                         <input type="radio" name="0" id="" value="" checked="checked">
                                         Tại cửa hàng
-                                        <input type="radio" name="1" id="input" value="">
+                                        <input type="radio" name="1" id="" value="">
                                         Qua momo
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="payment">
-                                        <label for="#">Chi nhánh:</label>
+                                        <label for="">Chi nhánh:</label>
                                         <br>
                                         <input type="radio" name="" id="input" value="" checked="checked">
                                         ĐH Nông Lâm, Linh Trung, Tp Thủ Đức, Tp Hồ Chí Minh, Việt Nam
@@ -188,7 +188,7 @@
     $('.sum-money').append(htmlSumMoney)
 
 </script>
-<script src="../../js/checkout.js"></script>
+<script src="js/checkout.js"></script>
 </body>
 
 </html>
