@@ -1,27 +1,23 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.CategoryModel" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@include file="../../common/taglib.jsp" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Chỉnh sửa sản phẩm | ADMIN</title>
-    <link href="../../images/logo/logo_PhoneCare.png" rel="shortcut icon" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="../../admin/doc/css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="../../admin/doc/css/manage-product.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="../../admin/ckeditor/ckeditor.js"></script>
-    <script src="https://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+    <%@include file="../../common/admin/head.jsp" %>
+
+    <link rel="stylesheet" href="css/manage-product.css">
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
     <script>
 
         function readURL(input, thumbimage) {
@@ -65,225 +61,367 @@
 </head>
 
 <body class="app sidebar-mini rtl">
-
 <!-- Navbar-->
-<header class="app-header">
-    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-                                    aria-label="Hide Sidebar"></a>
-    <!-- Navbar Right Menu-->
-    <ul class="app-nav">
+<%@include file="../../common/admin/header.jsp" %>
+<%
+    List<CategoryModel> categoryBrand = (List<CategoryModel>) request.getAttribute("categoryBrand");
+    List<CategoryModel> categoryTypeProduct = (List<CategoryModel>) request.getAttribute("categoryTypeProduct");
+    List<CategoryModel> listStatus = (List<CategoryModel>) request.getAttribute("listStatus");
 
+    ProductModel product = (ProductModel) request.getAttribute("product");
+    String pageContextPath = (String) request.getContextPath();
+%>
 
-        <!-- User Menu-->
-        <li><a class="app-nav__item" href="../../admin/login.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
-
-        </li>
-    </ul>
-</header>
 <!-- Sidebar menu-->
-<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-<aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../../admin/images/admin.png" width="50px"
-                                        alt="User Image">
-        <div>
-            <p class="app-sidebar__user-name"><b>Admin</b></p>
-            <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
-        </div>
-    </div>
-    <hr>
-    <ul class="app-menu">
+<%@include file="../../common/admin/sidebar.jsp" %>
 
-        <li><a class="app-menu__item active " href="index.jsp"><i class='app-menu__icon bx bx-tachometer'></i><span
-                class="app-menu__label">Bảng điều khiển</span></a></li>
-        <li><a class="app-menu__item" href="manage-customer.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
-                class="app-menu__label">Quản lý khách hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-product.jsp"><i
-                class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a></li>
-        <li><a class="app-menu__item" href="manage-order.jsp"><i class='app-menu__icon bx bx-task'></i><span
-                class="app-menu__label">Quản lý đơn hàng</span></a></li>
-        <li><a class="app-menu__item" href="manage-booked.jsp"><i class='app-menu__icon bx bx-calendar-check'></i><span
-                class="app-menu__label">Quản lý lịch đã đặt </span></a></li>
-        <li><a class="app-menu__item" href="manage-blog.jsp"><i class='app-menu__icon bx bx-news'></i><span
-                class="app-menu__label">Quản lý tin tức </span></a></li>
-
-
-    </ul>
-</aside>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><a href="manage-product.jsp">Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item"><a href="admin/manage-product">Quản lý sản phẩm</a></li>
             <li class="breadcrumb-item">Chỉnh sửa sản phẩm</li>
         </ul>
     </div>
-    <div class="row">
+    <div class="row" id="change_product">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Chỉnh sửa chi tiết</h3>
+                <h3 class="tile-title">Chỉnh sửa sản phẩm</h3>
                 <div class="tile-body">
-                    <form class="row">
-                        <div class="form-group  col-md-3">
-                            <label class="control-label">Mã sản phẩm</label>
-                            <input class="form-control" type="text" value="71232467">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Tên sản phẩm</label>
-                            <input class="form-control" type="text" placeholder=""
-                                   value="Thay dây nút nguồn Xiaomi Redmi Note 11 Pro	">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Số lượng</label>
-                            <input class="form-control" type="number" placeholder="" value="50">
-                        </div>
-
-                        <div class="form-group col-md-3 ">
-                            <label for="exampleSelect1" class="control-label">Tình trạng</label>
-                            <select class="form-control" id="exampleSelect1">
-                                <option>Còn hàng</option>
-                                <option>Hết hàng</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="exampleSelect1" class="control-label">Danh mục</label>
-                            <select class="form-control" id="exampleSelect1">
-                                <option>Thay dây nguồn</option>
-                                <option>Thay vỏ</option>
-                                <option>Thay mặt kính</option>
-                                <option>Thay pin</option>
-                                <option>Thay chân sạc</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3 ">
-                            <label for="exampleSelect1" class="control-label">Thương hiệu</label>
-                            <select class="form-control" id="exampleSelect1">
-                                <option>Xiaomi</option>
-                                <option>Iphone</option>
-                                <option>Samsung</option>
-                                <option>Khác</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Giá bán</label>
-                            <input class="form-control" type="text" value="300.000đ">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label class="control-label">Ảnh đại diện</label>
-                            <div id="myfileupload">
-                                <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);"/>
+                    <form action="<%=pageContextPath%>/admin/manage-product?type=edit&id-product=<%=product.getId()%>"
+                          method="post">
+                        <div class="row element-button">
+                            <div class="col-sm-2">
+                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i
+                                        class="fas fa-folder-plus"></i> Thêm thương hiệu</a>
                             </div>
-                            <div id="thumbbox">
-                                <img height="300" width="300" alt="Thumb image" id="thumbimage"
-                                     src="../../images/product/thay-day-nut-nguon-xiaomi-redmi-note-11-pro_1667623363.png"/>
-                                <a class="removeimg" href="javascript:"></a>
+                            <div class="col-sm-2">
+                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i
+                                        class="fas fa-folder-plus"></i> Thêm danh mục</a>
                             </div>
-                            <div id="boxchoice">
-                                <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
-                                    Chọn ảnh</a>
-                                <p style="clear:both"></p>
+                            <div class="col-sm-2">
+                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i
+                                        class="fas fa-folder-plus"></i> Thêm tình trạng</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label class="control-label">Mã sản phẩm </label>
+                                <input class="form-control" type="number" placeholder="" name="idProduct"
+                                       value="<%=product==null?"":product.getId()%>">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="control-label">Tên sản phẩm</label>
+                                <input class="form-control" type="text" name="name_product"
+                                       value="<%=product==null?"":product.getName()%>">
                             </div>
 
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label class="control-label">Mô tả sản phẩm</label>
-                            <div class="form-control" name="mota" id="mota">
-                                <div>
-                                    <h2 style="text-align: justify;"><span style="font-size:22px;">Ưu điểm dây nguồn
-                                                nút nguồn, volume Redmi Note 11 Pro</span></h2>
+                            <div class="form-group  col-md-3">
+                                <label class="control-label">Số lượng</label>
+                                <input class="form-control" type="number" name="quantity"
+                                       value="<%=product==null?"":product.getSumQuantity()%>">
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label for="statusProduct" class="control-label">Tình trạng</label>
+                                <select class="form-control" id="statusProduct" name="statusProduct">
+                                    <% for (CategoryModel status : listStatus) {%>
+                                    <option value="<%=status.getId()%>"<%=product == null ? "" : (product.getIdStatusDevice() == status.getId() ? "selected" : "") %>><%=status.getName()%>
+                                    </option>
+                                    <% }%>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="categoryTypeProduct" class="control-label">Danh mục</label>
+                                <select class="form-control" id="categoryTypeProduct" name="categoryTypeProduct">
+                                    <option>-- Chọn danh mục sản phẩm --</option>
+                                    <%for (CategoryModel type : categoryTypeProduct) {%>
+                                    <option value="<%=type.getId()%>" <%=product == null ? "" : (product.getIdTypeProduct() == type.getId() ? "selected" : "") %>><%=type.getName()%>
+                                    </option>
+                                    <%}%>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label for="categoryBrand" class="control-label">Thương hiệu</label>
+                                <select class="form-control" id="categoryBrand" name="categoryBrand">
+                                    <option>-- Chọn thương hiệu --</option>
+                                    <%
+                                        for
+                                        (
+                                                CategoryModel
+                                                        brand
+                                                :
+                                                categoryBrand
+                                        ) {
+                                    %>
+                                    <option value="<%=brand.getId()%>" <%=product
+                                            ==
+                                            null
+                                            ?
+                                            ""
+                                            :
+                                            product
+                                                    .
+                                                    getIdBrand
+                                                            (
+                                                            )
+                                                    ==
+                                                    brand
+                                                            .
+                                                            getId
+                                                                    (
+                                                                    )
+                                                    ?
+                                                    "selected"
+                                                    :
+                                                    ""%>><%=brand
+                                            .
+                                            getName
+                                                    (
+                                                    )%>
+                                    </option>
+                                    <%}%>
 
-                                    <p style="text-align: justify;"><span style="font-size:14px;"><span
-                                            style="font-family:Arial,Helvetica,sans-serif;"><em>Dây nguồn nút
-                                                        nguồn, volume Xiaomi Redmi Note 11 Pro</em> luôn có giá tốt nhất
-                                                    thị trường. <strong>Linh kiện Xiaomi</strong> được kiểm tra kỹ lưỡng
-                                                    từ tình trạng đến chất lượng trước khi nhập về. Có nguồn gốc rõ
-                                                    ràng, hoàn thiện tỉ mỉ với độ bền cao, dây nguồn phù hợp tiêu chuẩn
-                                                    dùng cho sửa chữa điện thoại <strong>Redmi Note 11 Pro </strong>hiệu
-                                                    quả.</span></span></p>
-
-                                    <p style="text-align: justify;"><span style="font-size:14px;"><span
-                                            style="font-family:Arial,Helvetica,sans-serif;">Nhờ vào đó, các linh
-                                                    kiện có độ tương thích cao, lỗi từ nhà sản xuất thấp, hoàn toàn khôi
-                                                    phục được chức năng <strong>nút nguồn, volume</strong> hỏng hóc do
-                                                    đứt dây nguồn linh kiện.</span></span></p>
-
-                                    <p style="text-align: center;"><img
-                                            src="../../images/product/thay-day-nut-nguon-xiaomi-redmi-note-11-pro_1667623363.png"
-                                            alt="" srcset=""></p>
-
-                                    <h3 style="text-align: justify;"><span style="font-size:20px;">Những thói quen
-                                                gây nên lỗi nút nguồn, nút volume không hoạt động</span></h3>
-
-                                    <p><span style="font-size:14px;"><span
-                                            style="font-family:Arial,Helvetica,sans-serif;">Có thể đơn giản chỉ
-                                                    là những thói quen thường ngày, tuy nhiên về lâu dài sẽ dẫn đến
-                                                    những tình huống lỗi khi sử dụng điện thoại không đáng có. Một số
-                                                    thói quen cần lưu ý để tránh gây <strong>lỗi nút nguồn, nút
-                                                        volume</strong> như sau:</span></span></p>
-
-                                    <ul>
-                                        <li aria-level="1" style="text-align: justify;"><span
-                                                style="font-size:14px;"><span
-                                                style="font-family:Arial,Helvetica,sans-serif;">Bấm mạnh tay
-                                                        trong quá trình sử dụng là một trong những nguyên do ít người để
-                                                        ý nhất. Điều này làm cho nút nguồn, nút volume mất đi khả năng
-                                                        đàn hồi. Dẫn đến nút bấm bị liệt và không đáp ứng được nhu cầu
-                                                        tắt, mở nguồn hoặc tăng giảm volume của người
-                                                        dùng.</span></span></li>
-                                        <li aria-level="1" style="text-align: justify;"><span
-                                                style="font-size:14px;"><span
-                                                style="font-family:Arial,Helvetica,sans-serif;">Nút nguồn bị bám
-                                                        bụi bẩn do máy không được vệ sinh lâu ngày, các hạt cát và hạt
-                                                        bụi bám vào trong các khe điện thoại. Tích tụ lâu ngày, làm cho
-                                                        nút nguồn, volume bị kẹt và không thể sử dụng.</span></span>
-                                        </li>
-                                        <li aria-level="1" style="text-align: justify;"><span
-                                                style="font-size:14px;"><span
-                                                style="font-family:Arial,Helvetica,sans-serif;">Nút nguồn bị
-                                                        dính nước, ẩm mốc. Ở trường hợp này, bất cẩn để điện thoại ngấm
-                                                        nước, dẫn tới nước đọng lại trong máy, gây ẩm mốc, lâu ngày
-                                                        không chỉ ảnh hưởng tới nút nguồn, volume, ngoài ra các linh
-                                                        kiện bên trong như dây nguồn nút nguồn, volume, hoạt động khác
-                                                        của máy cũng sẽ bị ảnh hưởng.</span></span></li>
-                                        <li aria-level="1" style="text-align: justify;"><span
-                                                style="font-size:14px;"><span
-                                                style="font-family:Arial,Helvetica,sans-serif;">Va đập mạnh cũng
-                                                        giống với khi sử dụng một lực quá lớn điều chỉnh nút volume và
-                                                        nút nguồn. Những va chạm nhẹ thông thường không ảnh hưởng nhiều
-                                                        đến linh kiện. Tuy nhiên đối với các va chạm mạnh, ngoài những
-                                                        phần dễ tổn hại như màn hình, nắp lưng, ống kính…Với những bộ
-                                                        phận nằm bên trong cũng sẽ chịu tác động không ít, gây đứt, gãy
-                                                        dây nguồn nút nguồn, volume, dẫn đến nút nguồn, nút volume không
-                                                        phản hồn.&nbsp;</span></span></li>
-                                    </ul>
-
-                                    <p style="text-align: justify;"><span style="font-size:14px;"><span
-                                            style="font-family:Arial,Helvetica,sans-serif;">Với những lỗi
-                                                    <strong>nút nguồn, nút volume</strong> hay <strong>dây nguồn nút
-                                                        nguồn, volume</strong>, cách sửa chữa cũng không quá phức tạp,
-                                                    chúng ta sẽ cần đến các kỹ thuật viên chuyên nghiệp để tiến hành
-                                                    thay và tháo lắp linh kiện mới, thông thường những lỗi này sẽ không
-                                                    ảnh hưởng quá nhiều đến phần cứng của máy. Đừng quá lo lắng và liên
-                                                    hệ đến các địa chỉ sửa chữa uy tín nhé.&nbsp;</span></span></p>
-
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="control-label">Giá bán</label>
+                                <input class="form-control" type="text" name="price"
+                                       value="<%=product==null?"":product.getPrice()%>">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Ảnh sản phẩm</label>
+                                <div id="myfileupload">
+                                    <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(
+                                    <%--                                    <%--%>
+                                    <%--                                    if (product.getAvatar()!=null)  {--%>
+                                    <%--                                %>--%>
+                                    <%--                                        'images/product/<%=product.getAvatar()%>'--%>
+                                    <%--                                    <%--%>
+                                    <%--                                    } else {--%>
+                                    <%--                                %>--%>
+                                            this
+                                    <%--                                    <%--%>
+                                    <%--                                    }--%>
+                                    <%--                                %>--%>
+                                            )"/>
                                 </div>
-
-                                </textarea>
-                                <script>CKEDITOR.replace('mota');</script>
+                                <div id="thumbbox">
+                                    <img height="450" width="400" alt="Thumb image" id="thumbimage"
+                                         style="display: none"/>
+                                    <a class="removeimg" href="javascript:"></a>
+                                </div>
+                                <div id="boxchoice">
+                                    <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
+                                        Chọn
+                                        ảnh</a>
+                                    <p style="clear:both"></p>
+                                </div>
                             </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Mô tả sản phẩm</label>
+                                <textarea class="form-control" name="description"
+                                          id="description"><%=product
+                                        ==
+                                        null
+                                        ?
+                                        ""
+                                        :
+                                        product
+                                                .
+                                                getDescribe
+                                                        (
+                                                        )%></textarea>
+                                <script>CKEDITOR.replace('description');</script>
+                            </div>
+                            <button class="btn btn-save" type="submit" onclick="save()">Lưu lại</button>
+                            <button class="btn btn-cancel" data-dismiss="modal" type="reset">Hủy bỏ</button>
                         </div>
                     </form>
-                    <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                    <a class="btn btn-cancel" href="manage-product.jsp">Hủy bỏ</a>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-<script src="../../admin/js/jquery-3.2.1.min.js"></script>
-<script src="../../admin/js/popper.min.js"></script>
-<script src="../../admin/js/bootstrap.min.js"></script>
-<script src="../../admin/js/main.js"></script>
-<script src="../../admin/doc/js/plugins/pace.min.js"></script>
+
+<!--
+MODAL BRAND
+-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form method="post" class="row" action="${pageContext.request.contextPath}/admin/manage-product?type=edit">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group  col-md-12">
+              <span class="thong-tin-thanh-toan">
+                <h5>Thêm mới thương hiệu</h5>
+              </span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Nhập thương hiệu mới</label>
+                            <input class="form-control" type="text" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Danh mục thương hiệu hiện đang có</label>
+                            <ul style="padding-left: 20px;">
+                                <%
+                                    for
+                                    (
+                                            CategoryModel
+                                                    brand
+                                            :
+                                            categoryBrand
+                                    ) {
+                                %>
+                                <li><%=brand
+                                        .
+                                        getId
+                                                (
+                                                )%>"><%=brand
+                                        .
+                                        getName
+                                                (
+                                                )%>
+                                </li>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                    <BR>
+                    <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                    <BR>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--
+MODAL
+-->
+
+<!--
+MODAL CATEGORY TYPE PRODUCT
+-->
+<div class="modal fade" id="adddanhmuc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group  col-md-12">
+              <span class="thong-tin-thanh-toan">
+                <h5>Thêm mới danh mục </h5>
+              </span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Nhập tên danh mục mới</label>
+                        <input class="form-control" type="text" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Danh mục sản phẩm hiện đang có</label>
+                        <ul style="padding-left: 20px;">
+                            <%
+                                for
+                                (
+                                        CategoryModel
+                                                type
+                                        :
+                                        categoryTypeProduct
+                                ) {
+                            %>
+                            <li><%=type
+                                    .
+                                    getId
+                                            (
+                                            )%>.<%=type
+                                    .
+                                    getName
+                                            (
+                                            )%>
+                            </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+                <BR>
+                <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                <BR>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+MODAL
+-->
+
+<!--
+MODAL TÌNH TRẠNG
+-->
+<div class="modal fade" id="addtinhtrang" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group  col-md-12">
+              <span class="thong-tin-thanh-toan">
+                <h5>Thêm mới tình trạng</h5>
+              </span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Nhập tình trạng mới</label>
+                        <input class="form-control" type="text" required name="modal_status">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Danh mục tình trạng hiện đang có</label>
+                        <ul style="padding-left: 20px;">
+                            <%
+                                for
+                                (
+                                        CategoryModel
+                                                brand
+                                        :
+                                        categoryBrand
+                                ) {
+                            %>
+                            <li><%=brand
+                                    .
+                                    getId
+                                            (
+                                            )%>"><%=brand
+                                    .
+                                    getName
+                                            (
+                                            )%>
+                            </li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+                <BR>
+                <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                <BR>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+MODAL
+-->
+<%@include file="../../common/admin/script.jsp" %>
+
 <script>
     const inpFile = document.getElementById("inpFile");
     const loadFile = document.getElementById("loadFile");
@@ -302,11 +440,13 @@
             reader.readAsDataURL(file);
         }
     });
+
     function save() {
 
         swal("Đã lưu thành công.!", {});
 
     }
+
 </script>
 </body>
 
