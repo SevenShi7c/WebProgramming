@@ -51,6 +51,19 @@ public class BookingDAO implements ObjectDAO {
         }
     }
 
+    public static boolean updateStatusBooking(String idBookingParam) {
+        String sql = "Update booking set status_booking=1 where id=?";
+        try {
+
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, idBookingParam);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void addCustomer(String name, String tel, String email, String address) {
         String sql = "insert into customer(username,address,email,tel,id_user) values (?,?,?,?,?)";
         Connection connect = ConnectToDatabase.getConnect();

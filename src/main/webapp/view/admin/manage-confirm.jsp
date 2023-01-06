@@ -12,7 +12,10 @@
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
-<%List<BookingModel> listBooking = (List<BookingModel>) request.getAttribute("listBooking");%>
+<%
+    List<BookingModel> listBooking = (List<BookingModel>) request.getAttribute("listBooking");
+//    String checkMess = request.getAttribute("message") != null ? (String) request.getAttribute("message") : "";
+%>
 <!-- Navbar-->
 <%@include file="../../common/admin/header.jsp" %>
 <!-- Sidebar menu-->
@@ -73,24 +76,15 @@
                             <td name="date_booking"><%=booking.getDate_booking()%>
                             </td>
                             <td>
-                                                                <span class="badge bg-info">Chờ xác nhận</span>
-<%--                                <select class="form-control" id="status" name="status">--%>
-<%--                                    <option value="1" <%=listBooking == null ? "" : (booking.getStatus_booking() == 1 ? "selected" : "") %>>--%>
-<%--                                        Đã xác nhận--%>
-<%--                                    </option>--%>
-<%--                                    <option value="0" <%=listBooking == null ? "" : (booking.getStatus_booking() == 0 ? "selected" : "") %>>--%>
-<%--                                        Chờ xác nhận--%>
-<%--                                    </option>--%>
-<%--                                    <option value="-1" <%=listBooking == null ? "" : (booking.getStatus_booking() == -1 ? "selected" : "") %>>--%>
-<%--                                        Đã hủy--%>
-<%--                                    </option>--%>
-<%--                                </select>--%>
+                                <span class="badge bg-info">Chờ xác nhận</span>
                             </td>
                             <td name="description"><%=booking.getDescription()%>
                             </td>
                             <td>
-                                <button class="btn btn-success btn-sm edit" type="button" title="Xác nhận" id="accept-booking"
-                                        data-toggle="modal" data-target=""><i class="fas fa-check-square"></i></button>
+                                <a class="btn btn-success btn-sm edit" type="button" title="Xác nhận"
+                                   id="accept-booking" data-toggle="modal" data-target=""
+                                   href="manage-booking?status=wait-accept&action=change_status&id-booking=<%=booking.getId()%>"><i
+                                        class="fas fa-check-square"></i></a>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                                         data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
@@ -222,6 +216,20 @@ MODAL
         var i = r.parentNode.parentNode.rowIndex;
         document.getElementById("myTable").deleteRow(i);
     }
+
+    <%--if (<%=checkMess!=null%>) {--%>
+    <%--    if (<%=checkMess%>) {--%>
+    <%--        $(this).change(() => {--%>
+    <%--            swal({--%>
+    <%--                title: "Thông báo",--%>
+    <%--                text: "Cập nhật trạng thái lịch đặt thành công",--%>
+    <%--                buttons: ["Xác nhận"],--%>
+    <%--            })--%>
+    <%--        })--%>
+    <%--    } else {--%>
+
+    <%--    }--%>
+    <%--}--%>
 
     jQuery(function () {
         jQuery(".trash").click(function () {
