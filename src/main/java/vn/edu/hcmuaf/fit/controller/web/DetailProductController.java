@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "DetailProductController", value = "/detail-product")
 public class DetailProductController extends HttpServlet {
@@ -17,7 +18,9 @@ public class DetailProductController extends HttpServlet {
 
         ProductService productService = new ProductService();
         ProductModel product = productService.getDetailProduct(idProduct);
+        List<ProductModel> pro = ProductService.getDifferentProduct();
 
+        request.setAttribute("pro", pro);
         request.setAttribute("product", product);
 
         request.getRequestDispatcher("view/web/detailProduct.jsp").forward(request, response);

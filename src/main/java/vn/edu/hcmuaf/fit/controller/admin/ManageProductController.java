@@ -81,13 +81,10 @@ public class ManageProductController extends HttpServlet {
     }
 
     private void doPost_EditBasic(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
         int pid = Integer.parseInt(request.getParameter("idModal"));
         String pName = request.getParameter("nameModal");
-        URLEncoder.encode(pName, "UTF-8");
-        URLDecoder.decode(pName,"UTF-8");
+//        URLEncoder.encode(pName, "UTF-8");
+//        URLDecoder.decode(pName,"UTF-8");
         int pidTypeProduct = Integer.parseInt(request.getParameter("categoryModal"));
         int pidStatus = Integer.parseInt(request.getParameter("statusModal"));
         int pPrice = Integer.parseInt(request.getParameter("priceModal"));
@@ -103,6 +100,9 @@ public class ManageProductController extends HttpServlet {
     }
 
     protected void doPost_Add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         int pid = Integer.parseInt(request.getParameter("idProduct"));
         String pName = request.getParameter("name_product");
         String pAvatar = request.getParameter("ImageUpload");

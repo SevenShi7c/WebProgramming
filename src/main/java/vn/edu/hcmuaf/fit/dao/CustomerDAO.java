@@ -1,11 +1,11 @@
 package vn.edu.hcmuaf.fit.dao;
 
+import vn.edu.hcmuaf.fit.db.ConnectToDatabase;
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.CustomerModel;
 import vn.edu.hcmuaf.fit.model.ProductModel;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -32,5 +32,18 @@ public static List<CustomerModel> getCustomer() {
         System.out.println("Không có kết nối");
     }
     return null;
+}
+// xóa khách hàng
+public static void deleteCustomer(int id) {
+    String sql = "delete from customer where id = ? ";
+    Connection connection = new ConnectToDatabase().getConnect();
+    try {
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+        statement.executeUpdate();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+
 }
 }

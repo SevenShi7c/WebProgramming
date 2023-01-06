@@ -1,5 +1,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
+<%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
 
 <!DOCTYPE html>
@@ -11,6 +12,7 @@
 </head>
 
 <body>
+<%List<ProductModel> pro = (List<ProductModel>)  request.getAttribute("pro");%>
 <%ProductModel product = (ProductModel) request.getAttribute("product");%>
 <%@include file="../../common/web/header.jsp" %>
 
@@ -173,10 +175,12 @@
                 product-content-desc" id="detail-product">
                             <div class="product-content-desc-1">
                                 <div class="product-title">
-                                    <h1><%=product.getName()%></h1>
+                                    <h1><%=product.getName()%>
+                                    </h1>
                                     <span id="pro_sku">ID: <%=product.getId()%></span>
                                 </div>
-                                <div class="product-price" id="price-preview"><span class="pro-price"><%=product.getPrice()%>₫</span>
+                                <div class="product-price" id="price-preview"><span
+                                        class="pro-price"><%=product.getPrice()%>₫</span>
                                 </div>
                                 <form id="add-item-form" action="" method="post" class="variants clearfix">
                                     <div class="select clearfix">
@@ -279,11 +283,13 @@
                                                                        value="<%=product.getAvatar()%>">
                                                                 <input type="hidden" name="item_name"
                                                                        value="<%=product.getName()%>">
-                                                                <input type="hidden" name="amount" value="<%=product.getPrice()%>">
+                                                                <input type="hidden" name="amount"
+                                                                       value="<%=product.getPrice()%>">
                                                                 <input type="hidden" name="discount_amount"
                                                                        value="10000">
                                                                 <input type="hidden" name="currency_code" value="VND">
-                                                                <input type="hidden" name="id_item" value="<%=product.getId()%>">
+                                                                <input type="hidden" name="id_item"
+                                                                       value="<%=product.getId()%>">
                                                                 <input type="hidden" name="return" value=" ">
                                                                 <input type="hidden" name="cancel_return" value=" ">
                                                                 <button type="submit" name="submit" value="Thêm vào giỏ"
@@ -295,7 +301,7 @@
                                                     </div>
                                                 </div>
                                                 </button>
-                                                <a href="booking.jsp" type="button" class="buy-now button"
+                                                <a href="booking" type="button" class="buy-now button"
                                                    style="display: block;">Đặt lịch
                                                     ngay</a>
                                             </div>
@@ -332,12 +338,16 @@
                             <h2>Sản phẩm khác</h2>
                         </div>
                         <div class="container">
+<%--                            Sản phâm--%>
                             <div class="row">
+                                <%
+                                    for (ProductModel p:pro
+                                         ) {%>
                                 <div class="col-md-3 col-sm-6 col-xs-6 col-6">
                                     <div class="block-banner-category">
                                         <div class="product-img fade-box">
-                                            <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
+                                            <a  href="detail-product?id-product=<%=p.getId()%>?id-product=<%=p.getId()%>">
+                                                <img src="images/product/<%=p.getAvatar()%>" alt=""
                                                      class="lazyloaded">
                                             </a>
 
@@ -345,86 +355,17 @@
                                         <div class="product-detail clearfix">
                                             <div class="pro-text">
                                                 <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
+                                                  font-size: 14px;text-decoration: none;" href="detail-product?id-product=<%=p.getId()%>?id-product=<%=p.getId()%>"
                                                    title="" inspiration pack>
-                                                    Thay màn hình iPhone X
                                                 </a>
                                             </div>
                                             <div class="pro-price">
-                                                <p class="">1,690,000₫</p>
+                                                <p class=""><%=p.getPrice()%></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                                    <div class="block-banner-category">
-                                        <div class="product-img fade-box">
-                                            <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
-                                                     class="lazyloaded">
-                                            </a>
-
-                                        </div>
-                                        <div class="product-detail clearfix">
-                                            <div class="pro-text">
-                                                <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                                                   title="" inspiration pack>
-                                                    Thay màn hình iPhone X
-                                                </a>
-                                            </div>
-                                            <div class="pro-price">
-                                                <p class="">1,690,000₫</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                                    <div class="block-banner-category">
-                                        <div class="product-img fade-box">
-                                            <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
-                                                     class="lazyloaded">
-                                            </a>
-
-                                        </div>
-                                        <div class="product-detail clearfix">
-                                            <div class="pro-text">
-                                                <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                                                   title="" inspiration pack>
-                                                    Thay màn hình iPhone X
-                                                </a>
-                                            </div>
-                                            <div class="pro-price">
-                                                <p class="">1,690,000₫</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-6 col-6">
-                                    <div class="block-banner-category">
-                                        <div class="product-img fade-box">
-                                            <a href="detailProduct.jsp" title="" class="img-resize">
-                                                <img src="images/product/<%=product.getAvatar()%>" alt=""
-                                                     class="lazyloaded">
-                                            </a>
-
-                                        </div>
-                                        <div class="product-detail clearfix">
-                                            <div class="pro-text">
-                                                <a style=" color: black;
-                                                  font-size: 14px;text-decoration: none;" href="detailProduct.jsp"
-                                                   title="" inspiration pack>
-                                                    Thay màn hình iPhone X
-                                                </a>
-                                            </div>
-                                            <div class="pro-price">
-                                                <p class="">1,690,000₫</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+<%}%>
                             </div>
                         </div>
                     </div>
