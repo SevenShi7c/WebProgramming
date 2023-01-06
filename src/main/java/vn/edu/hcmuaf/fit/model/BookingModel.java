@@ -7,16 +7,26 @@ public class BookingModel {
     private String id_customer;
     private String id_payment;
     private String description;
-    private String status_booking;
+    private int status_booking;
+
+    private String username;
+    private String nameTypePayment;
+    private String tel;
+
 
     public BookingModel() {
         super();
+    }
+
+    public BookingModel(String id, String date_booking, String id_customer, String username, String id_payment, String nameTypePayment, String description, int status_booking) {
         this.id = id;
         this.date_booking = date_booking;
         this.id_customer = id_customer;
         this.id_payment = id_payment;
         this.description = description;
         this.status_booking = status_booking;
+        this.username = username;
+        this.nameTypePayment = nameTypePayment;
     }
 
     public String getId() {
@@ -59,12 +69,36 @@ public class BookingModel {
         this.description = description;
     }
 
-    public String getStatus_booking() {
+    public int getStatus_booking() {
         return status_booking;
     }
 
-    public void setStatus_booking(String status_booking) {
+    public void setStatus_booking(int status_booking) {
         this.status_booking = status_booking;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getNameTypePayment() {
+        return nameTypePayment;
+    }
+
+    public void setNameTypePayment(String nameTypePayment) {
+        this.nameTypePayment = nameTypePayment;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     @Override

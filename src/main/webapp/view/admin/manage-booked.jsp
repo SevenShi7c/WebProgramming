@@ -1,25 +1,27 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.CustomerModel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.BookingModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Quản lý Lịch đã đặt| ADMIN</title>
-    <%@include file="../../common/admin/head.jsp"%>
+    <title>Quản lý đặt lịch sửa chữa| ADMIN</title>
+    <%@include file="../../common/admin/head.jsp" %>
 
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
+<%List<BookingModel> listBooking = (List<BookingModel>) request.getAttribute("listBooking");%>
 <!-- Navbar-->
-<%@include file="../../common/admin/header.jsp"%>
+<%@include file="../../common/admin/header.jsp" %>
 <!-- Sidebar menu-->
-<%@include file="../../common/admin/sidebar.jsp"%>
+<%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item">Quản lý lịch đã đặt</li>
-            <li class="breadcrumb-item"><a href="#">Danh sách lịch đã đặt</a></li>
+            <li class="breadcrumb-item">Quản lý đặt lịch Online</li>
+            <li class="breadcrumb-item"><a href="#">Danh sách đặt lịch Online</a></li>
         </ul>
         <div id="clock"></div>
     </div>
@@ -50,41 +52,51 @@
                         <tr>
                             <th width="10"><input type="checkbox" id="all"></th>
                             <th>ID</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Ảnh</th>
-                            <th>Số lượng</th>
-                            <th>Ngày hẹn</th>
-                            <th>Cửa hàng</th>
+                            <th>Tên người đặt</th>
+                            <th>Điện thoại</th>
+                            <th>Ngày đặt</th>
                             <th>Tình trạng</th>
-                            <th>Tổng tiền</th>
-                            <th>Danh mục</th>
+                            <th>Mô tả</th>
                             <th>Chức năng</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <%for (BookingModel booking : listBooking) {%>
                         <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td>72638003</td>
-                            <td>Thay dây nút nguồn Xiaomi Redmi Note 11 Pro</td>
-                            <td><img
-                                    src="../../images/product/thay-day-nut-nguon-xiaomi-redmi-note-11-pro_1667623363.png"
-                                    alt="" width="100px;"></td>
-                            <td>1</td>
-                            <td>22/10/2022</td>
-                            <td>P. Bình An, Quận 2</td>
-                            <td><span class="badge bg-info">Chờ thanh toán</span></td>
-                            <td>1.690.000
+                            <td width="10"><input type="checkbox" name="checkbox" value="1"></td>
+                            <td name="id"><%=booking.getId()%>
                             </td>
-                            <td>Điện thoại</td>
+                            <td name="name"><%=booking.getUsername()%>
+                            </td>
+                            <td name="phone"><%=booking.getTel()%>
+                            </td>
+                            <td name="date_booking"><%=booking.getDate_booking()%>
+                            </td>
                             <td>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="1" <%=listBooking == null ? "" : (booking.getStatus_booking() == 1 ? "selected" : "") %>>
+                                        Đã xác nhận
+                                    </option>
+                                    <option value="0" <%=listBooking == null ? "" : (booking.getStatus_booking() == 0 ? "selected" : "") %>>
+                                        Chờ xác nhận
+                                    </option>
+                                    <option value="-1" <%=listBooking == null ? "" : (booking.getStatus_booking() == -1 ? "selected" : "") %>>
+                                        Đã hủy
+                                    </option>
+                                </select>
+                            </td>
+                            <td name="description"><%=booking.getDescription()%>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                                 </button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
                             </td>
 
                         </tr>
+                        <%}%>
 
                         </tbody>
                     </table>

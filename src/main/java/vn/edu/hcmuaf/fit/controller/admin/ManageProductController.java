@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 @WebServlet(name = "ManageProductController", value = "/admin/manage-product")
 public class ManageProductController extends HttpServlet {
@@ -75,19 +77,23 @@ public class ManageProductController extends HttpServlet {
         request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
         request.setAttribute("categoryBrand", CategorySevice.getListBrand());
         request.setAttribute("listProduct", ProductService.getListProduct());
-        request.getRequestDispatcher(request.getRequestURI()).forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/admin/manage-product?type=edit&id-product=" + pid);
     }
 
     private void doPost_EditBasic(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         int pid = Integer.parseInt(request.getParameter("idModal"));
         String pName = request.getParameter("nameModal");
+        URLEncoder.encode(pName, "UTF-8");
+        URLDecoder.decode(pName,"UTF-8");
         int pidTypeProduct = Integer.parseInt(request.getParameter("categoryModal"));
         int pidStatus = Integer.parseInt(request.getParameter("statusModal"));
         int pPrice = Integer.parseInt(request.getParameter("priceModal"));
         int pQuantity = Integer.parseInt(request.getParameter("quantityModal"));
 
+        System.out.println(pName);
         boolean checkUpdateProduct = ProductService.updateProductBasic(pid, pName, pQuantity, pidStatus, pPrice, pidTypeProduct);
         request.setAttribute("message", checkUpdateProduct);
         request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
