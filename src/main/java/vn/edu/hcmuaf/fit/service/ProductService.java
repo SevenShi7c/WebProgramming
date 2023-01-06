@@ -20,6 +20,10 @@ public class ProductService {
         return ProductDAO.newProduct();
     }
 
+    public static List<ProductModel> getDifferentProduct() {
+        return ProductDAO.getDifferentProduct();
+    }
+
 
     public ProductModel getDetailProduct(String idProduct) {
         return ProductDAO.getDetailProduct(idProduct);
@@ -47,7 +51,10 @@ public class ProductService {
 
     public static void main(String[] args) {
         ProductService p = new ProductService();
-        for (ProductModel pr : p.getSellerProduct()) {
+//        for (ProductModel pr : p.getSellerProduct()) {
+//            System.out.println(pr.getName());
+//        }
+        for (ProductModel pr : getDifferentProduct()) {
             System.out.println(pr.getName());
         }
     }

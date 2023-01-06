@@ -139,9 +139,11 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary btn-booking">Đặt hẹn</button>
-                            <button type="submit" class="btn btn-checkout" onclick="redirectPage(event)">Thanh
-                                toán
-                            </button>
+                            <a href="checkout" type="button" class="btn btn-checkout"
+                               style="display: block;">Thanh toán
+<%--                            <button  type="submit" class="btn btn-checkout" onclick="redirectPage(event)">Thanh--%>
+<%--                                toán--%>
+<%--                            </button>--%>
                         </div>
                     </form>
                 </div>

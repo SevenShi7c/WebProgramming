@@ -104,7 +104,7 @@
                             </td>
 
                             <td>
-                                <a href="delete?sid=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="delete?sid=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></a>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                                         data-toggle="modal" data-target="#ModalEditProduct"
                                         onclick="editProductBasic(<%=product.getId()%>)"><i class="fas fa-edit"></i>
@@ -207,6 +207,36 @@ MODAL EDIT BASIC
         document.getElementById("myTable").deleteRow(i);
     }
 
+    // document.querySelector('.trash').addEventListener('click', function(e) {
+    //     var form = this;
+    //
+    //     e.preventDefault(); // <--- prevent form from submitting
+    //
+    //     swal({
+    //         title: "Cảnh báo",
+    //         text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
+    //         buttons: ["Hủy bỏ", "Đồng ý"],
+    //         icon: "warning",
+    //         buttons: [
+    //             'No, cancel it!',
+    //             'Yes, I am sure!'
+    //         ],
+    //         dangerMode: true,
+    //     }).then(function(isConfirm) {
+    //         if (isConfirm) {
+    //             swal({
+    //                 title: 'Shortlisted!',
+    //                 text: 'Candidates are successfully shortlisted!',
+    //                 icon: 'success'
+    //             }).then(function() {
+    //                 form.submit(); // <--- submit form programmatically
+    //             });
+    //         } else {
+    //             swal("Cancelled", "Your imaginary file is safe :)", "error");
+    //         }
+    //     })
+    // });
+
     jQuery(function () {
         jQuery(".trash").click(function () {
             swal({
@@ -228,9 +258,7 @@ MODAL EDIT BASIC
     });
 
     function save() {
-
         swal("Đã lưu thành công.!", {});
-
     }
 
     <!--MODAL-->

@@ -13,7 +13,8 @@ public class DeleteControler extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("sid");
         ProductDAO dao = new ProductDAO();
-        dao.deleteProduct(Integer.parseInt(id));
+//        dao.deleteProduct(Integer.parseInt(id));
+
         response.sendRedirect("/PhoneCare_war/admin/manage-product");
     }
 

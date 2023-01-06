@@ -55,7 +55,7 @@ public class ProductDAO {
     }
 
     public static void deleteProduct(int id) {
-        String sql = "delete from products where id = ?";
+        String sql = "delete from products where id = ? ";
         Connection connection = new ConnectToDatabase().getConnect();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -216,7 +216,26 @@ public class ProductDAO {
         }
     }
 
+    public static List<ProductModel> getDifferentProduct() {
+        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
+
+        String sql = "select * from products " +
+                "ORDER BY RAND() " +
+                "limit 4 ";
+
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getLong(7), rs.getInt(8), rs.getString(9), rs.getInt(10)));
+            }
+            return list;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
     public static void main(String[] args) {
+        System.out.println(ProductDAO.getDifferentProduct());
 //        System.out.println(ProductDAO.updateProduct(2, "Thay cụm đuôi sạc Samsung Galaxy A02 A022F","thay-cum-duoi-sac-samsung-galaxy-a02-a022f_1667623123.png",4,1,1,  500000,100,"test", 1));
     }
 }
