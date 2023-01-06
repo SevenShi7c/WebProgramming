@@ -79,6 +79,7 @@
                             <td><%=blog.getTypeBlog()%></td>
                             <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>
                             <td>
+<%--                                Mai sửa--%>
                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
                                         class="fas fa-trash-alt"></i></button>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
