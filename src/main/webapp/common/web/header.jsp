@@ -1,4 +1,4 @@
-<%@ page import="vn.edu.hcmuaf.fit.model.CategoryModel" %>
+        <%@ page import="vn.edu.hcmuaf.fit.model.CategoryModel" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.User" %>
 <%--
