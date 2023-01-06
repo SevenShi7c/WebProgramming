@@ -151,7 +151,7 @@ public class UserDAO implements ObjectDAO {
             ppstm.setString(3, username);
             ppstm.setString(4, email);
             ppstm.setString(5, password);
-            ppstm.setString(6, null);
+            ppstm.setString(6, "no-avatar.png");
             ppstm.setString(7, null);
             ppstm.setInt(8, 1);
             ppstm.setString(9, dob);
@@ -167,11 +167,11 @@ public class UserDAO implements ObjectDAO {
         }
     }
 
-    public int checksignup(String name, String username,String email, String password) {
+    public int checksignup(String name, String username, String email, String password) {
         if (name != "" && username != "" && password != "") {
             User user = loadUsername().get(username);
             User userEmail = loadEmail().get(email);
-            if (user == null||userEmail==null) {
+            if (user == null || userEmail == null) {
                 return 1;
 
             } else {
@@ -251,6 +251,20 @@ public class UserDAO implements ObjectDAO {
             ppstm.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error when update custommer:" + e.getMessage());
+        }
+    }
+
+    public void addImage(String id, String avatar) {
+        String sql = "update users set avatar=? where id ='" + id + "'";
+        Connection connect = ConnectToDatabase.getConnect();
+        try {
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+
+            ppstm.setString(1, avatar);
+
+            ppstm.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Error when addImage custommer:" + e.getMessage());
         }
     }
 
