@@ -14,6 +14,13 @@ public class BookingService {
         return BookingDAO.updateStatusBooking(idBookingParam);
     }
 
+    public static BookingModel getConfirm(String id) {
+        return BookingDAO.getBooking(id);
+    }
+
+    public static void updateConfirm(String id,String date,String desc){
+        BookingDAO.updateBooking(id,date,desc);
+    }
     public static void main(String[] args) {
         System.out.println(BookingService.updateStatusBooking("997"));
     }
