@@ -21,7 +21,7 @@
 <!-- Owl-Carousel-->
 <div class="owl-carousel owl-theme owl-carousel-setting">
     <%
-        for (ImageModel listImage : imageSlide ) {
+        for (ImageModel listImage : imageSlide) {
     %>
     <div class="item">
         <img src="images/banner/<% out.print(listImage.getPhoto());%>"

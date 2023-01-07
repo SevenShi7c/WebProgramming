@@ -59,5 +59,26 @@ public class ImageDAO {
         return list;
     }
 
+    public static List<ImageModel> loadAllImage() {
+        LinkedList<ImageModel> list = new LinkedList<>();
+        try {
+            ResultSet rs = new ConnectToDatabase().selectData("select * from images");
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String name_photo = rs.getString(2);
+                String photo = rs.getString(3);
+                int type = rs.getInt(4);
+
+                ImageModel imageModel = new ImageModel(id, name_photo, photo, type);
+                list.add(imageModel);
+
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println("LoadImage: "+e.getMessage());
+        }
+        return list;
+    }
+
 }
 
