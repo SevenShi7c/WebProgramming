@@ -10,4 +10,11 @@ public class BookingService {
         return BookingDAO.getListBooking(status);
     }
 
+    public static boolean updateStatusBooking(String idBookingParam) {
+        return BookingDAO.updateStatusBooking(idBookingParam);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(BookingService.updateStatusBooking("997"));
+    }
 }

@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 @WebServlet(name = "ManageProductController", value = "/admin/manage-product")
 public class ManageProductController extends HttpServlet {
@@ -26,12 +24,12 @@ public class ManageProductController extends HttpServlet {
         if (SystemConstant.LIST.equals(typeParam)) {
             view = "/view/admin/manage-product.jsp";
         } else if (SystemConstant.ADD.equals(typeParam)) {
-            view = "/view/admin/change-product.jsp";
+            view = "/view/admin/add-product.jsp";
         } else if (SystemConstant.EDIT.equals(typeParam)) {
             if (idProductParam != null) {
                 request.setAttribute("product", productService.getDetailProduct(idProductParam));
             }
-            view = "/view/admin/change-product.jsp";
+            view = "/view/admin/edit-product.jsp";
         } else if (typeParam == null) {
             view = "/view/admin/manage-product.jsp";
             request.setAttribute("listProduct", ProductService.getListProduct());
@@ -83,14 +81,11 @@ public class ManageProductController extends HttpServlet {
     private void doPost_EditBasic(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pid = Integer.parseInt(request.getParameter("idModal"));
         String pName = request.getParameter("nameModal");
-//        URLEncoder.encode(pName, "UTF-8");
-//        URLDecoder.decode(pName,"UTF-8");
         int pidTypeProduct = Integer.parseInt(request.getParameter("categoryModal"));
         int pidStatus = Integer.parseInt(request.getParameter("statusModal"));
         int pPrice = Integer.parseInt(request.getParameter("priceModal"));
         int pQuantity = Integer.parseInt(request.getParameter("quantityModal"));
 
-        System.out.println(pName);
         boolean checkUpdateProduct = ProductService.updateProductBasic(pid, pName, pQuantity, pidStatus, pPrice, pidTypeProduct);
         request.setAttribute("message", checkUpdateProduct);
         request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
@@ -100,8 +95,6 @@ public class ManageProductController extends HttpServlet {
     }
 
     protected void doPost_Add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         int pid = Integer.parseInt(request.getParameter("idProduct"));
         String pName = request.getParameter("name_product");
@@ -116,6 +109,9 @@ public class ManageProductController extends HttpServlet {
 
         boolean checkAddNew = new ProductService().addNewProduct(pid, pName, pAvatar, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
         request.setAttribute("message", checkAddNew);
+        request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
+        request.setAttribute("categoryBrand", CategorySevice.getListBrand());
+        request.setAttribute("listProduct", ProductService.getListProduct());
         request.getRequestDispatcher("/view/admin/manage-product.jsp").forward(request, response);
     }
 }

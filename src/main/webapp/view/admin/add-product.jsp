@@ -102,134 +102,85 @@
                                         class="fas fa-folder-plus"></i> Thêm tình trạng</a>
                             </div>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Mã sản phẩm </label>
-                            <input class="form-control" type="number" placeholder="" name="idProduct"
-                                   value="<%=product==null?"":product.getId()%>">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Tên sản phẩm</label>
-                            <input class="form-control" type="text" name="name_product"
-                                   value="<%=product==null?"":product.getName()%>">
-                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label class="control-label">Mã sản phẩm </label>
+                                <input class="form-control" type="number" placeholder="" name="idProduct"
+                                       value="">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="control-label">Tên sản phẩm</label>
+                                <input class="form-control" type="text" name="name_product"
+                                       value="">
+                            </div>
+                            <div class="form-group  col-md-3">
+                                <label class="control-label">Số lượng</label>
+                                <input class="form-control" type="number" name="quantity"
+                                       value="">
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label for="statusProduct" class="control-label">Tình trạng</label>
+                                <select class="form-control" id="statusProduct" name="statusProduct">
+                                    <% for (CategoryModel status : listStatus) {%>
+                                    <option value="<%=status.getId()%>"><%=status.getName()%>
+                                    </option>
+                                    <% }%>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="categoryTypeProduct" class="control-label">Danh mục</label>
+                                <select class="form-control" id="categoryTypeProduct" name="categoryTypeProduct">
+                                    <option>-- Chọn danh mục sản phẩm --</option>
+                                    <%for (CategoryModel type : categoryTypeProduct) {%>
+                                    <option value="<%=type.getId()%>"><%=type.getName()%>
+                                    </option>
+                                    <%}%>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3 ">
+                                <label for="categoryBrand" class="control-label">Thương hiệu</label>
+                                <select class="form-control" id="categoryBrand" name="categoryBrand">
+                                    <option>-- Chọn thương hiệu --</option>
+                                    <%
+                                        for (CategoryModel brand : categoryBrand) {
+                                    %>
+                                    <option value="<%=brand.getId()%>"><%=brand.getName()%>
+                                    </option>
+                                    <%}%>
 
-                        <div class="form-group  col-md-3">
-                            <label class="control-label">Số lượng</label>
-                            <input class="form-control" type="number" name="quantity"
-                                   value="<%=product==null?"":product.getSumQuantity()%>">
-                        </div>
-                        <div class="form-group col-md-3 ">
-                            <label for="statusProduct" class="control-label">Tình trạng</label>
-                            <select class="form-control" id="statusProduct" name="statusProduct">
-                                <% for (CategoryModel status : listStatus) {%>
-                                <option value="<%=status.getId()%>"<%=product == null ? "" : (product.getIdStatusDevice() == status.getId() ? "selected" : "") %>><%=status.getName()%>
-                                </option>
-                                <% }%>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="categoryTypeProduct" class="control-label">Danh mục</label>
-                            <select class="form-control" id="categoryTypeProduct" name="categoryTypeProduct">
-                                <option>-- Chọn danh mục sản phẩm --</option>
-                                <%for (CategoryModel type : categoryTypeProduct) {%>
-                                <option value="<%=type.getId()%>" <%=product == null ? "" : (product.getIdTypeProduct() == type.getId() ? "selected" : "") %>><%=type.getName()%>
-                                </option>
-                                <%}%>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3 ">
-                            <label for="categoryBrand" class="control-label">Thương hiệu</label>
-                            <select class="form-control" id="categoryBrand" name="categoryBrand">
-                                <option>-- Chọn thương hiệu --</option>
-                                <%
-                                    for
-                                    (
-                                            CategoryModel
-                                                    brand
-                                            :
-                                            categoryBrand
-                                    ) {
-                                %>
-                                <option value="<%=brand.getId()%>" <%=product
-                                        ==
-                                        null
-                                        ?
-                                        ""
-                                        :
-                                        product
-                                                .
-                                                getIdBrand
-                                                        (
-                                                        )
-                                                ==
-                                                brand
-                                                        .
-                                                        getId
-                                                                (
-                                                                )
-                                                ?
-                                                "selected"
-                                                :
-                                                ""%>><%=brand
-                                        .
-                                        getName
-                                                (
-                                                )%>
-                                </option>
-                                <%}%>
-
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Giá bán</label>
-                            <input class="form-control" type="text" name="price"
-                                   value="<%=product==null?"":product.getPrice()%>">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label class="control-label">Ảnh sản phẩm</label>
-                            <div id="myfileupload">
-                                <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(
-                                <%--                                    <%--%>
-                                <%--                                    if (product.getAvatar()!=null)  {--%>
-                                <%--                                %>--%>
-                                <%--                                        'images/product/<%=product.getAvatar()%>'--%>
-                                <%--                                    <%--%>
-                                <%--                                    } else {--%>
-                                <%--                                %>--%>
-                                        this
-                                <%--                                    <%--%>
-                                <%--                                    }--%>
-                                <%--                                %>--%>
-                                        )"/>
+                                </select>
                             </div>
-                            <div id="thumbbox">
-                                <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none"/>
-                                <a class="removeimg" href="javascript:"></a>
+                            <div class="form-group col-md-3">
+                                <label class="control-label">Giá bán</label>
+                                <input class="form-control" type="text" name="price"
+                                       value="">
                             </div>
-                            <div id="boxchoice">
-                                <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn
-                                    ảnh</a>
-                                <p style="clear:both"></p>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Ảnh sản phẩm</label>
+                                <div id="myfileupload">
+                                    <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this)"/>
+                                </div>
+                                <div id="thumbbox">
+                                    <img height="450" width="400" alt="Thumb image" id="thumbimage"
+                                         style="display: none"/>
+                                    <a class="removeimg" href="javascript:"></a>
+                                </div>
+                                <div id="boxchoice">
+                                    <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
+                                        Chọn
+                                        ảnh</a>
+                                    <p style="clear:both"></p>
+                                </div>
                             </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Mô tả sản phẩm</label>
+                                <textarea class="form-control" name="description"
+                                          id="description"></textarea>
+                                <script>CKEDITOR.replace('description');</script>
+                            </div>
+                            <button class="btn btn-save" type="submit" onclick="save()">Lưu lại</button>
+                            <button class="btn btn-cancel" data-dismiss="modal" type="reset">Hủy bỏ</button>
                         </div>
-                        <div class="form-group col-md-12">
-                            <label class="control-label">Mô tả sản phẩm</label>
-                            <textarea class="form-control" name="description"
-                                      id="description"><%=product
-                                    ==
-                                    null
-                                    ?
-                                    ""
-                                    :
-                                    product
-                                            .
-                                            getDescribe
-                                                    (
-                                                    )%></textarea>
-                            <script>CKEDITOR.replace('description');</script>
-                        </div>
-                        <button class="btn btn-save" type="submit" onclick="save()">Lưu lại</button>
-                        <button class="btn btn-cancel" data-dismiss="modal" type="reset">Hủy bỏ</button>
                     </form>
                 </div>
             </div>
@@ -415,13 +366,6 @@ MODAL TÌNH TRẠNG
 <!--
 MODAL
 -->
-
-<script>
-    if (<%=product!=null%>) {
-        $("#change_product form").attr("action", `<%=pageContextPath%>/admin/manage-product?type=edit&id-product=<%=product.getId()%>`)
-    }
-</script>
-
 <%@include file="../../common/admin/script.jsp" %>
 
 <script>

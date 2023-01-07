@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -38,15 +38,30 @@
                 <div class="card mb-4 mb-xl-0">
                     <h3 class="card-header text-white">Thông tin cá nhân</h3>
                     <div class="card-body">
+
                         <div class="avatar text-center">
-                            <img class="img-account-profile rounded-circle mb-2" src="../../images/user/avatar.png"
+                            <img class="img-account-profile rounded-circle mb-2"
+                                 src="images/user/<% out.print( user.getAvatar());%>"
                                  alt=""/>
                         </div>
-                        <div class="username  text-center"><% out.print(user.getName() );%> </div>
-                        <div class="email"><i class="fas fa-envelope"></i><% out.print(user.getEmail() );%></div>
-                        <div class="phone"><i class="fas fa-phone-square-alt"></i><% if(user.getTel()!=null) {out.print(user.getTel());}else{out.print("Bạn chưa nhập");}%></div>
-                        <div class="dob"><i class="fas fa-birthday-cake"></i><% if(user.getDob()!=null) {out.print(user.getDob());}else{out.print("Bạn chưa nhập");}%></div>
-                        <div class="sex"><i class="fas fa-venus-mars"></i><% if(user.getSex()==1) {out.print("Nam");}else{out.print("Nữ");}%></div>
+
+                        <div class="username  text-center"><% out.print(user.getName());%></div>
+                        <div class="email"><i class="fas fa-envelope"></i><% out.print(user.getEmail());%></div>
+                        <div class="phone"><i class="fas fa-phone-square-alt"></i><% if (user.getTel() != null) {
+                            out.print(user.getTel());
+                        } else {
+                            out.print("Bạn chưa nhập");
+                        }%></div>
+                        <div class="dob"><i class="fas fa-birthday-cake"></i><% if (user.getDob() != null) {
+                            out.print(user.getDob());
+                        } else {
+                            out.print("Bạn chưa nhập");
+                        }%></div>
+                        <div class="sex"><i class="fas fa-venus-mars"></i><% if (user.getSex() == 1) {
+                            out.print("Nam");
+                        } else {
+                            out.print("Nữ");
+                        }%></div>
                     </div>
                 </div>
             </div>
@@ -54,53 +69,71 @@
                 <div class="card mb-4">
                     <h3 class="card-header">Thay đổi thông tin</h3>
                     <div class="card-body p-5">
-                        <form action="profile?action=update" method="post" >
-                            <div class="mb-3 avatar">
-                                <div class="row">
-                                    <div class="col-md-4 left">
-                                        <img class="img-account-profile mb-2" src="../../images/user/avatar.png"
-                                             alt=""/>
-                                        <span class="small font-italic text-muted mb-4">JPG hoặc PNG nhỏ hơn 5
-                                                MB</span>
-                                    </div>
-                                    <div class="col-md-8 right">
-                                        <input type="file"/>
-                                    </div>
+                        <div class="mb-3 avatar">
+                            <div class="row">
+                                <div class="col-md-4 left">
+                                    <img class="img-account-profile mb-2"
+                                         src="images/user/<% out.print( user.getAvatar());%>"
+                                         alt=""/>
+
+                                </div>
+                                <div class="col-md-8 right">
+                                    <form action="AddImage" method="post" enctype="multipart/form-data">
+                                        <input type="file" name="image">
+                                        <input type="submit" value="Add Image">
+                                    </form>
                                 </div>
                             </div>
-
+                        </div>
+                        <form action="profile?action=update" method="post">
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6 ">
-                                    <label class="mb-1" >Họ tên</label>
+                                    <label class="mb-1">Họ tên</label>
                                     <input class="form-control" name="name" type="text"
-                                          value="<% out.print(user.getName());%>"/>
+                                           value="<% out.print(user.getName());%>"/>
 
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="sex">Giới tính</label>
 
-                                    <select id="sex" name="sex" class="form-control" required="required" >
-                                        <option value="" name="sex" selected><% if(user.getSex()==1) {out.print("Nam");}else if(user.getSex()==0) {out.print("Nữ");}else{out.print("Chưa chọn");}%></option>
-                                        <option value="<% if(user.getSex()==1) {out.print("0");}else{out.print("1");}%>" name="sex"><% if(user.getSex()==1) {out.print("Nữ");}else{out.print("Nam");}%></option>
-<%--                                        <option value="0" name="sex">Nữ</option>--%>
+                                    <select id="sex" name="sex" class="form-control">
+                                        <option value="<%out.print(user.getSex());%>" name="sex"
+                                                selected><% if (user.getSex() == 1) {
+                                            out.print("Nam");
+                                        } else if (user.getSex() == 0) {
+                                            out.print("Nữ");
+                                        } else {
+                                            out.print("Chưa chọn");
+                                        }%></option>
+                                        <option value="<% if(user.getSex()==1) {out.print("0");}else{out.print("1");}%>"
+                                                name="sex"><% if (user.getSex() == 1) {
+                                            out.print("Nữ");
+                                        } else {
+                                            out.print("Nam");
+                                        }%></option>
+
                                     </select>
 
                                 </div>
+
+
                             </div>
                             <div class="mb-3">
-                                <label class="mb-1" >Email</label>
+                                <label class="mb-1">Email</label>
                                 <input class="form-control" name="email" type="email"
                                        value="<% out.print(user.getEmail() );%>"/>
                             </div>
                             <div class="mb-3 d-none">
-                                <label class="mb-1 " >ID</label>
+                                <label class="mb-1 ">ID</label>
                                 <input class="form-control" name="id" type="text"
-                                       value="<% out.print(user.getId());%>" />
+                                       value="<% out.print(user.getId());%>"/>
                             </div>
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
-                                    <label class="mb-1" >Số điện thoại</label>
-                                    <input class="form-control" name="tel" type="tel" value="<% if(user.getTel()!=null) {out.print(user.getTel());}%>" placeholder="<% if(user.getTel()==null) {out.print("Nhập số điện thoại");}%>"/>
+                                    <label class="mb-1">Số điện thoại</label>
+                                    <input class="form-control" name="tel" type="tel"
+                                           value="<% if(user.getTel()!=null) {out.print(user.getTel());}%>"
+                                           placeholder="<% if(user.getTel()==null) {out.print("Nhập số điện thoại");}%>"/>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="age">Ngày sinh</label>
@@ -109,17 +142,13 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label class="mb-1" >Địa chỉ</label>
+                                <label class="mb-1">Địa chỉ</label>
                                 <input class="form-control" name="address" type="text"
-                                       value="<% if(user.getAddress()!=null) {out.print(user.getAddress());}%>" placeholder="<% if(user.getAddress()==null) {out.print("số nhà, đường, phường/xã, huyện/tp, tỉnh ");}%>"/>
+                                       value="<% if(user.getAddress()!=null) {out.print(user.getAddress());}%>"
+                                       placeholder="<% if(user.getAddress()==null) {out.print("số nhà, đường, phường/xã, huyện/tp, tỉnh ");}%>"/>
                             </div>
-<%--                            <div class="mb-3">--%>
-<%--                                <label class="mb-1" for="gioi_thieu">Giới thiêu</label>--%>
-<%--                                <textarea id="gioi_thieu" cols="30" rows="10" class="form-control" name="gioi_thieu"--%>
-<%--                                          type="text" placeholder="Giới thiệu bản thân"></textarea>--%>
-<%--                            </div>--%>
                             <div>
-                            <input class="btn  save_change" type="submit" value="Lưu thay đổi" id="btnSave"/>
+                                <input class="btn  save_change" type="submit" value="Lưu thay đổi" id="btnSave"/>
                             </div>
 
                         </form>
