@@ -119,20 +119,20 @@
             <div class="tile">
                 <h3 class="tile-title">Tạo mới đặt lịch</h3>
                 <div class="tile-body">
-                    <div class="row element-button">
-                        <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i
-                                    class="fas fa-folder-plus"></i> Thêm thương hiệu</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i
-                                    class="fas fa-folder-plus"></i> Thêm danh mục</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i
-                                    class="fas fa-folder-plus"></i> Thêm tình trạng</a>
-                        </div>
-                    </div>
+<%--                    <div class="row element-button">--%>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i--%>
+<%--                                    class="fas fa-folder-plus"></i> Thêm thương hiệu</a>--%>
+<%--                        </div>--%>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i--%>
+<%--                                    class="fas fa-folder-plus"></i> Thêm danh mục</a>--%>
+<%--                        </div>--%>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i--%>
+<%--                                    class="fas fa-folder-plus"></i> Thêm tình trạng</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <form class="row">
                         <div class="form-group col-md-3">
                             <label class="control-label">ID </label>

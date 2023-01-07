@@ -6,19 +6,19 @@
 
 <head>
     <title>Quản lý khách hàng | ADMIN</title>
-   <%@include file="../../common/admin/head.jsp"%>
+    <%@include file="../../common/admin/head.jsp" %>
 
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
 <!-- Navbar-->
-<%@include file="../../common/admin/header.jsp"%>
+<%@include file="../../common/admin/header.jsp" %>
 <%
     List<CustomerModel> listCustomer = (List<CustomerModel>) request.getAttribute("listCustomer");
 
 %>
-
-<%@include file="../../common/admin/sidebar.jsp"%>
+<!-- Sidebar menu-->
+<%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
@@ -42,23 +42,23 @@
                         </div>
 
 
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"
-                               onclick="myApp.printTable()"><i
-                                    class="fas fa-print"></i> In dữ liệu</a>
-                        </div>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"--%>
+<%--                               onclick="myApp.printTable()"><i--%>
+<%--                                    class="fas fa-print"></i> In dữ liệu</a>--%>
+<%--                        </div>--%>
 
                         <div class="col-sm-2">
                             <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
                                     class="fas fa-trash-alt"></i> Xóa tất cả </a>
                         </div>
                     </div>
-<%--                    In ra khách hàng--%>
-                    <% if (listCustomer == null){
-                        %>
+                    <%--                    In ra khách hàng--%>
+                    <% if (listCustomer == null) {
+                    %>
                     <div>Chưa có khách hàng</div>
                     <%
-                    }else {%>
+                    } else {%>
                     <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0"
                            border="0"
                            id="sampleTable">
@@ -66,26 +66,34 @@
                         <tr>
                             <th><input type="checkbox" id="all"></th>
                             <th>ID</th>
-                            <th >Họ và tên</th>
-                            <th >Địa chỉ</th>
+                            <th>Họ và tên</th>
+                            <th>Địa chỉ</th>
                             <th>Email</th>
                             <th>SĐT</th>
+                            <th>Chức năng</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%
                             for (CustomerModel customer :
-                                    listCustomer ) {%>
+                                    listCustomer) {%>
                         <tr>
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td><%=customer.getId()%></td>
-                            <td><%=customer.getUsername()%></td>
-                            <td><%=customer.getAddress()%></td>
-                            <td><%=customer.getEmail()%></td>
-                            <td><%=customer.getTel()%></td>
+                            <td><%=customer.getId()%>
+                            </td>
+                            <td><%=customer.getUsername()%>
+                            </td>
+                            <td><%=customer.getAddress()%>
+                            </td>
+                            <td><%=customer.getEmail()%>
+                            </td>
+                            <td><%=customer.getTel()%>
+                            </td>
 
                             <td class="table-td-center">
-                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="manage-customer?action=delete&id=<%=customer.getId()%>"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                   href="manage-customer?action=delete&id=<%=customer.getId()%>"><i
+                                        class="fas fa-trash-alt"></i></a>
 
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                                         data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
@@ -97,10 +105,11 @@
 
                         </tbody>
                     </table>
-                        <%
-                    }%>
+                    <%
+                        }%>
 
-                </>
+                </
+                >
             </div>
         </div>
     </div>
@@ -161,25 +170,18 @@ MODAL
     </div>
 </div>
 <!--
-MODAL
+  <%@include file="../../common/admin/script.jsp" %>
 -->
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="js/popper.min.js"></script>
-<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-<!--===============================================================================================-->
-<script src="js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+<!-- Essential javascripts for application to work-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="src/jquery.table2excel.js"></script>
 <script src="js/main.js"></script>
-<!--================================The javascript plugin to display page loading on top=============-->
-<script src="js/plugins/pace.min.js"></script>
-<!--===============================================================================================-->
 <!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Data table plugin-->
-<script type="text/javascript" src="../../admin/doc/js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../../admin/doc/js/plugins/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
 <script>
     function deleteRow(r) {
