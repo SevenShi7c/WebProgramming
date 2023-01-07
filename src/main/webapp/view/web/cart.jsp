@@ -27,7 +27,6 @@
 <script>
     let htmlCart = ''
     let cart = getCartFromLocalStorage().value.items;
-    console.log(cart)
     if (cart.length>0) {
         htmlCart += `
         <div class="col-md-8">
@@ -126,7 +125,7 @@
                 </li>
               </ul>
 
-              <a type="button" class="btn btn-primary btn-lg btn-block" href="checkout.html">
+              <a type="button" class="btn btn-primary btn-lg btn-block" href="checkout">
                 Đặt lịch
               </a>
             </div>

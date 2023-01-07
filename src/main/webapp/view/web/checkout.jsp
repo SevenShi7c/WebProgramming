@@ -21,12 +21,12 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5">
                     <ol class="breadcrumb breadcrumb-arrows">
                         <li>
-                            <a href="index.html">
+                            <a href="home">
                                 <span>Trang chủ</span>
                             </a>
                         </li>
                         <li>
-                            <a href="cart.jsp">
+                            <a href="cart">
                                 <span>Giỏ hàng</span>
                             </a>
                         </li>
@@ -54,76 +54,78 @@
 
                     <div class="sum-money"></div>
                     <div class="round-shape"></div>
-                    <a class="back_to_cart" href="cart.jsp"><i class="fas fa-arrow-left mr-2"></i>Quay lại trang giỏ
+                    <a class="back_to_cart" href="cart"><i class="fas fa-arrow-left mr-2"></i>Quay lại trang giỏ
                         hàng</a>
                 </div>
                 <div class="col-md-6 col-lg-6 modal-info">
                     <div class="info">
                         <h2 class="text-light">Thông tin người đặt</h2>
-                        <form action="#">
+                        <form action="checkout" method="post">
                             <ul class="form-list">
                                 <li class="form-list-row">
                                     <div class="user">
-                                        <label for="">Tên</label><br>
-                                        <i class="fas fa-user"></i></i><input type="text" required>
+                                        <label for="name">Tên</label><br>
+                                        <i class="fas fa-user"></i></i><input type="text" name="name" id="name" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="email">
-                                        <label for="">Email</label><br>
-                                        <i class="far fa-credit-card"></i><input type="email" required>
+                                        <label for="email">Email</label><br>
+                                        <i class="far fa-credit-card"></i><input type="email" name="email" id="email" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="tel">
-                                        <label for="">Số điện thoại</label><br>
-                                        <i class="far fa-credit-card"></i><input type="tel" required>
+                                        <label for="tel">Số điện thoại</label><br>
+                                        <i class="far fa-credit-card"></i><input type="tel" name="tel" id="tel" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="address">
-                                        <label for="">Địa chỉ</label><br>
-                                        <i class="far fa-credit-card"></i><input type="text" required>
+                                        <label for="address">Địa chỉ</label><br>
+                                        <i class="far fa-credit-card"></i><input type="text" name="address" id="address" required>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="date">
-                                        <label for="">Thời gian</label><br>
+                                        <label for="time">Thời gian</label><br>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <input type="time" class="form-control" name="time" id="time"
                                                        required>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="date" class="form-control" required>
+                                                <input type="date" class="form-control" name="date" id="date" required>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="note">
-                                        <label for="">Ghi chú</label><br>
-                                        <textarea name="note" id="note" class="form-control" rows="5"
+                                        <label for="description">Ghi chú</label><br>
+                                        <textarea name="description" id="description" class="form-control" rows="5"
                                                   placeholder="Ghi chú thêm thông tin như mô tả về điện thoại (màu sắc, các lỗi hiện có)..."></textarea>
                                     </div>
                                 </li>
                                 <li class="form-list-row">
                                     <div class="payment">
-                                        <label for="">Phương thức thanh toán</label>
-                                        <input type="radio" name="0" id="" value="" checked="checked">
+                                        <label for="payment">Phương thức thanh toán</label>
+                                        <input type="radio" name="payment" id="payment" value="1" checked="checked">
+                                        Sau khi nhận hàng
+                                        <input type="radio" name="payment" value="2">
                                         Tại cửa hàng
-                                        <input type="radio" name="1" id="" value="">
+                                        <input type="radio" name="payment" value="3">
                                         Qua momo
                                     </div>
                                 </li>
                                 <li class="form-list-row">
-                                    <div class="payment">
-                                        <label for="">Chi nhánh:</label>
+                                    <div class="store">
+                                        <label for="store">Chi nhánh:</label>
                                         <br>
-                                        <input type="radio" name="" id="input" value="" checked="checked">
+                                        <input type="radio" name="store" id="store" value="1" checked="checked">
                                         ĐH Nông Lâm, Linh Trung, Tp Thủ Đức, Tp Hồ Chí Minh, Việt Nam
                                         <br>
-                                        <input type="radio" name="" id="input" value="">
+                                        <input type="radio" name="store" value="2">
                                         Quận 1, Tp Hồ Chí Minh, Việt Nam
                                     </div>
                                 </li>
@@ -142,9 +144,9 @@
 
     var htmlItemm = "";
     var sumMoney = 0
+    let cart = getCartFromLocalStorage().value.items;
 
     for (let i = 0; i < cart.length; i++) {
-        console.log(cart[i]);
         htmlItemm += `
                                 <div class="productSlides fade-checkout">
                                     <div class="img">
