@@ -70,4 +70,6 @@ public class CustomerDAO {
         }
 
     }
+//    xóa tất cả khah hàng
+
 }
