@@ -35,6 +35,8 @@
                 class="app-menu__label">Chờ xác nhận </span></a></li>
         <li><a class="app-menu__item" href="manage-blog"><i class='app-menu__icon bx bx-news'></i><span
                 class="app-menu__label">Quản lý tin tức </span></a></li>
+        <li><a class="app-menu__item" href="manage-image"><i class='app-menu__icon bx bx-image'></i><span
+                class="app-menu__label">Quản lý ảnh </span></a></li>
     </ul>
 </aside>
 </body>

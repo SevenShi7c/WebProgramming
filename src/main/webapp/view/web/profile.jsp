@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="col-md-8 right">
                                     <form action="AddImage" method="post" enctype="multipart/form-data">
-                                        <input type="file" name="image">
+                                        <input type="file" name="image" accept="image/png, image/jpeg">
                                         <input type="submit" value="Add Image">
                                     </form>
                                 </div>
@@ -133,7 +133,7 @@
                                     <label class="mb-1">Số điện thoại</label>
                                     <input class="form-control" name="tel" type="tel"
                                            value="<% if(user.getTel()!=null) {out.print(user.getTel());}%>"
-                                           placeholder="<% if(user.getTel()==null) {out.print("Nhập số điện thoại");}%>"/>
+                                           placeholder="<% if(user.getTel()==null||user.getTel()=="") {out.print("Nhập số điện thoại");}%>"/>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="mb-1" for="age">Ngày sinh</label>
@@ -145,7 +145,7 @@
                                 <label class="mb-1">Địa chỉ</label>
                                 <input class="form-control" name="address" type="text"
                                        value="<% if(user.getAddress()!=null) {out.print(user.getAddress());}%>"
-                                       placeholder="<% if(user.getAddress()==null) {out.print("số nhà, đường, phường/xã, huyện/tp, tỉnh ");}%>"/>
+                                       placeholder="<% if(user.getAddress()==null||user.getAddress()=="") {out.print("số nhà, đường, phường/xã, huyện/tp, tỉnh ");}%>"/>
                             </div>
                             <div>
                                 <input class="btn  save_change" type="submit" value="Lưu thay đổi" id="btnSave"/>

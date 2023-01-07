@@ -6,12 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.*" %>
+<%@ page import="vn.edu.hcmuaf.fit.dao.ImageDAO" %>
 <html>
 <head>
 
 </head>
 
 <body>
+<% List<ImageModel> imageFooter = (List<ImageModel>) ImageDAO.loadImageFooter();%>
 <!--gallery-->
 <section class="section section-gallery">
     <div class="">
@@ -22,36 +25,15 @@
         </div>
         <div class="list-gallery clearfix">
             <ul class="shoes-gp">
+                <%
+                    for (ImageModel listImage : imageFooter) {
+                %>
                 <li>
                     <div class="gallery_item">
-                        <img class="img-resize" src="images/footer/customer1.jpg" alt="">
+                        <img class="img-resize" src="images/footer/<% out.print(listImage.getPhoto());%>" alt="">
                     </div>
                 </li>
-                <li>
-                    <div class="gallery_item">
-                        <img class="img-resize" src="images/footer/customer2.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="gallery_item">
-                        <img class="img-resize" src="images/footer/customer3.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="gallery_item">
-                        <img class="img-resize" src="images/footer/customer4.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="gallery_item">
-                        <img class="img-resize" src="images/footer/customer5.jpg" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="gallery_item">
-                        <img class="img-resize" src="images/footer/customer6.jpg" alt="">
-                    </div>
-                </li>
+                <% }%>
             </ul>
         </div>
     </div>
