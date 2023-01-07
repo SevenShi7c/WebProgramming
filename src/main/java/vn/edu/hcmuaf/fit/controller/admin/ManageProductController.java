@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.controller.admin;
 
 import vn.edu.hcmuaf.fit.constant.SystemConstant;
+import vn.edu.hcmuaf.fit.dao.ProductDAO;
+import vn.edu.hcmuaf.fit.model.ProductModel;
 import vn.edu.hcmuaf.fit.service.CategorySevice;
 import vn.edu.hcmuaf.fit.service.ProductService;
 
@@ -30,6 +32,13 @@ public class ManageProductController extends HttpServlet {
                 request.setAttribute("product", productService.getDetailProduct(idProductParam));
             }
             view = "/view/admin/edit-product.jsp";
+        } else if (SystemConstant.DELETE.equals(typeParam)) {
+            if (idProductParam != null) {
+                System.out.println("delete");
+                ProductDAO.deleteProduct(Integer.parseInt(idProductParam));
+            }
+            request.setAttribute("listProduct", ProductService.getListProduct());
+            view = "/view/admin/manage-product.jsp";
         } else if (typeParam == null) {
             view = "/view/admin/manage-product.jsp";
             request.setAttribute("listProduct", ProductService.getListProduct());
