@@ -17,8 +17,8 @@
 
 <%@include file="../../common/admin/header.jsp" %>
 <!-- Sidebar menu-->
-<% List<ImageModel> imageSlide = (List<ImageModel>) ImageDAO.loadImageSlide();%>
-<% List<ImageModel> imageFooter = (List<ImageModel>) ImageDAO.loadImageFooter();%>
+<% List<ImageModel> listImage = (List<ImageModel>) ImageDAO.loadAllImage();%>
+<%--<% List<ImageModel> imageFooter = (List<ImageModel>) ImageDAO.loadAllImage();%>--%>
 <%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <%--                    in ra tin tức--%>
-                    <% if (imageSlide == null) {
+                    <% if (listImage == null) {
                     %>
                     <div>Chưa có tin tức</div>
                     <%
@@ -69,19 +69,32 @@
                         </thead>
                         <tbody>
                         <%
-                            for (ImageModel listImage : imageSlide) {%>
+                            for (ImageModel list : listImage) {%>
                         <tr>
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td><%=listImage.getId()%>
+                            <td><%=list.getId()%>
                             </td>
-                            <td><%=listImage.getName_photo()%>
+                            <td><%=list.getName_photo()%>
                             </td>
-                            <td><img src="../images/banner/<%=listImage.getPhoto()%>"
-                                     alt="" width="100px;" class="avatar"></td>
+
+                            <td>
+
+                                <img src="<%
+                                if (list.getType() == 1) {
+                                    out.print("../images/banner/"+list.getPhoto());
+                                } else if (list.getType() == 2) {
+                                    out.print("../images/footer/"+list.getPhoto());
+                                }
+                            %>"
+                                     alt="" width="100px;" class="avatar">
+                            </td>
+
 
                             <td><%
-                                if (listImage.getType() == 1) {
+                                if (list.getType() == 1) {
                                     out.print("Ảnh slide");
+                                } else if (list.getType() == 2) {
+                                    out.print("Ảnh footer");
                                 }
                             %></td>
                             <%--              <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>--%>
@@ -95,41 +108,11 @@
                                 </button>
                             </td>
                         </tr>
-                        <%
-                            }%>
-                        <%
-                            for (ImageModel listImage2 : imageFooter) {%>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td><%=listImage2.getId()%>
-                            </td>
-                            <td><%=listImage2.getName_photo()%>
-                            </td>
-                            <td><img src="../images/footer/<%=listImage2.getPhoto()%>"
-                                     alt="" width="100px;" class="avatar"></td>
+                        <%}%>
 
-                            <td><%
-                                if (listImage2.getType() == 2) {
-                                    out.print("Ảnh Footer");
-                                }
-                            %></td>
-                            <%--              <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>--%>
-                            <td>
-                                <%--                                Mai sửa--%>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <%
-                            }%>
                         </tbody>
                     </table>
-                    <%
-                        }%>
+                    <%}%>
 
                 </div>
             </div>
