@@ -6,4 +6,6 @@ public class SystemConstant {
     public static final String EDITBASIC = "edit-basic";
     public static final String ADD = "add";
     public static final String FIND = "find";
+
+    public static final String DELETE = "delete";
 }
