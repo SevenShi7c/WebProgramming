@@ -104,7 +104,7 @@
                             </td>
 
                             <td>
-                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="delete?sid=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="manage-product?type=delete&id-product=<%=product.getId()%>"><i class="fas fa-trash-alt"></i></a>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                                         data-toggle="modal" data-target="#ModalEditProduct"
                                         onclick="editProductBasic(<%=product.getId()%>)"><i class="fas fa-edit"></i>

@@ -1,8 +1,11 @@
 package vn.edu.hcmuaf.fit.dao;
 
+import vn.edu.hcmuaf.fit.db.ConnectToDatabase;
 import vn.edu.hcmuaf.fit.model.BlogModel;
 import vn.edu.hcmuaf.fit.service.BlogService;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -92,7 +95,7 @@ public class BlogDAO extends AbstractDAO {
 
     public BlogModel getDetailBlogForId(String idBlogPram) {
 
-        String sql = "select blog.id, title, briefContent, detail_content, status, blog.avatar, type_blog.name_type_blog, create_date, users.name " +
+        String sql = "select blog.id, title, briefContent, detail_content, status, blog.avatar,id_type_blog, type_blog.name_type_blog, create_date, users.name " +
                 "from blog join users on blog.id_user_create = users.id " +
                 "join type_blog on blog.id_type_blog = type_blog.id " +
                 "where blog.id=?";
@@ -112,8 +115,9 @@ public class BlogDAO extends AbstractDAO {
                             rs.getInt(5),
                             rs.getString(6),
                             rs.getInt(7),
-                            rs.getDate(8),
-                            rs.getString(9)
+
+                            rs.getDate(9),
+                            rs.getString(10)
                     );
                 }
             } catch (SQLException e) {
@@ -170,5 +174,18 @@ public class BlogDAO extends AbstractDAO {
             System.out.println("Connect database error");
         }
         return null;
+    }
+    //  Xóa tin tức
+    public static void deleteBlog(int id) {
+        String sql = "delete from blog where id = ? ";
+        Connection connection = new ConnectToDatabase().getConnect();
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

@@ -2,6 +2,8 @@ package vn.edu.hcmuaf.fit.controller.web;
 
 import vn.edu.hcmuaf.fit.model.CategoryModel;
 import vn.edu.hcmuaf.fit.service.ProductService;
+import vn.edu.hcmuaf.fit.model.ImageModel;
+import vn.edu.hcmuaf.fit.dao.ImageDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -15,7 +17,6 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductService productService = new ProductService();
         List<CategoryModel> listBrand = productService.getListBrand();
-
         getServletContext().setAttribute("listBrand", listBrand);
 
         request.getRequestDispatcher("/view/web/index.jsp").forward(request,response);

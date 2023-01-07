@@ -15,7 +15,7 @@ public class DeleteControler extends HttpServlet {
         ProductDAO dao = new ProductDAO();
 //        dao.deleteProduct(Integer.parseInt(id));
 
-        response.sendRedirect("/PhoneCare_war/admin/manage-product");
+        response.sendRedirect("/PhoneCare_war/admin/manage-product?");
     }
 
     @Override

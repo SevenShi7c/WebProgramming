@@ -2,11 +2,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.BlogService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.*" %>
+<%@ page import="vn.edu.hcmuaf.fit.dao.ImageDAO" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Quản lý sản phẩm | ADMIN</title>
+    <title>Quản lý Image | ADMIN</title>
     <%@include file="../../common/admin/head.jsp" %>
 </head>
 
@@ -15,10 +17,8 @@
 
 <%@include file="../../common/admin/header.jsp" %>
 <!-- Sidebar menu-->
-<%
-    List<BlogModel> listBlog = (List<BlogModel>) request.getAttribute("listBlog");
-
-%>
+<% List<ImageModel> listImage = (List<ImageModel>) ImageDAO.loadAllImage();%>
+<%--<% List<ImageModel> imageFooter = (List<ImageModel>) ImageDAO.loadAllImage();%>--%>
 <%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
@@ -50,50 +50,69 @@
                         </div>
                     </div>
                     <%--                    in ra tin tức--%>
-                    <% if (listBlog == null){
+                    <% if (listImage == null) {
                     %>
                     <div>Chưa có tin tức</div>
                     <%
-                    }else {%>
+                    } else {%>
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
                             <th width="10"><input type="checkbox" id="all"></th>
                             <th>ID</th>
-                            <th>Tiêu đề tin</th>
-                            <th>Người đăng</th>
-                            <th>Loại tin</th>
-                            <th>Trạng thái</th>
+                            <th>Tên ảnh</th>
+                            <th>Ảnh</th>
+                            <th>Loại ảnh</th>
                             <th>Chức năng</th>
+
                         </tr>
                         </thead>
                         <tbody>
                         <%
-                            for (BlogModel blog :
-                                    listBlog ) {%>
+                            for (ImageModel list : listImage) {%>
                         <tr>
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td><%=blog.getId()%></td>
-                            <td><%=blog.getTitle()%></td>
-                            <td><%=blog.getUserCreated()%></td>
-                            <td><%=blog.getTypeBlog()%></td>
-                            <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>
-                            <td>
-                                <%--xóa tin tức--%>
-                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="manage-blog?action=delete&id=<%=blog.getId()%>"><i class="fas fa-trash-alt"></i></a>
+                            <td><%=list.getId()%>
+                            </td>
+                            <td><%=list.getName_photo()%>
+                            </td>
 
+                            <td>
+
+                                <img src="<%
+                                if (list.getType() == 1) {
+                                    out.print("../images/banner/"+list.getPhoto());
+                                } else if (list.getType() == 2) {
+                                    out.print("../images/footer/"+list.getPhoto());
+                                }
+                            %>"
+                                     alt="" width="100px;" class="avatar">
+                            </td>
+
+
+                            <td><%
+                                if (list.getType() == 1) {
+                                    out.print("Ảnh slide");
+                                } else if (list.getType() == 2) {
+                                    out.print("Ảnh footer");
+                                }
+                            %></td>
+                            <%--              <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>--%>
+                            <td>
+                                <%--                                Mai sửa--%>
+                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                                        class="fas fa-trash-alt"></i></button>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
                                         id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
                                         class="fas fa-edit"></i>
                                 </button>
                             </td>
                         </tr>
-                        <%
-                            }%>
+                        <%}%>
+
                         </tbody>
                     </table>
-                    <%
-                        }%>
+                    <%}%>
 
                 </div>
             </div>

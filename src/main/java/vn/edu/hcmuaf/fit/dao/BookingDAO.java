@@ -4,10 +4,9 @@ import vn.edu.hcmuaf.fit.db.ConnectToDatabase;
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.BookingModel;
 import vn.edu.hcmuaf.fit.model.CategoryModel;
+import vn.edu.hcmuaf.fit.model.ProductModel;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -137,7 +136,66 @@ public class BookingDAO implements ObjectDAO {
     public void read() {
 
     }
+    static PreparedStatement statement = null;
+    public static void deleteConfirm(int id) {
+        String sql = "delete from booking where id = ? ";
+        String sql1 = "delete from detail_bookings where id_booking = ?";
+        Connection connection = new ConnectToDatabase().getConnect();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
 
+            statement.executeUpdate();
+            statement = connection.prepareStatement(sql1);
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static BookingModel getBooking(String id){
+        String sql = "SELECT booking.id id,date_booking, id_customer ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
+                "FROM booking join customer on booking.id_customer = customer.id " +
+                "join type_payments t on t.id = booking.id_payment " +
+                "WHERE booking.id= ?";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            BookingModel booking = null;
+            while (rs.next()) {
+                booking = new BookingModel();
+                booking.setId(rs.getString("id"));
+                booking.setDate_booking(rs.getString("date_booking"));
+                booking.setId_customer(rs.getString("id_customer"));
+                booking.setUsername(rs.getString("username"));
+                booking.setId_payment(rs.getString("id_payment"));
+                booking.setNameTypePayment(rs.getString("nameTypePayment"));
+                booking.setStatus_booking(rs.getInt("status_booking"));
+                booking.setDescription(rs.getString("description"));
+                booking.setTel(rs.getString("tel"));
+                System.out.println(rs.getString("id"));
+            }
+            return booking;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static void updateBooking(String id, String date, String desc){
+        String sql = "update booking set date_booking = ?, description = ? where id = ?";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, date);
+            ps.setString(2, desc);
+            ps.setString(3, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static void main(String[] args) {
 //        BookingDAO b = new BookingDAO();
 //        b.addCustomer("Phuoc", "0123", "phuoc@phuoc", "BinhPhuoc");
@@ -149,4 +207,5 @@ public class BookingDAO implements ObjectDAO {
         }
 
     }
+
 }
