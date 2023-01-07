@@ -50,72 +50,26 @@
                         <h2>Bài viết mới nhất</h2>
                     </div>
                     <div class="list-news-latest layered">
+                        <%List<BlogModel> newListBlog = (List<BlogModel>) request.getAttribute("newBlog");%>
+
+                        <%for (BlogModel newblog : newListBlog) {%>
                         <div class="item-article clearfix">
                             <div class="post-image">
                                 <a href="">
-                                    <img src="../../images/blog" alt=""></a>
+                                    <img src="images/blog/<%=newblog.getAvatar()%>" alt=""></a>
                             </div>
                             <div class="post-content">
                                 <h3>
-                                    <a href="list-blog">Cách chụp màn hình Iphone 14 Pro-max</a>
+                                    <a href="list-blog"><%=newblog.getTitle()%>
+                                    </a>
                                 </h3>
-                                <span class="author">
-                    <a href="https://www.facebook.com/profile.php?id=100004489155351">Mạnh Quyền</a>
-                  </span>
-                                <span class="date">
-                    30/10/2002
-                  </span>
+                                <span class="author"><%=newblog.getUserCreated()%></span>
+                                <span class="date"><%=newblog.getCreatedDate()%> </span>
                             </div>
                         </div>
-                        <div class="item-article clearfix">
-                            <div class="post-image">
-                                <a href=""><img src="../../images/blog/iphone-13-pro-loi-man-hinh-xanh.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="list-blog">Iphone 13 Pro lỗi màn hình xanh</a>
-                                </h3>
-                                <span class="author">
-                    <a href="https://www.facebook.com/profile.php?id=100004489155351">Mạnh Quyền</a>
-                  </span>
-                                <span class="date">
-                    29/10/2022
-                  </span>
-                            </div>
-                        </div>
-                        <div class="item-article clearfix">
-                            <div class="post-image">
-                                <a href=""><img src="../../images/blog/cach-bat-thong-bao-sac-day-pin-android.jpg"
-                                                alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="list-blog">Cách bật thông báo sạc day pin android</a>
-                                </h3>
-                                <span class="author">
-                    <a href="https://www.facebook.com/ngdangphuoc/">Admin Phone Care</a>
-                  </span>
-                                <span class="date">
-                    01/11/2022
-                  </span>
-                            </div>
-                        </div>
-                        <div class="item-article clearfix">
-                            <div class="post-image">
-                                <a href=""><img src="../../images/blog/n-4.jpg" alt="Bài viết mẫu"></a>
-                            </div>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="">Bài viết mẫu</a>
-                                </h3>
-                                <span class="author">
-                    <a href="">Phone Care</a>
-                  </span>
-                                <span class="date">
-                    01/11/2022
-                  </span>
-                            </div>
-                        </div>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
                 <div class="menu-blog">

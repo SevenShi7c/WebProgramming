@@ -49,7 +49,7 @@
                                     class="fas fa-trash-alt"></i> Xóa tất cả </a>
                         </div>
                     </div>
-<%--                    in ra tin tức--%>
+                    <%--                    in ra tin tức--%>
                     <% if (listBlog == null){
                     %>
                     <div>Chưa có tin tức</div>
@@ -79,9 +79,9 @@
                             <td><%=blog.getTypeBlog()%></td>
                             <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>
                             <td>
-<%--                                Mai sửa--%>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
+                                <%--xóa tin tức--%>
+                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="manage-blog?action=delete&id=<%=blog.getId()%>"><i class="fas fa-trash-alt"></i></a>
+
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
                                         id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
                                         class="fas fa-edit"></i>

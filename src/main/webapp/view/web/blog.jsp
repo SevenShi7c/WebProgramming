@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 <html>
 
 <head>
-    <%@include file="../../common/web/head.jsp"%>
+    <%@include file="../../common/web/head.jsp" %>
 
     <title>Blog | Phone Care </title>
 </head>
@@ -16,7 +16,7 @@
 <body>
 
 <!--Navbar-->
-<%@include file="../../common/web/header.jsp"%>
+<%@include file="../../common/web/header.jsp" %>
 
 <div class="breadcrumb-shop">
     <div class="container">
@@ -65,7 +65,8 @@
                                 <span class="date"><%=blog.getCreatedDate()%> </span>
                             </div>
                         </div>
-                        <%}
+                        <%
+                            }
                         %>
                     </div>
                 </div>
@@ -227,7 +228,7 @@
     </div>
 </div>
 
-<%@include file="../../common/web/footer.jsp"%>
+<%@include file="../../common/web/footer.jsp" %>
 
 </body>
 
