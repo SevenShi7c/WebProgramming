@@ -28,11 +28,11 @@
           <div class="tile">
             <div class="tile-body">
               <div class="row element-button">
-                <div class="col-sm-2">
+<%--                <div class="col-sm-2">--%>
 
-                  <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới đơn hàng</a>
-                </div>
+<%--                  <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>--%>
+<%--                    Tạo mới đơn hàng</a>--%>
+<%--                </div>--%>
 
 
 <%--                <div class="col-sm-2">--%>
