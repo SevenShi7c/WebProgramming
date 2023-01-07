@@ -1,9 +1,9 @@
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
 <%@ page import="vn.edu.hcmuaf.fit.dao.ProductDAO" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.BlogService" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.*" %>
+<%@ page import="vn.edu.hcmuaf.fit.dao.ImageDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
@@ -14,17 +14,21 @@
 </head>
 <body>
 <% List<ProductModel> newList = (List<ProductModel>) ProductDAO.newProduct();%>
+<% List<ImageModel> imageSlide = (List<ImageModel>) ImageDAO.loadImageSlide();%>
 <!--Navbar-->
 <%@include file="../../common/web/header.jsp" %>
 
 <!-- Owl-Carousel-->
 <div class="owl-carousel owl-theme owl-carousel-setting">
-    <div class="item"><img src="images/banner/banner-mainslide-fastcare-khuyen-mai-1280x542-large.jpg"
-                           class="d-block w-100" alt="..."><img/></div>
-    <div class="item"><img src="images/banner/banner-mainslide-fastcare-thay-man-hinh-1280x542-large.jpg"
-                           class="d-block w-100" alt="..."><img/></div>
-    <div class="item"><img src="images/banner/banner-mainslide-fastcare-pin-bago-1280x542-large.jpg"
-                           class="d-block w-100" alt="..."><img/></div>
+    <%
+        for (ImageModel listImage : imageSlide ) {
+    %>
+    <div class="item">
+        <img src="images/banner/<% out.print(listImage.getPhoto());%>"
+             class="d-block w-100" alt="..."><img/>
+
+    </div>
+    <% }%>
 </div>
 
 <div class="content">
