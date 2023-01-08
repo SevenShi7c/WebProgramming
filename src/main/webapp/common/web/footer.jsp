@@ -188,8 +188,8 @@
 <script src="plugins/uikit-3.13.7/uikit-3.13.7/src/js/uikit-core.js"></script>
 
 <!-- Mini Cart -->
-<script src="js/minicart.min.js"></script>
-<script src="js/validationUser.js"></script>
+<%--<script src="js/minicart.min.js"></script>--%>
+<%--<script src="js/validationUser.js"></script>--%>
 <script>
     paypal.minicart.render({
         action: '#'

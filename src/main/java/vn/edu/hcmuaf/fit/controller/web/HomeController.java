@@ -15,9 +15,7 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductService productService = new ProductService();
-        List<CategoryModel> listBrand = productService.getListBrand();
-        getServletContext().setAttribute("listBrand", listBrand);
+        getServletContext().setAttribute("listBrand", ProductService.getListBrand());
 
         request.getRequestDispatcher("/view/web/index.jsp").forward(request,response);
     }

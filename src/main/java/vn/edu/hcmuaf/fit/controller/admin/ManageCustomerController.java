@@ -19,7 +19,6 @@ public class ManageCustomerController extends HttpServlet {
            if(request.getParameter("action").equals("delete") ){
                CustomerDAO dao = new CustomerDAO();
                dao.deleteCustomer(Integer.parseInt(request.getParameter("id")));
-
            }
        }
         List<CustomerModel> listCustomer = CustomerServices.getCustomer();

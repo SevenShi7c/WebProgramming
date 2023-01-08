@@ -3,14 +3,11 @@ package vn.edu.hcmuaf.fit.controller.admin;
 import vn.edu.hcmuaf.fit.constant.SystemConstant;
 import vn.edu.hcmuaf.fit.model.BookingModel;
 import vn.edu.hcmuaf.fit.service.BookingService;
-import vn.edu.hcmuaf.fit.service.CategorySevice;
-import vn.edu.hcmuaf.fit.service.ProductService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.Timestamp;
 
 @WebServlet(name = "ManageConfirmController", value = "/admin/manage-confirm")
 public class ManageConfirmController extends HttpServlet {
