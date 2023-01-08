@@ -154,6 +154,7 @@ public class BookingDAO implements ObjectDAO {
         }
     }
 
+
     public static BookingModel getBooking(String id){
         String sql = "SELECT booking.id id,date_booking, id_customer ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
                 "FROM booking join customer on booking.id_customer = customer.id " +

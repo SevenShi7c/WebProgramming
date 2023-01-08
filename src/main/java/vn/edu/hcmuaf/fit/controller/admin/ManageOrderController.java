@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.controller.admin;
 
+import vn.edu.hcmuaf.fit.dao.BookingDAO;
 import vn.edu.hcmuaf.fit.model.BlogModel;
 import vn.edu.hcmuaf.fit.model.BookingModel;
 import vn.edu.hcmuaf.fit.service.BlogService;
@@ -15,10 +16,12 @@ import java.util.List;
 public class ManageOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
-
+        if (request.getParameter("type") != null ){
+            if(request.getParameter("type").equals("delete") ){
+                BookingDAO dao = new BookingDAO();
+                dao.deleteConfirm(Integer.parseInt(request.getParameter("id")));
+            }
+        }
 
         List<BookingModel> listBooking1 = BookingService.getListBooking();
         request.setAttribute("listBooking1",listBooking1);
