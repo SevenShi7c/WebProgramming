@@ -1,5 +1,10 @@
 package vn.edu.hcmuaf.fit.controller.web;
 
+import vn.edu.hcmuaf.fit.model.BookingModel;
+import vn.edu.hcmuaf.fit.model.DetailBookingModal;
+import vn.edu.hcmuaf.fit.model.ProductCartModel;
+import vn.edu.hcmuaf.fit.service.CheckoutService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,11 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet(name = "CheckoutController", value = "/checkout")
 public class CheckoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        HashMap<Integer, ProductCartModel> cart = (HashMap<Integer, ProductCartModel>) session.getAttribute("cart");
+        request.setAttribute("cart", cart);
         request.getRequestDispatcher("view/web/checkout.jsp").forward(request, response);
     }
 
@@ -27,13 +37,29 @@ public class CheckoutController extends HttpServlet {
         String payment = request.getParameter("payment");
         String store = request.getParameter("store");
 
+        CheckoutService checkoutService = new CheckoutService();
+        BookingModel booking = new BookingModel();
+        booking.setDate_booking(date + " " + time + ":00");
+        booking.setDescription(description);
+        booking.setId_payment(payment);
+        booking.setStatus_booking(1);
+        booking.setId_customer("1");
+        booking.setTel(tel);
+        booking.setId_payment("1");
+
+        int idInserted = checkoutService.insertBookingCart(booking);
+        System.out.println(idInserted);
         HttpSession session = request.getSession();
-        session.getAttribute("PPMiniCart");
+        HashMap<Integer, ProductCartModel> cart = (HashMap<Integer, ProductCartModel>) session.getAttribute("cart");
 
-        System.out.println(session.getAttribute("PPMiniCart"));
+        boolean checkAddBooking = false;
+        for (Map.Entry<Integer, ProductCartModel> productCart : cart.entrySet()) {
+            DetailBookingModal checkoutDetail = new DetailBookingModal(productCart.getKey(), productCart.getValue().getProductModel().getId(), productCart.getValue().getQuantity());
+            checkAddBooking = CheckoutService.addDetailBooking(idInserted, checkoutDetail);
+        }
 
-
-        System.out.println(name + " " + email + " " + tel + " " + address + " " + time + " " + date + " " + description + " " + payment + " " + store);
+        if (cart != null && checkAddBooking)
+            session.removeAttribute("cart");
         response.sendRedirect("cart");
     }
 }
