@@ -20,6 +20,7 @@ public class ManageProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String typeParam = request.getParameter("type");
         String idProductParam = request.getParameter("id-product");
+        int idProduct = Integer.parseInt(request.getParameter("id-product"));
         String view = "";
         ProductService productService = new ProductService();
 
@@ -29,7 +30,7 @@ public class ManageProductController extends HttpServlet {
             view = "/view/admin/add-product.jsp";
         } else if (SystemConstant.EDIT.equals(typeParam)) {
             if (idProductParam != null) {
-                request.setAttribute("product", productService.getDetailProduct(idProductParam));
+                request.setAttribute("product", productService.getDetailProduct(idProduct));
             }
             view = "/view/admin/edit-product.jsp";
         } else if (SystemConstant.DELETE.equals(typeParam)) {

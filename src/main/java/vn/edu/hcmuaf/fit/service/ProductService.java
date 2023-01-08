@@ -25,7 +25,7 @@ public class ProductService {
     }
 
 
-    public ProductModel getDetailProduct(String idProduct) {
+    public static ProductModel getDetailProduct(int idProduct) {
         return ProductDAO.getDetailProduct(idProduct);
     }
 

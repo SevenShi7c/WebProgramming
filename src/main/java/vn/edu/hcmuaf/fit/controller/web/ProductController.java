@@ -1,6 +1,5 @@
 package vn.edu.hcmuaf.fit.controller.web;
 
-import vn.edu.hcmuaf.fit.model.CategoryModel;
 import vn.edu.hcmuaf.fit.model.ProductModel;
 import vn.edu.hcmuaf.fit.service.ProductService;
 
@@ -31,6 +30,6 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println(true);
     }
 }
