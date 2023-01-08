@@ -1,3 +1,5 @@
+package vn.edu.hcmuaf.fit.controller.admin;
+
 import vn.edu.hcmuaf.fit.constant.SystemConstant;
 import vn.edu.hcmuaf.fit.dao.BlogDAO;
 import vn.edu.hcmuaf.fit.dao.CustomerDAO;
