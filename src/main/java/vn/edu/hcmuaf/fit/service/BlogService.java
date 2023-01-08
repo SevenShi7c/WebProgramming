@@ -27,12 +27,8 @@ public class BlogService {
 
 
 
-    public static BlogModel getDetailBlogForId(String idBlogPram) {
-        return BlogDAO.getDetailBlogForId(idBlogPram);
-    }
-
-    public static void updateBlog(String id, String title, String brief, String detail){
-            BlogDAO.update(id, title, brief, detail);
+    public BlogModel getDetailBlogForId(String idBlogPram) {
+        return blogDAO.getDetailBlogForId(idBlogPram);
     }
 
     public static void main(String[] args) {
