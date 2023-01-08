@@ -1,8 +1,5 @@
 package vn.edu.hcmuaf.fit.model;
 
-import vn.edu.hcmuaf.fit.dao.BlogDAO;
-import vn.edu.hcmuaf.fit.dao.BookingDAO;
-
 import java.sql.Date;
 
 public class BlogModel {
@@ -86,10 +83,5 @@ public class BlogModel {
                 ", createdDate=" + createdDate +
                 ", userCreate=" + userCreate +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        BlogModel blog = BlogDAO.getDetailBlogForId(2+"");
-        System.out.println(blog);
     }
 }

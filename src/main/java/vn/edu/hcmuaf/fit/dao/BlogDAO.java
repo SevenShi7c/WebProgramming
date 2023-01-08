@@ -1,7 +1,6 @@
 package vn.edu.hcmuaf.fit.dao;
 
 import vn.edu.hcmuaf.fit.db.ConnectToDatabase;
-import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.BlogModel;
 import vn.edu.hcmuaf.fit.service.BlogService;
 
@@ -94,7 +93,7 @@ public class BlogDAO extends AbstractDAO {
         return null;
     }
 
-    public static BlogModel getDetailBlogForId(String idBlogPram) {
+    public BlogModel getDetailBlogForId(String idBlogPram) {
 
         String sql = "select blog.id, title, briefContent, detail_content, status, blog.avatar,id_type_blog, type_blog.name_type_blog, create_date, users.name " +
                 "from blog join users on blog.id_user_create = users.id " +
@@ -109,14 +108,14 @@ public class BlogDAO extends AbstractDAO {
                 ps.setString(1, idBlogPram);
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                    return new BlogModel(
-                            rs.getInt(1),
+                    return new BlogModel(rs.getInt(1),
                             rs.getString(2),
                             rs.getString(3),
                             rs.getString(4),
                             rs.getInt(5),
                             rs.getString(6),
                             rs.getInt(7),
+
                             rs.getDate(9),
                             rs.getString(10)
                     );
@@ -140,10 +139,9 @@ public class BlogDAO extends AbstractDAO {
     public static List<BlogModel> getBlogAdmin() {
         LinkedList<BlogModel> list = new LinkedList<BlogModel>();
 
-        String sql = "select blog.id, title, briefContent, detail_content, status, blog.avatar,id_type_blog, type_blog.name_type_blog, create_date, users.name " +
+        String sql = "select blog.id, title, briefContent,blog.avatar, users.name, create_date " +
                 "from blog join users on blog.id_user_create = users.id " +
-                "join type_blog on blog.id_type_blog = type_blog.id "+
-                "order by id desc limit 4";
+                "order by id desc limit 3";
 
         conn = getConnection();
 
@@ -152,16 +150,12 @@ public class BlogDAO extends AbstractDAO {
                 ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                    list.add(new BlogModel(
-                            rs.getInt(1),
+                    list.add(new BlogModel(rs.getInt(1),
                             rs.getString(2),
                             rs.getString(3),
                             rs.getString(4),
-                            rs.getInt(5),
-                            rs.getString(6),
-                            rs.getInt(7),
-                            rs.getDate(9),
-                            rs.getString(10)
+                            rs.getString(5),
+                            rs.getDate(6)
                     ));
                 }
                 return list;
@@ -194,20 +188,4 @@ public class BlogDAO extends AbstractDAO {
         }
 
     }
-
-    public static void update(String id, String title, String brief, String detail){
-        String sql = "update blog set title = ?, briefContent = ?,detail_content = ? where id = ?";
-        try {
-            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
-            ps.setString(1, title);
-            ps.setString(2, brief);
-            ps.setString(3, detail);
-            ps.setString(4, id);
-            ps.executeUpdate();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
 }
