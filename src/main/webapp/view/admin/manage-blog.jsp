@@ -80,11 +80,11 @@
                             <td><%=blog.getUserCreated()%></td>
                             <td>
                                 <%--xóa tin tức--%>
-                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="manage-blog?action=delete&id=<%=blog.getId()%>"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                   href="manage-blog?action=delete&id=<%=blog.getId()%>"><i class="fas fa-trash-alt"></i></a>
 
                                     <%-- sua tin tuc--%>
-                                    <a href="manage-blog?action=edit-blog&id-blog=<%=blog.getId()%>
-                     ">
+                                    <a href="manage-blog?action=edit-blog&id-blog=<%=blog.getId()%>               ">
                                         <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
                                                 id="show-confirm"
                                                 data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-edit"></i>

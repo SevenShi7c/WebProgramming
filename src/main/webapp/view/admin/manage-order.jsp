@@ -83,14 +83,14 @@
                       </select>
                     </td>
                     <td name="description"><%=booking.getDescription()%></td>
-
+                  <td>
 <%--                    xóa sửa--%>
-                    <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                       href="manage-order?action=delete%id=<%=booking.getId()%>"><i
-                            class="fas fa-trash-alt"></i></a>
+  <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+     href="manage-order?type=delete&id=<%=booking.getId()%>"><i class="fas fa-trash-alt"></i></a>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                               data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
                       </button>
+                  </td>
                   </tr>
                 <%}%>
                 </tbody>
