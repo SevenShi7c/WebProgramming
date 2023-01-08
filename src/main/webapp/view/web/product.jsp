@@ -1,12 +1,12 @@
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel"  %><%--
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %><%--
   Created by IntelliJ IDEA.
   User: vutru
   Date: 12/8/2022
   Time: 1:18 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@include file="../../common/taglib.jsp" %>
 
 <!DOCTYPE html>
@@ -21,7 +21,10 @@
 <body>
 
 <%@include file="../../common/web/header.jsp" %>
-<%String checkTagBrand = (String) request.getParameter("brand");%>
+<%
+    String checkTagBrand = (String) request.getParameter("brand");
+
+%>
 
 <div class="breadcrumb-shop">
     <div class="container">
@@ -83,16 +86,16 @@
                                                 <div class="collapse" id="collapseExample">
                                                     <div class="card card-body" style="border:0;padding-top:0;">
                                                         <ul class="menu-product">
-                                                            <%
-                                                                for (CategoryModel brand : listBrand) {
-                                                            %>
-                                                            <li class="px-2 <%=brand.getName().toLowerCase().equalsIgnoreCase(checkTagBrand)?"active":""%>">
-                                                                <a href="category?brand=<%=brand.getName().toLowerCase()%>"
-                                                                   title="Sửa điện thoại <%=brand.getName()%>">
-                                                                    Sửa điện thoại <%=brand.getName()%>
-                                                                </a>
-                                                            </li>
-                                                            <% }%>
+                                                            <%--                                                            <%--%>
+                                                            <%--                                                                for (CategoryModel brand : listBrand) {--%>
+                                                            <%--                                                            %>--%>
+                                                            <%--                                                            <li class="px-2 <%=brand.getName().toLowerCase().equalsIgnoreCase(checkTagBrand)?"active":""%>">--%>
+                                                            <%--                                                                <a href="category?brand=<%=brand.getName().toLowerCase()%>"--%>
+                                                            <%--                                                                   title="Sửa điện thoại <%=brand.getName()%>">--%>
+                                                            <%--                                                                    Sửa điện thoại <%=brand.getName()%>--%>
+                                                            <%--                                                                </a>--%>
+                                                            <%--                                                            </li>--%>
+                                                            <%--                                                            <% }%>--%>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -340,11 +343,11 @@
                             </a>
                         </div>
                         <div class="product-detail clearfix">
-                            <form class="mini-cart">
+                            <form class="mini-cart" action="${pageContext.request.contextPath}/cart?action=add-to-cart" method="post">
                                 <fieldset>
                                     <input type="hidden" name="cmd" value="_cart">
                                     <input type="hidden" name="add" value="1">
-                                    <input type="hidden" name="business" value=" ">
+                                    <input type="hidden" name="business" value="">
                                     <input type="hidden" name="image" value="<%=product.getAvatar()%>">
                                     <input type="hidden" name="item_name" value="<%=product.getName()%>">
                                     <input type="hidden" name="amount" value="<%=product.getPrice()%>">
@@ -353,8 +356,9 @@
                                     <input type="hidden" name="id_item" value="<%=product.getId()%>">
                                     <input type="hidden" name="return" value=" ">
                                     <input type="hidden" name="cancel_return" value=" ">
-                                    <button class="btn btn-cart"><i class="icon-header fas fa-shopping-cart"
-                                                                    aria-hidden="true" onclick="addBtnCart()"></i>
+                                    <button class="btn btn-cart" type="submit"><i
+                                            class="icon-header fas fa-shopping-cart"
+                                            aria-hidden="true" onclick="addBtnCart()"></i>
                                     </button>
                                 </fieldset>
                             </form>
@@ -387,7 +391,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center justify-content-center">
                         <button class="btn btn-prev-slider">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                 x="0px"
                                  y="0px" viewBox="0 0 31 10"
                                  style="enable-background:new 0 0 31 10; width: 31px; height: 10px;"
                                  xml:space="preserve">
@@ -397,12 +401,19 @@
                         <ul class="list_page">
 
                         </ul>
-                        <button class="btn btn-next-slider">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                 y="0px" viewBox="0 0 31 10"
-                                 style="enable-background:new 0 0 31 10; width: 31px; height: 10px;"
-                                 xml:space="preserve">
+                        <
+                        button
+                        class="
+                        btn btn-next-slider">
+                        <svg
+                                version="
+                    1.1" xmlns="
+                    http://www.w3.org/2000/svg"
+                                x="0px"
+                                y="0px
+                    " viewBox="0 0 31 10"
+                                style="enable-background:new 0 0 31 10; width: 31px; height: 10px;"
+                                xml:space="preserve">
                   <polygon points="31,5 25,0 25,4 0,4 0,6 25,6 25,10 "></polygon>
                 </svg>
                         </button>

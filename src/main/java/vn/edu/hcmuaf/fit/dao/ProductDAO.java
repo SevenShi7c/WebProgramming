@@ -81,12 +81,12 @@ public class ProductDAO {
     }
 
 
-    public static ProductModel getDetailProduct(String idProduct) {
+    public static ProductModel getDetailProduct(int idProduct) {
 
         String sql = "select * from products " + "where id= ?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
-            ps.setString(1, idProduct);
+            ps.setInt(1, idProduct);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
