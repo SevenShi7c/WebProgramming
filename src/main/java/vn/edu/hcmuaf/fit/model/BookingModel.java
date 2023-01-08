@@ -1,13 +1,10 @@
 package vn.edu.hcmuaf.fit.model;
 
-
 import java.util.Date;
 
 public class BookingModel {
     private String id;
     private String date_booking;
-
-    private java.util.Date datetime_booking;
     private String id_customer;
     private String id_payment;
     private String description;
@@ -32,9 +29,9 @@ public class BookingModel {
         this.nameTypePayment = nameTypePayment;
     }
 
-    public BookingModel(String id, Date datetime_booking, String id_customer, String id_payment, String description, int status_booking, String username, String nameTypePayment, String tel) {
+    public BookingModel(String id, String date_booking, String id_customer, String id_payment, String description, int status_booking, String username, String nameTypePayment, String tel) {
         this.id = id;
-        this.datetime_booking = datetime_booking;
+        this.date_booking = date_booking;
         this.id_customer = id_customer;
         this.id_payment = id_payment;
         this.description = description;
@@ -114,14 +111,6 @@ public class BookingModel {
 
     public void setTel(String tel) {
         this.tel = tel;
-    }
-
-    public Date getDatetime_booking() {
-        return datetime_booking;
-    }
-
-    public void setDatetime_booking(Date datetime_booking) {
-        this.datetime_booking = datetime_booking;
     }
 
     @Override

@@ -35,7 +35,7 @@ public class DBConnect {
     public PreparedStatement preStatement(String sql){
         if (conn==null) return null;
         try {
-            return conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            return conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

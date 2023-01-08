@@ -79,14 +79,7 @@
                             <%}%>
 
                             <!-- The dots/circles -->
-                            <div style="text-align:center" class="dots">
-
-                                <%--                                for (let i = 0; i < cart.length; i++) {--%>
-                                <%--                                htmlItemm += `--%>
-                                <%--                                <span class="dot" onclick="currentSlide(${i+1})"></span>--%>
-                                <%--                                `--%>
-                                <%--                                }--%>
-                            </div>
+                            <div style="text-align:center" class="dots"></div>
 
                         </div>
 

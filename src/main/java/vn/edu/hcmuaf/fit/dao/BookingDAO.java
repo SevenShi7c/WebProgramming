@@ -239,8 +239,6 @@ public class BookingDAO implements ObjectDAO {
             System.out.println(b.getUsername());
         }
 
-
-
     }
 
 }
