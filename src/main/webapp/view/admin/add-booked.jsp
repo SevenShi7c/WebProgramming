@@ -119,42 +119,38 @@
             <div class="tile">
                 <h3 class="tile-title">Tạo mới đặt lịch</h3>
                 <div class="tile-body">
-                    <div class="row element-button">
-                        <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i
-                                    class="fas fa-folder-plus"></i> Thêm thương hiệu</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i
-                                    class="fas fa-folder-plus"></i> Thêm danh mục</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i
-                                    class="fas fa-folder-plus"></i> Thêm tình trạng</a>
-                        </div>
-                    </div>
+<%--                    <div class="row element-button">--%>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i--%>
+<%--                                    class="fas fa-folder-plus"></i> Thêm thương hiệu</a>--%>
+<%--                        </div>--%>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i--%>
+<%--                                    class="fas fa-folder-plus"></i> Thêm danh mục</a>--%>
+<%--                        </div>--%>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i--%>
+<%--                                    class="fas fa-folder-plus"></i> Thêm tình trạng</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <form class="row">
                         <div class="form-group col-md-3">
                             <label class="control-label">ID </label>
                             <input class="form-control" type="number" placeholder="">
                         </div>
                         <div class="form-group col-md-3">
-                            <label class="control-label">Tên sản phẩm</label>
+                            <label class="control-label">Tên người đặt</label>
                             <input class="form-control" type="text">
                         </div>
 
 
                         <div class="form-group  col-md-3">
-                            <label class="control-label">Số lượng</label>
+                            <label class="control-label">Điện thoại</label>
                             <input class="form-control" type="number">
                         </div>
                         <div class="form-group  col-md-3">
-                            <label class="control-label">Ngày hẹn</label>
+                            <label class="control-label">Ngày đặt</label>
                             <input class="form-control" type="date">
-                        </div>
-                        <div class="form-group  col-md-3">
-                            <label class="control-label">Cửa hàng</label>
-                            <input class="form-control" type="text">
                         </div>
                         <div class="form-group col-md-3 ">
                             <label for="exampleSelect1" class="control-label">Tình trạng</label>
@@ -164,46 +160,6 @@
                                 <option>Đã thanh toán</option>
                                 <option>Đã hủy</option>
                             </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="exampleSelect1" class="control-label">Danh mục</label>
-                            <select class="form-control" id="exampleSelect1">
-                                <option>Thay dây nguồn</option>
-                                <option>Thay vỏ</option>
-                                <option>Thay mặt kính</option>
-                                <option>Thay pin</option>
-                                <option>Thay chân sạc</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3 ">
-                            <label for="exampleSelect1" class="control-label">Thương hiệu</label>
-                            <select class="form-control" id="exampleSelect1">
-                                <option>-- Chọn thương hiệu --</option>
-                                <option>Iphone</option>
-                                <option>Samsung</option>
-                                <option>Xiaomi</option>
-                                <option>Khác</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label class="control-label">Tổng tiền</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label class="control-label">Ảnh sản phẩm</label>
-                            <div id="myfileupload">
-                                <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);"/>
-                            </div>
-                            <div id="thumbbox">
-                                <img height="450" width="400" alt="Thumb image" id="thumbimage" style="display: none"/>
-                                <a class="removeimg" href="javascript:"></a>
-                            </div>
-                            <div id="boxchoice">
-                                <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i> Chọn
-                                    ảnh</a>
-                                <p style="clear:both"></p>
-                            </div>
-
                         </div>
                         <div class="form-group col-md-12">
                             <label class="control-label">Mô tả sản phẩm</label>

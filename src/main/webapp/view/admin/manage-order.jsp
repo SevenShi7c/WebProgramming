@@ -21,22 +21,24 @@
         </ul>
         <div id="clock"></div>
       </div>
+
+
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
               <div class="row element-button">
-                <div class="col-sm-2">
+<%--                <div class="col-sm-2">--%>
 
-                  <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới đơn hàng</a>
-                </div>
+<%--                  <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>--%>
+<%--                    Tạo mới đơn hàng</a>--%>
+<%--                </div>--%>
 
 
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                      class="fas fa-print"></i> In dữ liệu</a>
-                </div>
+<%--                <div class="col-sm-2">--%>
+<%--                  <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i--%>
+<%--                      class="fas fa-print"></i> In dữ liệu</a>--%>
+<%--                </div>--%>
 
                 <div class="col-sm-2">
                   <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i

@@ -39,10 +39,10 @@
                                 Tạo mới</a>
                         </div>
 
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"
-                               onclick="myApp.printTable()"><i class="fas fa-print"></i> In dữ liệu</a>
-                        </div>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"--%>
+<%--                               onclick="myApp.printTable()"><i class="fas fa-print"></i> In dữ liệu</a>--%>
+<%--                        </div>--%>
 
                         <div class="col-sm-2">
                             <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
@@ -61,9 +61,9 @@
                             <th width="10"><input type="checkbox" id="all"></th>
                             <th>ID</th>
                             <th>Tiêu đề tin</th>
+                            <th>Nội dung tóm tắt</th>
+                            <th>Nội dung chi tiết</th>
                             <th>Người đăng</th>
-                            <th>Loại tin</th>
-                            <th>Trạng thái</th>
                             <th>Chức năng</th>
                         </tr>
                         </thead>
@@ -75,17 +75,21 @@
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                             <td><%=blog.getId()%></td>
                             <td><%=blog.getTitle()%></td>
+                            <td><%=blog.getBriefContent()%></td>
+                            <td><%=blog.getDetailContent()%></td>
                             <td><%=blog.getUserCreated()%></td>
-                            <td><%=blog.getTypeBlog()%></td>
-                            <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>
                             <td>
                                 <%--xóa tin tức--%>
                                 <a class="btn btn-primary btn-sm trash" type="button" title="Xóa" href="manage-blog?action=delete&id=<%=blog.getId()%>"><i class="fas fa-trash-alt"></i></a>
 
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
+                                    <%-- sua tin tuc--%>
+                                    <a href="manage-blog?action=edit-blog&id-blog=<%=blog.getId()%>
+                     ">
+                                        <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                                id="show-confirm"
+                                                data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-edit"></i>
+                                        </button>
+                                    </a>
                             </td>
                         </tr>
                         <%
