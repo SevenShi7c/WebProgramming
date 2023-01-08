@@ -17,6 +17,9 @@ public class BookingService {
     public static BookingModel getConfirm(String id) {
         return BookingDAO.getBooking(id);
     }
+    public  static List<BookingModel> getListBooking(){
+           return BookingDAO.getListBooking();
+    }
 
     public static void updateConfirm(String id,String date,String desc){
         BookingDAO.updateBooking(id,date,desc);

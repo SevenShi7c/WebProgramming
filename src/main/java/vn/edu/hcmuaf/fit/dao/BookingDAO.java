@@ -196,6 +196,38 @@ public class BookingDAO implements ObjectDAO {
             throw new RuntimeException(e);
         }
     }
+    public static List<BookingModel> getListBooking() {
+        LinkedList<BookingModel> list = new LinkedList<>();
+
+        String sql = "SELECT booking.id id,date_booking, id_customer ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
+                "FROM booking join customer on booking.id_customer = customer.id " +
+                "join type_payments t on t.id = booking.id_payment " +
+                "order by id desc ";
+        try {
+
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                BookingModel booking = new BookingModel();
+                booking.setId(rs.getString("id"));
+                booking.setDate_booking(rs.getString("date_booking"));
+                booking.setId_customer(rs.getString("id_customer"));
+                booking.setUsername(rs.getString("username"));
+                booking.setId_payment(rs.getString("id_payment"));
+                booking.setNameTypePayment(rs.getString("nameTypePayment"));
+                booking.setStatus_booking(rs.getInt("status_booking"));
+                booking.setDescription(rs.getString("description"));
+                booking.setTel(rs.getString("tel"));
+
+                list.add(booking);
+            }
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void main(String[] args) {
 //        BookingDAO b = new BookingDAO();
 //        b.addCustomer("Phuoc", "0123", "phuoc@phuoc", "BinhPhuoc");
@@ -205,6 +237,8 @@ public class BookingDAO implements ObjectDAO {
                 BookingDAO.getListBooking(1)) {
             System.out.println(b.getUsername());
         }
+
+
 
     }
 
