@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductDAO {
+
     public static List<ProductModel> findAll() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
