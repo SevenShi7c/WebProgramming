@@ -7,7 +7,7 @@ import vn.edu.hcmuaf.fit.model.ProductModel;
 import java.util.List;
 
 public class ProductService {
-    public List<CategoryModel> getListBrand() {
+    public static List<CategoryModel> getListBrand() {
         return ProductDAO.getListBrand();
     }
 
@@ -24,8 +24,16 @@ public class ProductService {
         return ProductDAO.getDifferentProduct();
     }
 
+    public static boolean insertTypeProduct(String name) {
+        return ProductDAO.insertTypeProduct(name);
+    }
 
-    public ProductModel getDetailProduct(String idProduct) {
+    public static boolean insertBrand(String name) {
+        return ProductDAO.insertBrand(name);
+    }
+
+
+    public static ProductModel getDetailProduct(String idProduct) {
         return ProductDAO.getDetailProduct(idProduct);
     }
 

@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "CheckoutController", value = "/checkout")
@@ -25,6 +26,12 @@ public class CheckoutController extends HttpServlet {
         String description = request.getParameter("description");
         String payment = request.getParameter("payment");
         String store = request.getParameter("store");
+
+        HttpSession session = request.getSession();
+        session.getAttribute("PPMiniCart");
+
+        System.out.println(session.getAttribute("PPMiniCart"));
+
 
         System.out.println(name + " " + email + " " + tel + " " + address + " " + time + " " + date + " " + description + " " + payment + " " + store);
         response.sendRedirect("cart");

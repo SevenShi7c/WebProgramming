@@ -236,6 +236,37 @@ public class ProductDAO {
             throw new RuntimeException(ex);
         }
     }
+
+    public static boolean insertBrand(String name) {
+        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
+
+        String sql = "Insert into brand values (null,?)";
+
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public static boolean insertTypeProduct(String name) {
+        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
+
+        String sql = "Insert into type_products values (null,?)";
+
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(ProductDAO.getDifferentProduct());
 //        System.out.println(ProductDAO.updateProduct(2, "Thay cụm đuôi sạc Samsung Galaxy A02 A022F","thay-cum-duoi-sac-samsung-galaxy-a02-a022f_1667623123.png",4,1,1,  500000,100,"test", 1));
