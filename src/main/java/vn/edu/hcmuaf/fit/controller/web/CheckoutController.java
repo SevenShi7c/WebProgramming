@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.controller.web;
 import vn.edu.hcmuaf.fit.model.BookingModel;
 import vn.edu.hcmuaf.fit.model.DetailBookingModal;
 import vn.edu.hcmuaf.fit.model.ProductCartModel;
+import vn.edu.hcmuaf.fit.model.User;
 import vn.edu.hcmuaf.fit.service.CheckoutService;
 
 import javax.servlet.ServletException;
@@ -37,19 +38,26 @@ public class CheckoutController extends HttpServlet {
         String payment = request.getParameter("payment");
         String store = request.getParameter("store");
 
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("userlogin");
         CheckoutService checkoutService = new CheckoutService();
         BookingModel booking = new BookingModel();
+        if (user != null) {
+            booking.setid_user("1");
+        }
+        booking.setStatus_booking(0);
+        booking.setUsername(name);
+        booking.setEmail(email);
+        booking.setTel(tel);
+        booking.setAddress(address);
         booking.setDate_booking(date + " " + time + ":00");
         booking.setDescription(description);
         booking.setId_payment(payment);
-        booking.setStatus_booking(1);
-        booking.setId_customer("1");
-        booking.setTel(tel);
-        booking.setId_payment("1");
-
         int idInserted = checkoutService.insertBookingCart(booking);
-        System.out.println(idInserted);
-        HttpSession session = request.getSession();
+        if (idInserted > 0) {
+            session.setAttribute("mess", "success");
+        }
+
         HashMap<Integer, ProductCartModel> cart = (HashMap<Integer, ProductCartModel>) session.getAttribute("cart");
 
         boolean checkAddBooking = false;

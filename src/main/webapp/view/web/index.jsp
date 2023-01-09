@@ -190,9 +190,8 @@
     </div>
     <!--New-->
     <div>
-
         <div class="container" style="width: 100%;margin: auto;">
-            <div class="owl-carousel owl-theme owl-product-setting">
+<%--            <div class="owl-carousel owl-theme owl-product-setting">--%>
                 <%
                     BlogService blogService = new BlogService();
                     List<BlogModel> newListBlog = (List<BlogModel>) blogService.getNewBlog();
@@ -229,7 +228,7 @@
                 </div>
                 <%
                     }%>
-            </div>
+<%--            </div>--%>
         </div>
     </div>
     </div>

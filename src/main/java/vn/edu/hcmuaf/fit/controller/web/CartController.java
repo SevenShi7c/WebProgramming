@@ -113,9 +113,4 @@ public class CartController extends HttpServlet {
         }
     }
 
-//    private void insertItemIntoCart(ProductCartModel productCartModel, ProductModel productModel, HashMap<Integer, ProductCartModel> cart, int id, int quantity) {
-//        productCartModel = new ProductCartModel(quantity, productModel);
-//        cart.put(id, productCartModel);
-//    }
-
 }

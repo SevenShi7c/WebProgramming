@@ -13,20 +13,24 @@ public class CheckoutDAO implements ObjectDAO {
     public int addBooking(Object obj) {
         BookingModel booking = (BookingModel) obj;
         String sql = "INSERT INTO booking " +
-                "VALUES (NULL, ?, ?, ?,?,?)";
+                "VALUES (NULL, ?, ?, ?,?,?,?,?,?,?)";
         PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
         try {
             ps.setString(1, booking.getDate_booking());
-            ps.setString(2, booking.getId_customer());
+
+            ps.setString(2,booking.getid_user());
             ps.setString(3, booking.getId_payment());
             ps.setString(4, booking.getDescription());
-            ps.setInt(5, 1);
+            ps.setString(5, "1");
+            ps.setString(6, booking.getUsername());
+            ps.setString(7, booking.getEmail());
+            ps.setString(8, booking.getTel());
+            ps.setString(9, booking.getAddress());
 
             ps.executeUpdate();
             ResultSet idInserted = ps.getGeneratedKeys();
 
             if (idInserted.next()){
-                System.out.println(idInserted.getInt(1));
                 return idInserted.getInt(1);
             }
         } catch (
@@ -80,8 +84,12 @@ public class CheckoutDAO implements ObjectDAO {
         booking.setDate_booking("2023-12-01 00:12:00");
         booking.setDescription("nè há");
         booking.setId_payment("1");
-        booking.setId_customer("1");
+        booking.setid_user("1");
         booking.setStatus_booking(1);
+        booking.setUsername("Test");
+        booking.setEmail("test@gmail.com");
+        booking.setTel("123467889");
+        booking.setAddress("tphcm");
         int t = new CheckoutDAO().addBooking(booking);
 
         System.out.println(t);

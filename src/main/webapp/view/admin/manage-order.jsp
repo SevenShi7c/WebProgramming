@@ -19,7 +19,7 @@
     <main class="app-content">
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-          <li class="breadcrumb-item"><a href="manage-order.jsp">Quản lý đơn hàng</a></li>
+          <li class="breadcrumb-item"><a href="manage-order">Quản lý đơn hàng</a></li>
           <li class="breadcrumb-item"><a href="#">Danh sách đơn hàng</a></li>
         </ul>
         <div id="clock"></div>
@@ -85,6 +85,8 @@
                     <td name="description"><%=booking.getDescription()%></td>
                   <td>
 <%--                    xóa sửa--%>
+  <a class="btn btn-primary btn-sm warning" type="button" title="Danh sách"
+     href="manage-order?type=list&id-booking=<%=booking.getId()%>"><i class="fas fa-folder"></i></a>
   <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
      href="manage-order?type=delete&id=<%=booking.getId()%>"><i class="fas fa-trash-alt"></i></a>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
@@ -147,7 +149,7 @@ MODAL
             </div>
           </div>
           <BR>
-          <a href="edit-order.jsp" style="    float: right;
+          <a href="edit-order" style="    float: right;
         font-weight: 600;
         color: #ea0000;">Chỉnh sửa nâng cao</a>
           <BR>

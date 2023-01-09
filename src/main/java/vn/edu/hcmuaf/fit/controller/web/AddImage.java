@@ -35,7 +35,7 @@ public class AddImage extends HttpServlet {
         String imageFileName = file.getSubmittedFileName();  // get selected image file name
         System.out.println("Selected Image File Name : " + imageFileName);
 
-        String uploadPath = "E:/WebProgramming/target/PhoneCare/images/user/" + imageFileName;  // upload path where we have to upload our actual image
+        String uploadPath = request.getContextPath()+"/images/user/" + imageFileName;  // upload path where we have to upload our actual image
         System.out.println("Upload Path : " + uploadPath);
 
         // Uploading our selected image into the images folder

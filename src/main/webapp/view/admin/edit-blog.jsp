@@ -183,9 +183,10 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label class="control-label">Nội dung chi tiết</label>
-                            <textarea  id="input" class="form-control" rows="3"
+                            <textarea  id="detail" class="form-control" rows="3"
                                       required="required"
                                       name="detail"><%= blog == null ? "" : blog.getDetailContent() %></textarea>
+                            <script>CKEDITOR.replace('detail');</script>
 
                         </div>
                         <input class="btn btn-save" type="submit" value="Lưu lại" onclick="save()"></input>

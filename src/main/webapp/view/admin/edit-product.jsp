@@ -90,20 +90,20 @@
                 <div class="tile-body">
                     <form action="<%=pageContextPath%>/admin/manage-product?type=edit&id-product=<%=product.getId()%>"
                           method="post" enctype="multipart/form-data">
-<%--                        <div class="row element-button">--%>
-<%--                            <div class="col-sm-2">--%>
-<%--                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i--%>
-<%--                                        class="fas fa-folder-plus"></i> Thêm thương hiệu</a>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-sm-2">--%>
-<%--                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i--%>
-<%--                                        class="fas fa-folder-plus"></i> Thêm danh mục</a>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-sm-2">--%>
-<%--                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i--%>
-<%--                                        class="fas fa-folder-plus"></i> Thêm tình trạng</a>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
+                        <div class="row element-button">
+                            <div class="col-sm-2">
+                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i
+                                        class="fas fa-folder-plus"></i> Thêm thương hiệu</a>
+                            </div>
+                            <div class="col-sm-2">
+                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#adddanhmuc"><i
+                                        class="fas fa-folder-plus"></i> Thêm danh mục</a>
+                            </div>
+                            <div class="col-sm-2">
+                                <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#addtinhtrang"><i
+                                        class="fas fa-folder-plus"></i> Thêm tình trạng</a>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label class="control-label">Mã sản phẩm </label>
@@ -191,17 +191,19 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label">Ảnh sản phẩm</label>
                                 <div id="myfileupload">
-                                    <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this)"/>
-                                    <input type="hidden" name="avatar" value="../images/product/<%=product.getAvatar()%>" class="avatar">
+                                    <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this)"
+                                           value="<%=product.getAvatar()%>"/>
+                                    <input type="hidden" name="avatar"
+                                           value="../images/product/<%=product.getAvatar()%>" class="avatar">
                                 </div>
                                 <div id="thumbbox">
-                                    <img height="450" width="400" alt="Thumb image" id="thumbimage" src="../images/product/<%=product.getAvatar()%>"/>
+                                    <img height="450" width="400" alt="Thumb image" id="thumbimage"
+                                         src="../images/product/<%=product.getAvatar()%>"/>
                                     <a class="removeimg" href="javascript:"></a>
                                 </div>
                                 <div id="boxchoice">
                                     <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
-                                        Chọn
-                                        ảnh</a>
+                                        Chọn ảnh</a>
                                     <p style="clear:both"></p>
                                 </div>
                             </div>
@@ -285,6 +287,8 @@ MODAL BRAND
                 <div class="modal-footer">
                 </div>
             </form>
+
+
         </div>
     </div>
 </div>

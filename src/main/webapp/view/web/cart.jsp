@@ -17,6 +17,7 @@
 <%@include file="../../common/web/header.jsp" %>
 <%
     HashMap<Integer, ProductCartModel> cart = (HashMap<Integer, ProductCartModel>) session.getAttribute("cart");
+    String mess = (String) session.getAttribute("mess");
 %>
 
 <!--Content-->
@@ -24,6 +25,11 @@
     <div class="container py-5">
         <div class="row d-flex justify-content-center my-4 detail_cart">
             <div class="col-md-8">
+                <%if (mess == "success") { %>
+                <div class="alert alert-success">
+                    Bạn đã <strong>đặt lịch thành công </strong>
+                </div>
+                <%}%>
                 <div class="card mb-4">
                     <div class="card-header py-3">
                         <h5 class="mb-0 sumquantityCart"></h5>

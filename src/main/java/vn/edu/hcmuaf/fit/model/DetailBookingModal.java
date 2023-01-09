@@ -1,9 +1,14 @@
 package vn.edu.hcmuaf.fit.model;
 
 public class DetailBookingModal {
+
+    private int id;
     private int id_booking;
     private int id_product;
     private int quantity;
+
+    private String name;
+    private String price;
 
     public DetailBookingModal() {
     }
@@ -36,5 +41,29 @@ public class DetailBookingModal {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

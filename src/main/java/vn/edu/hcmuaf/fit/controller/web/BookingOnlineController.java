@@ -4,6 +4,7 @@ import vn.edu.hcmuaf.fit.dao.BookingDAO;
 import vn.edu.hcmuaf.fit.dao.UserDAO;
 import vn.edu.hcmuaf.fit.model.BookingModel;
 import vn.edu.hcmuaf.fit.model.User;
+import vn.edu.hcmuaf.fit.service.CheckoutService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -43,22 +44,28 @@ public class BookingOnlineController extends HttpServlet {
             String description = request.getParameter("description");
             String payment = request.getParameter("payment");
 
-            User user = (User) session.getAttribute("userlogin");
-            if(user==null) {
-                BookingDAO book = new BookingDAO();
-                book.addCustomer(name, tel, email, address);
-                book.addBooking(date, time, book.selectIdNew(), payment, description);
-                session.setAttribute("mess", "success");
-                response.sendRedirect("bookingOnline");
-            }
-            else{
-                BookingDAO book = new BookingDAO();
-                book.addCustomer(name, tel, email, address);
-                book.addBooking(date, time, user.getId(), payment, description);
-                session.setAttribute("mess", "success");
-                response.sendRedirect("bookingOnline");
-            }
 
+            User user = (User) session.getAttribute("userlogin");
+            CheckoutService checkoutService = new CheckoutService();
+            BookingModel booking = new BookingModel();
+            if (user != null) {
+                booking.setid_user(user.getId());
+            }else {
+                booking.setid_user(null);
+            }
+            booking.setStatus_booking(0);
+            booking.setUsername(name);
+            booking.setEmail(email);
+            booking.setTel(tel);
+            booking.setAddress(address);
+            booking.setDate_booking(date + " " + time + ":00");
+            booking.setDescription(description);
+            booking.setId_payment(payment);
+            int idInserted = checkoutService.insertBookingCart(booking);
+            if (idInserted > 0) {
+                session.setAttribute("mess", "success");
+            }
+            response.sendRedirect("bookingOnline");
         }
     }
 }

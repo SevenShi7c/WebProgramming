@@ -1,5 +1,10 @@
 package vn.edu.hcmuaf.fit.controller.admin;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
 import vn.edu.hcmuaf.fit.constant.SystemConstant;
 import vn.edu.hcmuaf.fit.dao.ProductDAO;
 import vn.edu.hcmuaf.fit.service.CategorySevice;
@@ -15,6 +20,7 @@ import javax.servlet.http.Part;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 @MultipartConfig
 @WebServlet(name = "ManageProductController", value = "/admin/manage-product")
@@ -24,7 +30,6 @@ public class ManageProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String typeParam = request.getParameter("type");
         String idProductParam = request.getParameter("id-product");
-        int idProduct = Integer.parseInt(request.getParameter("id-product"));
         String view = "";
         ProductService productService = new ProductService();
 
@@ -32,15 +37,18 @@ public class ManageProductController extends HttpServlet {
             view = "/view/admin/manage-product.jsp";
         } else if (SystemConstant.ADD.equals(typeParam)) {
             String addStyleParam = request.getParameter("action");
-            if (addStyleParam.equals("brand")) {
-                doGetAddBrand(request, response);
-            } else if (addStyleParam.equals("type_product")) {
-                doGetAddTypeProduct(request, response);
-            } else if (addStyleParam.equals("status")) {
-                doGetAddStatus(request, response);
+            if (addStyleParam!=null){
+                if (addStyleParam.equals("brand")) {
+                    doGetAddBrand(request, response);
+                } else if (addStyleParam.equals("type_product")) {
+                    doGetAddTypeProduct(request, response);
+                } else if (addStyleParam.equals("status")) {
+                    doGetAddStatus(request, response);
+                }
             }
             view = "/view/admin/add-product.jsp";
         } else if (SystemConstant.EDIT.equals(typeParam)) {
+            int idProduct = Integer.parseInt(request.getParameter("id-product"));
             if (idProductParam != null) {
                 request.setAttribute("product", productService.getDetailProduct(idProduct));
             }
@@ -90,18 +98,22 @@ public class ManageProductController extends HttpServlet {
         if (SystemConstant.ADD.equals(typeParam)) {
             doPost_Add(request, response);
         } else if (SystemConstant.EDIT.equals(typeParam)) {
-            doPost_Edit(request, response);
+            try {
+                doPost_Edit(request, response);
+            } catch (FileUploadException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             doPost_EditBasic(request, response);
         }
     }
 
 
-    private void doPost_Edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getPart("idProduct").getSubmittedFileName());
-        int pid = Integer.parseInt(String.valueOf(request.getPart("idProduct")));
+    private void doPost_Edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, FileUploadException {
+//        System.out.println(request.getPart("idProduct").getSubmittedFileName());
+        int pid = Integer.parseInt(request.getParameter("idProduct"));
         String pName = request.getParameter("name_product");
-        String pAvatar = request.getParameter("avatar");
+        String pAvatar = request.getParameter("ImageUpload");
         int pidTypeProduct = Integer.parseInt(request.getParameter("categoryTypeProduct"));
         int pidStatus = Integer.parseInt(request.getParameter("statusProduct"));
         int pBrand = Integer.parseInt(request.getParameter("categoryBrand"));
@@ -109,34 +121,37 @@ public class ManageProductController extends HttpServlet {
         int pQuantity = Integer.parseInt(request.getParameter("quantity"));
         String pDescription = request.getParameter("description");
         int pidStore = Integer.parseInt("1");
+        String id = request.getParameter("idProduct");
 
-        System.out.println("In do post method of Add Image servlet.");
-        Part file = request.getPart("avatar");
 
-        String imageFileName = file.getSubmittedFileName();  // get selected image file name
-        System.out.println("Selected Image File Name : " + imageFileName);
 
-        String uploadPath = request.getContextPath() + "/images/product/" + imageFileName;  // upload path where we have to upload our actual image
-        System.out.println("Upload Path : " + uploadPath);
+//        System.out.println("In do post method of Add Image servlet.");
+//        Part file = request.getPart("avatar");
+//
+//        String imageFileName = file.getSubmittedFileName();  // get selected image file name
+//        System.out.println("Selected Image File Name : " + imageFileName);
+//
+//        String uploadPath = request.getContextPath() + "/images/product/" + imageFileName;  // upload path where we have to upload our actual image
+//        System.out.println("Upload Path : " + uploadPath);
+//
+//        // Uploading our selected image into the images folder
+//
+//        try {
+//
+//            FileOutputStream fos = new FileOutputStream(uploadPath);
+//            InputStream is = file.getInputStream();
+//
+//            byte[] data = new byte[is.available()];
+//            is.read(data);
+//            fos.write(data);
+//            fos.close();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        // Uploading our selected image into the images folder
-
-        try {
-
-            FileOutputStream fos = new FileOutputStream(uploadPath);
-            InputStream is = file.getInputStream();
-
-            byte[] data = new byte[is.available()];
-            is.read(data);
-            fos.write(data);
-            fos.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        boolean checkUpdateProduct = ProductService.updateProduct(pid, pName, pAvatar, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
-        request.setAttribute("message", checkUpdateProduct);
+//        boolean checkUpdateProduct = ProductService.updateProduct(pid, pName, pAvatar, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
+//        request.setAttribute("message", checkUpdateProduct);
         request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
         request.setAttribute("categoryBrand", CategorySevice.getListBrand());
         request.setAttribute("listProduct", ProductService.getListProduct());

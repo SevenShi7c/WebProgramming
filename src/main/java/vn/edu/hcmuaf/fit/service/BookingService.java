@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.service;
 
 import vn.edu.hcmuaf.fit.dao.BookingDAO;
 import vn.edu.hcmuaf.fit.model.BookingModel;
+import vn.edu.hcmuaf.fit.model.DetailBookingModal;
 
 import java.util.List;
 
@@ -26,5 +27,9 @@ public class BookingService {
     }
     public static void main(String[] args) {
         System.out.println(BookingService.updateStatusBooking("997"));
+    }
+
+    public static List<DetailBookingModal> getListDetailBooking(String idBooking) {
+        return  BookingDAO.getListDetailBooking( idBooking);
     }
 }

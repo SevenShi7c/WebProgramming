@@ -4,6 +4,7 @@ import vn.edu.hcmuaf.fit.db.ConnectToDatabase;
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.BookingModel;
 import vn.edu.hcmuaf.fit.model.CategoryModel;
+import vn.edu.hcmuaf.fit.model.DetailBookingModal;
 import vn.edu.hcmuaf.fit.model.ProductModel;
 
 import java.sql.*;
@@ -20,12 +21,10 @@ public class BookingDAO implements ObjectDAO {
     public static List<BookingModel> getListBooking(int status) {
         LinkedList<BookingModel> list = new LinkedList<>();
 
-        String sql = "SELECT booking.id id,date_booking, id_customer ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
-                "FROM booking join customer on booking.id_customer = customer.id " +
-                "join type_payments t on t.id = booking.id_payment " +
+        String sql = "SELECT booking.id id,date_booking, id_user ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
+                "FROM booking join type_payments t on t.id = booking.id_payment " +
                 "WHERE status_booking=?" + "order by id desc ";
         try {
-
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
             ps.setString(1, status + "");
             ResultSet rs = ps.executeQuery();
@@ -34,7 +33,7 @@ public class BookingDAO implements ObjectDAO {
                 BookingModel booking = new BookingModel();
                 booking.setId(rs.getString("id"));
                 booking.setDate_booking(rs.getString("date_booking"));
-                booking.setId_customer(rs.getString("id_customer"));
+                booking.setid_user(rs.getString("id_user"));
                 booking.setUsername(rs.getString("username"));
                 booking.setId_payment(rs.getString("id_payment"));
                 booking.setNameTypePayment(rs.getString("nameTypePayment"));
@@ -63,32 +62,68 @@ public class BookingDAO implements ObjectDAO {
         }
     }
 
-    public void addCustomer(String name, String tel, String email, String address) {
-        String sql = "insert into customer(username,address,email,tel,id_user) values (?,?,?,?,?)";
-        Connection connect = ConnectToDatabase.getConnect();
+    public static List<DetailBookingModal> getListDetailBooking(String idBooking) {
+        List<DetailBookingModal> list = new LinkedList<>();
+
+        String sql = "SELECT d.id id, id_booking, id_product, name, price, d.quantity quantity " +
+                "FROM detail_bookings d join products on products.id = d.id_product " +
+                "WHERE id_booking=?" + "order by id desc ";
         try {
-            PreparedStatement ppstm = connect.prepareStatement(sql);
-            ppstm.setString(1, name);
-            ppstm.setString(2, address);
-            ppstm.setString(3, email);
-            ppstm.setString(4, tel);
-            ppstm.setString(5, null);
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, idBooking);
+            ResultSet rs = ps.executeQuery();
 
-            ppstm.executeUpdate();
+            while (rs.next()) {
+                DetailBookingModal detailBookingModal = new DetailBookingModal();
+                detailBookingModal.setId_booking(rs.getInt("id_booking"));
+                detailBookingModal.setId_product(Integer.parseInt(rs.getString("id_product")));
+                detailBookingModal.setQuantity(Integer.parseInt(rs.getString("quantity")));
+                detailBookingModal.setName(rs.getString("name"));
+                detailBookingModal.setPrice(rs.getString("price"));
+                detailBookingModal.setId(Integer.parseInt(rs.getString("id")));
 
-
+                list.add(detailBookingModal);
+            }
+            return list;
         } catch (Exception e) {
-            System.out.println("Error when addCustomer:" + e.getMessage());
+            throw new RuntimeException(e);
         }
-    }
 
-    public void addBooking(String date_booking, String time_booking, String id_customer, String id_payment, String description) {
-        String sql = "insert into booking(date_booking,id_customer,id_payment,description,status_booking) values (?,?,?,?,?)";
+    }
+//
+//    public void addCustomer(String name, String tel, String email, String address) {
+////        String sql = "insert into customer(username,address,email,tel,id_user) values (?,?,?,?,?)";
+//        String sql = "INSERT INTO booking " +
+//                "VALUES (NULL, ?, ?, ?,?,?,?,?,?,?)";
+//        Connection connect = ConnectToDatabase.getConnect();
+//        try {
+//            PreparedStatement ppstm = connect.prepareStatement(sql);
+//            ppstm.setString(1, booking.getDate_booking());
+//
+//            ppstm.setString(2,booking.getid_user());
+//            ppstm.setString(3, booking.getId_payment());
+//            ppstm.setString(4, booking.getDescription());
+//            ppstm.setString(5, "1");
+//            ppstm.setString(6, booking.getUsername());
+//            ppstm.setString(7, booking.getEmail());
+//            ppstm.setString(8, booking.getTel());
+//            ppstm.setString(9, booking.getAddress());
+//
+//            ppstm.executeUpdate();
+//
+//
+//        } catch (Exception e) {
+//            System.out.println("Error when addCustomer:" + e.getMessage());
+//        }
+//    }
+
+    public void addBooking(String date_booking, String time_booking, String id_user, String id_payment, String description) {
+        String sql = "insert into booking(date_booking,id_user,id_payment,description,status_booking) values (?,?,?,?,?)";
         Connection connect = ConnectToDatabase.getConnect();
         try {
             PreparedStatement ppstm = connect.prepareStatement(sql);
             ppstm.setString(1, date_booking + " " + time_booking);
-            ppstm.setString(2, id_customer);
+            ppstm.setString(2, id_user);
             ppstm.setString(3, id_payment);
             ppstm.setString(4, description);
             ppstm.setInt(5, 0);
@@ -138,17 +173,18 @@ public class BookingDAO implements ObjectDAO {
     }
     static PreparedStatement statement = null;
     public static void deleteConfirm(int id) {
-        String sql = "delete from booking where id = ? ";
         String sql1 = "delete from detail_bookings where id_booking = ?";
+        String sql = "delete from booking where id = ? ";
         Connection connection = new ConnectToDatabase().getConnect();
         try {
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
-
-            statement.executeUpdate();
             statement = connection.prepareStatement(sql1);
             statement.setInt(1,id);
             statement.executeUpdate();
+            
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -156,9 +192,8 @@ public class BookingDAO implements ObjectDAO {
 
 
     public static BookingModel getBooking(String id){
-        String sql = "SELECT booking.id id,date_booking, id_customer ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
-                "FROM booking join customer on booking.id_customer = customer.id " +
-                "join type_payments t on t.id = booking.id_payment " +
+        String sql = "SELECT booking.id id,date_booking, id_user ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
+                "FROM booking join type_payments t on t.id = booking.id_payment " +
                 "WHERE booking.id= ?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
@@ -169,7 +204,7 @@ public class BookingDAO implements ObjectDAO {
                 booking = new BookingModel();
                 booking.setId(rs.getString("id"));
                 booking.setDate_booking(rs.getString("date_booking"));
-                booking.setId_customer(rs.getString("id_customer"));
+                booking.setid_user(rs.getString("id_user"));
                 booking.setUsername(rs.getString("username"));
                 booking.setId_payment(rs.getString("id_payment"));
                 booking.setNameTypePayment(rs.getString("nameTypePayment"));
@@ -200,9 +235,8 @@ public class BookingDAO implements ObjectDAO {
     public static List<BookingModel> getListBooking() {
         LinkedList<BookingModel> list = new LinkedList<>();
 
-        String sql = "SELECT booking.id id,date_booking, id_customer ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
-                "FROM booking join customer on booking.id_customer = customer.id " +
-                "join type_payments t on t.id = booking.id_payment " +
+        String sql = "SELECT booking.id id,date_booking, id_user ,username, id_payment, t.name nameTypePayment,description, status_booking,tel,email " +
+                "FROM booking join type_payments t on t.id = booking.id_payment " +
                 "order by id desc ";
         try {
 
@@ -213,7 +247,7 @@ public class BookingDAO implements ObjectDAO {
                 BookingModel booking = new BookingModel();
                 booking.setId(rs.getString("id"));
                 booking.setDate_booking(rs.getString("date_booking"));
-                booking.setId_customer(rs.getString("id_customer"));
+                booking.setid_user(rs.getString("id_user"));
                 booking.setUsername(rs.getString("username"));
                 booking.setId_payment(rs.getString("id_payment"));
                 booking.setNameTypePayment(rs.getString("nameTypePayment"));
@@ -236,7 +270,7 @@ public class BookingDAO implements ObjectDAO {
 
         for (BookingModel b :
                 BookingDAO.getListBooking(1)) {
-            System.out.println(b.getUsername());
+            System.out.println(b.getId());
         }
 
     }

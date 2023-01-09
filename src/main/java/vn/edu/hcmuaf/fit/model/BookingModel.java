@@ -5,7 +5,7 @@ import java.util.Date;
 public class BookingModel {
     private String id;
     private String date_booking;
-    private String id_customer;
+    private String id_user;
     private String id_payment;
     private String description;
     private int status_booking;
@@ -13,15 +13,18 @@ public class BookingModel {
     private String nameTypePayment;
     private String tel;
 
+    private String address;
+    private String email;
+
 
     public BookingModel() {
         super();
     }
 
-    public BookingModel(String id, String date_booking, String id_customer, String username, String id_payment, String nameTypePayment, String description, int status_booking) {
+    public BookingModel(String id, String date_booking, String id_user, String username, String id_payment, String nameTypePayment, String description, int status_booking) {
         this.id = id;
         this.date_booking = date_booking;
-        this.id_customer = id_customer;
+        this.id_user = id_user;
         this.id_payment = id_payment;
         this.description = description;
         this.status_booking = status_booking;
@@ -29,10 +32,10 @@ public class BookingModel {
         this.nameTypePayment = nameTypePayment;
     }
 
-    public BookingModel(String id, String date_booking, String id_customer, String id_payment, String description, int status_booking, String username, String nameTypePayment, String tel) {
+    public BookingModel(String id, String date_booking, String id_user, String id_payment, String description, int status_booking, String username, String nameTypePayment, String tel) {
         this.id = id;
         this.date_booking = date_booking;
-        this.id_customer = id_customer;
+        this.id_user = id_user;
         this.id_payment = id_payment;
         this.description = description;
         this.status_booking = status_booking;
@@ -57,12 +60,12 @@ public class BookingModel {
         this.date_booking = date_booking;
     }
 
-    public String getId_customer() {
-        return id_customer;
+    public String getid_user() {
+        return id_user;
     }
 
-    public void setId_customer(String id_customer) {
-        this.id_customer = id_customer;
+    public void setid_user(String id_user) {
+        this.id_user = id_user;
     }
 
     public String getId_payment() {
@@ -113,9 +116,33 @@ public class BookingModel {
         this.tel = tel;
     }
 
+    public String getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "BookingModel [id=" + id + ", date_booking=" + date_booking + ", id_customer=" + id_customer + ", id_payment=" + id_payment + ", description=" + description + ", status_booking=" + status_booking + "]";
+        return "BookingModel [id=" + id + ", date_booking=" + date_booking + ", id_user=" + id_user + ", id_payment=" + id_payment + ", description=" + description + ", status_booking=" + status_booking + "]";
     }
 
 }
