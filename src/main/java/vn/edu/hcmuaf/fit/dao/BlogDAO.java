@@ -5,15 +5,32 @@ import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.BlogModel;
 import vn.edu.hcmuaf.fit.service.BlogService;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 
 public class BlogDAO extends AbstractDAO {
 
+
+    public static void insertBlog(String title, String brief, String detail, String imageFileName) {
+        String sql = "INSERT INTO blog (id, title, briefContent, detail_content, status, avatar, id_type_blog, create_date, id_user_create) " +
+                "VALUES (NULL, ?, ?, ?, ?, ?, ? ,?, ? )";
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, title);
+            ps.setString(2, brief);
+            ps.setString(3, detail);
+            ps.setInt(4, 1);//status
+            ps.setString(5,imageFileName);
+            ps.setInt(6,1);
+            ps.setTimestamp(7, Timestamp.from(Instant.now()));
+            ps.setInt(8,1);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public List<BlogModel> findAll() {
         LinkedList<BlogModel> list = new LinkedList<BlogModel>();
@@ -210,5 +227,7 @@ public class BlogDAO extends AbstractDAO {
         }
     }
 
-
+    public static void main(String[] args) {
+        new BlogDAO().insertBlog("test","test","test","tes.jpg");
+    }
 }
