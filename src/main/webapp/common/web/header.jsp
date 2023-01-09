@@ -57,16 +57,16 @@
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </a>
                     <ul class="sub_menu active">
-                        <%
-                            for (CategoryModel brand : listBrand) {
-                        %>
-                        <li class="nav-item ">
-                            <a href="category?brand=<%=brand.getName().toLowerCase()%>"
-                               title="Sửa điện thoại <%=brand.getName()%>">
-                                Sửa điện thoại <%=brand.getName()%>
-                            </a>
-                        </li>
-                        <% }%>
+<%--                        <%--%>
+<%--                            for (CategoryModel brand : listBrand) {--%>
+<%--                        %>--%>
+<%--                        <li class="nav-item ">--%>
+<%--                            <a href="category?brand=<%=brand.getName().toLowerCase()%>"--%>
+<%--                               title="Sửa điện thoại <%=brand.getName()%>">--%>
+<%--                                Sửa điện thoại <%=brand.getName()%>--%>
+<%--                            </a>--%>
+<%--                        </li>--%>
+<%--                        <% }%>--%>
 
                     </ul>
                 </li>

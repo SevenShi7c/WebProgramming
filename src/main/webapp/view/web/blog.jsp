@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 <html>
 
 <head>
-    <%@include file="../../common/web/head.jsp"%>
+    <%@include file="../../common/web/head.jsp" %>
 
     <title>Blog | Phone Care </title>
 </head>
@@ -16,7 +16,7 @@
 <body>
 
 <!--Navbar-->
-<%@include file="../../common/web/header.jsp"%>
+<%@include file="../../common/web/header.jsp" %>
 
 <div class="breadcrumb-shop">
     <div class="container">
@@ -54,7 +54,7 @@
                         <div class="item-article clearfix">
                             <div class="post-image">
                                 <a href="">
-                                    <img src="images/blog/<%=blog.getAvatar()%>" alt=""></a>
+                                    <img src="images/blog/<%=blog.getAvatar()%>" alt="" width="100px;" class="avatar"></a>
                             </div>
                             <div class="post-content">
                                 <h3>
@@ -65,7 +65,8 @@
                                 <span class="date"><%=blog.getCreatedDate()%> </span>
                             </div>
                         </div>
-                        <%}
+                        <%
+                            }
                         %>
                     </div>
                 </div>
@@ -185,7 +186,7 @@
                                 <a href="detail-blog?id-blog=<%=blog.getId()%>" class="blog-post-thumbnail" title=""
                                    rel="nofollow">
                                     <img style="border: 1px;width: 100%" src="images/blog/<%=blog.getAvatar()%>"
-                                         alt="">
+                                         alt="" width="100px;" class="avatar">
                                 </a>
                             </div>
                             <div class="col-md-8 col-xs-12 col-sm-12">
@@ -227,7 +228,7 @@
     </div>
 </div>
 
-<%@include file="../../common/web/footer.jsp"%>
+<%@include file="../../common/web/footer.jsp" %>
 
 </body>
 

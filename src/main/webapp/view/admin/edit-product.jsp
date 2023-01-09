@@ -25,6 +25,7 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $("#thumbimage").attr('src', e.target.result);
+                    $(".avatar").val(e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
             } else { // Sử dụng cho IE
@@ -88,7 +89,7 @@
                 <h3 class="tile-title">Chỉnh sửa sản phẩm</h3>
                 <div class="tile-body">
                     <form action="<%=pageContextPath%>/admin/manage-product?type=edit&id-product=<%=product.getId()%>"
-                          method="post">
+                          method="post" enctype="multipart/form-data">
                         <div class="row element-button">
                             <div class="col-sm-2">
                                 <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i
@@ -190,29 +191,18 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label">Ảnh sản phẩm</label>
                                 <div id="myfileupload">
-                                    <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(
-                                    <%--                                    <%--%>
-                                    <%--                                    if (product.getAvatar()!=null)  {--%>
-                                    <%--                                %>--%>
-                                    <%--                                        'images/product/<%=product.getAvatar()%>'--%>
-                                    <%--                                    <%--%>
-                                    <%--                                    } else {--%>
-                                    <%--                                %>--%>
-                                            this
-                                    <%--                                    <%--%>
-                                    <%--                                    }--%>
-                                    <%--                                %>--%>
-                                            )"/>
+                                    <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this)"
+                                           value="<%=product.getAvatar()%>"/>
                                 </div>
                                 <div id="thumbbox">
                                     <img height="450" width="400" alt="Thumb image" id="thumbimage"
-                                         style="display: none"/>
+                                         src="../images/product/<%=product.getAvatar()%>"/>
                                     <a class="removeimg" href="javascript:"></a>
                                 </div>
                                 <div id="boxchoice">
+<%--                                    <input type="file" href="javascript:" class="Choicefile" name="avatar" >--%>
                                     <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
-                                        Chọn
-                                        ảnh</a>
+                                        Chọn ảnh</a>
                                     <p style="clear:both"></p>
                                 </div>
                             </div>
@@ -296,6 +286,8 @@ MODAL BRAND
                 <div class="modal-footer">
                 </div>
             </form>
+
+
         </div>
     </div>
 </div>

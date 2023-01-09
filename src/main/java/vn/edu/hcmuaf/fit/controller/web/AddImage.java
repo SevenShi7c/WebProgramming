@@ -4,6 +4,7 @@ import vn.edu.hcmuaf.fit.dao.UserDAO;
 import vn.edu.hcmuaf.fit.db.ConnectToDatabase;
 import vn.edu.hcmuaf.fit.model.User;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,13 +36,12 @@ public class AddImage extends HttpServlet {
         String imageFileName = file.getSubmittedFileName();  // get selected image file name
         System.out.println("Selected Image File Name : " + imageFileName);
 
-        String uploadPath = "E:/WebProgramming/target/PhoneCare/images/user/" + imageFileName;  // upload path where we have to upload our actual image
+        String uploadPath = getServletContext().getRealPath("") + File.separator +"/images/user/" + imageFileName;  // upload path where we have to upload our actual image
         System.out.println("Upload Path : " + uploadPath);
 
         // Uploading our selected image into the images folder
 
         try {
-
             FileOutputStream fos = new FileOutputStream(uploadPath);
             InputStream is = file.getInputStream();
 

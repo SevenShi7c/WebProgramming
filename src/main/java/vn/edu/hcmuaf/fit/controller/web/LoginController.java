@@ -60,11 +60,9 @@ public class LoginController extends HttpServlet {
         } else if (action.equals("login")) {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            String hovaten = request.getParameter("hovaten");
 
             int checkUserName = new UserDAO().checkLogin(username, password);
             int checkEmail = new UserDAO().checkLoginbyEmail(username, password);
-
 
             if (checkUserName == 1) {
 

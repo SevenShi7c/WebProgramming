@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductDAO {
+
     public static List<ProductModel> findAll() {
         LinkedList<ProductModel> list = new LinkedList<ProductModel>();
 
@@ -81,12 +82,12 @@ public class ProductDAO {
     }
 
 
-    public static ProductModel getDetailProduct(String idProduct) {
+    public static ProductModel getDetailProduct(int idProduct) {
 
         String sql = "select * from products " + "where id= ?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
-            ps.setString(1, idProduct);
+            ps.setInt(1, idProduct);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -198,6 +199,7 @@ public class ProductDAO {
     }
 
     public static boolean updateProduct(int id, String name, String avatar, int id_type_product, int id_status_device, int id_brand, int price, int sum_quantity, String describe, int id_store) {
+        System.out.println(avatar);
         String sql = "UPDATE PRODUCTS SET NAME=?, avatar=?,id_type_product=?,  id_status_device=?,id_brand=?,price=?, sum_quantity=?,`describe`=?,id_store=? WHERE ID=?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
@@ -236,6 +238,37 @@ public class ProductDAO {
             throw new RuntimeException(ex);
         }
     }
+
+    public static boolean insertBrand(String name) {
+        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
+
+        String sql = "Insert into brand values (null,?)";
+
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public static boolean insertTypeProduct(String name) {
+        LinkedList<ProductModel> list = new LinkedList<ProductModel>();
+
+        String sql = "Insert into type_products values (null,?)";
+
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setString(1, name);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(ProductDAO.getDifferentProduct());
 //        System.out.println(ProductDAO.updateProduct(2, "Thay cụm đuôi sạc Samsung Galaxy A02 A022F","thay-cum-duoi-sac-samsung-galaxy-a02-a022f_1667623123.png",4,1,1,  500000,100,"test", 1));

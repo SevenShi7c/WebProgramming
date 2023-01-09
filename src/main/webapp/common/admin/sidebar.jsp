@@ -5,17 +5,19 @@
   Time: 12:58 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="vn.edu.hcmuaf.fit.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en"><head>
 </head>
 <body>
+<% User user = (User) session.getAttribute("userlogin"); %>
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="images/admin.png" width="50px"
                                         alt="User Image">
         <div>
-            <p class="app-sidebar__user-name"><b>Admin</b></p>
+            <p class="app-sidebar__user-name"><b><%=user.getName()%></b></p>
             <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
         </div>
     </div>

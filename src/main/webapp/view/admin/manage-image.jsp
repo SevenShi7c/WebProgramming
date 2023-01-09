@@ -34,7 +34,7 @@
                     <div class="row element-button">
                         <div class="col-sm-2">
 
-                            <a class="btn btn-add btn-sm" href="add-blog.jsp" title="Thêm"><i
+                            <a class="btn btn-add btn-sm" href="manage-image?type=add" title="Thêm"><i
                                     class="fas fa-plus"></i>
                                 Tạo mới</a>
                         </div>
@@ -79,14 +79,9 @@
 
                             <td>
 
-                                <img src="<%
-                                if (list.getType() == 1) {
-                                    out.print("../images/banner/"+list.getPhoto());
-                                } else if (list.getType() == 2) {
-                                    out.print("../images/footer/"+list.getPhoto());
-                                }
-                            %>"
+                                <img src="<% if(list.getType()==1){out.print("../images/banner/"+list.getPhoto());}else{out.print("../images/footer/"+list.getPhoto());}%>"
                                      alt="" width="100px;" class="avatar">
+
                             </td>
 
 
@@ -97,17 +92,21 @@
                                     out.print("Ảnh footer");
                                 }
                             %></td>
-                            <%--              <td><span class="btn btn-success"><%=blog.getStatus()%></span></td>--%>
                             <td>
-                                <%--                                Mai sửa--%>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
-                                        class="fas fa-trash-alt"></i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
-                                        class="fas fa-edit"></i>
-                                </button>
+
+                                <a href="manage-image?type=del&id=<%=list.getId()%>">
+                                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i
+                                            class="fas fa-trash-alt"> </i></button>
+                                </a>
+                                <a href="manage-image?type=edit&id-image=<%=list.getId()%>">
+                                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                            id="show-emp" data-toggle="modal" data-target="#ModalUP"><i
+                                            class="fas fa-edit"></i>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
+
                         <%}%>
 
                         </tbody>
@@ -120,68 +119,7 @@
     </div>
 </main>
 
-<!--
-MODAL
--->
-<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-     data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
 
-            <div class="modal-body">
-                <div class="row">
-                    <div class="form-group  col-md-12">
-                            <span class="thong-tin-thanh-toan">
-                                <h5>Chỉnh sửa tin tức cơ bản</h5>
-                            </span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label class="control-label">ID</label>
-                        <input class="form-control" type="text" required value="1" disabled>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Tiêu đề tin</label>
-                        <input class="form-control" type="text" required value="Thông tin liên quan về Iphone 14">
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label class="control-label">Người đăng</label>
-                        <input class="form-control" type="text" required value="Quản trị">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label">Ngày đăng</label>
-                        <input class="form-control" type="date" value="15/10/2022">
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label for="exampleSelect1" class="control-label">Người đăng</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Quản trị</option>
-                            <option>Nhân viên</option>
-                        </select>
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label for="exampleSelect1" class="control-label">Loại tin</label>
-                        <select class="form-control" id="">
-                            <option>Công nghệ</option>
-                            <option>Giải đáp</option>
-                        </select>
-                    </div>
-                </div>
-                <br>
-                <a href="edit-blog.jsp" style="float: right;font-weight: 600;color: #ea0000;">Chỉnh sửa nâng cao</a>
-                <br>
-                <br>
-                <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                <br>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
-<!--
 <%@include file="../../common/admin/script.jsp" %>
 -->
 
@@ -203,21 +141,21 @@ MODAL
         document.getElementById("myTable").deleteRow(i);
     }
 
-    jQuery(function () {
-        jQuery(".trash").click(function () {
-            swal({
-                title: "Cảnh báo",
-
-                text: "Bạn có chắc chắn là muốn xóa?",
-                buttons: ["Hủy bỏ", "Đồng ý"],
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Đã xóa thành công.!", {});
-                    }
-                });
-        });
-    });
+    // jQuery(function () {
+    //     jQuery(".trash").click(function () {
+    //         swal({
+    //             title: "Cảnh báo",
+    //
+    //             text: "Bạn có chắc chắn là muốn xóa?",
+    //             buttons: ["Hủy bỏ", "Đồng ý"],
+    //         })
+    //             .then((willDelete) => {
+    //                 if (willDelete) {
+    //                     swal("Đã xóa thành công.!", {});
+    //                 }
+    //             });
+    //     });
+    // });
     oTable = $('#sampleTable').dataTable();
     $('#all').click(function (e) {
         $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));

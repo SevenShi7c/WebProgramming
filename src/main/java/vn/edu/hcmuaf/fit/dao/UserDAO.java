@@ -38,7 +38,6 @@ public class UserDAO implements ObjectDAO {
                 User user = new User(id, name, username, email, password, avatar, tel, id_type_user,
                         dob, sex, address);
                 mapTemp.put(user.getUsername(), user);
-
             }
 
         } catch (Exception e) {
@@ -110,6 +109,7 @@ public class UserDAO implements ObjectDAO {
     public int checkLogin(String username, String pass) {
 //        User user = mapUser.get(username);
         User user = loadUsername().get(username);
+
         if (user != null) {
             int id = user.getId_type_user();
             if (user.getPassword().equals(pass) && id == 1) {
@@ -287,7 +287,9 @@ public class UserDAO implements ObjectDAO {
 
     public static void main(String[] args) {
         UserDAO user = new UserDAO();
-        System.out.println(user.checkLogin("vutruc0702@gmail.com", "123456"));
+        System.out.println(user.checkLoginbyEmail("vutruc0702@gmail.com", "123456"));
+        System.out.println( user.checkLogin("user","123456"));
+
 //        User x = mapUser.get("minhhoang");
 //        System.out.println(x);
 //        System.out.println(user.mapUser);

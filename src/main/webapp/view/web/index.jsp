@@ -1,9 +1,9 @@
 <%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.ProductModel" %>
 <%@ page import="vn.edu.hcmuaf.fit.dao.ProductDAO" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.BlogService" %>
-<%@ page import="vn.edu.hcmuaf.fit.model.*" %>
-<%@ page import="vn.edu.hcmuaf.fit.dao.ImageDAO" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.BlogModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
@@ -15,6 +15,7 @@
 <body>
 <% List<ProductModel> newList = (List<ProductModel>) ProductDAO.newProduct();%>
 <% List<ImageModel> imageSlide = (List<ImageModel>) ImageDAO.loadImageSlide();%>
+
 <!--Navbar-->
 <%@include file="../../common/web/header.jsp" %>
 
@@ -24,7 +25,7 @@
         for (ImageModel listImage : imageSlide) {
     %>
     <div class="item">
-        <img src="images/banner/<% out.print(listImage.getPhoto());%>"
+        <img src="images/banner/<%=listImage.getPhoto()%>"
              class="d-block w-100" alt="..."><img/>
 
     </div>
@@ -194,44 +195,45 @@
     </div>
     <!--New-->
     <div>
-
-        <div class="container">
-            <%
-                BlogService blogService = new BlogService();
-                List<BlogModel> newListBlog = (List<BlogModel>) blogService.getNewBlog();
-                for (BlogModel blog : newListBlog) {
-            %>
-            <div class="col-md-4">
-                <div class="post_item">
-                    <div class="post_featured">
-                        <a href="detail-blog?id-blog=<%=blog.getId()%>" title="">
-                            <img class="img-resize" style="padding-bottom:15px;"
-                                 src="images/blog/<%=blog.getAvatar()%>" alt="">
-                        </a>
-                    </div>
-                    <div class="pro-text">
+        <div class="container" style="width: 100%;margin: auto;">
+            <div class="owl-carousel owl-theme owl-product-setting">
+                <%
+                    BlogService blogService = new BlogService();
+                    List<BlogModel> newListBlog = (List<BlogModel>) blogService.getNewBlog();
+                    for (BlogModel blog : newListBlog) {
+                %>
+                <div class="col-md-4">
+                    <div class="post_item">
+                        <div class="post_featured">
+                            <a href="detail-blog?id-blog=<%=blog.getId()%>" title="">
+                                <img class="img-resize" style="padding-bottom:15px;"
+                                     src="images/blog/<%=blog.getAvatar()%>" alt="" >
+                            </a>
+                        </div>
+                        <div class="pro-text">
                   <span class="post_info_item">
 
                     <%=blog.getCreatedDate()%>
 
                   </span>
-                    </div>
-                    <div class="pro-text">
-                        <h3 class="post_title">
-                            <a style=" color: black;
+                        </div>
+                        <div class="pro-text">
+                            <h3 class="post_title">
+                                <a style=" color: black;
                                   font-size: 18px;text-decoration: none;" href="detail-blog?id-blog=<%=blog.getId()%>"
-                               inspiration pack>
-                                <%=blog.getTitle()%>
-                            </a>
-                        </h3>
-                    </div>
-                    <div style="text-align:center; padding-bottom: 30px;">
-                        <span><%=blog.getBriefContent()%></span>
+                                   inspiration pack>
+                                    <%=blog.getTitle()%>
+                                </a>
+                            </h3>
+                        </div>
+                        <div style="text-align:center; padding-bottom: 30px;">
+                            <span><%=blog.getBriefContent()%></span>
+                        </div>
                     </div>
                 </div>
+                <%
+                    }%>
             </div>
-            <%
-                }%>
         </div>
     </div>
     </div>

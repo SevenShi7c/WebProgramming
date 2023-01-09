@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.controller.admin;
 
+import vn.edu.hcmuaf.fit.dao.CustomerDAO;
 import vn.edu.hcmuaf.fit.dao.ProductDAO;
 
 import javax.servlet.*;

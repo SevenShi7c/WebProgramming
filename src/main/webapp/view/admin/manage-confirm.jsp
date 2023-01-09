@@ -33,17 +33,17 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="row element-button">
-                        <div class="col-sm-2">
+<%--                        <div class="col-sm-2">--%>
 
-                            <a class="btn btn-add btn-sm" href="admin/manage-booking" title="Thêm"><i
-                                    class="fas fa-plus"></i>
-                                Tạo mới </a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"
-                               onclick="myApp.printTable()"><i
-                                    class="fas fa-print"></i> In dữ liệu</a>
-                        </div>
+<%--                            <a class="btn btn-add btn-sm" href="admin/manage-booking" title="Thêm"><i--%>
+<%--                                    class="fas fa-plus"></i>--%>
+<%--                                Tạo mới </a>--%>
+<%--                        </div>--%>
+<%--                        <div class="col-sm-2">--%>
+<%--                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"--%>
+<%--                               onclick="myApp.printTable()"><i--%>
+<%--                                    class="fas fa-print"></i> In dữ liệu</a>--%>
+<%--                        </div>--%>
 
                         <div class="col-sm-2">
                             <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
@@ -85,11 +85,19 @@
                                    id="accept-booking" data-toggle="modal" data-target=""
                                    href="manage-booking?status=wait-accept&action=change_status&id-booking=<%=booking.getId()%>"><i
                                         class="fas fa-check-square"></i></a>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                        onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                                </button>
+                                <%-- sua don hang--%>
+                                <a href="manage-confirm?type=edit-confirm&id-confirm=<%=booking.getId()%>
+                     ">
+                                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                            id="show-confirm"
+                                            data-toggle="modal" data-target="#ModalConfirm"><i class="fas fa-edit"></i>
+                                    </button>
+                                </a>
+
+                                <%--                                xóa đơn hàng--%>
+                                <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                   href="manage-booking?status=wait-accept&action=delete&id=<%=booking.getId()%>"><i
+                                        class="fas fa-trash-alt"></i></a>
                             </td>
 
                         </tr>
@@ -106,7 +114,7 @@
 <!--
 MODAL
 -->
-<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+<div class="modal fade" id="ModalConfirm" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
      data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -152,6 +160,67 @@ MODAL
         </div>
     </div>
 </div>
+
+
+<!--
+MODAL
+-->
+<div class="modal fade" id="ModalConfirm" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group  col-md-12">
+              <span class="thong-tin-thanh-toan">
+                <h5>Chỉnh sửa thông tin khách hàng cơ bản</h5>
+              </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">ID khách hàng</label>
+                        <input class="form-control" type="text" required value="#CD2187" disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Họ và tên</label>
+                        <input class="form-control" type="text" required value="Hồ Thị Thanh Ngân">
+                    </div>
+                    <div class="form-group  col-md-6">
+                        <label class="control-label">Số điện thoại</label>
+                        <input class="form-control" type="number" required value="09267312388">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Địa chỉ email</label>
+                        <input class="form-control" type="text" required value="thanhngan@gmail.com">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Ngày sinh</label>
+                        <input class="form-control" type="date" value="1999-02-12">
+                    </div>
+
+                </div>
+                <BR>
+                <a href="edit-customer.jsp" style="    float: right;
+        font-weight: 600;
+        color: #ea0000;">Chỉnh sửa nâng cao</a>
+                <BR>
+                <BR>
+                <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                <BR>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+MODAL
+-->
+
+
 <!--
 <%@include file="../../common/admin/script.jsp" %>
 -->
@@ -256,6 +325,12 @@ MODAL
         swal("Đã lưu thành công.!", {});
 
     }
+
+
+    //Modal
+    $("#show-confirm").on("click", function () {
+        $("#ModalConfirm").modal({backdrop: false, keyboard: false})
+    });
+
 </script>
 </body>
-

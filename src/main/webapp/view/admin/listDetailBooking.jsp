@@ -1,11 +1,11 @@
-<%@ page import="vn.edu.hcmuaf.fit.model.CustomerModel" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.DetailBookingModal" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Quản lý khách hàng | ADMIN</title>
+    <title>Danh sách sản phẩm đặt lịch | ADMIN</title>
     <%@include file="../../common/admin/head.jsp" %>
 
 </head>
@@ -14,107 +14,84 @@
 <!-- Navbar-->
 <%@include file="../../common/admin/header.jsp" %>
 <%
-    List<CustomerModel> listCustomer = (List<CustomerModel>) request.getAttribute("listCustomer");
-
-%>
+    List<DetailBookingModal> listDetailBooking = (List<DetailBookingModal>) request.getAttribute("listDetailBooking");
+ %>
 <!-- Sidebar menu-->
 <%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><a href="manage-customer.jsp">Quản lý khách hàng</a></li>
-            <li class="breadcrumb-item"><a href="#">Danh sách khách hàng</a></li>
+            <li class="breadcrumb-item"><a href="manage-order">Quản lý đơn hàng</a></li>
+            <li class="breadcrumb-item"><a href="#">Danh sách sản phẩm đặt lịch</a></li>
         </ul>
         <div id="clock"></div>
     </div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
                 <div class="tile-body">
+                    <div class="row element-button">
+                        <div class="col-sm-2">
 
-<%--                    <div class="row element-button">--%>
-<%--                        <div class="col-sm-2">--%>
+                            <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>
+                                Tạo mới đơn hàng</a>
+                        </div>
 
-<%--                            <a class="btn btn-add btn-sm" href="add-customer.jsp" title="Thêm"><i--%>
-<%--                                    class="fas fa-plus"></i>--%>
-<%--                                Tạo mới khách hàng</a>--%>
-<%--                        </div>--%>
-
-
-<%--                        <div class="col-sm-2">--%>
-<%--                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"--%>
-<%--                               onclick="myApp.printTable()"><i--%>
-<%--                                    class="fas fa-print"></i> In dữ liệu</a>--%>
-<%--                        </div>--%>
 
                         <div class="col-sm-2">
-                            <a href="" class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
+                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"
+                               onclick="myApp.printTable()"><i
+                                    class="fas fa-print"></i> In dữ liệu</a>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
                                     class="fas fa-trash-alt"></i> Xóa tất cả </a>
                         </div>
                     </div>
-                    <%--                    In ra khách hàng--%>
-                    <% if (listCustomer == null) {
-                    %>
-                    <div>Chưa có khách hàng</div>
-                    <%
-                    } else {%>
-                    <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0"
-                           border="0"
-                           id="sampleTable">
+                    <table class="table table-hover table-bordered" id="sampleTable">
                         <thead>
                         <tr>
-                            <th><input type="checkbox" id="all"></th>
+                            <th width="10"><input type="checkbox" id="all"></th>
                             <th>ID</th>
-                            <th>Họ và tên</th>
-                            <th>Địa chỉ</th>
-                            <th>Email</th>
-                            <th>SĐT</th>
-                            <th>Chức năng</th>
+                            <th>Đơn hàng</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>Quantity</th>
+                            <th>Tính năng</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <%
-                            for (CustomerModel customer :
-                                    listCustomer) {%>
+                        <%for (DetailBookingModal detail : listDetailBooking) {%>
                         <tr>
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td><%=customer.getId()%>
+                            <td name="id"><%=detail.getId()%>
                             </td>
-                            <td><%=customer.getUsername()%>
+                            <td name="id_booking"><%=detail.getId_booking()%></td>
+                            <td name="name"><%=detail.getName()%>
                             </td>
-                            <td><%=customer.getAddress()%>
+                            <td name="price"><%=detail.getPrice()%>
                             </td>
-                            <td><%=customer.getEmail()%>
+                            <td name="date_booking"><%=detail.getQuantity()%>
                             </td>
-                            <td><%=customer.getTel()%>
-                            </td>
-
-                            <td class="table-td-center">
+                            <td>
+                                <%--                    xóa sửa--%>
                                 <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                   href="manage-customer?action=delete&id=<%=customer.getId()%>"><i
+                                   href="manage-order?type=delete&id=<%=detail.getId()%>"><i
                                         class="fas fa-trash-alt"></i></a>
-
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                                         data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
                                 </button>
                             </td>
                         </tr>
-                        <%
-                            }%>
-
+                        <%}%>
                         </tbody>
                     </table>
-                    <%
-                        }%>
-
-                </
-                >
+                </div>
             </div>
         </div>
     </div>
 </main>
-
 <!--
 MODAL
 -->
@@ -127,35 +104,42 @@ MODAL
                 <div class="row">
                     <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
-                <h5>Chỉnh sửa thông tin khách hàng cơ bản</h5>
+                <h5>Chỉnh sửa thông tin đơn hàng cơ bản</h5>
               </span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">ID khách hàng</label>
-                        <input class="form-control" type="text" required value="#CD2187" disabled>
+                        <label class="control-label">ID đơn hàng</label>
+                        <input class="form-control" type="text" required value="MD0837" disabled>
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label">Họ và tên</label>
-                        <input class="form-control" type="text" required value="Hồ Thị Thanh Ngân">
+                        <label class="control-label">Khách hàng</label>
+                        <input class="form-control" type="text" required value="Triệu Thanh Phú">
                     </div>
                     <div class="form-group  col-md-6">
-                        <label class="control-label">Số điện thoại</label>
-                        <input class="form-control" type="number" required value="09267312388">
+                        <label class="control-label">Đơn hàng</label>
+                        <input class="form-control" type="text" required value="Ép cổ cáp màn hình Samsung S8">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label">Địa chỉ email</label>
-                        <input class="form-control" type="text" required value="thanhngan@gmail.com">
+                        <label class="control-label">Số lượng</label>
+                        <input class="form-control" type="number" required value="2">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label">Ngày sinh</label>
-                        <input class="form-control" type="date" value="1999-02-12">
+                        <label class="control-label">Tổng tiền</label>
+                        <input class="form-control" type="text" value="3.180.000 đ">
                     </div>
-
+                    <div class="form-group col-md-6">
+                        <label for="exampleSelect1" class="control-label">Tình trạng</label>
+                        <select class="form-control" id="exampleSelect1">
+                            <option>Đã xử lý</option>
+                            <option>Đang chờ</option>
+                            <option>Đã hủy</option>
+                        </select>
+                    </div>
                 </div>
                 <BR>
-                <a href="edit-customer.jsp" style="    float: right;
+                <a href="edit-order.jsp" style="    float: right;
         font-weight: 600;
         color: #ea0000;">Chỉnh sửa nâng cao</a>
                 <BR>
@@ -172,11 +156,12 @@ MODAL
 <!--
   <%@include file="../../common/admin/script.jsp" %>
 -->
-
 <!-- Essential javascripts for application to work-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
 <script src="js/main.js"></script>
+<!-- The javascript plugin to display page loading on top-->
+<script src="../../admin/doc/js/plugins/pace.min.js"></script>
 <!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Data table plugin-->
@@ -194,7 +179,7 @@ MODAL
             swal({
                 title: "Cảnh báo",
 
-                text: "Bạn có chắc chắn là muốn xóa khách hàng này?",
+                text: "Bạn có chắc chắn là muốn xóa đơn hàng này?",
                 buttons: ["Hủy bỏ", "Đồng ý"],
             })
                 .then((willDelete) => {

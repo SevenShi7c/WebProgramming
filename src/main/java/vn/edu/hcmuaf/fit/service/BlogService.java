@@ -13,6 +13,10 @@ public class BlogService {
         this.blogDAO = new BlogDAO();
     }
 
+    public static void insertBlog(String title, String brief, String detail, String imageFileName) {
+        BlogDAO.insertBlog(title, brief, detail, imageFileName);
+    }
+
     public List<BlogModel> getListBlog() {
         return blogDAO.findAll();
     }
@@ -27,11 +31,15 @@ public class BlogService {
 
 
 
-    public BlogModel getDetailBlogForId(String idBlogPram) {
-        return blogDAO.getDetailBlogForId(idBlogPram);
+    public static BlogModel getDetailBlogForId(String idBlogPram) {
+        return BlogDAO.getDetailBlogForId(idBlogPram);
+    }
+
+    public static void updateBlog(String id, String title, String brief, String detail, String avatar){
+            BlogDAO.update(id, title, brief, detail,avatar);
     }
 
     public static void main(String[] args) {
-
+        System.out.println(new BlogService().getDetailBlogForId("4"));
     }
 }

@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.model.BookingModel" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,32 +13,35 @@
 <body onload="time()" class="app sidebar-mini rtl">
   <!-- Navbar-->
   <%@include file="../../common/admin/header.jsp" %>
+  <%List<BookingModel> listBooking = (List<BookingModel>) request.getAttribute("listBooking1");%>
   <!-- Sidebar menu-->
   <%@include file="../../common/admin/sidebar.jsp" %>
     <main class="app-content">
       <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-          <li class="breadcrumb-item"><a href="manage-order.jsp">Quản lý đơn hàng</a></li>
+          <li class="breadcrumb-item"><a href="manage-order">Quản lý đơn hàng</a></li>
           <li class="breadcrumb-item"><a href="#">Danh sách đơn hàng</a></li>
         </ul>
         <div id="clock"></div>
       </div>
+
+
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
               <div class="row element-button">
-                <div class="col-sm-2">
+<%--                <div class="col-sm-2">--%>
 
-                  <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới đơn hàng</a>
-                </div>
+<%--                  <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>--%>
+<%--                    Tạo mới đơn hàng</a>--%>
+<%--                </div>--%>
 
 
-                <div class="col-sm-2">
-                  <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                      class="fas fa-print"></i> In dữ liệu</a>
-                </div>
+<%--                <div class="col-sm-2">--%>
+<%--                  <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i--%>
+<%--                      class="fas fa-print"></i> In dữ liệu</a>--%>
+<%--                </div>--%>
 
                 <div class="col-sm-2">
                   <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
@@ -47,29 +52,49 @@
                 <thead>
                   <tr>
                     <th width="10"><input type="checkbox" id="all"></th>
-                    <th>ID đơn hàng</th>
-                    <th>Tên khách hàng</th>
-                    <th>Đơn hàng</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
+                    <th>ID</th>
+                    <th>Tên người đặt</th>
+                    <th>Điện thoại</th>
+                    <th>Ngày đặt</th>
                     <th>Tình trạng</th>
+                    <th>Mô tả</th>
                     <th>Tính năng</th>
                   </tr>
                 </thead>
                 <tbody>
+                <%for (BookingModel booking : listBooking) {%>
                   <tr>
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                    <td>TA5743</td>
-                    <td>Nguyễn Xuân Bách</td>
-                    <td>Ép cổ màn hình Iphone 7 Plus</td>
-                    <td>1 </td>
-                    <td>1.190.000 đ</td>
-                    <td><span class="badge bg-danger">Đã hủy</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
+                    <td name="id"><%=booking.getId()%></td>
+                    <td name="name"><%=booking.getUsername()%></td>
+                    <td name="phone"><%=booking.getTel()%></td>
+                    <td name="date_booking"><%=booking.getDate_booking()%></td>
+                    <td>
+                      <select class="form-control" id="status" name="status">
+                        <option value="1" <%=listBooking == null ? "" : (booking.getStatus_booking() == 1 ? "selected" : "") %>>
+                          Đã xác nhận
+                        </option>
+                        <option value="0" <%=listBooking == null ? "" : (booking.getStatus_booking() == 0 ? "selected" : "") %>>
+                          Chờ xác nhận
+                        </option>
+                        <option value="-1" <%=listBooking == null ? "" : (booking.getStatus_booking() == -1 ? "selected" : "") %>>
+                          Đã hủy
+                        </option>
+                      </select>
+                    </td>
+                    <td name="description"><%=booking.getDescription()%></td>
+                  <td>
+<%--                    xóa sửa--%>
+  <a class="btn btn-primary btn-sm warning" type="button" title="Danh sách"
+     href="manage-order?type=list&id-booking=<%=booking.getId()%>"><i class="fas fa-folder"></i></a>
+  <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+     href="manage-order?type=delete&id=<%=booking.getId()%>"><i class="fas fa-trash-alt"></i></a>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
                               data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
                       </button>
+                  </td>
                   </tr>
+                <%}%>
                 </tbody>
               </table>
             </div>
@@ -124,7 +149,7 @@ MODAL
             </div>
           </div>
           <BR>
-          <a href="edit-order.jsp" style="    float: right;
+          <a href="edit-order" style="    float: right;
         font-weight: 600;
         color: #ea0000;">Chỉnh sửa nâng cao</a>
           <BR>
