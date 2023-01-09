@@ -71,16 +71,22 @@ public class ManageImageController extends HttpServlet {
         String name = request.getParameter("name_photo");
 
 
-        int type = Integer.parseInt(request.getParameter("numType"));
+        int numType = Integer.parseInt(request.getParameter("numType"));
 
 //        update image from client path to server
         Part file = request.getPart("ImageUpload");
 
         String imageFileName = file.getSubmittedFileName();  // get selected image file name
         System.out.println("Selected Image File Name : " + imageFileName);
+        String uploadPath = "";
+        if (numType == 1) {
+            uploadPath = getServletContext().getRealPath("") + File.separator + "/images/banner/" + imageFileName;  // upload path where we have to upload our actual image
+            System.out.println("Upload Path : " + uploadPath);
+        } else {
+            uploadPath = getServletContext().getRealPath("") + File.separator + "/images/footer/" + imageFileName;  // upload path where we have to upload our actual image
+            System.out.println("Upload Path : " + uploadPath);
+        }
 
-        String uploadPath = getServletContext().getRealPath("") + File.separator + "/images/banner/" + imageFileName;  // upload path where we have to upload our actual image
-        System.out.println("Upload Path : " + uploadPath);
 
         // Uploading our selected image into the images folder
 
@@ -98,7 +104,7 @@ public class ManageImageController extends HttpServlet {
         }
         ImageDAO imageDAO = new ImageDAO();
 
-        imageDAO.addImage(name, imageFileName, type);
+        imageDAO.addImage(name, imageFileName, numType);
 
         response.sendRedirect("manage-image");
 
@@ -107,7 +113,7 @@ public class ManageImageController extends HttpServlet {
 
     private void doPost_Edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name_photo");
-        String id = request.getParameter("id-image");
+       int id = Integer.parseInt(request.getParameter("id-image"));
         System.out.println(id);
 
         int type = Integer.parseInt(request.getParameter("numType"));
