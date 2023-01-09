@@ -33,7 +33,7 @@ public class BookingDAO implements ObjectDAO {
                 BookingModel booking = new BookingModel();
                 booking.setId(rs.getString("id"));
                 booking.setDate_booking(rs.getString("date_booking"));
-                booking.setid_user(rs.getString("id_user"));
+                booking.setId_user(rs.getString("id_user"));
                 booking.setUsername(rs.getString("username"));
                 booking.setId_payment(rs.getString("id_payment"));
                 booking.setNameTypePayment(rs.getString("nameTypePayment"));
@@ -204,7 +204,7 @@ public class BookingDAO implements ObjectDAO {
                 booking = new BookingModel();
                 booking.setId(rs.getString("id"));
                 booking.setDate_booking(rs.getString("date_booking"));
-                booking.setid_user(rs.getString("id_user"));
+                booking.setId_user(rs.getString("id_user"));
                 booking.setUsername(rs.getString("username"));
                 booking.setId_payment(rs.getString("id_payment"));
                 booking.setNameTypePayment(rs.getString("nameTypePayment"));
@@ -247,13 +247,51 @@ public class BookingDAO implements ObjectDAO {
                 BookingModel booking = new BookingModel();
                 booking.setId(rs.getString("id"));
                 booking.setDate_booking(rs.getString("date_booking"));
-                booking.setid_user(rs.getString("id_user"));
+                booking.setId_user(rs.getString("id_user"));
                 booking.setUsername(rs.getString("username"));
                 booking.setId_payment(rs.getString("id_payment"));
                 booking.setNameTypePayment(rs.getString("nameTypePayment"));
                 booking.setStatus_booking(rs.getInt("status_booking"));
                 booking.setDescription(rs.getString("description"));
                 booking.setTel(rs.getString("tel"));
+
+                list.add(booking);
+            }
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static List<BookingModel> getListBookingByStatus( String id_user) {
+        LinkedList<BookingModel> list = new LinkedList<>();
+
+
+        String sql = "SELECT d.id id, id_booking, id_product, name, price, d.quantity quantity,avatar ,booking.date_booking ,booking.status_booking " +
+                "FROM booking join detail_bookings d on d.id_booking = booking.id " +
+                "join products on products.id = d.id_product " +
+                "WHERE booking.id_user=? " +
+                "order by id desc ";
+        try {
+
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+
+            ps.setString(1, id_user);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                BookingModel booking = new BookingModel();
+                booking.setId(rs.getString("id"));
+                booking.setDate_booking(rs.getString("id_booking"));
+                booking.setId_product(rs.getInt("id_product"));
+                booking.setName(rs.getString("name"));
+                booking.setPrice(rs.getInt("price"));
+                booking.setQuantity(rs.getInt("quantity"));
+                booking.setAvatar(rs.getString("avatar"));
+                booking.setDate_booking(rs.getString("date_booking"));
+                booking.setStatus_booking(rs.getInt("status_booking"));
+
 
                 list.add(booking);
             }

@@ -49,9 +49,9 @@ public class BookingOnlineController extends HttpServlet {
             CheckoutService checkoutService = new CheckoutService();
             BookingModel booking = new BookingModel();
             if (user != null) {
-                booking.setid_user(user.getId());
+                booking.setId_user(user.getId());
             }else {
-                booking.setid_user(null);
+                booking.setId_user(null);
             }
             booking.setStatus_booking(0);
             booking.setUsername(name);

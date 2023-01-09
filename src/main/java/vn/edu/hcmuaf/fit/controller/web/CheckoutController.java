@@ -43,7 +43,7 @@ public class CheckoutController extends HttpServlet {
         CheckoutService checkoutService = new CheckoutService();
         BookingModel booking = new BookingModel();
         if (user != null) {
-            booking.setid_user("1");
+            booking.setId_user("1");
         }
         booking.setStatus_booking(0);
         booking.setUsername(name);

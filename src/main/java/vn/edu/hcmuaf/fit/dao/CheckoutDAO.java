@@ -18,7 +18,7 @@ public class CheckoutDAO implements ObjectDAO {
         try {
             ps.setString(1, booking.getDate_booking());
 
-            ps.setString(2,booking.getid_user());
+            ps.setString(2,booking.getId_user());
             ps.setString(3, booking.getId_payment());
             ps.setString(4, booking.getDescription());
             ps.setString(5, "1");
@@ -77,27 +77,7 @@ public class CheckoutDAO implements ObjectDAO {
     }
 
     public static void main(String[] args) {
-//        java.util.Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dt);
-//        java.sql.Date mySqlDate = new java.sql.Date(date.getTime());
 
-        BookingModel booking = new BookingModel();
-        booking.setDate_booking("2023-12-01 00:12:00");
-        booking.setDescription("nè há");
-        booking.setId_payment("1");
-        booking.setid_user("1");
-        booking.setStatus_booking(1);
-        booking.setUsername("Test");
-        booking.setEmail("test@gmail.com");
-        booking.setTel("123467889");
-        booking.setAddress("tphcm");
-        int t = new CheckoutDAO().addBooking(booking);
-
-        System.out.println(t);
-        DetailBookingModal d = new DetailBookingModal();
-        d.setId_booking(t);
-        d.setId_product(1);
-        d.setQuantity(123);
-        System.out.println(new CheckoutDAO().addDetailBooking(t,d));
 //
 
     }

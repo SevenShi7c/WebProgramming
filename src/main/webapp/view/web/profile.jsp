@@ -29,8 +29,8 @@
     </div>
     <div class="container px-4 mt-4">
         <nav class="nav nav-borders">
-            <a class="nav-link active ms-0" href="/" target="__blank">Thông tin cá nhân</a>
-            <a class="nav-link" href="#">Lịch sử hẹn</a>
+            <a class="nav-link active ms-0" href="profile" target="__blank">Thông tin cá nhân</a>
+            <a class="nav-link" href="booked">Lịch sử hẹn</a>
         </nav>
         <hr class="mt-0 mb-4"/>
         <div class="row">

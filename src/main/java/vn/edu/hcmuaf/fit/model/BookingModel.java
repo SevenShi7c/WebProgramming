@@ -13,26 +13,18 @@ public class BookingModel {
     private String nameTypePayment;
     private String tel;
 
+    private int id_product;
+    private String name;
+
+
+    private int price;
+    private int quantity;
+    private String avatar;
+
     private String address;
     private String email;
 
-
-    public BookingModel() {
-        super();
-    }
-
-    public BookingModel(String id, String date_booking, String id_user, String username, String id_payment, String nameTypePayment, String description, int status_booking) {
-        this.id = id;
-        this.date_booking = date_booking;
-        this.id_user = id_user;
-        this.id_payment = id_payment;
-        this.description = description;
-        this.status_booking = status_booking;
-        this.username = username;
-        this.nameTypePayment = nameTypePayment;
-    }
-
-    public BookingModel(String id, String date_booking, String id_user, String id_payment, String description, int status_booking, String username, String nameTypePayment, String tel) {
+    public BookingModel(String id, String date_booking, String id_user, String id_payment, String description, int status_booking, String username, String nameTypePayment, String tel, int id_product, String name, int price, int quantity, String avatar, String address, String email) {
         this.id = id;
         this.date_booking = date_booking;
         this.id_user = id_user;
@@ -42,6 +34,17 @@ public class BookingModel {
         this.username = username;
         this.nameTypePayment = nameTypePayment;
         this.tel = tel;
+        this.id_product = id_product;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.avatar = avatar;
+        this.address = address;
+        this.email = email;
+    }
+
+    public BookingModel() {
+
     }
 
     public String getId() {
@@ -60,11 +63,11 @@ public class BookingModel {
         this.date_booking = date_booking;
     }
 
-    public String getid_user() {
+    public String getId_user() {
         return id_user;
     }
 
-    public void setid_user(String id_user) {
+    public void setId_user(String id_user) {
         this.id_user = id_user;
     }
 
@@ -116,12 +119,44 @@ public class BookingModel {
         this.tel = tel;
     }
 
-    public String getId_user() {
-        return id_user;
+    public int getId_product() {
+        return id_product;
     }
 
-    public void setId_user(String id_user) {
-        this.id_user = id_user;
+    public void setId_product(int id_product) {
+        this.id_product = id_product;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getAddress() {
@@ -142,7 +177,24 @@ public class BookingModel {
 
     @Override
     public String toString() {
-        return "BookingModel [id=" + id + ", date_booking=" + date_booking + ", id_user=" + id_user + ", id_payment=" + id_payment + ", description=" + description + ", status_booking=" + status_booking + "]";
+        return "BookingModel{" +
+                "id='" + id + '\'' +
+                ", date_booking='" + date_booking + '\'' +
+                ", id_user='" + id_user + '\'' +
+                ", id_payment='" + id_payment + '\'' +
+                ", description='" + description + '\'' +
+                ", status_booking=" + status_booking +
+                ", username='" + username + '\'' +
+                ", nameTypePayment='" + nameTypePayment + '\'' +
+                ", tel='" + tel + '\'' +
+                ", id_product=" + id_product +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", avatar='" + avatar + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
-
 }
+
