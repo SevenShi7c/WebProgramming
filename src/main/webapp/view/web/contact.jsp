@@ -10,7 +10,9 @@
 </head>
 
 <body>
+<% String mess = (String) session.getAttribute("mess"); %>
 <%@include file="../../common/web/header.jsp" %>
+
 
 <div class="breadcrumb-shop">
     <div class="container">
@@ -79,35 +81,40 @@
                 </div>
                 <div class="box-send-contact">
                     <h2>Gửi thắc mắc cho chúng tôi</h2>
+                    <%if (mess == "successSend") { %>
+                    <div class="alert alert-success">
+                        Bạn đã <strong>gửi phản hồi thành công </strong> chúng tôi sẽ nhanh chóng phản hồi lại với bạn
+                    </div>
+                    <%}%>
                     <div id="col-left contactFormWrapper menuList-links">
-                        <form accept-charset="UTF-8" action="" class="contact-form" method="post">
+                        <form accept-charset="UTF-8" action="contact" class="contact-form" method="post">
                             <div class="contact-form">
                                 <div class="row">
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="input-group">
                                             <input class="form-control" placeholder="Tên của bạn" required=""
-                                                   type="text">
+                                                   type="text" name="name" >
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <div class="input-group">
                                             <input class="form-control" placeholder="Email của bạn" required=""
-                                                   type="text">
+                                                   type="text" name="email">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <div class="input-group">
                                             <input class="form-control" placeholder="Số điện thoại của bạn" required=""
-                                                   type="text">
+                                                   type="text" name="tel">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="input-group">
-                                            <textarea placeholder="Nội dung"></textarea>
+                                            <textarea placeholder="Nội dung" name="content"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                        <button class="button dark">Gửi cho chúng tôi</button>
+                                        <button class="button dark" type="submit">Gửi cho chúng tôi</button>
                                     </div>
                                 </div>
                             </div>
