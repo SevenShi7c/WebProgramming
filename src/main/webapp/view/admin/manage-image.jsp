@@ -79,8 +79,9 @@
 
                             <td>
 
-                                <img src="../images/banner/<%=list.getPhoto()%>"
+                                <img src="<% if(list.getType()==1){out.print("../images/banner/"+list.getPhoto());}else{out.print("../images/footer/"+list.getPhoto());}%>"
                                      alt="" width="100px;" class="avatar">
+
                             </td>
 
 
