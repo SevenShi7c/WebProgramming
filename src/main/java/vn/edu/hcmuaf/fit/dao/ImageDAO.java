@@ -128,7 +128,7 @@ public class ImageDAO {
         }
     }
 
-    public void updatePhoto(String id, String name, String photo, int type) {
+    public void updatePhoto(int id, String name, String photo, int type) {
         String sql = "update images set photo=?, type=?,name_photo=? where id =?";
         Connection connect = ConnectToDatabase.getConnect();
         try {
@@ -137,7 +137,7 @@ public class ImageDAO {
             ppstm.setString(1, photo);
             ppstm.setInt(2, type);
             ppstm.setString(3, name);
-            ppstm.setString(4, id);
+            ppstm.setInt(4, id);
 
 
 
