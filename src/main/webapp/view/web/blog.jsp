@@ -54,7 +54,7 @@
                         <div class="item-article clearfix">
                             <div class="post-image">
                                 <a href="">
-                                    <img src="images/blog/<%=blog.getAvatar()%>" alt=""></a>
+                                    <img src="images/blog/<%=blog.getAvatar()%>" alt="" width="100px;" class="avatar"></a>
                             </div>
                             <div class="post-content">
                                 <h3>
@@ -186,7 +186,7 @@
                                 <a href="detail-blog?id-blog=<%=blog.getId()%>" class="blog-post-thumbnail" title=""
                                    rel="nofollow">
                                     <img style="border: 1px;width: 100%" src="images/blog/<%=blog.getAvatar()%>"
-                                         alt="">
+                                         alt="" width="100px;" class="avatar">
                                 </a>
                             </div>
                             <div class="col-md-8 col-xs-12 col-sm-12">

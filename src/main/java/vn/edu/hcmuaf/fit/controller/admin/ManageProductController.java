@@ -17,9 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.file.Paths;
 import java.util.List;
 
 @MultipartConfig
@@ -37,7 +36,7 @@ public class ManageProductController extends HttpServlet {
             view = "/view/admin/manage-product.jsp";
         } else if (SystemConstant.ADD.equals(typeParam)) {
             String addStyleParam = request.getParameter("action");
-            if (addStyleParam!=null){
+            if (addStyleParam != null) {
                 if (addStyleParam.equals("brand")) {
                     doGetAddBrand(request, response);
                 } else if (addStyleParam.equals("type_product")) {
@@ -113,7 +112,6 @@ public class ManageProductController extends HttpServlet {
 //        System.out.println(request.getPart("idProduct").getSubmittedFileName());
         int pid = Integer.parseInt(request.getParameter("idProduct"));
         String pName = request.getParameter("name_product");
-        String pAvatar = request.getParameter("ImageUpload");
         int pidTypeProduct = Integer.parseInt(request.getParameter("categoryTypeProduct"));
         int pidStatus = Integer.parseInt(request.getParameter("statusProduct"));
         int pBrand = Integer.parseInt(request.getParameter("categoryBrand"));
@@ -123,35 +121,32 @@ public class ManageProductController extends HttpServlet {
         int pidStore = Integer.parseInt("1");
         String id = request.getParameter("idProduct");
 
+//        update image from client path to server
+        Part file = request.getPart("ImageUpload");
 
+        String imageFileName = file.getSubmittedFileName();  // get selected image file name
+        System.out.println("Selected Image File Name : " + imageFileName);
 
-//        System.out.println("In do post method of Add Image servlet.");
-//        Part file = request.getPart("avatar");
-//
-//        String imageFileName = file.getSubmittedFileName();  // get selected image file name
-//        System.out.println("Selected Image File Name : " + imageFileName);
-//
-//        String uploadPath = request.getContextPath() + "/images/product/" + imageFileName;  // upload path where we have to upload our actual image
-//        System.out.println("Upload Path : " + uploadPath);
-//
-//        // Uploading our selected image into the images folder
-//
-//        try {
-//
-//            FileOutputStream fos = new FileOutputStream(uploadPath);
-//            InputStream is = file.getInputStream();
-//
-//            byte[] data = new byte[is.available()];
-//            is.read(data);
-//            fos.write(data);
-//            fos.close();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        String uploadPath = getServletContext().getRealPath("") + File.separator +"/images/product/" + imageFileName;  // upload path where we have to upload our actual image
+        System.out.println("Upload Path : " + uploadPath);
 
-//        boolean checkUpdateProduct = ProductService.updateProduct(pid, pName, pAvatar, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
-//        request.setAttribute("message", checkUpdateProduct);
+        // Uploading our selected image into the images folder
+
+        try {
+            FileOutputStream fos = new FileOutputStream(uploadPath);
+            InputStream is = file.getInputStream();
+
+            byte[] data = new byte[is.available()];
+            is.read(data);
+            fos.write(data);
+            fos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        boolean checkUpdateProduct = ProductService.updateProduct(pid, pName, imageFileName, pidTypeProduct, pidStatus, pBrand, pPrice, pQuantity, pDescription, pidStore);
+        request.setAttribute("message", checkUpdateProduct);
         request.setAttribute("categoryTypeProduct", CategorySevice.getListTypeProduct());
         request.setAttribute("categoryBrand", CategorySevice.getListBrand());
         request.setAttribute("listProduct", ProductService.getListProduct());

@@ -31,8 +31,8 @@ public class BlogService {
         return BlogDAO.getDetailBlogForId(idBlogPram);
     }
 
-    public static void updateBlog(String id, String title, String brief, String detail){
-            BlogDAO.update(id, title, brief, detail);
+    public static void updateBlog(String id, String title, String brief, String detail, String avatar){
+            BlogDAO.update(id, title, brief, detail,avatar);
     }
 
     public static void main(String[] args) {

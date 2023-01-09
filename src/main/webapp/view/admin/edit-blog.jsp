@@ -149,7 +149,7 @@
                 <h3 class="tile-title">Chỉnh sửa nâng cao</h3>
                 <div class="tile-body">
                     <form class="row" action="<%=pageContextPath%>/admin/manage-blog?action=edit&id-blog=<%=blog==null?"":blog.getId()%>"
-                          method="post">
+                          method="post" enctype="multipart/form-data">
                         <input type="hidden" class="form-control" placeholder="" name="id-blog"
                                value="<%=blog==null?"":blog.getId()%>">
                         <div class="form-group col-md-3">
@@ -157,23 +157,24 @@
                             <input class="form-control" type="text" placeholder=""
                                    name="title" value="<%= blog==null?"":blog.getTitle() %>">
                         </div>
-<%--                        <div class="form-group col-md-6">--%>
-<%--                            <label class="control-label">Ảnh đại diện</label>--%>
-<%--                            <div id="myfileupload">--%>
-<%--                                <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this);"/>--%>
-<%--                            </div>--%>
-<%--                            <div id="thumbbox">--%>
-<%--                                <img height="450" width="400" alt="Thumb image" id="thumbimage"--%>
-<%--                                     src="../../admin/images/iphone.jpg"/>--%>
-<%--                                <a class="removeimg" href="javascript:"></a>--%>
-<%--                            </div>--%>
-<%--                            <div id="boxchoice">--%>
-<%--                                <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>--%>
-<%--                                    Chọn ảnh</a>--%>
-<%--                                <p style="clear:both"></p>--%>
-<%--                            </div>--%>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Ảnh tin tức</label>
+                            <div id="myfileupload">
+                                <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this)"
+                                       value="<%=blog.getAvatar()%>"/>
+                            </div>
 
-<%--                        </div>--%>
+                            <div id="thumbbox">
+                                <img height="450" width="400" alt="Thumb image" id="thumbimage"
+                                     src="../images/blog/<%=blog.getAvatar()%>"/>
+                                <a class="removeimg" href="javascript:"></a>
+                            </div>
+                            <div id="boxchoice">
+                                <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
+                                    Chọn ảnh</a>
+                                <p style="clear:both"></p>
+                            </div>
+                        </div>
 
                         <div class="form-group col-md-6">
                             <label class="control-label">Nội dung tóm tắt</label>
@@ -190,7 +191,7 @@
 
                         </div>
                         <input class="btn btn-save" type="submit" value="Lưu lại" onclick="save()"></input>
-                        <a class="btn btn-cancel" href="manage-blog.jsp">Hủy bỏ</a>
+                        <a class="btn btn-cancel" href="manage-blog">Hủy bỏ</a>
                     </form>
                 </div>
 

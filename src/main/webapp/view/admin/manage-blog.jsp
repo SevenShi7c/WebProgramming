@@ -34,7 +34,7 @@
                     <div class="row element-button">
                         <div class="col-sm-2">
 
-                            <a class="btn btn-add btn-sm" href="add-blog.jsp" title="Thêm"><i
+                            <a class="btn btn-add btn-sm" href="manage-blog?action=add" title="Thêm"><i
                                     class="fas fa-plus"></i>
                                 Tạo mới</a>
                         </div>
@@ -61,8 +61,8 @@
                             <th width="10"><input type="checkbox" id="all"></th>
                             <th>ID</th>
                             <th>Tiêu đề tin</th>
+                            <th>Ảnh đại diên</th>
                             <th>Nội dung tóm tắt</th>
-                            <th>Nội dung chi tiết</th>
                             <th>Người đăng</th>
                             <th>Chức năng</th>
                         </tr>
@@ -75,8 +75,8 @@
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                             <td><%=blog.getId()%></td>
                             <td><%=blog.getTitle()%></td>
+                            <td><img src="../images/blog/<%=blog.getAvatar()%>" width="100px;" class="avatar"></td>
                             <td><%=blog.getBriefContent()%></td>
-                            <td><%=blog.getDetailContent()%></td>
                             <td><%=blog.getUserCreated()%></td>
                             <td>
                                 <%--xóa tin tức--%>

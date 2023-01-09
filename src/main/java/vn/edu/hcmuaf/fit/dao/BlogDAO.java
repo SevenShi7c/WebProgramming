@@ -195,14 +195,15 @@ public class BlogDAO extends AbstractDAO {
 
     }
 
-    public static void update(String id, String title, String brief, String detail){
-        String sql = "update blog set title = ?, briefContent = ?,detail_content = ? where id = ?";
+    public static void update(String id, String title, String brief, String detail,String avatar){
+        String sql = "update blog set title = ?, briefContent = ?,detail_content = ?,avatar=? where id = ?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
             ps.setString(1, title);
             ps.setString(2, brief);
             ps.setString(3, detail);
-            ps.setString(4, id);
+            ps.setString(4, avatar);
+            ps.setString(5, id);
             ps.executeUpdate();
         } catch (Exception e) {
             throw new RuntimeException(e);

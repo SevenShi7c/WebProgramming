@@ -199,6 +199,7 @@ public class ProductDAO {
     }
 
     public static boolean updateProduct(int id, String name, String avatar, int id_type_product, int id_status_device, int id_brand, int price, int sum_quantity, String describe, int id_store) {
+        System.out.println(avatar);
         String sql = "UPDATE PRODUCTS SET NAME=?, avatar=?,id_type_product=?,  id_status_device=?,id_brand=?,price=?, sum_quantity=?,`describe`=?,id_store=? WHERE ID=?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);

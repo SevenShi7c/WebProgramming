@@ -191,7 +191,7 @@
     <!--New-->
     <div>
         <div class="container" style="width: 100%;margin: auto;">
-<%--            <div class="owl-carousel owl-theme owl-product-setting">--%>
+            <div class="owl-carousel owl-theme owl-product-setting">
                 <%
                     BlogService blogService = new BlogService();
                     List<BlogModel> newListBlog = (List<BlogModel>) blogService.getNewBlog();
@@ -202,7 +202,7 @@
                         <div class="post_featured">
                             <a href="detail-blog?id-blog=<%=blog.getId()%>" title="">
                                 <img class="img-resize" style="padding-bottom:15px;"
-                                     src="images/blog/<%=blog.getAvatar()%>" alt="">
+                                     src="images/blog/<%=blog.getAvatar()%>" alt="" >
                             </a>
                         </div>
                         <div class="pro-text">
@@ -228,7 +228,7 @@
                 </div>
                 <%
                     }%>
-<%--            </div>--%>
+            </div>
         </div>
     </div>
     </div>

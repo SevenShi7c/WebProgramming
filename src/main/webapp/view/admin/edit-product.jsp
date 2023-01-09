@@ -193,8 +193,6 @@
                                 <div id="myfileupload">
                                     <input type="file" id="uploadfile" name="ImageUpload" onchange="readURL(this)"
                                            value="<%=product.getAvatar()%>"/>
-                                    <input type="hidden" name="avatar"
-                                           value="../images/product/<%=product.getAvatar()%>" class="avatar">
                                 </div>
                                 <div id="thumbbox">
                                     <img height="450" width="400" alt="Thumb image" id="thumbimage"
@@ -202,6 +200,7 @@
                                     <a class="removeimg" href="javascript:"></a>
                                 </div>
                                 <div id="boxchoice">
+<%--                                    <input type="file" href="javascript:" class="Choicefile" name="avatar" >--%>
                                     <a href="javascript:" class="Choicefile"><i class="fas fa-cloud-upload-alt"></i>
                                         Chọn ảnh</a>
                                     <p style="clear:both"></p>
