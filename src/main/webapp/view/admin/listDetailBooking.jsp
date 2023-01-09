@@ -15,14 +15,14 @@
 <%@include file="../../common/admin/header.jsp" %>
 <%
     List<DetailBookingModal> listDetailBooking = (List<DetailBookingModal>) request.getAttribute("listDetailBooking");
- %>
+%>
 <!-- Sidebar menu-->
 <%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><a href="manage-order">Quản lý đơn hàng</a></li>
-            <li class="breadcrumb-item"><a href="#">Danh sách sản phẩm đặt lịch</a></li>
+            <li class="breadcrumb-item"><a href="manage-order">Quản lý lịch đặt</a></li>
+            <li class="breadcrumb-item"><a href="#">Danh sách sản phẩm được đặt</a></li>
         </ul>
         <div id="clock"></div>
     </div>
@@ -34,15 +34,14 @@
                         <div class="col-sm-2">
 
                             <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>
-                                Tạo mới đơn hàng</a>
+                                Thêm mới </a>
                         </div>
 
-
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"
-                               onclick="myApp.printTable()"><i
-                                    class="fas fa-print"></i> In dữ liệu</a>
-                        </div>
+                        <%--                        <div class="col-sm-2">--%>
+                        <%--                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"--%>
+                        <%--                               onclick="myApp.printTable()"><i--%>
+                        <%--                                    class="fas fa-print"></i> In dữ liệu</a>--%>
+                        <%--                        </div>--%>
 
                         <div class="col-sm-2">
                             <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
@@ -67,7 +66,8 @@
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                             <td name="id"><%=detail.getId()%>
                             </td>
-                            <td name="id_booking"><%=detail.getId_booking()%></td>
+                            <td name="id_booking"><%=detail.getId_booking()%>
+                            </td>
                             <td name="name"><%=detail.getName()%>
                             </td>
                             <td name="price"><%=detail.getPrice()%>
@@ -77,11 +77,11 @@
                             <td>
                                 <%--                    xóa sửa--%>
                                 <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                   href="manage-order?type=delete&id=<%=detail.getId()%>"><i
+                                   href="manage-order?type=list&action=delete&id=<%=detail.getId()%>"><i
                                         class="fas fa-trash-alt"></i></a>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                </button>
+                                <a class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                   href="manage-order?type=list&action=edit&id=<%=detail.getId()%>"><i class="fas fa-edit"></i>
+                                </a>
                             </td>
                         </tr>
                         <%}%>

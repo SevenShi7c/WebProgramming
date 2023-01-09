@@ -90,7 +90,28 @@ public class BookingDAO implements ObjectDAO {
 
     }
 
+    public static void insertBooking(String id, String id_user, String id_payment, String date, String desc, int status, String username, String email, String tel, String address) {
+        date += ":00";
+        String sql = "INSERT INTO `booking`(`id`, `date_booking`, `id_user`, `id_payment`, `description`, `status_booking`, `username`, `email`, `tel`, `address`) " +
+                "VALUES(NULL,date_booking = ?, id_user=?, id_payment=?,description = ?, status_booking=?, username=?,email=?,tel=?, address=?";
 
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setTimestamp(1, Timestamp.valueOf(date.replace("T", " ")));
+            ps.setString(2, id_user);
+            ps.setString(3, id_payment);
+
+            ps.setString(4, desc);
+            ps.setInt(5, status);
+            ps.setString(6, username);
+            ps.setString(7, email);
+            ps.setString(8, tel);
+            ps.setString(9, address);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 //
 //    public void addCustomer(String name, String tel, String email, String address) {
 ////        String sql = "insert into customer(username,address,email,tel,id_user) values (?,?,?,?,?)";
