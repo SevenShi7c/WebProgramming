@@ -15,14 +15,14 @@
 <%@include file="../../common/admin/header.jsp" %>
 <%
     List<DetailBookingModal> listDetailBooking = (List<DetailBookingModal>) request.getAttribute("listDetailBooking");
- %>
+%>
 <!-- Sidebar menu-->
 <%@include file="../../common/admin/sidebar.jsp" %>
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><a href="manage-order">Quản lý đơn hàng</a></li>
-            <li class="breadcrumb-item"><a href="#">Danh sách sản phẩm đặt lịch</a></li>
+            <li class="breadcrumb-item"><a href="manage-order">Quản lý lịch đặt</a></li>
+            <li class="breadcrumb-item"><a href="#">Danh sách sản phẩm được đặt</a></li>
         </ul>
         <div id="clock"></div>
     </div>
@@ -34,15 +34,14 @@
                         <div class="col-sm-2">
 
                             <a class="btn btn-add btn-sm" href="add-order.jsp" title="Thêm"><i class="fas fa-plus"></i>
-                                Tạo mới đơn hàng</a>
+                                Thêm mới </a>
                         </div>
 
-
-                        <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"
-                               onclick="myApp.printTable()"><i
-                                    class="fas fa-print"></i> In dữ liệu</a>
-                        </div>
+                        <%--                        <div class="col-sm-2">--%>
+                        <%--                            <a class="btn btn-delete btn-sm print-file" type="button" title="In"--%>
+                        <%--                               onclick="myApp.printTable()"><i--%>
+                        <%--                                    class="fas fa-print"></i> In dữ liệu</a>--%>
+                        <%--                        </div>--%>
 
                         <div class="col-sm-2">
                             <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
@@ -57,31 +56,38 @@
                             <th>Đơn hàng</th>
                             <th>Tên sản phẩm</th>
                             <th>Đơn giá</th>
-                            <th>Quantity</th>
+                            <th>Số lượng đặt</th>
                             <th>Tính năng</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%for (DetailBookingModal detail : listDetailBooking) {%>
-                        <tr>
+                        <tr class="booking-<%=detail.getId()%>">
                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                            <td name="id"><%=detail.getId()%>
+                            <td name="id" class="id"><%=detail.getId()%>
                             </td>
-                            <td name="id_booking"><%=detail.getId_booking()%></td>
-                            <td name="name"><%=detail.getName()%>
+                            <td name="id_booking"><%=detail.getId_booking()%>
                             </td>
-                            <td name="price"><%=detail.getPrice()%>
+                            <td name="name" class="name"><%=detail.getName()%>
                             </td>
-                            <td name="date_booking"><%=detail.getQuantity()%>
+                            <td name="price" class="price"><%=detail.getPrice()%>
+                            </td>
+                            <td name="quantity" class="quantity"><%=detail.getQuantity()%>
                             </td>
                             <td>
                                 <%--                    xóa sửa--%>
                                 <a class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                   href="manage-order?type=delete&id=<%=detail.getId()%>"><i
+                                   href="manage-order?type=list&action=delete&id=<%=detail.getId()%>"><i
                                         class="fas fa-trash-alt"></i></a>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                </button>
+
+                                <button class="btn btn-primary btn-sm trash" type="button" title="Sửa"
+                                        data-toggle="modal" data-target="#ModalUP"><i
+                                        class="fas fa-edit" onclick="editModal(<%=detail.getId()%>)">></i></button>
+
+                                <a class="btn btn-primary btn-sm edit" type="button" title="Sửa"
+                                   href="manage-order?type=list&action=edit&id=<%=detail.getId()%>"><i
+                                        class="fas fa-edit"></i>
+                                </a>
                             </td>
                         </tr>
                         <%}%>
@@ -104,38 +110,26 @@ MODAL
                 <div class="row">
                     <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
-                <h5>Chỉnh sửa thông tin đơn hàng cơ bản</h5>
+                <h5>Chỉnh sửa thông tin</h5>
               </span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="control-label">ID đơn hàng</label>
-                        <input class="form-control" type="text" required value="MD0837" disabled>
+                        <label class="control-label">ID lịch đặt</label>
+                        <input class="form-control" type="text" required value="" class="id" readonly>
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label">Khách hàng</label>
-                        <input class="form-control" type="text" required value="Triệu Thanh Phú">
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label class="control-label">Đơn hàng</label>
-                        <input class="form-control" type="text" required value="Ép cổ cáp màn hình Samsung S8">
+                        <label class="control-label">Tên sản phẩm</label>
+                        <input class="form-control" type="text" required value="" class="name" readonly>
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label">Số lượng</label>
-                        <input class="form-control" type="number" required value="2">
+                        <label class="control-label">Đơn giá</label>
+                        <input class="form-control" type="text" required value="" class="price" readonly>
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label">Tổng tiền</label>
-                        <input class="form-control" type="text" value="3.180.000 đ">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="exampleSelect1" class="control-label">Tình trạng</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Đã xử lý</option>
-                            <option>Đang chờ</option>
-                            <option>Đã hủy</option>
-                        </select>
+                        <label class="control-label">Số lượng đặt</label>
+                        <input class="form-control" type="number" required value="" class="quantity">
                     </div>
                 </div>
                 <BR>
@@ -144,7 +138,7 @@ MODAL
         color: #ea0000;">Chỉnh sửa nâng cao</a>
                 <BR>
                 <BR>
-                <button class="btn btn-save" type="button" onclick="save()">Lưu lại</button>
+                <a class="btn btn-save urlEditBasic" type="button" onclick="save()">Lưu lại</a>
                 <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
                 <BR>
             </div>
@@ -285,6 +279,39 @@ MODAL
 
         swal("Đã lưu thành công.!", {});
 
+    }
+
+    function editModal(idBooking) {
+
+        let id = document.querySelector(`.booking-${idBooking} .id`).innerText
+        let quantity = document.querySelector(`.booking-${idProduct} .quantity`).innerText
+        <%--let status = document.querySelector(`.booking-${idProduct} .status`).innerText--%>
+        let price = document.querySelector(`.booking-${idProduct} .price`).innerText
+        let name = document.querySelector(`.booking-${idProduct} .name`).innerText
+
+        $('#ModalUP .id').val(id);
+        $('#ModalUP .name').val(name);
+        $('#ModalUP .quantity').val(quantity);
+        $('#ModalUP .price').val(price);
+        $('#ModalUP .urlEditBasic').attr('href', `manage-order?type=edit&id-booking=${idProduct}`);
+
+        let listCategory = document.querySelectorAll('#ModalEditProduct #categoryModal option')
+        for (let i = 0; i < listCategory.length; i++) {
+            listCategory[i].value == category ? listCategory[i].selected = true : listCategory[i].selected = false
+        }
+        <%--$.ajax({--%>
+        <%--    type: 'GET',--%>
+        <%--    url: '<%=pageContextPath%>/admin/manage-product',--%>
+        <%--    data: {action: 'find', id: idProduct},--%>
+        <%--    success: (result) => {--%>
+        <%--        $('#ModalEditProduct #idModal').val(result.id);--%>
+        <%--        $('#ModalEditProduct #nameModal').val(result.name);--%>
+        <%--        $('#ModalEditProduct #quantityModal').val(result.quantity);--%>
+        <%--        $('#ModalEditProduct #statusModal').val(result.status);--%>
+        <%--        $('#ModalEditProduct #priceModal').val(result.price);--%>
+        <%--        $('#ModalEditProduct #categoryModal').val(result.category);--%>
+        <%--    }--%>
+        <%--})--%>
     }
 </script>
 </body>

@@ -5,7 +5,6 @@ import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.BookingModel;
 import vn.edu.hcmuaf.fit.model.CategoryModel;
 import vn.edu.hcmuaf.fit.model.DetailBookingModal;
-import vn.edu.hcmuaf.fit.model.ProductModel;
 
 import java.sql.*;
 import java.util.LinkedList;
@@ -90,6 +89,29 @@ public class BookingDAO implements ObjectDAO {
         }
 
     }
+
+    public static void insertBooking(String id, String id_user, String id_payment, String date, String desc, int status, String username, String email, String tel, String address) {
+        date += ":00";
+        String sql = "INSERT INTO `booking`(`id`, `date_booking`, `id_user`, `id_payment`, `description`, `status_booking`, `username`, `email`, `tel`, `address`) " +
+                "VALUES(NULL,date_booking = ?, id_user=?, id_payment=?,description = ?, status_booking=?, username=?,email=?,tel=?, address=?";
+
+        try {
+            PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
+            ps.setTimestamp(1, Timestamp.valueOf(date.replace("T", " ")));
+            ps.setString(2, id_user);
+            ps.setString(3, id_payment);
+
+            ps.setString(4, desc);
+            ps.setInt(5, status);
+            ps.setString(6, username);
+            ps.setString(7, email);
+            ps.setString(8, tel);
+            ps.setString(9, address);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 //
 //    public void addCustomer(String name, String tel, String email, String address) {
 ////        String sql = "insert into customer(username,address,email,tel,id_user) values (?,?,?,?,?)";
@@ -171,28 +193,30 @@ public class BookingDAO implements ObjectDAO {
     public void read() {
 
     }
+
     static PreparedStatement statement = null;
+
     public static void deleteConfirm(int id) {
         String sql1 = "delete from detail_bookings where id_booking = ?";
         String sql = "delete from booking where id = ? ";
         Connection connection = new ConnectToDatabase().getConnect();
         try {
             statement = connection.prepareStatement(sql1);
-            statement.setInt(1,id);
+            statement.setInt(1, id);
             statement.executeUpdate();
-            
+
             statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             statement.executeUpdate();
-            
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
 
-    public static BookingModel getBooking(String id){
-        String sql = "SELECT booking.id id,date_booking, id_user ,username, id_payment, t.name nameTypePayment,description, status_booking,tel " +
+    public static BookingModel getBooking(String id) {
+        String sql = "SELECT booking.id id,date_booking, id_user ,username, id_payment, t.name nameTypePayment,description, status_booking,tel,email,address " +
                 "FROM booking join type_payments t on t.id = booking.id_payment " +
                 "WHERE booking.id= ?";
         try {
@@ -211,7 +235,9 @@ public class BookingDAO implements ObjectDAO {
                 booking.setStatus_booking(rs.getInt("status_booking"));
                 booking.setDescription(rs.getString("description"));
                 booking.setTel(rs.getString("tel"));
-                System.out.println(rs.getString("id"));
+                booking.setAddress(rs.getString("address"));
+                booking.setEmail(rs.getString("email"));
+
             }
             return booking;
         } catch (Exception e) {
@@ -220,18 +246,25 @@ public class BookingDAO implements ObjectDAO {
 
     }
 
-    public static void updateBooking(String id, String date, String desc){
-        String sql = "update booking set date_booking = ?, description = ? where id = ?";
+    public static void updateBooking(String id, String date, String desc, int status, String username, String email, String tel, String address) {
+        date += ":00";
+        String sql = "update booking set date_booking = ?, description = ?, status_booking=?, username=?,email=?,tel=?, address=? where id = ?";
         try {
             PreparedStatement ps = DBConnect.getInstall().preStatement(sql);
-            ps.setString(1, date);
+            ps.setTimestamp(1, Timestamp.valueOf(date.replace("T", " ")));
             ps.setString(2, desc);
-            ps.setString(3, id);
+            ps.setInt(3, status);
+            ps.setString(4, username);
+            ps.setString(5, email);
+            ps.setString(6, tel);
+            ps.setString(7, address);
+            ps.setString(8, id);
             ps.executeUpdate();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
     public static List<BookingModel> getListBooking() {
         LinkedList<BookingModel> list = new LinkedList<>();
 
@@ -262,7 +295,8 @@ public class BookingDAO implements ObjectDAO {
             throw new RuntimeException(e);
         }
     }
-    public static List<BookingModel> getListBookingByStatus( String id_user) {
+
+    public static List<BookingModel> getListBookingByStatus(String id_user) {
         LinkedList<BookingModel> list = new LinkedList<>();
 
 
@@ -302,14 +336,8 @@ public class BookingDAO implements ObjectDAO {
     }
 
     public static void main(String[] args) {
-//        BookingDAO b = new BookingDAO();
-//        b.addCustomer("Phuoc", "0123", "phuoc@phuoc", "BinhPhuoc");
-//        b.addBooking("2022-11-04 ","9:20",b.selectIdNew(),"1","Không có");
-
-        for (BookingModel b :
-                BookingDAO.getListBooking(1)) {
-            System.out.println(b.getId());
-        }
+        BookingDAO b = new BookingDAO();
+        b.updateBooking("1", "2022-12-12 12:12", "test", 1, "test", "test@gmail.com", "123", "tphcm");
 
     }
 

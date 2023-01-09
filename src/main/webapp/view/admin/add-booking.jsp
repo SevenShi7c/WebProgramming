@@ -11,7 +11,7 @@
 <html lang="en">
 
 <head>
-    <title>Chỉnh sửa lịch đặt | ADMIN</title>
+    <title>Thêm mới lịch đặt | ADMIN</title>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
@@ -86,7 +86,7 @@
             <div class="tile">
                 <h3 class="tile-title">Chỉnh sửa lịch đặt</h3>
                 <div class="tile-body">
-                    <form action="<%=pageContextPath%>/admin/manage-order?type=edit&id-booking=<%=booking==null?"":booking.getId()%>"
+                    <form action="<%=pageContextPath%>/admin/manage-order?type=add"
                           method="post">
                         <%--            <div class="row element-button">--%>
                         <%--              <div class="col-sm-2">--%>
@@ -116,13 +116,13 @@
                             <div class="form-group  col-md-3">
                                 <label class="control-label">Tình trạng</label>
                                 <select class="form-control" name="status">
-                                    <option value="1" <%=booking.getStatus_booking() == 1 ? "selected" : ""%>>
+                                    <option value="1" <%=booking == null ? "" : (booking.getStatus_booking() == 1 ? "selected" : "")%>>
                                         Đã xác nhận
                                     </option>
-                                    <option value="0" <%=booking.getStatus_booking() == 0 ? "selected" : ""%>>
+                                    <option value="0" <%=booking == null ? "" : (booking.getStatus_booking() == 0 ? "selected" : "")%>>
                                         Chờ xác nhận
                                     </option>
-                                    <option value="-1" <%=booking.getStatus_booking() == -1 ? "selected" : ""%>>
+                                    <option value="-1" <%=booking == null ? "" : (booking.getStatus_booking() == -1 ? "selected" : "")%>>
                                         Đã hủy
                                     </option>
                                 </select>
