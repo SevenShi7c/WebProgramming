@@ -147,7 +147,7 @@
             <div class="tile">
                 <h3 class="tile-title">Thêm mới tin tức</h3>
                 <div class="tile-body">
-                    <form class="row" action="<%=pageContextPath%>/admin/manage-blog?action=add%>"
+                    <form class="row" action="<%=pageContextPath%>/admin/manage-blog?action=add"
                           method="post" enctype="multipart/form-data">
                         <input type="hidden" class="form-control" placeholder="" name="id-blog"
                                value="">

@@ -27,16 +27,15 @@ public class ManageBlogController extends HttpServlet {
         String view = "/view/admin/manage-blog.jsp";
 
         if (actionParam != null) {
-            if (request.getParameter("action").equals("delete")) {
+            if (actionParam.equals("delete")) {
                 BlogDAO dao = new BlogDAO();
                 dao.deleteBlog(Integer.parseInt(request.getParameter("id")));
-            } else if (request.getParameter("action").equals("edit-blog")) {
+            } else if (actionParam.equals("edit-blog")) {
                 String idBlog = request.getParameter("id-blog");
                 BlogModel blog = BlogService.getDetailBlogForId(idBlog);
                 request.setAttribute("blog", blog);
                 view = "/view/admin/edit-blog.jsp";
             } else if (SystemConstant.ADD.equals(actionParam)) {
-                doGetAddBlog(request, response);
                 view = "/view/admin/add-blog.jsp";
             }
         }
@@ -45,24 +44,46 @@ public class ManageBlogController extends HttpServlet {
         request.getRequestDispatcher(view).forward(request, response);
     }
 
-    private void doGetAddBlog(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String id = request.getParameter("id-blog");
-        String title = request.getParameter("title");
-        String brief = request.getParameter("brief");
-        String detail = request.getParameter("detail");
-
-
-
-        response.sendRedirect("/admin/manage-blog");
-
-    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String typeParam = request.getParameter("action");
         if (SystemConstant.EDIT.equals(typeParam)) {
             doPost_Edit(request, response);
+        }else if (SystemConstant.ADD.equals(typeParam)) {
+            doPostAdd(request,response);
         }
+    }
+
+    private void doPostAdd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String title = request.getParameter("title");
+        String brief = request.getParameter("brief");
+        String detail = request.getParameter("detail");
+
+        Part file = request.getPart("ImageUpload");
+        String imageFileName = file.getSubmittedFileName();  // get selected image file name
+        System.out.println("Selected Image File Name : " + imageFileName);
+
+        String uploadPath = getServletContext().getRealPath("") + File.separator + "/images/blog/" + imageFileName;  // upload path where we have to upload our actual image
+        System.out.println("Upload Path : " + uploadPath);
+
+        // Uploading our selected image into the images folder
+
+        try {
+            FileOutputStream fos = new FileOutputStream(uploadPath);
+            InputStream is = file.getInputStream();
+
+            byte[] data = new byte[is.available()];
+            is.read(data);
+            fos.write(data);
+            fos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        BlogService.insertBlog( title, brief, detail, imageFileName);
+
+        response.sendRedirect(request.getContextPath() + "/admin/manage-blog");
+
     }
 
     private void doPost_Edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
