@@ -39,6 +39,8 @@
                 class="app-menu__label">Quản lý tin tức </span></a></li>
         <li><a class="app-menu__item" href="manage-image"><i class='app-menu__icon bx bx-image'></i><span
                 class="app-menu__label">Quản lý ảnh </span></a></li>
+        <li><a class="app-menu__item" href="manage-contact"><i class='app-menu__icon bx bx-image'></i><span
+                class="app-menu__label">Quản lý liên hệ </span></a></li>
     </ul>
 </aside>
 </body>
