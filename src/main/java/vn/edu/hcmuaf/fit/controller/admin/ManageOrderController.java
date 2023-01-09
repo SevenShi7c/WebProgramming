@@ -85,9 +85,25 @@ public class ManageOrderController extends HttpServlet {
 
                     response.sendRedirect(request.getContextPath() + "/admin/manage-order");
                 }
+            } else if (typeParam.equals("list")) {
+                String idBooking = request.getParameter("id-booking");
+                HttpSession session = request.getSession();
+                User user = (User) session.getAttribute("userlogin");
+                if (idBooking != null) {
+                    String id = request.getParameter("id-booking");
+                    String desc = request.getParameter("description");
+                    String date = request.getParameter("date");
+                    System.out.println(date);
+                    int status = Integer.parseInt(request.getParameter("status"));
+                    String username = request.getParameter("username");
+                    String email = request.getParameter("email");
+                    String tel = request.getParameter("tel");
+                    String address = request.getParameter("address");
+                    BookingService.insertBooking(id, user.getId(), "1", date, desc, status, username, email, tel, address);
+
+                    response.sendRedirect(request.getContextPath() + "/admin/manage-order");
+                }
             }
-
-
         }
     }
 }
