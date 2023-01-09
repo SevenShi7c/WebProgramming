@@ -227,6 +227,7 @@ public class BlogDAO extends AbstractDAO {
         }
     }
 
+
     public static void main(String[] args) {
         new BlogDAO().insertBlog("test","test","test","tes.jpg");
     }

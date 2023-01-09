@@ -42,4 +42,27 @@ public class ContactDAO {
         }
 
     }
+    public void add(String username, String tel, String email, String content) {
+        String sql = "insert into contact(username,tel,email,content) values (?,?,?,?)";
+        Connection connect = ConnectToDatabase.getConnect();
+        try {
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setString(1, username);
+            ppstm.setString(2, tel);
+            ppstm.setString(3, email);
+            ppstm.setString(4, content);
+
+
+            ppstm.executeUpdate();
+
+
+        } catch (Exception e) {
+            System.out.println("Error when add contact:" + e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        ContactDAO contactDAO =new ContactDAO();
+//        contactDAO.add("asd","asd","asdasd","asd");
+    }
 }
